@@ -27,7 +27,7 @@
     "bugs": {
         "url": "https://github.com/weui/react-weui/issues"
     },
-    "homepage": "https://github.com/weui/react-weui#readme",
+    "homepage": "https://github.com/weui/react-weui",
     "dependencies": {
         "classnames": "^2.2.0",
         "react": "^0.14.2"
@@ -43,7 +43,7 @@
         "eslint": "^1.10.3",
         "eslint-plugin-react": "^3.11.3",
         "file-loader": "^0.8.5",
-        "history": "^1.16.0",
+        "history": "1.13.1",
         "istanbul": "^0.4.1",
         "less": "^2.5.3",
         "less-loader": "^2.2.1",
