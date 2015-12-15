@@ -19,7 +19,6 @@ react-weui
 ├── README.md
 ├── docs                    # 文档说明
 ├── example                 # 示例代码
-├── index.js                # react-weui
 ├── package.json            # package.json
 ├── src                     # react-weui组件源码
 ├── test                    # 测试文件
