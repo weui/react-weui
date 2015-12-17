@@ -6,7 +6,8 @@
 
 属性 | 类型 | 默认值 | 可选值 | 备注
 -----|------|--------|-------|------|
-title| string| 标题  | | alert弹框标题
+title| string|   | | alert弹框标题
+show| bool| false | | 是否显示
 buttons| array| | | 确认按钮描述，至少包含label属性
 
 #### 方法
@@ -25,12 +26,14 @@ const {Alert, Confirm} = Dialog;
 
 class DialogTest extends React.Component {
     state = {
+        showAlert: false,
+        showConfirm: false,
         alert: {
             title: '标题标题',
             buttons: [
                 {
                     label: '好的',
-                    onClick: this.onHideAlert.bind(this)
+                    onClick: this.hideAlert.bind(this)
                 }
             ]
         },
@@ -54,7 +57,7 @@ class DialogTest extends React.Component {
     render() {
         return (
             <section>
-                <Button type="warn" onClick={this.onShowAlert.bind(this)}>警告你</Button>
+                <Button type="warn" onClick={this.showAlert.bind(this)}>警告你</Button>
                 <Button type="primary" onClick={this.onShowConfirm.bind(this)}>确认</Button>
 
 
@@ -74,12 +77,12 @@ class DialogTest extends React.Component {
         );
     }
 
-    onShowAlert(){
-        this.refs.alert.show();
+    showAlert(){
+        this.setState({showAlert: true});
     }
 
-    onHideAlert(){
-        this.refs.alert.hide();
+    hideAlert(){
+        this.setState({showAlert: false});
     }
 
     onShowConfirm(){

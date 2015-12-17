@@ -12,6 +12,8 @@ const {Alert, Confirm} = Dialog;
 
 export default class DialogDemo extends React.Component {
     state = {
+        showAlert: false,
+        showConfirm: false,
         alert: {
             title: '标题标题',
             buttons: [
@@ -39,11 +41,11 @@ export default class DialogDemo extends React.Component {
     };
 
     showAlert() {
-        this.refs.alert.show();
+        this.setState({showAlert: true});
     }
 
     hideAlert() {
-        this.refs.alert.hide();
+        this.setState({showAlert: false});
     }
 
     showConfirm() {
@@ -61,7 +63,9 @@ export default class DialogDemo extends React.Component {
                 <Button type="primary" onClick={this.showConfirm.bind(this)}>确认</Button>
 
 
-                <Alert ref="alert" title={this.state.alert.title} buttons={this.state.alert.buttons}>警告内容</Alert>
+                <Alert title={this.state.alert.title} buttons={this.state.alert.buttons} show={this.state.showAlert}>
+                    警告内容
+                </Alert>
                 <Confirm ref="confirm" title={this.state.confirm.title} buttons={this.state.confirm.buttons}>确认内容？</Confirm>
             </Page>
         );

@@ -11,17 +11,14 @@ import Mask from '../mask/index';
 class Alert extends React.Component {
     static propTypes = {
         buttons: React.PropTypes.array,
-        active: React.PropTypes.bool,
+        show: React.PropTypes.bool,
         title: React.PropTypes.string
     };
 
     static defaultProps = {
         buttons: [],
-        active: false
-    };
-
-    state = {
-        active: this.props.active
+        show: false,
+        title: ''
     };
 
     _renderButtons() {
@@ -40,9 +37,9 @@ class Alert extends React.Component {
     }
 
     render() {
-        const {title, children} = this.props;
+        const {title, show, children} = this.props;
         return (
-            <div className="weui_dialog_alert" style={{display: this.state.active ? 'block' : 'none'}}>
+            <div className="weui_dialog_alert" style={{display: show ? 'block' : 'none'}}>
                 <Mask/>
                 <div className="weui_dialog">
                     <div className="weui_dialog_hd">
@@ -57,14 +54,6 @@ class Alert extends React.Component {
                 </div>
             </div>
         );
-    }
-
-    show() {
-        this.setState({active: true});
-    }
-
-    hide() {
-        this.setState({active: false});
     }
 }
 
