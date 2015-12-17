@@ -11,14 +11,15 @@ import Page from '../../component/page';
 export default class ToastDemo extends React.Component {
 
     state = {
+        show: false,
         timer: null
     };
 
     handleClick() {
-        this.refs.toast.show();
+        this.setState({show: true});
 
         this.state.timer = setTimeout(()=> {
-            this.refs.toast.hide();
+            this.setState({show: false});
         }, 2000);
     }
 
@@ -30,7 +31,7 @@ export default class ToastDemo extends React.Component {
         return (
             <Page className="toast" title="Toast" spacing>
                 <Button onClick={this.handleClick.bind(this)}>Toast</Button>
-                <Toast ref="toast">完成</Toast>
+                <Toast show={this.state.show}>完成</Toast>
             </Page>
         );
     }

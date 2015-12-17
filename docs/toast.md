@@ -6,6 +6,7 @@
 属性 | 类型 | 默认值 | 可选值 | 备注
 -----|------|--------|-------|------|
 icon|string|toast|所有icon| 
+show|bool|false|| 是否显示 
 
 示例：
 
@@ -15,13 +16,17 @@ import ReactDOM from 'react-dom';
 import {Button, Toast} from 'react-weui';
 
 class App extends React.Component {
+    state = {
+        show: false
+    };
+    
     handleClick() {
-        this.refs.toast.show();
+        this.setState({show: true});
     }
     render() {
         <section>
             <Button onClick={this.handleClick.bind(this)}>显示toast</Button>
-            <Toast ref="toast">
+            <Toast show={this.state.show}>
                 加载中...
             </Toast>
         </section>
