@@ -49,11 +49,11 @@ export default class DialogDemo extends React.Component {
     }
 
     showConfirm() {
-        this.refs.confirm.show();
+        this.setState({showConfirm: true});
     }
 
     hideConfirm() {
-        this.refs.confirm.hide();
+        this.setState({showConfirm: false});
     }
 
     render() {
@@ -66,7 +66,9 @@ export default class DialogDemo extends React.Component {
                 <Alert title={this.state.alert.title} buttons={this.state.alert.buttons} show={this.state.showAlert}>
                     警告内容
                 </Alert>
-                <Confirm ref="confirm" title={this.state.confirm.title} buttons={this.state.confirm.buttons}>确认内容？</Confirm>
+                <Confirm title={this.state.confirm.title} buttons={this.state.confirm.buttons} show={this.state.showConfirm}>
+                    确认内容？
+                </Confirm>
             </Page>
         );
     }

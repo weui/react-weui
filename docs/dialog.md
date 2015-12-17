@@ -10,12 +10,6 @@ title| string|   | | alert弹框标题
 show| bool| false | | 是否显示
 buttons| array| | | 确认按钮描述，至少包含label属性
 
-#### 方法
-
-- `show` 显示弹框
-
-- `hide` 隐藏弹框
-
 示例：
 
 ```javascript
@@ -43,12 +37,12 @@ class DialogTest extends React.Component {
                 {
                     type: 'default',
                     label: '好的',
-                    onClick: this.onHideConfirm.bind(this)
+                    onClick: this.hideConfirm.bind(this)
                 },
                 {
                     type: 'primary',
                     label: '我愿意',
-                    onClick: this.onHideConfirm.bind(this)
+                    onClick: this.hideConfirm.bind(this)
                 }
             ]
         }
@@ -58,7 +52,7 @@ class DialogTest extends React.Component {
         return (
             <section>
                 <Button type="warn" onClick={this.showAlert.bind(this)}>警告你</Button>
-                <Button type="primary" onClick={this.onShowConfirm.bind(this)}>确认</Button>
+                <Button type="primary" onClick={this.showConfirm.bind(this)}>确认</Button>
 
 
                 <Alert 
@@ -85,12 +79,12 @@ class DialogTest extends React.Component {
         this.setState({showAlert: false});
     }
 
-    onShowConfirm(){
-        this.refs.confirm.show();
+    showConfirm() {
+        this.setState({showConfirm: true});
     }
 
-    onHideConfirm(){
-        this.refs.confirm.hide();
+    hideConfirm() {
+        this.setState({showConfirm: false});
     }
 }
 
