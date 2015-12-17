@@ -11,21 +11,21 @@ import Icon from '../icon/index';
 
 
 class Toast extends React.Component {
-    static propTypes = {};
-
-    static defaultProps = {
-        icon: 'toast'
+    static propTypes = {
+        icon: React.PropTypes.string,
+        show: React.PropTypes.bool
     };
 
-    state = {
-        active: false
+    static defaultProps = {
+        icon: 'toast',
+        show: false
     };
 
     render() {
-        const {icon, children} = this.props;
+        const {icon, show, children} = this.props;
 
         return (
-            <div className="weui_toast" style={{display: this.state.active ? 'block' : 'none'}}>
+            <div className="weui_toast" style={{display: show ? 'block' : 'none'}}>
                 <Mask transparent={true}/>
                 <div className="weui_toast">
                     <Icon value={icon}/>
@@ -33,14 +33,6 @@ class Toast extends React.Component {
                 </div>
             </div>
         );
-    }
-
-    show() {
-        this.setState({active: true});
-    }
-
-    hide() {
-        this.setState({active: false});
     }
 }
 
