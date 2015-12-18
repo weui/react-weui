@@ -3,7 +3,6 @@
  */
 
 
-
 import React from 'react';
 import classNames from 'classnames';
 import Mask from '../mask/index';
@@ -12,18 +11,40 @@ export default class ActionSheet extends React.Component {
     static propTypes = {
         menus: React.PropTypes.array,
         actions: React.PropTypes.array,
-        active: React.PropTypes.bool
+        show: React.PropTypes.bool,
+        onRequestClose: React.PropTypes.func
     };
 
     static defaultProps = {
         menus: [],
         actions: [],
-        active: false
+        show: false,
+        onRequestClose: ()=> {
+
+        }
     };
 
-    state = {
-        active: this.props.active
-    };
+    render() {
+        const {show, onRequestClose} = this.props;
+        const className = classNames({
+            weui_actionsheet: true,
+            weui_actionsheet_toggle: show
+        });
+
+        return (
+            <div>
+                <Mask style={{display: show ? 'block' : 'none'}} onClick={onRequestClose}/>
+                <div className={className}>
+                    <div className="weui_actionsheet_menu">
+                        {this._renderMenuItem()}
+                    </div>
+                    <div className="weui_actionsheet_action">
+                        {this._renderActions()}
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     _renderMenuItem() {
         return this.props.menus.map((menu, idx) => {
@@ -49,33 +70,5 @@ export default class ActionSheet extends React.Component {
                 <div key={idx} {...others} className={className}>{label}</div>
             );
         });
-    }
-
-    render() {
-        const className = classNames({
-            weui_actionsheet: true,
-            weui_actionsheet_toggle: this.state.active == true
-        });
-        return (
-            <div>
-                <Mask style={{display: this.state.active ? 'block' : 'none'}} onClick={this.hide.bind(this)}/>
-                <div className={className}>
-                    <div className="weui_actionsheet_menu">
-                        {this._renderMenuItem()}
-                    </div>
-                    <div className="weui_actionsheet_action">
-                        {this._renderActions()}
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    show() {
-        this.setState({active: true});
-    }
-
-    hide() {
-        this.setState({active: false});
     }
 };

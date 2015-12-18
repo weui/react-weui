@@ -53,6 +53,7 @@
         "react-dom": "^0.14.2",
         "react-router": "^1.0.2",
         "rimraf": "^2.4.3",
+        "sinon": "^1.17.2",
         "style-loader": "^0.13.0",
         "uglify-loader": "^1.2.0",
         "url-loader": "^0.5.7",
