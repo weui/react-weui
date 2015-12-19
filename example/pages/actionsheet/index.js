@@ -11,6 +11,7 @@ import Page from '../../component/page';
 export default class ActionSheetDemo extends React.Component {
 
     state = {
+        show: false,
         menus: [{
             label: '拍照',
             onClick: ()=> {
@@ -30,20 +31,20 @@ export default class ActionSheetDemo extends React.Component {
         ]
     };
 
-    show() {
-        this.refs.actionSheet.show();
-    }
-
-    hide() {
-        this.refs.actionSheet.hide();
-    }
-
     render() {
         return (
             <Page className="actionsheet" title="ActionSheet" spacing>
                 <Button onClick={this.show.bind(this)}>ActionSheet</Button>
-                <ActionSheet ref="actionSheet" menus={this.state.menus} actions={this.state.actions}/>
+                <ActionSheet menus={this.state.menus} actions={this.state.actions} show={this.state.show} onRequestClose={this.hide.bind(this)} />
             </Page>
         );
+    }
+
+    show() {
+        this.setState({show: true});
+    }
+
+    hide() {
+        this.setState({show: false});
     }
 };

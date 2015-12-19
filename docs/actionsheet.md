@@ -10,6 +10,8 @@
 ------|------|--------|--------|------|
 menus |array |[ ]      |        |菜单描述，至少包含`label`属性|
 actions|array|[ ]      |        |动作描述，至少包含`label`属性|
+show|bool|false      |        |是否显示|
+onRequestClose|func|      |        |请求关闭事件, 点击蒙层时触发|
 
 例如：
 ```javascript
@@ -33,12 +35,6 @@ const actions = [{
     }];
 ```
 
-#### 方法
-
-- show 显示ActionSheet
-
-- hide 隐藏ActionSheet
-
 #### 示例
 
 ```javascript
@@ -49,6 +45,7 @@ import {ActionSheet, Button} from '../../index';
 class App extends React.Component {
 
     state = {
+        show: false,
         menus: [{
             label: '拍照',
             onClick: ()=>{
@@ -62,22 +59,26 @@ class App extends React.Component {
         }],
         actions: [{
             label: '取消',
-            onClick: ()=>{
-                this.refs.actionsheet.hide();
-            }
+            onClick: this.hide.bind(this)
         }]
     };
 
-    handleClick() {
-        this.refs.actionsheet.show();
-    }
+
     render() {
         return (
             <section style={{padding: `15px`}}>
-                <Button onClick={this.handleClick.bind(this)}>选择</Button>
-                <ActionSheet ref="actionsheet" menus={this.state.menus} actions={this.state.actions} />
+                <Button onClick={this.show.bind(this)}>选择</Button>
+                <ActionSheet ref="actionsheet" menus={this.state.menus} actions={this.state.actions} onRequestClose={this.hide.bind(this)} />
             </section>
         );
+    }
+    
+    show() {
+        this.setState({show: true});
+    }
+
+    hide() {
+        this.setState({show: false});
     }
 }
 
