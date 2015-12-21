@@ -34,6 +34,7 @@ const {Button, Toast} = WeUI;
 
 class App extends React.Component {
     state = {
+            show: false,
             timer: null
     };
 
@@ -44,18 +45,18 @@ class App extends React.Component {
     render() {
         return (
             <div className="container">
-                <Button type="primary"  onClick={this.onShow.bind(this)}>确认</Button>
+                <Button type="primary"  onClick={this.show.bind(this)}>确认</Button>
                 
-                <Toast ref="toast">load菊花</Toast>
+                <Toast show={show}>loading...</Toast>
             </div>
         );
     }
     
-    onShow(){
-        this.refs.toast.show();
+    show(){
+        this.setState({show: true});
 
         this.state.timer = setTimeout(()=>{
-            this.refs.toast.hide();
+            this.setState({show: false});
         }, 3000);
     }
 }

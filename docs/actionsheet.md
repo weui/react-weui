@@ -30,7 +30,7 @@ const menus = [{
 const actions = [{
         label: '取消',
         onClick: ()=>{
-            this.refs.actionsheet.hide();
+            
         }
     }];
 ```
