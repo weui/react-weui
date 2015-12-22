@@ -34,11 +34,11 @@ export default class ProgressDemo extends React.Component {
             return;
         }
         this.setState({value: ++this.state.value % 100});
-        this.state.timer = setTimeout(this.upload.bind(this), 20);
+        this.state.toastTimer = setTimeout(this.upload.bind(this), 20);
     }
 
     componentWillUnmount () {
-        this.state.timer && clearInterval(this.state.timer);
+        this.state.toastTimer && clearInterval(this.state.toastTimer);
     }
 
     render() {

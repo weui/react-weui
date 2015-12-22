@@ -11,28 +11,41 @@ import Page from '../../component/page';
 export default class ToastDemo extends React.Component {
 
     state = {
-        show: false,
-        timer: null
+        showToast: false,
+        showLoading: false,
+        toastTimer: null,
+        loadingTimer: null
     };
 
-    handleClick() {
-        this.setState({show: true});
-
-        this.state.timer = setTimeout(()=> {
-            this.setState({show: false});
-        }, 2000);
-    }
-
     componentWillUnmount() {
-        this.state.timer && clearTimeout(this.state.timer);
+        this.state.toastTimer && clearTimeout(this.state.toastTimer);
+        this.state.loadingTimer && clearTimeout(this.state.loadingTimer);
     }
 
     render() {
         return (
             <Page className="toast" title="Toast" spacing>
-                <Button onClick={this.handleClick.bind(this)}>Toast</Button>
-                <Toast show={this.state.show}>完成</Toast>
+                <Button onClick={this.showToast.bind(this)}>Toast</Button>
+                <Button onClick={this.showLoading.bind(this)}>Loading</Button>
+                <Toast show={this.state.showToast}>完成</Toast>
+                <Toast icon="loading" show={this.state.showLoading}>正在加载中...</Toast>
             </Page>
         );
+    }
+
+    showToast() {
+        this.setState({showToast: true});
+
+        this.state.toastTimer = setTimeout(()=> {
+            this.setState({showToast: false});
+        }, 2000);
+    }
+
+    showLoading() {
+        this.setState({showLoading: true});
+
+        this.state.loadingTimer = setTimeout(()=> {
+            this.setState({showLoading: false});
+        }, 2000);
     }
 };
