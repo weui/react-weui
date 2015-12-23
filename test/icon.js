@@ -51,5 +51,15 @@ describe('<Icon>', ()=> {
                 });
             });
         })
+    });
+
+    describe('loading', ()=> {
+        const wrapper = shallow(
+            <Icon value="loading"/>
+        );
+
+        it(`should have 'weui_loading' class name`, ()=> {
+            assert(wrapper.hasClass('weui_loading'));
+        });
     })
 });
