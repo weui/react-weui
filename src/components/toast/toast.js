@@ -25,7 +25,7 @@ class Toast extends React.Component {
         const {icon, show, children} = this.props;
 
         return (
-            <div className="weui_toast" style={{display: show ? 'block' : 'none'}}>
+            <div className={icon === 'loading' ? 'weui_loading_toast' : ''} style={{display: show ? 'block' : 'none'}}>
                 <Mask transparent={true}/>
                 <div className="weui_toast">
                     <Icon value={icon}/>

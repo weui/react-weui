@@ -3,7 +3,6 @@
  */
 
 
-
 import React from 'react';
 import classNames from 'classnames';
 
@@ -26,9 +25,24 @@ class Icon extends React.Component {
             [className]: className
         });
 
-        return (
-            <i {...others} className={cls}/>
-        );
+        if (value === 'loading') {
+            return (
+                <div className="weui_loading">
+                    {
+                        [...Array(12)].map((x, i) => {
+                            return (
+                                <div key={i} className={`weui_loading_leaf weui_loading_leaf_${i}`}></div>
+                            );
+                        })
+                    }
+                </div>
+            );
+        }
+        else {
+            return (
+                <i {...others} className={cls}/>
+            );
+        }
     }
 }
 
