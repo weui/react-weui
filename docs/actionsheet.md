@@ -68,7 +68,7 @@ class App extends React.Component {
         return (
             <section style={{padding: `15px`}}>
                 <Button onClick={this.show.bind(this)}>选择</Button>
-                <ActionSheet ref="actionsheet" menus={this.state.menus} actions={this.state.actions} onRequestClose={this.hide.bind(this)} />
+                <ActionSheet ref="actionsheet" show={this.state.show} menus={this.state.menus} actions={this.state.actions} onRequestClose={this.hide.bind(this)} />
             </section>
         );
     }
