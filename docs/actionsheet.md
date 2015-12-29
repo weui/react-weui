@@ -13,28 +13,6 @@ actions|array|[ ]      |        |动作描述，至少包含`label`属性|
 show|bool|false      |        |是否显示|
 onRequestClose|func|      |        |请求关闭事件, 点击蒙层时触发|
 
-例如：
-```javascript
-const menus = [{
-        label: '拍照',
-        onClick: ()=>{
-    
-        }
-    }, {
-        label: '从手机相册中选择',
-        onClick: ()=>{
-    
-        }
-    }];
-
-const actions = [{
-        label: '取消',
-        onClick: ()=>{
-            
-        }
-    }];
-```
-
 #### 示例
 
 ```javascript
@@ -68,7 +46,7 @@ class App extends React.Component {
         return (
             <section style={{padding: `15px`}}>
                 <Button onClick={this.show.bind(this)}>选择</Button>
-                <ActionSheet ref="actionsheet" menus={this.state.menus} actions={this.state.actions} onRequestClose={this.hide.bind(this)} />
+                <ActionSheet show={this.state.show} menus={this.state.menus} actions={this.state.actions} onRequestClose={this.hide.bind(this)} />
             </section>
         );
     }
