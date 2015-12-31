@@ -56,13 +56,13 @@ class DialogTest extends React.Component {
 
 
                 <Alert 
-                    ref="alert"
+                    show={this.state.showAlert}
                     title={this.state.alert.title} 
                     buttons={this.state.alert.buttons}>
                         警告
                 </Alert>
                 <Confirm 
-                    ref="confirm" 
+                    show={this.state.showConfirm}
                     title={this.state.confirm.title} 
                     buttons={this.state.confirm.buttons}>
                         你愿意把银行卡的钱都转给jf吗？
