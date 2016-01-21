@@ -8,7 +8,9 @@
         "clean": "rimraf ./lib ./coverage",
         "build": "npm run clean & babel ./src --out-dir ./lib",
         "lint": "eslint 'src/**/*.@(js|jsx)'",
-        "test": "npm run lint & mocha --compilers js:babel-core/register --recursive",
+        "pretest": "npm run lint",
+        "test": "mocha --compilers js:babel-core/register --recursive",
+        "test:watch": "npm run test -- --watch",
         "coverage": "npm run lint & istanbul cover _mocha -- --compilers js:babel-core/register --recursive"
     },
     "repository": {
