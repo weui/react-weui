@@ -22,6 +22,8 @@ describe('<Msg></Msg>', ()=> {
             console.log('ok');
         }
     }];
+    const extraText = '查看详情';
+    const extraHref = '#';
 
     ['success', 'info', 'waiting', 'warn'].map((type) => {
         describe(`<msg type="${type}"></msg>`, ()=> {
@@ -59,6 +61,7 @@ describe('<Msg></Msg>', ()=> {
                     assert($button.hasClass(`weui_btn_${buttons[index].type}`));
                 });
             });
+
         });
     });
 });

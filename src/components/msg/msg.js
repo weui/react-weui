@@ -46,6 +46,13 @@ class Msg extends React.Component {
                         {this._renderButtons()}
                     </p>
                 </div>
+                <div className="weui_extra_area">
+                    {
+                        this.props.extraHref ?
+                            <a href={this.props.extraHref}>{this.props.extraText}</a> :
+                            <p>{this.props.extraText}</p>
+                    }
+                </div>
             </div>
         );
     }
