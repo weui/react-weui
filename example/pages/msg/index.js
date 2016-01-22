@@ -29,7 +29,7 @@ export default class MsgDemo extends React.Component {
     render() {
         return (
             <Page className="msg" title="Msg" spacing>
-                <Msg type="success" title="提交成功" description="你的反馈我们已经收到" buttons={this.state.buttons} />
+                <Msg type="success" title="提交成功" description="你的反馈我们已经收到" buttons={this.state.buttons} extraText="查看详情" extraHref="#"/>
             </Page>
         );
     }

@@ -11,6 +11,8 @@ type|string|success|有效的icon名|icon类型
 title | string|||标题
 description|string|||描述
 buttons|array| [ ]| | 底部操作按钮，至少包含label属性
+extraText | string | | | 额外内容
+extraHref | string | | | 额外内容链接
 
 buttons的描述示例如下：
 
@@ -31,6 +33,6 @@ import WeUI from 'react-weui';
 const {Msg} = WeUI;
 
 ReactDOM.render((
-    <Msg type="success" title="提交成功" description="你的反馈我们已经收到" />
+    <Msg type="success" title="提交成功" description="你的反馈我们已经收到" extraText="查看详情" extraHref="#"/>
 ), document.getElementById('container'));
 ```
