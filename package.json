@@ -45,7 +45,6 @@
         "eslint": "^1.10.3",
         "eslint-plugin-react": "^3.11.3",
         "file-loader": "^0.8.5",
-        "history": "1.13.1",
         "istanbul": "^0.4.1",
         "less": "^2.5.3",
         "less-loader": "^2.2.1",
