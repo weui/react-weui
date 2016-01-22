@@ -63,5 +63,29 @@ describe('<Msg></Msg>', ()=> {
             });
 
         });
+        describe(`<Msg extraText="${extraText}" />`, ()=> {
+            const wrapper = shallow(
+                <Msg extraText={extraText} />
+            );
+
+            it(`should have extra text "${extraText}"`, ()=> {
+                const $extraArea = wrapper.find('.weui_extra_text').shallow();
+                assert($extraArea.text() === extraText)
+            })
+        });
+
+        describe(`<Msg extraText="${extraText}" extraHref="${extraHref}"/>`, ()=> {
+            const wrapper = shallow(
+                <Msg extraText={extraText} extraHref={extraHref}/>
+            );
+            const $extraArea = wrapper.find('.weui_extra_link').shallow();
+
+            it(`should have extra link text "${extraText}"`, ()=> {
+                assert($extraArea.text() === extraText)
+            })
+            it(`should have extra link href "${extraHref}"`, ()=> {
+                assert($extraArea.prop('href') === extraHref)
+            })
+        });
     });
 });

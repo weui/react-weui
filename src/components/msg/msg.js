@@ -49,8 +49,8 @@ class Msg extends React.Component {
                 <div className="weui_extra_area">
                     {
                         this.props.extraHref ?
-                            <a href={this.props.extraHref}>{this.props.extraText}</a> :
-                            <p>{this.props.extraText}</p>
+                            <a href={this.props.extraHref} className="weui_extra_link">{this.props.extraText}</a> :
+                            <p className="weui_extra_text">{this.props.extraText}</p>
                     }
                 </div>
             </div>
