@@ -5,9 +5,24 @@
 "use strict";
 
 import React from 'react';
-import {ButtonArea, Button, Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter} from '../../../src/index';
+import { ButtonArea,
+    Button,
+    Cells,
+    CellsTitle,
+    CellsTips,
+    Cell,
+    CellHeader,
+    CellBody,
+    CellFooter,
+    Form,
+    FormCell,
+    Icon,
+    Input,
+    Label
+} from '../../../src/index';
 import Page from '../../component/page';
-import Icon from './images/icon.png';
+import iconSrc from './images/icon.png';
+import vcodeSrc from './images/vcode.jpg';
 
 export default class CellDemo extends React.Component {
 
@@ -30,7 +45,7 @@ export default class CellDemo extends React.Component {
                 <Cells>
                     <Cell>
                         <CellHeader>
-                            <img src={Icon} alt="" style={{display: `block`, width: `20px`, marginRight: `5px`}}/>
+                            <img src={iconSrc} alt="" style={{display: `block`, width: `20px`, marginRight: `5px`}}/>
                         </CellHeader>
                         <CellBody>
                             标题文字
@@ -41,7 +56,7 @@ export default class CellDemo extends React.Component {
                     </Cell>
                     <Cell>
                         <CellHeader>
-                            <img src={Icon} alt="" style={{display: `block`, width: `20px`, marginRight: `5px`}}/>
+                            <img src={iconSrc} alt="" style={{display: `block`, width: `20px`, marginRight: `5px`}}/>
                         </CellHeader>
                         <CellBody>
                             标题文字
@@ -76,7 +91,7 @@ export default class CellDemo extends React.Component {
                 <Cells access>
                     <Cell href="javascript:;">
                         <CellHeader>
-                            <img src={Icon} alt="" style={{display: `block`, width: `20px`, marginRight: `5px`}}/>
+                            <img src={iconSrc} alt="" style={{display: `block`, width: `20px`, marginRight: `5px`}}/>
                         </CellHeader>
                         <CellBody>
                             标题文字
@@ -87,7 +102,7 @@ export default class CellDemo extends React.Component {
                     </Cell>
                     <Cell>
                         <CellHeader>
-                            <img src={Icon} alt="" style={{display: `block`, width: `20px`, marginRight: `5px`}}/>
+                            <img src={iconSrc} alt="" style={{display: `block`, width: `20px`, marginRight: `5px`}}/>
                         </CellHeader>
                         <CellBody>
                             标题文字
@@ -97,6 +112,48 @@ export default class CellDemo extends React.Component {
                         </CellFooter>
                     </Cell>
                 </Cells>
+
+                <Form>
+                    <FormCell>
+                        <CellHeader>
+                            <Label>qq</Label>
+                        </CellHeader>
+                        <CellBody>
+                            <Input type="tel" placeholder="请输入qq号"/>
+                        </CellBody>
+                    </FormCell>
+                    <FormCell vcode={true}>
+                        <CellHeader>
+                            <Label>验证码</Label>
+                        </CellHeader>
+                        <CellBody>
+                            <Input type="number" placeholder="请输入验证码"/>
+                        </CellBody>
+                        <CellFooter>
+                            <img src={vcodeSrc} />
+                        </CellFooter>
+                    </FormCell>
+                    <FormCell>
+                        <CellHeader>
+                            <Label>银行卡</Label>
+                        </CellHeader>
+                        <CellBody>
+                            <Input type="number" placeholder="请输入银行卡号"/>
+                        </CellBody>
+                    </FormCell>
+                    <FormCell vcode={true} warn={true}>
+                        <CellHeader>
+                            <Label>验证码</Label>
+                        </CellHeader>
+                        <CellBody>
+                            <Input type="number" placeholder="请输入验证码"/>
+                        </CellBody>
+                        <CellFooter>
+                            <Icon value="warn" />
+                            <img src={vcodeSrc} />
+                        </CellFooter>
+                    </FormCell>
+                </Form>
 
                 <ButtonArea>
                     <Button>确定</Button>
