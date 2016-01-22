@@ -8,6 +8,6 @@ import Button from './button';
 import ButtonArea from './button_area';
 
 export default {
-    Button: Button,
-    ButtonArea: ButtonArea
+    Button,
+    ButtonArea
 };

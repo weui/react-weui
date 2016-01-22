@@ -13,11 +13,11 @@ import CellBody from './cell_body';
 import CellFooter from './cell_footer';
 
 export default {
-    Cells: Cells,
-    Cell: Cell,
-    CellsTitle: CellsTitle,
-    CellsTips: CellsTips,
-    CellHeader: CellHeader,
-    CellBody: CellBody,
-    CellFooter: CellFooter
+    Cells,
+    Cell,
+    CellsTitle,
+    CellsTips,
+    CellHeader,
+    CellBody,
+    CellFooter
 };
