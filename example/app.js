@@ -20,6 +20,7 @@ import Msg from './pages/msg/index';
 import Article from './pages/article/index';
 import ActionSheet from './pages/actionsheet/index';
 import Icons from './pages/icons/index';
+import Login from './pages/login/index';
 
 ReactDOM.render((
     <Router>
@@ -33,5 +34,6 @@ ReactDOM.render((
         <Route path="article" component={Article}/>
         <Route path="actionsheet" component={ActionSheet}/>
         <Route path="icons" component={Icons}/>
+        <Route path="login" component={Login}/>
     </Router>
 ), document.getElementById('container'));
