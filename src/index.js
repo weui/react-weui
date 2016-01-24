@@ -5,7 +5,9 @@
 import {Button, ButtonArea} from './components/button/index';
 import {Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter} from './components/cell/index';
 import Mask from './components/mask/index';
-import Form from './components/form/index';
+import {Form, FormCell} from './components/form/index';
+import Input from './components/input/index';
+import Label from './components/label/index';
 import Toast from './components/toast/index';
 import Progress from './components/progress/index';
 import ActionSheet from './components/actionsheet/index';
@@ -26,6 +28,9 @@ export default {
     CellFooter,
     Mask,
     Form,
+    FormCell,
+    Input,
+    Label,
     Toast,
     Progress,
     ActionSheet,

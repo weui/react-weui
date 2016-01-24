@@ -11,7 +11,8 @@
         "pretest": "npm run lint",
         "test": "mocha --compilers js:babel-core/register --recursive",
         "test:watch": "npm run test -- --watch",
-        "coverage": "npm run lint & istanbul cover _mocha -- --compilers js:babel-core/register --recursive"
+        "coverage": "npm run lint & istanbul cover _mocha -- --compilers js:babel-core/register --recursive",
+        "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js"
     },
     "repository": {
         "type": "git",
