@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var config = {
     entry: path.resolve(__dirname, 'example/app.js'),
@@ -17,14 +18,23 @@ var config = {
             loader: 'style!css!autoprefixer!less'
         }, {
             test: /\.css/,
-            loader: 'style!css'
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader")
         }, {
-            test: /\.(png|jpg)$/,
-            loader: 'url?limit=25000'
+            test: /\.(png|jpe?g|gif|svg)$/,
+            loader: 'url?limit=10000'
         }]
     },
     plugins: [
-
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            sourceMap: false,
+            mangle: false
+        }),
+        new ExtractTextPlugin("style.css", {
+            allChunks: true
+        })
     ]
 };
 
