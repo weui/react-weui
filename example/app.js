@@ -11,27 +11,33 @@ import WeUI from '../src/index';
 import 'weui';
 
 import Home from './pages/home/index';
-import Button from './pages/button/index';
-import Cell from './pages/cell/index';
-import Toast from './pages/toast/index';
-import Dialog from './pages/dialog/index';
-import Progress from './pages/progress/index';
-import Msg from './pages/msg/index';
-import Article from './pages/article/index';
-import ActionSheet from './pages/actionsheet/index';
-import Icons from './pages/icons/index';
+//import Button from './pages/button/index';
+//import Cell from './pages/cell/index';
+//import Toast from './pages/toast/index';
+//import Dialog from './pages/dialog/index';
+//import Progress from './pages/progress/index';
+//import Msg from './pages/msg/index';
+//import Article from './pages/article/index';
+//import ActionSheet from './pages/actionsheet/index';
+//import Icons from './pages/icons/index';
+import Login from './pages/login/index';
+import Register from './pages/register/index';
+import User from './pages/user/index';
+import TaskList from './pages/taskList/index';
+import Task from './pages/task/index';
+import Bonus from './pages/bonus/index';
+import Notification from './pages/notification/index';
+
 
 ReactDOM.render((
     <Router>
         <Route path="/" component={Home}/>
-        <Route path="button" component={Button}/>
-        <Route path="cell" component={Cell}/>
-        <Route path="toast" component={Toast}/>
-        <Route path="dialog" component={Dialog}/>
-        <Route path="progress" component={Progress}/>
-        <Route path="msg" component={Msg}/>
-        <Route path="article" component={Article}/>
-        <Route path="actionsheet" component={ActionSheet}/>
-        <Route path="icons" component={Icons}/>
+        <Route path="login" component={Login}/>
+        <Route path="user" component={User}/>
+        <Route path="taskList" component={TaskList}/>
+        <Route path="task" component={Task}/>
+        <Route path="bonus" component={Bonus}/>
+        <Route path="notification" component={Notification}/>
+        <Route path="register" component={Register}/>
     </Router>
 ), document.getElementById('container'));

@@ -1,65 +1,67 @@
 {
-    "name": "react-weui",
-    "version": "0.2.0",
-    "description": "weui for react",
-    "main": "./lib",
-    "scripts": {
-        "start": "webpack-dev-server --devtool eval --progress --hot --colors --content-base example",
-        "clean": "rimraf ./lib ./coverage",
-        "build": "npm run clean & babel ./src --out-dir ./lib",
-        "lint": "eslint 'src/**/*.@(js|jsx)'",
-        "pretest": "npm run lint",
-        "test": "mocha --compilers js:babel-core/register --recursive",
-        "test:watch": "npm run test -- --watch",
-        "coverage": "npm run lint & istanbul cover _mocha -- --compilers js:babel-core/register --recursive"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/weui/react-weui.git"
-    },
-    "keywords": [
-        "mobile",
-        "ui",
-        "framework",
-        "weui",
-        "react"
-    ],
-    "author": "wechat ui team",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/weui/react-weui/issues"
-    },
-    "homepage": "https://github.com/weui/react-weui",
-    "dependencies": {
-        "classnames": "^2.2.0",
-        "react": "^0.14.2"
-    },
-    "devDependencies": {
-        "autoprefixer-loader": "^3.1.0",
-        "babel": "^5.8.23",
-        "babel-core": "^5.8.23",
-        "babel-eslint": "^4.1.6",
-        "babel-loader": "^5.3.2",
-        "css-loader": "^0.23.0",
-        "enzyme": "^1.1.0",
-        "eslint": "^1.10.3",
-        "eslint-plugin-react": "^3.11.3",
-        "file-loader": "^0.8.5",
-        "istanbul": "^0.4.1",
-        "less": "^2.5.3",
-        "less-loader": "^2.2.1",
-        "mocha": "^2.3.4",
-        "open-browser-webpack-plugin": "0.0.1",
-        "react-addons-test-utils": "^0.14.3",
-        "react-dom": "^0.14.2",
-        "react-router": "^1.0.2",
-        "rimraf": "^2.4.3",
-        "sinon": "^1.17.2",
-        "style-loader": "^0.13.0",
-        "uglify-loader": "^1.2.0",
-        "url-loader": "^0.5.7",
-        "webpack": "^1.12.2",
-        "webpack-dev-server": "^1.12.1",
-        "weui": "^0.2.3"
-    }
+  "name": "react-weui",
+  "version": "0.2.0",
+  "description": "weui for react",
+  "main": "./lib",
+  "scripts": {
+    "start": "webpack-dev-server --devtool eval --progress --hot --colors --content-base example",
+    "clean": "rimraf ./lib ./coverage",
+    "build": "npm run clean & babel ./src --out-dir ./lib",
+    "lint": "eslint 'src/**/*.@(js|jsx)'",
+    "pretest": "npm run lint",
+    "test": "mocha --compilers js:babel-core/register --recursive",
+    "test:watch": "npm run test -- --watch",
+    "coverage": "npm run lint & istanbul cover _mocha -- --compilers js:babel-core/register --recursive",
+    "deploy": "NODE_ENV=production webpack --config webpack.production.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weui/react-weui.git"
+  },
+  "keywords": [
+    "mobile",
+    "ui",
+    "framework",
+    "weui",
+    "react"
+  ],
+  "author": "wechat ui team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weui/react-weui/issues"
+  },
+  "homepage": "https://github.com/weui/react-weui",
+  "dependencies": {
+    "classnames": "^2.2.0",
+    "react": "^0.14.2"
+  },
+  "devDependencies": {
+      "extract-text-webpack-plugin": "^1.0.1",
+      "autoprefixer-loader": "^3.1.0",
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.23",
+    "babel-eslint": "^4.1.6",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.23.0",
+    "enzyme": "^1.1.0",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.11.3",
+    "file-loader": "^0.8.5",
+    "istanbul": "^0.4.1",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.1",
+    "mocha": "^2.3.4",
+    "open-browser-webpack-plugin": "0.0.1",
+    "react-addons-test-utils": "^0.14.3",
+    "react-dom": "^0.14.2",
+    "react-router": "^1.0.2",
+    "rimraf": "^2.4.3",
+    "sinon": "^1.17.2",
+    "style-loader": "^0.13.0",
+    "uglify-loader": "^1.2.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1",
+    "weui": "^0.2.3"
+  }
 }
