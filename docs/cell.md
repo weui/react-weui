@@ -10,7 +10,6 @@
 属性名|类型|默认值|可选值|备注
 ------|----|------|------|----|
 access|bool|false | true, false| 控制Cell是否显示小箭头以及点击的Active态
-form  |bool|false | true, false| 当Cell内有表单元素时使用
 
 #### CellsTitle
 
