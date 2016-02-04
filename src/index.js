@@ -15,6 +15,7 @@ import Dialog from './components/dialog/index';
 import Msg from './components/msg/index';
 import Article from './components/article/index';
 import Icon from './components/icon/index';
+import {Grids, Grid, GridIcon, GridLabel} from './components/grid/index';
 
 export default {
     Button,
@@ -37,5 +38,9 @@ export default {
     Dialog,
     Msg,
     Article,
-    Icon
+    Icon,
+    Grids,
+    Grid,
+    GridIcon,
+    GridLabel
 };
