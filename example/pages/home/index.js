@@ -5,7 +5,7 @@
 "use strict";
 
 import React from 'react';
-import {Cells, Cell, CellHeader, CellBody, CellFooter} from '../../../src/index';
+import {Grids} from '../../../src/index';
 import Page from '../../component/page';
 import IconButton from './images/icon_nav_button.png';
 import IconCell from './images/icon_nav_cell.png';
@@ -23,66 +23,48 @@ export default class Home extends React.Component {
 
     state = {
         components: [{
-            icon: IconButton,
+            icon: <img src={IconButton}/>,
             label: 'Button',
-            url: '#button'
+            href: '#button'
         }, {
-            icon: IconCell,
+            icon: <img src={IconCell}/>,
             label: 'Cell',
-            url: '#cell'
+            href: '#cell'
         }, {
-            icon: IconToast,
+            icon: <img src={IconToast}/>,
             label: 'Toast',
-            url: '#toast'
+            href: '#toast'
         }, {
-            icon: IconDialog,
+            icon: <img src={IconDialog}/>,
             label: 'Dialog',
-            url: '#dialog'
+            href: '#dialog'
         }, {
-            icon: IconProgress,
+            icon: <img src={IconProgress}/>,
             label: 'Progress',
-            url: '#progress'
+            href: '#progress'
         }, {
-            icon: IconMsg,
+            icon: <img src={IconMsg}/>,
             label: 'Msg',
-            url: '#msg'
+            href: '#msg'
         }, {
-            icon: IconArticle,
+            icon: <img src={IconArticle}/>,
             label: 'Article',
-            url: '#article'
+            href: '#article'
         }, {
-            icon: IconActionSheet,
+            icon: <img src={IconActionSheet}/>,
             label: 'ActionSheet',
-            url: '#actionsheet'
+            href: '#actionsheet'
         }, {
-            icon: IconIcons,
+            icon: <img src={IconIcons}/>,
             label: 'Icons',
-            url: '#icons'
+            href: '#icons'
         }]
     };
-
-    _renderItem() {
-        return this.state.components.map((component, index) => {
-            return (
-                <Cell key={index} className="global_navs" href={component.url} >
-                    <CellHeader>
-                        <img className="icon_nav" src={component.icon} alt=""/>
-                    </CellHeader>
-                    <CellBody>{component.label}</CellBody>
-                    <CellFooter/>
-                </Cell>
-            );
-        });
-    }
 
     render() {
         return (
             <Page className="home" title="WeUI" subTitle="为微信Web服务量身设计">
-                <Cells access>
-                    {
-                        this._renderItem()
-                    }
-                </Cells>
+                <Grids data={this.state.components}/>
             </Page>
         );
     }
