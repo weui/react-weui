@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-export default class Cells extends Component {
+export default class Form extends Component {
     render() {
         const { children, className, ...others } = this.props;
         const cls = classNames({
