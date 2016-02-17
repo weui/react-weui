@@ -18,7 +18,8 @@ import { ButtonArea,
     FormCell,
     Icon,
     Input,
-    Label
+    Label,
+    TextArea
 } from '../../../src/index';
 import Page from '../../component/page';
 import iconSrc from './images/icon.png';
@@ -159,6 +160,13 @@ export default class CellDemo extends React.Component {
                     <Button>确定</Button>
                     <Button type="default">取消</Button>
                 </ButtonArea>
+
+                <CellsTitle>文本域</CellsTitle>
+                <Form>
+                    <FormCell>
+                        <TextArea placeholder="请输入评论" rows="3" maxlength="200"></TextArea>
+                    </FormCell>
+                </Form>
             </Page>
         );
     }
