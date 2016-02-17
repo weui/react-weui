@@ -17,14 +17,14 @@ export default class Input extends React.Component {
     };
 
     render() {
-        const { className, defaultValue, ...others } = this.props;
+        const { className, ...others } = this.props;
         const cls = classNames({
             weui_input: true,
             [className]: className
         });
 
         return (
-            <input className={cls} defaultValue={defaultValue} {...others}/>
+            <input className={cls} {...others}/>
         );
     }
 };
