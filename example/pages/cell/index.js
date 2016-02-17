@@ -164,7 +164,9 @@ export default class CellDemo extends React.Component {
                 <CellsTitle>文本域</CellsTitle>
                 <Form>
                     <FormCell>
-                        <TextArea placeholder="请输入评论" rows="3" maxlength="200"></TextArea>
+                        <CellBody>
+                            <TextArea placeholder="请输入评论" rows="3" maxlength="200"></TextArea>
+                        </CellBody>
                     </FormCell>
                 </Form>
             </Page>
