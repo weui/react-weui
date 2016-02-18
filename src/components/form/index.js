@@ -8,9 +8,11 @@
 import Form from './form';
 import FormCell from './form_cell';
 import TextArea from './textarea';
+import Input from './input';
 
 export default {
     Form,
     FormCell,
-    TextArea
+    TextArea,
+    Input
 };
