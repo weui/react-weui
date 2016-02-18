@@ -9,10 +9,12 @@ import Form from './form';
 import FormCell from './form_cell';
 import TextArea from './textarea';
 import Input from './input';
+import Switch from './switch';
 
 export default {
     Form,
     FormCell,
     TextArea,
-    Input
+    Input,
+    Switch
 };
