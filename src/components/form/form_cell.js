@@ -19,11 +19,12 @@ export default class FormCell extends React.Component {
     };
 
     render() {
-        const { className, children, vcode, warn, ...others } = this.props;
+        const { className, children, ...others } = this.props;
         const cls = classNames({
             weui_cell: true,
-            weui_vcode: vcode,
-            weui_cell_warn: warn,
+            weui_vcode: this.props.vcode,
+            weui_cell_warn: this.props.warn,
+            weui_cell_switch: this.props.switch,
             [className]: className
         });
 

@@ -19,7 +19,8 @@ import { ButtonArea,
     Icon,
     Input,
     Label,
-    TextArea
+    TextArea,
+    Switch
 } from '../../../src/index';
 import Page from '../../component/page';
 import iconSrc from './images/icon.png';
@@ -113,6 +114,16 @@ export default class CellDemo extends React.Component {
                         </CellFooter>
                     </Cell>
                 </Cells>
+
+                <CellsTitle>开关</CellsTitle>
+                <Form>
+                    <FormCell switch>
+                        <CellBody>标题文字</CellBody>
+                        <CellFooter>
+                            <Switch/>
+                        </CellFooter>
+                    </FormCell>
+                </Form>
 
                 <Form>
                     <FormCell>
