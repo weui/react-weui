@@ -20,7 +20,10 @@ import { ButtonArea,
     Input,
     Label,
     TextArea,
-    Switch
+    Switch,
+    Radio,
+    Checkbox,
+    Select
 } from '../../../src/index';
 import Page from '../../component/page';
 import iconSrc from './images/icon.png';
@@ -115,6 +118,38 @@ export default class CellDemo extends React.Component {
                     </Cell>
                 </Cells>
 
+                <CellsTitle>单选列表项</CellsTitle>
+                <Form radio>
+                    <FormCell radio>
+                        <CellBody>标题文字</CellBody>
+                        <CellFooter>
+                            <Radio name="radio1" value="1" defaultChecked/>
+                        </CellFooter>
+                    </FormCell>
+                    <FormCell radio>
+                        <CellBody>标题文字</CellBody>
+                        <CellFooter>
+                            <Radio name="radio1" value="2"/>
+                        </CellFooter>
+                    </FormCell>
+                </Form>
+
+                <CellsTitle>复选列表项</CellsTitle>
+                <Form checkbox>
+                    <FormCell checkbox>
+                        <CellHeader>
+                            <Checkbox name="checkbox1" value="1"/>
+                        </CellHeader>
+                        <CellBody>标题文字</CellBody>
+                    </FormCell>
+                    <FormCell checkbox>
+                        <CellHeader>
+                            <Checkbox name="checkbox2" value="2" defaultChecked/>
+                        </CellHeader>
+                        <CellBody>标题文字</CellBody>
+                    </FormCell>
+                </Form>
+
                 <CellsTitle>开关</CellsTitle>
                 <Form>
                     <FormCell switch>
@@ -177,6 +212,55 @@ export default class CellDemo extends React.Component {
                     <FormCell>
                         <CellBody>
                             <TextArea placeholder="请输入评论" rows="3" maxlength="200"></TextArea>
+                        </CellBody>
+                    </FormCell>
+                </Form>
+
+                <CellsTitle>选择</CellsTitle>
+                <Form>
+                    <FormCell select selectPos="before">
+                        <CellHeader>
+                            <Select>
+                                <option value="1">+86</option>
+                                <option value="2">+80</option>
+                                <option value="3">+84</option>
+                                <option value="4">+87</option>
+                            </Select>
+                        </CellHeader>
+                        <CellBody>
+                            <Input type="tel" placeholder="请输入号码"/>
+                        </CellBody>
+                    </FormCell>
+                </Form>
+
+                <CellsTitle>选择</CellsTitle>
+                <Form>
+                    <FormCell select>
+                        <CellBody>
+                            <Select defaultValue="2">
+                                <option value="1">微信号</option>
+                                <option value="2">QQ号</option>
+                                <option value="3">Email</option>
+                            </Select>
+                        </CellBody>
+                    </FormCell>
+                    <FormCell select selectPos="after">
+                        <CellHeader>国家/地区</CellHeader>
+                        <CellBody>
+                            <Select data={[
+                                {
+                                    value: 1,
+                                    label: '中国'
+                                },
+                                {
+                                    value: 2,
+                                    label: '美国'
+                                },
+                                {
+                                    value: 3,
+                                    label: '英国'
+                                }
+                            ]} />
                         </CellBody>
                     </FormCell>
                 </Form>
