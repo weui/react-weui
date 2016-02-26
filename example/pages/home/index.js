@@ -11,11 +11,14 @@ import IconButton from './images/icon_nav_button.png';
 import IconCell from './images/icon_nav_cell.png';
 import IconToast from './images/icon_nav_toast.png';
 import IconDialog from './images/icon_nav_dialog.png';
-import IconProgress from './images/icon_nav_button.png';
+import IconProgress from './images/icon_nav_progress.png';
 import IconMsg from './images/icon_nav_msg.png';
 import IconArticle from './images/icon_nav_article.png';
 import IconActionSheet from './images/icon_nav_actionSheet.png';
 import IconIcons from './images/icon_nav_icons.png';
+import IconPanel from './images/icon_nav_panel.png';
+import IconTab from './images/icon_nav_tab.png';
+import IconSearchBar from './images/icon_nav_search_bar.png';
 
 import './index.less';
 
