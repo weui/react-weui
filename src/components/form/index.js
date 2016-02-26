@@ -12,6 +12,7 @@ import Switch from './switch';
 import Radio from './radio';
 import Checkbox from './checkbox';
 import Select from './select';
+import Uploader from './uploader';
 
 export default {
     Form,
@@ -21,5 +22,6 @@ export default {
     Switch,
     Radio,
     Checkbox,
-    Select
+    Select,
+    Uploader
 };
