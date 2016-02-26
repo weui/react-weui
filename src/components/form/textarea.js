@@ -8,15 +8,17 @@ import classNames from 'classnames';
 
 export default class TextArea extends React.Component {
     static propTypes = {
-        showCounter: PropTypes.bool
+        showCounter: PropTypes.bool,
+        defaultValue: PropTypes.string,
     };
 
     static defaultProps = {
-        showCounter: true
+        showCounter: true,
+        defaultValue: undefined
     };
 
     state = {
-        textCounter: 0
+        textCounter: this.props.defaultValue ? this.props.defaultValue.length : 0
     };
 
     handleChange(e){
@@ -35,10 +37,20 @@ export default class TextArea extends React.Component {
 
         return (
             <div>
-                <textarea className={cls} maxLength={maxlength}
-                          onChange={this.handleChange.bind(this)} {...others}>{children}</textarea>
-                {showCounter ? <div className="weui_textarea_counter">
-                    <span>{this.state.textCounter}</span>{maxlength ? '/' + maxlength : false}</div> : false}
+                <textarea
+                className={cls}
+                maxLength={maxlength}
+                onChange={this.handleChange.bind(this)}
+                {...others}>
+                    {children}
+                </textarea>
+                {
+                    showCounter ?
+                    <div className="weui_textarea_counter">
+                        <span>{this.state.textCounter}</span>{maxlength ? '/' + maxlength : false}
+                    </div>
+                    : false
+                }
             </div>
         );
     }

@@ -5,7 +5,7 @@
 import {Button, ButtonArea} from './components/button/index';
 import {Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter} from './components/cell/index';
 import Mask from './components/mask/index';
-import {Form, FormCell, TextArea, Input, Switch} from './components/form/index';
+import {Form, FormCell, TextArea, Input, Switch, Radio, Checkbox, Select} from './components/form/index';
 import Label from './components/label/index';
 import Toast from './components/toast/index';
 import Progress from './components/progress/index';
@@ -29,9 +29,12 @@ export default {
     Mask,
     Form,
     FormCell,
+    Radio,
+    Checkbox,
     Input,
     TextArea,
     Switch,
+    Select,
     Label,
     Toast,
     Progress,

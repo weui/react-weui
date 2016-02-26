@@ -4,15 +4,27 @@
 
 
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 export default class Form extends Component {
+    static propTypes = {
+        radio: PropTypes.bool,
+        checkbox: PropTypes.bool
+    };
+
+    static defaultProps = {
+        radio: false,
+        checkbox: false
+    };
+
     render() {
-        const { children, className, ...others } = this.props;
+        const { children, className, radio, checkbox, ...others } = this.props;
         const cls = classNames({
             weui_cells: true,
-            weui_cells_form: true,
+            weui_cells_form: !radio && !checkbox,
+            weui_cells_radio: radio,
+            weui_cells_checkbox: checkbox,
             [className]: className
         });
 
