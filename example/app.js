@@ -21,6 +21,7 @@ import Msg from './pages/msg/index';
 import Article from './pages/article/index';
 import ActionSheet from './pages/actionsheet/index';
 import Icons from './pages/icons/index';
+import Panel from './pages/panel/index';
 
 class App extends React.Component {
         render() {
@@ -52,6 +53,7 @@ ReactDOM.render((
                     <Route path="article" component={Article}/>
                     <Route path="actionsheet" component={ActionSheet}/>
                     <Route path="icons" component={Icons}/>
+                    <Route path="panel" component={Panel}/>
             </Route>
     </Router>
 ), document.getElementById('container'));

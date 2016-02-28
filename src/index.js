@@ -15,6 +15,8 @@ import Msg from './components/msg/index';
 import Article from './components/article/index';
 import Icon from './components/icon/index';
 import {Grids, Grid, GridIcon, GridLabel} from './components/grid/index';
+import {Panel, PanelHeader, PanelBody, PanelFooter} from './components/panel/index';
+import {MediaBox, MediaBoxHeader, MediaBoxBody, MediaBoxTitle, MediaBoxDescription, MediaBoxInfo, MediaBoxInfoMeta} from './components/mediabox/index';
 
 export default {
     Button,
@@ -47,5 +49,16 @@ export default {
     Grids,
     Grid,
     GridIcon,
-    GridLabel
+    GridLabel,
+    Panel,
+    PanelHeader,
+    PanelBody,
+    PanelFooter,
+    MediaBox,
+    MediaBoxHeader,
+    MediaBoxBody,
+    MediaBoxTitle,
+    MediaBoxDescription,
+    MediaBoxInfo,
+    MediaBoxInfoMeta
 };
