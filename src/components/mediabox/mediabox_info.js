@@ -24,13 +24,13 @@ export default class MediaBoxInfo extends React.Component {
     }
 
     render() {
-        const {children, data, ...others} = this.props;
-        const className = classNames({
+        const {children, data, className, ...others} = this.props;
+        const cls = classNames({
             weui_media_info: true
-        });
+        }, className);
 
         return (
-            <ul className={className} {...others}>
+            <ul className={cls} {...others}>
                 {data.length > 0 ? this.renderData(data) : children}
             </ul>
         );

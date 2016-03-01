@@ -5,9 +5,12 @@
 "use strict";
 
 import React from 'react';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
 import { shallow } from 'enzyme';
 import assert from 'assert';
 import WeUI from '../src/index';
+var jsdom = require('jsdom');
 
 const {Uploader} = WeUI;
 const files = [
@@ -39,10 +42,9 @@ describe('<Uploader></Uploader>', ()=> {
         [undefined, 5, 30].map(maxCount=> {
             [files, []].map(files=> {
                 describe(`<Uploader lang=${lang} title=${title} files=${files} maxCount=${maxCount}></Uploader>`, ()=> {
-                    let verifyFiles = {};
                     let verifyErrors;
                     const wrapper = shallow(
-                        <Uploader lang={lang} title={title} files={files} maxCount={maxCount} onError={msg=>verifyErrors=msg} onChange={_files=>verifyFiles=_files}/>
+                        <Uploader lang={lang} title={title} files={files} maxCount={maxCount} onError={msg=>verifyErrors=msg}/>
                     );
 
                     it('should render <Uploader></Uploader> component', () => {
@@ -129,11 +131,65 @@ describe('<Uploader></Uploader>', ()=> {
                         }
                     });
 
-                    it('should render files', () => {
-                        //currently can't test filereaders
+                    it('should return nothing on event when no file is chose', () => {
+                        let beforeHtml = bd.last().html();
+                        let input = assert(bd.last().find('input'));
+                        let changefiles = [];
+                        bd.last().find('input').simulate('change',{target:{files:changefiles}});
+                        assert.equal(bd.last().html(),beforeHtml);
+
                     });
                 });
             });
         });
+    });
+});
+describe('<Uploader></Uploader>', ()=> {
+    let verifyFiles = {};
+    let changefiles = {target:{files:{ 0: {
+        name:'foo.jpg',
+        size: 500001,
+        lastModified: 1452633679000,
+        lastModifiedDate: new Date(),
+        type: "image/jpeg"
+    }}}};
+    before(function (done) {
+        //setup jsdom
+       global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
+       global.window = document.defaultView;
+       global.navigator = {userAgent: 'node.js'};
+
+       //real handler
+       var changeHandle = (_files)=>{
+            verifyFiles = _files;
+            done();
+       };
+
+       //setup uploader
+       var uploader = TestUtils.renderIntoDocument(
+           <Uploader onChange={changeHandle}/>
+       );
+       //get node
+       var uploaderNode = ReactDOM.findDOMNode(uploader);
+
+       //mock event to trigger async
+       var event = document.createEvent("HTMLEvents");
+       event.initEvent('onChange', true, true);
+       event.eventName = "onChange";
+
+       //mock handler
+       uploaderNode.addEventListener("onChange", function(e) {
+         //trigger real handler
+         uploader.handleChange = uploader.handleChange.bind(uploader);
+         uploader.handleChange(changefiles);
+       });
+
+       setTimeout(function(){
+           uploaderNode.dispatchEvent(event);
+       }, 50);
+    })
+
+    it('should process files when input a image', () => {
+        assert.equal(verifyFiles, changefiles.target.files[0]);
     });
 });

@@ -9,13 +9,13 @@ import classNames from 'classnames';
 
 export default class PanelBody extends React.Component {
     render() {
-        const {children, ...others} = this.props;
-        const className = classNames({
+        const {children, className, ...others} = this.props;
+        const cls = classNames({
             weui_media_bd: true
-        });
+        }, className);
 
         return (
-            <div className={className} {...others}>{children}</div>
+            <div className={cls} {...others}>{children}</div>
         );
     }
 };

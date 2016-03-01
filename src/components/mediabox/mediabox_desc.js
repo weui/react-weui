@@ -9,13 +9,13 @@ import classNames from 'classnames';
 
 export default class MediaBoxDescription extends React.Component {
     render() {
-        const {children, ...others} = this.props;
-        const className = classNames({
+        const {children, className, ...others} = this.props;
+        const cls = classNames({
             weui_media_desc: true
-        });
+        }, className);
 
         return (
-            <p className={className} {...others}>{children}</p>
+            <p className={cls} {...others}>{children}</p>
         );
     }
 };

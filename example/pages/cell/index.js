@@ -240,7 +240,7 @@ export default class CellDemo extends React.Component {
                                 maxCount={6}
                                 files={this.state.demoFiles}
                                 onError={msg => alert(msg)}
-                                onChange={file => {
+                                onChange={(file,e) => {
                                     let newFiles = [...this.state.demoFiles, {url:file.data}];
                                     this.setState({
                                         demoFiles: newFiles

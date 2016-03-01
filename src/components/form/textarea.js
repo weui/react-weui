@@ -29,7 +29,7 @@ export default class TextArea extends React.Component {
     }
 
     render(){
-        const { className, children, showCounter, maxlength, ...others } = this.props;
+        const { className, children, showCounter, maxlength, onChange, ...others } = this.props;
         const cls = classNames({
             weui_textarea: true,
             [className]: className

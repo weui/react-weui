@@ -17,14 +17,14 @@ export default class MediaBoxInfoMeta extends React.Component {
     };
 
     render() {
-        const {children, extra, ...others} = this.props;
-        const className = classNames({
+        const {children, extra, className, ...others} = this.props;
+        const cls = classNames({
             weui_media_info_meta: true,
             weui_media_info_meta_extra: extra
-        });
+        }, className);
 
         return (
-            <li className={className} {...others}>{children}</li>
+            <li className={cls} {...others}>{children}</li>
         );
     }
 };

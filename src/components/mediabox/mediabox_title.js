@@ -9,13 +9,13 @@ import classNames from 'classnames';
 
 export default class MediaBoxTitle extends React.Component {
     render() {
-        const {children, ...others} = this.props;
-        const className = classNames({
+        const {children, className, ...others} = this.props;
+        const cls = classNames({
             weui_media_title: true
-        });
+        }, className);
 
         return (
-            <h4 className={className} {...others}>{children}</h4>
+            <h4 className={cls} {...others}>{children}</h4>
         );
     }
 };

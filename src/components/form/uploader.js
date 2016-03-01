@@ -4,6 +4,7 @@
 
 
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
 export default class Uploader extends React.Component {
@@ -30,26 +31,45 @@ export default class Uploader extends React.Component {
     };
 
     handleFile(file,cb) {
-        let reader = new FileReader();
+        let reader;
+        if(typeof FileReader !== 'undefined') {
+           reader = new FileReader();
+        } else {
+           if(window.FileReader) reader = new window.FileReader();
+        }
+
         reader.onload = e => {
-            let img = new Image();
+            let img;
+            if(typeof Image !== 'undefined') {
+               img = new Image();
+            } else {
+               if(window.Image) img = new window.Image();
+            }
             img.onload = ()=>{
                 let w = Math.min(this.props.maxWidth, img.width);
                 let h = img.height * (w / img.width);
                 let canvas = document.createElement('canvas');
                 let ctx = canvas.getContext('2d');
-                canvas.width = w;
-                canvas.height = h;
-                ctx.drawImage(img, 0, 0, w, h);
-                let base64 = canvas.toDataURL('image/png');
-                cb({
-                    lastModified: file.lastModified,
-                    lastModifiedDate: file.lastModifiedDate,
-                    name: file.name,
-                    size: file.size,
-                    type: file.type,
-                    data: base64
-                });
+
+                //check canvas support, for test
+                if(ctx){
+                    canvas.width = w;
+                    canvas.height = h;
+                    ctx.drawImage(img, 0, 0, w, h);
+
+                    let base64 = canvas.toDataURL('image/png');
+
+                    cb({
+                        lastModified: file.lastModified,
+                        lastModifiedDate: file.lastModifiedDate,
+                        name: file.name,
+                        size: file.size,
+                        type: file.type,
+                        data: base64
+                    },e);
+                }else{
+                    cb(file, e);
+                }
             };
             img.src = e.target.result;
         }
@@ -70,9 +90,11 @@ export default class Uploader extends React.Component {
         for(let key in _files) {
             if (!_files.hasOwnProperty(key)) continue;
             let file = _files[key];
-            this.handleFile(file, _file=>{
+
+            this.handleFile(file, (_file,e)=>{
                 if(this.props.onChange) this.props.onChange(_file, e);
-            });
+                ReactDOM.findDOMNode(this.refs.uploader).value='';
+            },e);
         }
     }
 
@@ -120,6 +142,7 @@ export default class Uploader extends React.Component {
                     </ul>
                     <div className="weui_uploader_input_wrp">
                         <input
+                        ref="uploader"//let react to reset after onchange
                         className="weui_uploader_input"
                         type="file"
                         accept="image/jpg,image/jpeg,image/png,image/gif"

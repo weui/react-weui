@@ -9,10 +9,10 @@ import classNames from 'classnames';
 
 export default class MediaBoxHeader extends React.Component {
     render() {
-        const {children, ...others} = this.props;
-        const className = classNames({
+        const {children, className, ...others} = this.props;
+        const clz = classNames({
             weui_media_hd: true
-        });
+        }, className);
 
         let childrenWithProps = React.Children.map(children, child => {
             if(child.type == 'img' && !child.props.className){
@@ -23,7 +23,7 @@ export default class MediaBoxHeader extends React.Component {
         });
 
         return (
-            <div className={className} {...others}>{childrenWithProps}</div>
+            <div className={clz} {...others}>{childrenWithProps}</div>
         );
     }
 };
