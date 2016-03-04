@@ -65,6 +65,14 @@ export default class Home extends React.Component {
             icon: <img src={IconPanel}/>,
             label: 'Panel',
             href: '#panel'
+        }, {
+            icon: <img src={IconTab}/>,
+            label: 'Tab',
+            href: '#tab'
+        }, {
+            icon: <img src={IconSearchBar}/>,
+            label: 'SearchBar',
+            href: '#searchbar'
         }]
     };
 

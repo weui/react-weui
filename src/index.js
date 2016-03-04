@@ -17,6 +17,8 @@ import Icon from './components/icon/index';
 import {Grids, Grid, GridIcon, GridLabel} from './components/grid/index';
 import {Panel, PanelHeader, PanelBody, PanelFooter} from './components/panel/index';
 import {MediaBox, MediaBoxHeader, MediaBoxBody, MediaBoxTitle, MediaBoxDescription, MediaBoxInfo, MediaBoxInfoMeta} from './components/mediabox/index';
+import {Tab, TabBody, NavBar, NavBarItem, TabBar, TabBarItem, TabBarIcon, TabBarLabel} from './components/tab/index';
+import SearchBar from './components/searchbar/index';
 
 export default {
     Button,
@@ -60,5 +62,14 @@ export default {
     MediaBoxTitle,
     MediaBoxDescription,
     MediaBoxInfo,
-    MediaBoxInfoMeta
+    MediaBoxInfoMeta,
+    NavBar,
+    NavBarItem,
+    Tab,
+    TabBody,
+    TabBar,
+    TabBarIcon,
+    TabBarItem,
+    TabBarLabel,
+    SearchBar
 };
