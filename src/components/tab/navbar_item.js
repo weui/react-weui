@@ -10,6 +10,7 @@ import classNames from 'classnames';
 export default class NavBarItem extends React.Component {
     static propTypes = {
       active: React.PropTypes.bool,
+      label: React.PropTypes.string
     };
 
     static defaultProps = {
@@ -18,7 +19,7 @@ export default class NavBarItem extends React.Component {
 
     render() {
 
-        const {children, className, active, ...others} = this.props;
+        const {children, className, active, label, ...others} = this.props;
         const cls = classNames({
             weui_navbar_item: true,
             weui_bar_item_on: active
@@ -26,7 +27,7 @@ export default class NavBarItem extends React.Component {
 
         return (
             <div className={cls} {...others}>
-                {children}
+                {label ? label : children}
             </div>
         );
     }

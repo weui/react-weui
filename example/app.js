@@ -24,7 +24,9 @@ import Icons from './pages/icons/index';
 import Panel from './pages/panel/index';
 import Tab from './pages/tab/index';
 import NavBar from './pages/tab/navbar';
+import NavBar2 from './pages/tab/navbar_auto';
 import TabBar from './pages/tab/tabbar';
+import TabBar2 from './pages/tab/tabbar_auto';
 import SearchBar from './pages/searchbar/index';
 
 class App extends React.Component {
@@ -61,7 +63,9 @@ ReactDOM.render((
                     <Route path="panel" component={Panel}/>
                     <Route path="tab" component={Tab}/>
                     <Route path="navbar" component={NavBar}/>
+                    <Route path="navbar2" component={NavBar2}/>
                     <Route path="tabbar" component={TabBar}/>
+                    <Route path="tabbar2" component={TabBar2}/>
                     <Route path="searchbar" component={SearchBar}/>
             </Route>
     </Router>

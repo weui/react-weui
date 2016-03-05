@@ -27,9 +27,21 @@ export default class TabDemo extends React.Component {
                         </CellBody>
                         <CellFooter/>
                     </Cell>
+                    <Cell href="#navbar2">
+                        <CellBody>
+                            navbar2
+                        </CellBody>
+                        <CellFooter/>
+                    </Cell>
                     <Cell href="#tabbar">
                          <CellBody>
                             tabbar
+                        </CellBody>
+                        <CellFooter/>
+                    </Cell>
+                    <Cell href="#tabbar2">
+                         <CellBody>
+                            tabbar2
                         </CellBody>
                         <CellFooter/>
                     </Cell>

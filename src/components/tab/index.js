@@ -12,12 +12,14 @@ import TabBar from './tabbar';
 import TabBarItem from './tabbar_item';
 import TabBarIcon from './tabbar_icon';
 import TabBarLabel from './tabbar_label';
+import TabBodyItem from './tab_body_item';
 
 export default {
    NavBar,
    NavBarItem,
    Tab,
    TabBody,
+   TabBodyItem,
    TabBar,
    TabBarItem,
    TabBarIcon,

@@ -17,7 +17,7 @@ import Icon from './components/icon/index';
 import {Grids, Grid, GridIcon, GridLabel} from './components/grid/index';
 import {Panel, PanelHeader, PanelBody, PanelFooter} from './components/panel/index';
 import {MediaBox, MediaBoxHeader, MediaBoxBody, MediaBoxTitle, MediaBoxDescription, MediaBoxInfo, MediaBoxInfoMeta} from './components/mediabox/index';
-import {Tab, TabBody, NavBar, NavBarItem, TabBar, TabBarItem, TabBarIcon, TabBarLabel} from './components/tab/index';
+import {Tab, TabBody, TabBodyItem, NavBar, NavBarItem, TabBar, TabBarItem, TabBarIcon, TabBarLabel} from './components/tab/index';
 import SearchBar from './components/searchbar/index';
 
 export default {
@@ -67,6 +67,7 @@ export default {
     NavBarItem,
     Tab,
     TabBody,
+    TabBodyItem,
     TabBar,
     TabBarIcon,
     TabBarItem,
