@@ -23,13 +23,37 @@ import { ButtonArea,
     Switch,
     Radio,
     Checkbox,
-    Select
+    Select,
+    Uploader
 } from '../../../src/index';
 import Page from '../../component/page';
 import iconSrc from './images/icon.png';
 import vcodeSrc from './images/vcode.jpg';
+import avatarSrc from './images/avatar.jpg';
 
 export default class CellDemo extends React.Component {
+    state = {
+        demoFiles : [
+            {
+                url: avatarSrc,
+                onClick: e=>alert('事件测试')
+            },
+            {
+                url: avatarSrc
+            },
+            {
+                url: avatarSrc
+            },
+            {
+                url: avatarSrc,
+                error: true
+            },
+            {
+                url: avatarSrc,
+                status: '50%'
+            }
+        ]
+    };
 
     render() {
         return (
@@ -206,6 +230,26 @@ export default class CellDemo extends React.Component {
                     <Button>确定</Button>
                     <Button type="default">取消</Button>
                 </ButtonArea>
+
+                <CellsTitle>上传</CellsTitle>
+                <Form>
+                    <FormCell>
+                        <CellBody>
+                            <Uploader
+                                title="图片上传"
+                                maxCount={6}
+                                files={this.state.demoFiles}
+                                onError={msg => alert(msg)}
+                                onChange={(file,e) => {
+                                    let newFiles = [...this.state.demoFiles, {url:file.data}];
+                                    this.setState({
+                                        demoFiles: newFiles
+                                    });
+                                }}
+                            />
+                        </CellBody>
+                    </FormCell>
+                </Form>
 
                 <CellsTitle>文本域</CellsTitle>
                 <Form>

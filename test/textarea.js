@@ -16,8 +16,11 @@ describe('<TextArea></TextArea>', ()=> {
         [true, false].map(showCounter=>{
             [undefined, null, 'custom_class'].map(clazz => {
                 describe(`<TextArea className=${clazz} showCounter=${showCounter} defaultValue=${defaultValue}></TextArea>`, ()=> {
+                    let testValue = null;
+                    const testOnChange = (e)=>testValue = e.target.value;
+
                     const wrapper = shallow(
-                        <TextArea className={clazz} showCounter={showCounter} defaultValue={defaultValue}/>
+                        <TextArea className={clazz} showCounter={showCounter} defaultValue={defaultValue} onChange={testOnChange}/>
                     );
 
                     it(`should render <TextArea></TextArea> component`, ()=> {
@@ -40,13 +43,21 @@ describe('<TextArea></TextArea>', ()=> {
                         }
                     });
 
-                    //require mount but currently not working
-                    /*it(`should have state of textCounter 5 after simulation input`, ()=> {
-                        let _textarea = wrapper.find('textarea').get(0);
-                        _textarea.value = 'hello';
-                        wrapper.find('textarea').first().simulate('change');
+                    it(`should have state of textCounter 5 after simulation input`, ()=> {
+                        let _textarea = wrapper.find('textarea');
+                        _textarea.simulate('change',{target:{value:'hello'}});
                         assert.equal(5,wrapper.state().textCounter);
-                    });*/
+                    });
+
+                    it(`should have return the on change event if onChange is state`, ()=> {
+                        let _textarea = wrapper.find('textarea'),
+                            testString = 'hello';
+                        //reset
+                        testValue = null;
+
+                        _textarea.simulate('change',{target:{value:testString}});
+                        assert.equal(testString,testValue);
+                    });
 
                     it(`should have custom class name ${clazz} when className is not null or empty`, ()=>{
                         if (clazz) {

@@ -17,7 +17,7 @@ const testIcon =
 describe('<Grid></Grid>', ()=> {
 
     [<testIcon/>, false].map(icon => {
-        ['testlabe', false].map(label => {
+        ['testlabe', null].map(label => {
             describe(`<Grid icon="${icon}" label="${label}"></Grid>`, ()=> {
                 const child = <Grid><GridIcon><testIcon/></GridIcon><GridLabel>testLabel</GridLabel></Grid>;
                 const customWrapper = shallow(<Grid><GridIcon><testIcon/></GridIcon><GridLabel>testLabel</GridLabel></Grid>);
