@@ -1,7 +1,7 @@
 
 ### Cell
 
-列表视图，用于将信息以列表的结构显示在页面上，是wap上最常用的内容结构。 为了保证足够的灵活性，Cell组件分为容器`Cells`、`CellsTitle`、`CellsTips`、`Cell`、`CellHeader`、 `CellBody`、`CellFooter`。
+列表视图，用于将信息以列表的结构显示在页面上，是web上最常用的内容结构。 为了保证足够的灵活性，Cell组件分为容器`Cells`、`CellsTitle`、`CellsTips`、`Cell`、`CellHeader`、 `CellBody`、`CellFooter`。
 
 #### Cells
 
