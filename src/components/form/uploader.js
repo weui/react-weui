@@ -30,6 +30,46 @@ export default class Uploader extends React.Component {
         }
     };
 
+    /**
+     * Detecting vertical squash in loaded image.
+     * Fixes a bug which squash image vertically while drawing into canvas for some images.
+     * This is a bug in iOS6 devices. This function from https://github.com/stomita/ios-imagefile-megapixel
+     * With react fix by n7best
+     */
+    detectVerticalSquash(img) {
+        let data;
+        let ih = img.naturalHeight;
+        let canvas = document.createElement('canvas');
+        canvas.width = 1;
+        canvas.height = ih;
+        let ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        try {
+            // Prevent cross origin error
+            data = ctx.getImageData(0, 0, 1, ih).data;
+        } catch (err) {
+            // hopeless, assume the image is well and good.
+            console.log('Cannot check verticalSquash: CORS?');
+            return 1;
+        }
+        // search image edge pixel position in case it is squashed vertically.
+        let sy = 0;
+        let ey = ih;
+        let py = ih;
+        while (py > sy) {
+            let alpha = data[(py - 1) * 4 + 3];
+            if (alpha === 0) {
+                ey = py;
+            } else {
+                sy = py;
+            }
+            py = (ey + sy) >> 1;
+        }
+        let ratio = (py / ih);
+        return (ratio===0)?1:ratio;
+    }
+
+
     handleFile(file,cb) {
         let reader;
         if(typeof FileReader !== 'undefined') {
@@ -53,6 +93,30 @@ export default class Uploader extends React.Component {
 
                 //check canvas support, for test
                 if(ctx){
+                    //patch subsampling bug
+                    //http://jsfiddle.net/gWY2a/24/
+                    let drawImage = ctx.drawImage;
+                    ctx.drawImage = (img, sx, sy, sw, sh, dx, dy, dw, dh) =>
+                    {
+                        let vertSquashRatio = 1;
+                        // Detect if img param is indeed image
+                        if (!!img && img.nodeName == 'IMG')
+                        {
+                            vertSquashRatio = this.detectVerticalSquash(img);
+                            sw || (sw = img.naturalWidth);
+                            sh || (sh = img.naturalHeight);
+                        }
+
+                        // Execute several cases (Firefox does not handle undefined as no param)
+                        // by call (apply is bad performance)
+                        if (arguments.length == 9)
+                            drawImage.call(ctx, img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
+                        else if (typeof sw != 'undefined')
+                            drawImage.call(ctx, img, sx, sy, sw, sh / vertSquashRatio);
+                        else
+                            drawImage.call(ctx, img, sx, sy);
+                    }.bind(this);
+
                     canvas.width = w;
                     canvas.height = h;
                     ctx.drawImage(img, 0, 0, w, h);
