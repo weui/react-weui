@@ -74,7 +74,7 @@ npm start
 - [Button](./docs/button.md)
 - [Cell](./docs/cell.md)
 - [Dialog](./docs/dialog.md)
-- [Form](./docs/form.md) (TODO)
+- [Form](./docs/form.md)
 - [Icon](./docs/icon.md)
 - [Mask](./docs/mask.md)
 - [Msg](./docs/msg.md)
