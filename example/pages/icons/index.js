@@ -34,6 +34,7 @@ export default class IconDemo extends React.Component {
                     <Icon value="download" />
                     <Icon value="info_circle" />
                     <Icon value="cancel" />
+                    <Icon value="clear" />
                 </div>
             </Page>
         );
