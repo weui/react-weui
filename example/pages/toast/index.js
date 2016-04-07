@@ -13,8 +13,10 @@ export default class ToastDemo extends React.Component {
     state = {
         showToast: false,
         showLoading: false,
+        showCustom: false,
         toastTimer: null,
-        loadingTimer: null
+        loadingTimer: null,
+        customTimer: null
     };
 
     componentWillUnmount() {
@@ -26,7 +28,13 @@ export default class ToastDemo extends React.Component {
         return (
             <Page className="toast" title="Toast" spacing>
                 <Button onClick={this.showToast.bind(this)}>Toast</Button>
+                <Button onClick={this.showCustom.bind(this)}>Custom Toast</Button>
                 <Button onClick={this.showLoading.bind(this)}>Loading</Button>
+                <Toast
+                    show={this.state.showCustom}
+                    icon="waiting_circle"
+                    iconSize="large"
+                >waiting...</Toast>
                 <Toast show={this.state.showToast}>完成</Toast>
                 <Toast icon="loading" show={this.state.showLoading}>正在加载中...</Toast>
             </Page>
@@ -46,6 +54,14 @@ export default class ToastDemo extends React.Component {
 
         this.state.loadingTimer = setTimeout(()=> {
             this.setState({showLoading: false});
+        }, 2000);
+    }
+
+    showCustom() {
+        this.setState({showCustom: true});
+
+        this.state.customTimer = setTimeout(()=> {
+            this.setState({showCustom: false});
         }, 2000);
     }
 };
