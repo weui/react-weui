@@ -33,7 +33,6 @@
     "homepage": "https://github.com/weui/react-weui",
     "dependencies": {
         "classnames": "^2.2.0",
-        "react": "^0.14.2"
     },
     "devDependencies": {
         "autoprefixer": "^6.3.5",
@@ -67,5 +66,8 @@
         "webpack": "^1.12.2",
         "webpack-dev-server": "^1.12.1",
         "weui": "^0.4.1"
+    },
+    "peerDependencies": {
+        "react": "^0.14.2 || ^15.0.1"
     }
 }
