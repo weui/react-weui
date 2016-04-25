@@ -9,13 +9,14 @@ import classNames from 'classnames';
 
 export default class CellsTips extends React.Component {
     render() {
-        const {children, ...others} = this.props;
-        const className = classNames({
-            weui_cells_tips: true
+        const {className, children, ...others} = this.props;
+        const cls = classNames({
+            weui_cells_tips: true,
+            [className]: className
         });
 
         return (
-            <div className={className} {...others}>{children}</div>
+            <div className={cls} {...others}>{children}</div>
         );
     }
 };
