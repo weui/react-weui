@@ -48,26 +48,28 @@ export default class ActionSheet extends React.Component {
 
     _renderMenuItem() {
         return this.props.menus.map((menu, idx) => {
-            const {label, ...others} = menu;
-            const className = classNames({
-                weui_actionsheet_cell: true
+            const {label, className, ...others} = menu;
+            const cls = classNames({
+                weui_actionsheet_cell: true,
+                [className]: className
             });
 
             return (
-                <div key={idx} {...others} className={className}>{label}</div>
+                <div key={idx} {...others} className={cls}>{label}</div>
             );
         });
     }
 
     _renderActions() {
         return this.props.actions.map((action, idx) => {
-            const {label, ...others} = action;
-            const className = classNames({
-                weui_actionsheet_cell: true
+            const {label, className, ...others} = action;
+            const cls = classNames({
+                weui_actionsheet_cell: true,
+                [className]: className
             });
 
             return (
-                <div key={idx} {...others} className={className}>{label}</div>
+                <div key={idx} {...others} className={cls}>{label}</div>
             );
         });
     }

@@ -26,17 +26,20 @@ class App extends React.Component {
         show: false,
         menus: [{
             label: '拍照',
+            className: 'customClassName',
             onClick: ()=>{
 
             }
         }, {
             label: '从手机相册中选择',
+            className: 'customClassName',
             onClick: ()=>{
 
             }
         }],
         actions: [{
             label: '取消',
+            className: 'customClassName',
             onClick: this.hide.bind(this)
         }]
     };
