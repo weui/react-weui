@@ -14,8 +14,9 @@ const {CellsTips} = WeUI;
 describe('<CellsTips></CellsTips>', ()=> {
 
     const text = `cells tips wording`;
+    const customClassName = 'customClassName1 customClassName2';
     const wrapper = shallow(
-        <CellsTips>{text}</CellsTips>
+        <CellsTips className={customClassName}>{text}</CellsTips>
     );
 
     it(`should render <CellsTips></CellsTips> component `, ()=>{
@@ -24,6 +25,10 @@ describe('<CellsTips></CellsTips>', ()=> {
 
     it(`should have 'weui_cells_tips' class name`, ()=>{
         assert(wrapper.hasClass(`weui_cells_tips`));
+    });
+
+    it(`should have custom class name ${customClassName}`, ()=> {
+        assert(wrapper.hasClass(customClassName));
     });
 
     it(`should have text ${text}`, ()=>{
