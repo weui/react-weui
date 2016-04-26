@@ -24,7 +24,11 @@ export default class Input extends React.Component {
         });
 
         return (
-            <input className={cls} {...others}/>
+            <input ref="input" className={cls} {...others}/>
         );
+    }
+
+    get value() {
+        return this.refs.input.value;
     }
 };
