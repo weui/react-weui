@@ -9,13 +9,14 @@ import classNames from 'classnames';
 
 export default class CellHeader extends React.Component {
     render() {
-        const {children, ...others} = this.props;
-        const className = classNames({
-            weui_cell_hd: true
+        const {className, children, ...others} = this.props;
+        const cls = classNames({
+            weui_cell_hd: true,
+            [className]: className
         });
 
         return (
-            <div className={className} {...others}>{children}</div>
+            <div className={cls} {...others}>{children}</div>
         );
     }
 };

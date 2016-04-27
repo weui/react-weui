@@ -16,12 +16,15 @@ describe('<ActionSheet></ActionSheet>', ()=> {
     [undefined, null, true, false].map((show) => {
         describe(`<ActionSheet></ActionSheet>`, ()=> {
             const menus = [{
-                label: '拍照'
+                label: '拍照',
+                className: 'customClassName1'
             }, {
-                label: '从相册中选取'
+                label: '从相册中选取',
+                className: 'customClassName2'
             }];
             const actions = [{
-                label: '取消'
+                label: '取消',
+                className: 'customClassName'
             }, {
                 label: '确定'
             }];
@@ -67,7 +70,9 @@ describe('<ActionSheet></ActionSheet>', ()=> {
                 assert(menuItems.length === menus.length);
 
                 menuItems.map((menuItem, index)=> {
-                    assert(menuItem.text() === menus[index].label);
+                    const menu = menus[index];
+                    assert(menuItem.text() === menu.label);
+                    menu.className && assert(menuItem.hasClass(menu.className));
                 });
             });
 
@@ -76,7 +81,9 @@ describe('<ActionSheet></ActionSheet>', ()=> {
                 assert(actionItems.length === actions.length);
 
                 actionItems.map((actionItem, index)=> {
-                    assert(actionItem.text() === actions[index].label);
+                    const action = actions[index];
+                    assert(actionItem.text() === action.label);
+                    action.className && assert(actionItem.hasClass(action.className));
                 });
             });
         });

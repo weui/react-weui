@@ -15,8 +15,9 @@ describe('<CellHeader></CellHeader>', ()=> {
 
     ['cell header wording', <img src="http://mmrb.github.io/avatar/jf.jpg" />, <p>cell header wording</p>].map((child)=>{
         describe(`<CellHeader>${child}</CellHeader>`, ()=>{
+            const customClassName = 'customClassName1 customClassName2';
             const wrapper = shallow(
-                <CellHeader>{child}</CellHeader>
+                <CellHeader className={customClassName}>{child}</CellHeader>
             );
 
             it(`should render <CellHeader></CellHeader> component `, ()=>{
@@ -25,6 +26,10 @@ describe('<CellHeader></CellHeader>', ()=> {
 
             it(`should have 'weui_cell_hd' class name`, ()=>{
                 assert(wrapper.hasClass(`weui_cell_hd`));
+            });
+
+            it(`should have custom class name ${customClassName}`, ()=> {
+                assert(wrapper.hasClass(customClassName));
             });
 
             it(`should have child ${child}`, ()=>{

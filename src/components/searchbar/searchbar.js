@@ -72,7 +72,12 @@ class SearchBar extends React.Component {
                             onChange={this.changeHandle.bind(this)}
                             value={this.state.text}
                         />
-                        <a className='weui_icon_clear' onMouseDown={this.clearHandle.bind(this)}/>
+                        {/*React will not trigger onMouseDown when not onClick presented*/}
+                        <a
+                            className='weui_icon_clear'
+                            onClick={e=>e/*issues #59*/}
+                            onMouseDown={this.clearHandle.bind(this)}
+                        />
                     </div>
                     <label
                         className='weui_search_text'
