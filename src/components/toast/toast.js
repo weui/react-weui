@@ -13,22 +13,23 @@ import Icon from '../icon/index';
 class Toast extends React.Component {
     static propTypes = {
         icon: React.PropTypes.string,
+        iconSize: React.PropTypes.string,
         show: React.PropTypes.bool
     };
 
     static defaultProps = {
         icon: 'toast',
-        show: false
+        show: false,
     };
 
     render() {
-        const {icon, show, children} = this.props;
+        const {icon, show, children, iconSize} = this.props;
 
         return (
             <div className={icon === 'loading' ? 'weui_loading_toast' : ''} style={{display: show ? 'block' : 'none'}}>
                 <Mask transparent={true}/>
                 <div className="weui_toast">
-                    <Icon value={icon}/>
+                    <Icon value={icon} size={iconSize}/>
                     <p className="weui_toast_content">{children}</p>
                 </div>
             </div>
