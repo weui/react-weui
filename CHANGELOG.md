@@ -1,5 +1,22 @@
 ### CHANGELOG
 
+#### 0.3.0 (2016-04-29)
+
+- [增强] ActionSheet 的 menus 和 actions 增加支持传入自定义 className
+- [增强] Cell 组件增加支持传入自定义的 className
+- [改进] 升级到 react v15
+- [修复] 更新 `weui` 依赖版本, 修复 navbar 在 iOS 下无法点击的 bug
+- [修复] 修复 searchbar, toast icon size
+
+详情参考:
+
+- [42bf8f3](https://github.com/weui/react-weui/commit/42bf8f3) #51 ActionSheet 的 menus 和 actions 增加支持传入自定义 className
+- [a09719a](https://github.com/weui/react-weui/commit/a09719a) #68 Cell* 增加支持传入自定义 className
+- [513cca0](https://github.com/weui/react-weui/commit/513cca0) 修复 package.son 依赖
+- [3bd5517](https://github.com/weui/react-weui/commit/3bd5517) update react version and move to peerDependencies (#66)
+- [f12d858](https://github.com/weui/react-weui/commit/f12d858) update `weui` version
+- [9df3c19](https://github.com/weui/react-weui/commit/9df3c19) #58, patched searchbar, add iconSize for toast #62, change weui dependency to 0.4.1 (#63)
+
 #### 0.3.0-beta (2016-03-30)
 
 - 【新增】增加 tab 组件
