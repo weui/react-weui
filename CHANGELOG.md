@@ -1,6 +1,6 @@
 ### CHANGELOG
 
-#### 0.3.0 (2016-04-29)
+#### 0.4.0 (2016-04-28)
 
 - [增强] ActionSheet 的 menus 和 actions 增加支持传入自定义 className
 - [增强] Cell 组件增加支持传入自定义的 className
