@@ -124,6 +124,7 @@ export default class Uploader extends React.Component {
                     let base64 = canvas.toDataURL('image/png');
 
                     cb({
+                        nativeFile: file,
                         lastModified: file.lastModified,
                         lastModifiedDate: file.lastModifiedDate,
                         name: file.name,
