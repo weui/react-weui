@@ -207,6 +207,7 @@ showCounter|bool|true | true, false| 控制容器是显示字数条
 - `name`
 - `size`
 - `type`
+- `nativeFile` 事件原生的file
 
 属性名|类型|默认值|可选值|备注
 ------|----|------|------|----|
