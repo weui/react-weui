@@ -115,7 +115,7 @@ export default class Uploader extends React.Component {
                             drawImage.call(ctx, img, sx, sy, sw, sh / vertSquashRatio);
                         else
                             drawImage.call(ctx, img, sx, sy);
-                    }.bind(this);
+                    };
 
                     canvas.width = w;
                     canvas.height = h;
