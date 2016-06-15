@@ -65,12 +65,14 @@ describe('<Button></Button>', () => {
                                 }
                             });
 
-                            it(`should have class with "weui_btn_disabled" when disabled is true`, ()=> {
+                            it(`should have class with "weui_btn_disabled" and "disabled" attribute when disabled is true`, ()=> {
                                 if (disabled) {
                                     assert(wrapper.hasClass('weui_btn_disabled'));
+                                    assert(wrapper.prop('disabled'))
                                 }
                                 else {
                                     assert(!wrapper.hasClass('weui_btn_disabled'));
+                                    assert(!wrapper.prop('disabled'));
                                 }
                             });
 
