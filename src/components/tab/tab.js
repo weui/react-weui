@@ -131,6 +131,9 @@ export default class Tab extends React.Component {
 
     render() {
         const {children, className, type, ...others} = this.props;
+        const divProps = Object.assign({}, others);
+        delete divProps.defaultIndex;
+
         const cls = classNames({
             weui_tab: true
         }, className);
@@ -146,7 +149,7 @@ export default class Tab extends React.Component {
                 break;
             default:
                 return (
-                    <div className={cls} {...others}>
+                    <div className={cls} {...divProps}>
                         {children}
                     </div>
                 );
