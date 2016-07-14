@@ -13,6 +13,7 @@ export default class FormCell extends React.Component {
         warn: PropTypes.bool,
         radio: PropTypes.bool,
         checkbox: PropTypes.bool,
+        switch: PropTypes.bool,
         select: PropTypes.bool,
         selectPos: PropTypes.string,
     };
@@ -23,30 +24,38 @@ export default class FormCell extends React.Component {
         radio: false,
         checkbox: false,
         select: false,
+        switch: false,
         selectPos: undefined
     };
 
     render() {
-        const { className, children, ...others } = this.props;
+        const {
+          className, children,
+          radio, checkbox, vcode, warn,
+          select, selectPos,
+          ...others,
+        } = this.props;
+        const cellDomProps = Object.assign({}, others);
+        delete cellDomProps.switch;
         const cls = classNames({
             weui_cell: true,
-            weui_vcode: this.props.vcode,
-            weui_cell_warn: this.props.warn,
+            weui_vcode: vcode,
+            weui_cell_warn: warn,
             weui_cell_switch: this.props.switch,
-            weui_cell_select: this.props.select,
-            weui_select_before: this.props.selectPos == 'before',
-            weui_select_after: this.props.selectPos == 'after',
-            weui_check_label: this.props.radio || this.props.checkbox,
+            weui_cell_select: select,
+            weui_select_before: selectPos == 'before',
+            weui_select_after: selectPos == 'after',
+            weui_check_label: radio || checkbox,
             [className]: className
         });
 
-        if(this.props.radio || this.props.checkbox) {
+        if(radio || checkbox) {
             return (
-                <label className={cls} {...others}>{children}</label>
+                <label className={cls} {...cellDomProps}>{children}</label>
             )
         }else{
             return (
-                <div className={cls} {...others}>{children}</div>
+                <div className={cls} {...cellDomProps}>{children}</div>
             );
         }
     }

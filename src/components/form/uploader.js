@@ -190,6 +190,11 @@ export default class Uploader extends React.Component {
 
     render(){
         const { className, title, maxCount, files, onChange, ...others } = this.props;
+        const inputProps = Object.assign({}, others);
+        delete inputProps.lang;
+        delete inputProps.onError;
+        delete inputProps.maxWidth;
+
         const cls = classNames({
             weui_uploader: true,
             [className]: className
@@ -212,7 +217,7 @@ export default class Uploader extends React.Component {
                         type="file"
                         accept="image/jpg,image/jpeg,image/png,image/gif"
                         onChange={this.handleChange.bind(this)}
-                        {...others}
+                        {...inputProps}
                         />
                     </div>
                 </div>
