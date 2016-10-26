@@ -5,7 +5,7 @@
 
 属性 | 类型 | 默认值 | 可选值 | 备注
 -----|------|--------|-------|------|
-icon|string|toast|所有icon / loading | 
+icon|string|toast|所有icon| 
 iconSize|string|'small'|small, large| icon size
 show|bool|false|| 是否显示 
 
