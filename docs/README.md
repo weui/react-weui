@@ -12,3 +12,5 @@
 - [Msg](./msg.md)
 - [Progress](./progress.md)
 - [Toast](./toast.md)
+- [Panel](./panel.md)
+- [SearchBar](./searchbar.md)
