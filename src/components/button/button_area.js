@@ -17,14 +17,15 @@ export default class ButtonArea extends React.Component {
     };
 
     render() {
-        const {direction, children} = this.props;
-        const className = classNames({
+        const {direction, children, className} = this.props;
+        const cls = classNames({
             weui_btn_area: true,
-            weui_btn_area_inline: direction === 'horizontal'
+            weui_btn_area_inline: direction === 'horizontal',
+            [className]: className
         });
 
         return (
-            <div className={className}>
+            <div className={cls}>
                 {children}
             </div>
         );

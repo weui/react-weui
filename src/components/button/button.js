@@ -21,7 +21,7 @@ export default class Button extends React.Component {
     };
 
     render() {
-        const {type, size, disabled, plain, className, children, ...others} = this.props;
+        const {type, size, plain, className, children, ...others} = this.props;
         const Component = this.props.href ? 'a' : 'button';
         const cls = classNames({
             weui_btn: true,
@@ -36,7 +36,7 @@ export default class Button extends React.Component {
 
             weui_btn_mini: size === 'small',
 
-            weui_btn_disabled: disabled,
+            weui_btn_disabled: this.props.disabled,
 
             [className]: className
         });
