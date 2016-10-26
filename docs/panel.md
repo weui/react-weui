@@ -28,11 +28,13 @@ type|string|text | appmsg, text, small_appmsg| 控制图文组合列表排版
 显示其他信息的容器
 
 MediaBoxInfo
+
 属性名|类型|默认值|可选值|备注
 ------|----|------|------|----|
 data|array|[] | {extra: false, label:'内容'}| 自动映射MediaBoxInfoMeta 
 
 MediaBoxInfoMeta
+
 属性名|类型|默认值|可选值|备注
 ------|----|------|------|----|
 extra|bool|false | true, false| 是否为更多内容（添加padding,显示左边）
