@@ -1,12 +1,24 @@
 ### CHANGELOG
 
+#### 0.4.1 (2016-10-27)
+
+- 【修复】searchbar 提交的问题
+- 【改进】ButtonArea 支持传入自定义 className 
+- 【改进】Uploader 在 onChange 属性返回的 file 对象中添加 nativeFile 属性
+
+详情参考：
+
+- [254c4306](https://github.com/weui/react-weui/commit/254c4306) fix searchbar submit bug
+- [7277f8c0](https://github.com/weui/react-weui/commit/7277f8c0) 增加支持传入自定义 className
+- [4f76d6e5](https://github.com/weui/react-weui/commit/4f76d6e5) 在 onChange 属性返回的 file 对象中添加 nativeFile 属性
+
 #### 0.4.0 (2016-04-28)
 
-- [增强] ActionSheet 的 menus 和 actions 增加支持传入自定义 className
-- [增强] Cell 组件增加支持传入自定义的 className
-- [改进] 升级到 react v15
-- [修复] 更新 `weui` 依赖版本, 修复 navbar 在 iOS 下无法点击的 bug
-- [修复] 修复 searchbar, toast icon size
+- 【增强】ActionSheet 的 menus 和 actions 增加支持传入自定义 className
+- 【增强】Cell 组件增加支持传入自定义的 className
+- 【改进】升级到 react v15
+- 【修复】更新 `weui` 依赖版本, 修复 navbar 在 iOS 下无法点击的 bug
+- 【修复】修复 searchbar, toast icon size
 
 详情参考:
 
