@@ -12,17 +12,21 @@ import Icon from '../icon';
 class SearchBar extends React.Component {
     static propTypes = {
         placeholder: React.PropTypes.string,
+        searchName: React.PropTypes.string,
         onChange: React.PropTypes.func,
         onClear: React.PropTypes.func,
         onCancel: React.PropTypes.func,
+        onSubmit: React.PropTypes.func,
         lang: React.PropTypes.object
     };
 
     static defaultProps = {
         placeholder: '搜索',
+        searchName: 'q',
         onChange: undefined,
         onClear: undefined,
         onCancel: undefined,
+        onSubmit: undefined,
         lang: {
             cancel: '取消'
         }
@@ -50,8 +54,16 @@ class SearchBar extends React.Component {
         if(this.props.onChange) this.props.onChange('',e);
     }
 
+    submitHandle(e) {
+        if (this.props.onSubmit) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.props.onSubmit(this.state.text, e);
+        }
+    }
+
     render() {
-        const {children, placeholder, className, ...others} = this.props;
+        const {children, placeholder, className, searchName, ...others} = this.props;
         const clz = classNames({
             'weui_search_bar': true,
             'weui_search_focusing': this.state.focus
@@ -59,12 +71,13 @@ class SearchBar extends React.Component {
 
         return (
             <div className={clz}>
-                <form className='weui_search_outer'>
+                <form className='weui_search_outer' onSubmit={this.submitHandle.bind(this)}>
                     <div className='weui_search_inner'>
                         <Icon value='search'/>
                         <input
                             ref='searchInput'
                             type='search'
+                            name={searchName}
                             className='weui_search_input'
                             placeholder={placeholder}
                             onFocus={e=>this.setState({focus:true})}
