@@ -24,19 +24,22 @@ export default class Button extends React.Component {
         const {type, size, plain, className, children, ...others} = this.props;
         const Component = this.props.href ? 'a' : 'button';
         const cls = classNames({
-            weui_btn: true,
+            'weui-btn': true,
+            'weui-btn_mini': size === 'small',
 
-            weui_btn_primary: type === 'primary' && !plain,
-            weui_btn_default: type === 'default' && !plain,
-            weui_btn_warn: type === 'warn',
+            'weui-btn_primary': type === 'primary' && !plain,
+            'weui-btn_default': type === 'default' && !plain,
+            'weui-btn_warn': type === 'warn',
 
-            weui_btn_plain_primary: type === 'primary' && plain,
+            'weui-btn_plain-primary': type === 'primary' && plain,
 
-            weui_btn_plain_default: type === 'default' && plain,
+            'weui-btn_plain-default': type === 'default' && plain,
 
-            weui_btn_mini: size === 'small',
 
-            weui_btn_disabled: this.props.disabled,
+
+            'weui-btn_disabled': this.props.disabled && !plain,
+
+            'weui-btn_plain-disabled': this.props.disabled && plain,
 
             [className]: className
         });
