@@ -1,27 +1,27 @@
-/**
- * Created by jf on 15/11/12.
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
-export default class Cell extends React.Component {
-    render() {
-        const {className, children, ...others} = this.props;
-        const Component = this.props.href ? 'a' : this.props.htmlFor ? 'label' : 'div';
-        const cls = classNames({
-            weui_cell: true,
-            weui_check_label: this.props.htmlFor,
-            weui_cell_switch: this.props.switch,
-            weui_cells_radio: this.props.radio,
-            weui_cells_checkbox: this.props.checkbox,
-            [className]: className
-        });
+const Cell = (props) => {
+    const { className, children, access, href, component, htmlFor, ...others } = props;
+    const DefaultComponent = href ? 'a' : htmlFor ? 'label' : 'div';
+    var CellComponent = component ? component : DefaultComponent;
 
-        return (
-            <Component className={cls} {...others}>{children}</Component>
-        );
-    }
+    const cls = classNames({
+        'weui-cell': true,
+        'weui-cell_access': access,
+        [className]: className
+    });
+
+    return (
+        <CellComponent
+            className={cls}
+            href={href}
+            htmlFor={htmlFor}
+            { ...others }
+        >
+            { children }
+        </CellComponent>
+    );
 };
+
+export default Cell;

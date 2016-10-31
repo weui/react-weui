@@ -5,8 +5,13 @@
 "use strict";
 
 import React from 'react';
-import {Grids} from '../../../src/index';
+import {Flex, FlexItem, Cells, Cell, CellBody, CellFooter} from '../../../src/index';
+import { Link } from 'react-router';
 import Page from '../../component/page';
+import Category from './category';
+
+import Logo from './images/logo.png';
+import IconForm from './images/icon_nav_form.png';
 import IconButton from './images/icon_nav_button.png';
 import IconCell from './images/icon_nav_cell.png';
 import IconToast from './images/icon_nav_toast.png';
@@ -23,63 +28,37 @@ import IconSearchBar from './images/icon_nav_search_bar.png';
 import './index.less';
 
 export default class Home extends React.Component {
-
-    state = {
-        components: [{
-            icon: <img src={IconButton}/>,
-            label: 'Button',
-            href: '#button'
-        }, {
-            icon: <img src={IconCell}/>,
-            label: 'Cell',
-            href: '#cell'
-        }, {
-            icon: <img src={IconToast}/>,
-            label: 'Toast',
-            href: '#toast'
-        }, {
-            icon: <img src={IconDialog}/>,
-            label: 'Dialog',
-            href: '#dialog'
-        }, {
-            icon: <img src={IconProgress}/>,
-            label: 'Progress',
-            href: '#progress'
-        }, {
-            icon: <img src={IconMsg}/>,
-            label: 'Msg',
-            href: '#msg'
-        }, {
-            icon: <img src={IconArticle}/>,
-            label: 'Article',
-            href: '#article'
-        }, {
-            icon: <img src={IconActionSheet}/>,
-            label: 'ActionSheet',
-            href: '#actionsheet'
-        }, {
-            icon: <img src={IconIcons}/>,
-            label: 'Icons',
-            href: '#icons'
-        }, {
-            icon: <img src={IconPanel}/>,
-            label: 'Panel',
-            href: '#panel'
-        }, {
-            icon: <img src={IconTab}/>,
-            label: 'Tab',
-            href: '#tab'
-        }, {
-            icon: <img src={IconSearchBar}/>,
-            label: 'SearchBar',
-            href: '#searchbar'
-        }]
-    };
-
     render() {
         return (
-            <Page className="home" title="WeUI" subTitle="为微信Web服务量身设计">
-                <Grids data={this.state.components}/>
+            <Page
+                className="home"
+                title={<img src={Logo} alt="weui" height="21px" />}
+                subTitle="A UI library by WeChat official design team, includes the most useful widgets/modules in mobile web applications."
+                spacing
+            >
+                <ul>
+                    <li>
+                        <Category
+                            header={
+                                <Flex>
+                                    <FlexItem component="p">
+                                        Form
+                                    </FlexItem>
+                                    <img src={IconForm} alt="weui form" />
+                                </Flex>
+                            }
+                        >
+                            <Cells>
+                                <Cell component={Link} to="/button" access>
+                                    <CellBody>
+                                        Button
+                                    </CellBody>
+                                    <CellFooter/>
+                                </Cell>
+                            </Cells>
+                        </Category>
+                    </li>
+                </ul>
             </Page>
         );
     }

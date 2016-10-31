@@ -1,23 +1,17 @@
-/**
- * Created by jf on 15/11/12.
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
-export default class CellBody extends React.Component {
-    render() {
-        const {className, children, ...others} = this.props;
-        const cls = classNames({
-            weui_cell_bd: true,
-            weui_cell_primary: true,
-            [className]: className
-        });
+const CellBody = (props) => {
+    const { className, children, primary, ...others } = props;
+    const cls = classNames({
+        'weui-cell__bd': true,
+        'weui-cell_primary': primary,
+        [className]: className
+    });
 
-        return (
-            <div className={cls} {...others}>{children}</div>
-        );
-    }
+    return (
+        <div className={cls} {...others}>{ children }</div>
+    );
 };
+
+export default CellBody;

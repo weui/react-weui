@@ -13,11 +13,11 @@ export default class Page extends React.Component {
 
         return (
             <section className={`page ${className}`}>
-                <div className="hd">
-                    <h1 className="title">{title}</h1>
-                    <p className="sub_title">{subTitle}</p>
+                <div className="page__hd">
+                    <h1 className="page__title">{title}</h1>
+                    <p className="page__desc">{subTitle}</p>
                 </div>
-                <div className={`bd ${spacing ? 'spacing' : ''}`}>
+                <div className={`page__bd ${spacing ? 'page__bd_spacing' : ''}`}>
                     {children}
                 </div>
             </section>

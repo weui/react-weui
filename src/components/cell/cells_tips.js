@@ -1,22 +1,16 @@
-/**
- * Created by jf on 15/12/3.
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
-export default class CellsTips extends React.Component {
-    render() {
-        const {className, children, ...others} = this.props;
-        const cls = classNames({
-            weui_cells_tips: true,
-            [className]: className
-        });
+const CellsTips = (props) => {
+    const { className, children, ...others } = props;
+    const cls = classNames({
+        'weui-cells__tips': true,
+        [className]: className
+    });
 
-        return (
-            <div className={cls} {...others}>{children}</div>
-        );
-    }
+    return (
+        <div className={cls} { ...others }>{ children }</div>
+    );
 };
+
+export default CellsTips;

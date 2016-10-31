@@ -1,9 +1,3 @@
-/**
- * Created by jf on 15/10/27.
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
@@ -21,7 +15,7 @@ export default class Button extends React.Component {
     };
 
     render() {
-        const {type, size, plain, className, children, ...others} = this.props;
+        const { type, size, plain, className, children, ...others } = this.props;
         const Component = this.props.href ? 'a' : 'button';
         const cls = classNames({
             'weui-btn': true,
@@ -45,7 +39,7 @@ export default class Button extends React.Component {
         });
 
         return (
-            <Component {...others} className={cls}>{children}</Component>
+            <Component { ...others } className={ cls }>{ children }</Component>
         );
     }
 };

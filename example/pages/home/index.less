@@ -8,3 +8,110 @@
         margin-right: .7em;
     }
 }
+
+.page.home{
+    @pageHomePadding: 20px;
+    .page__intro-icon{
+        margin-top: -.2em;
+        margin-left: 5px;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+    }
+    .page__title{
+        font-size: 0;
+        margin-bottom: 15px;
+    }
+    .page__bd{
+        span{
+            //https://github.com/facebook/react/pull/5753
+        }
+        img{
+            width: 30px;
+            height: 30px;
+        }
+        li{
+            margin: 10px 0;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            border-radius: 2px;
+            cursor: pointer;
+            &.js_show{
+                .weui-flex{
+                    opacity: .4;
+                }
+                .page__category{
+                    height: auto;
+                }
+                .page__category-content{
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            &:first-child{
+                margin-top: 0;
+            }
+        }
+    }
+    .page__category{
+        //height: 0;
+        overflow: hidden;
+    }
+    .page__category-content{
+        //opacity: 0;
+        transform: translateY(-50%);
+        transition: .3s;
+    }
+    .weui-flex{
+        padding: @pageHomePadding;
+        align-items: center;
+        transition: .3s;
+    }
+    .weui-cells{
+        margin-top: 0;
+        &:before, &:after{
+            display: none;
+        }
+    }
+    .weui-cell{
+        padding-left: @pageHomePadding;
+        padding-right: @pageHomePadding;
+        &:before{
+            left: @pageHomePadding;
+            right: @pageHomePadding;
+        }
+    }
+}
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.example-appear {
+  opacity: 0.01;
+  max-height: 0;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  overflow-y: hidden;
+  max-height: 500px; /* approximate max height */
+
+  transition-property: all;
+  transition-duration: 3s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
