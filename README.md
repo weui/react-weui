@@ -55,7 +55,7 @@ ReactDOM.render((
 
 Welcome and send the PR in! Development of components will happen in this github repo.
 
-See the (contributing guidelines)[https://github.com/n7best/react-weui-1/blob/master/CONTRIBUTING.md] for details.
+See the [contributing guidelines](https://github.com/n7best/react-weui-1/blob/master/CONTRIBUTING.md) for details.
 
 ## Mobile Demo
 
