@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Router, Route, IndexRoute} from 'react-router';
 import WeUI from '../src/index';
+import 'react-fastclick';
 import 'weui';
 
 import Home from './pages/home/index';

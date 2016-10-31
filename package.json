@@ -33,7 +33,8 @@
   },
   "homepage": "https://github.com/weui/react-weui",
   "dependencies": {
-    "classnames": "^2.2.0"
+    "classnames": "^2.2.0",
+    "react-fastclick": "^2.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",

@@ -83,35 +83,29 @@
     }
 }
 
-.example-enter {
-  opacity: 0.01;
+.slide-appear {
+  opacity    : 0;
+  transition : opacity .7s ease-in;
 }
 
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
+.slide-appear.slide-appear-active {
+  opacity : 1;
 }
 
-.example-leave {
-  opacity: 1;
+.slide-enter {
+  max-height : 0;
+  transition : all .3s ease-in;
 }
 
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
+.slide-enter.slide-enter-active {
+  max-height : 1000px;
 }
 
-.example-appear {
-  opacity: 0.01;
-  max-height: 0;
+.slide-leave {
+  max-height : 1000px;
+  transition : all .1s ease-out;
 }
 
-.example-appear.example-appear-active {
-  opacity: 1;
-  overflow-y: hidden;
-  max-height: 500px; /* approximate max height */
-
-  transition-property: all;
-  transition-duration: 3s;
-  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+.slide-leave.slide-leave-active {
+  max-height : 0;
 }
