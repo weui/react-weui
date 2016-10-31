@@ -27,6 +27,11 @@ react-weui
 
 ### 安装
 
+如果是全新项目 需要先安装react
+```
+npm install react weui react-weui --save
+```
+现有项目的话直接安装
 ```
 npm install weui react-weui --save
 ```
@@ -90,7 +95,7 @@ npm start
 ### License
 
 The MIT License([http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
- 
+
 请自由地享受和参与开源
 
 ### 贡献
