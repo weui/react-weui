@@ -1,4 +1,4 @@
-React-WeUI [![Build Status](https://travis-ci.org/weui/react-weui.svg?branch=master)](https://travis-ci.org/weui/react-weui) [![npm version](https://img.shields.io/npm/v/react-weui.svg)](https://www.npmjs.org/package/react-weui)
+#React-WeUI [![Build Status](https://travis-ci.org/weui/react-weui.svg?branch=master)](https://travis-ci.org/weui/react-weui) [![npm version](https://img.shields.io/npm/v/react-weui.svg)](https://www.npmjs.org/package/react-weui)
 ====
 
 [WeUI](https://github.com/weui/weui) Components build with [React](http://facebook.github.io/react/).
@@ -9,12 +9,12 @@ __Please See [0.4.x](https://github.com/weui/react-weui/tree/0.4.x) branch__ for
 
 __Master branch under active development for WeUI 1.0.0 - APIs will change.__ Check out the [1.0.0 Progression](https://github.com/weui/react-weui/projects/1) and [contributing guidelines][contributing] to see where you can help out.
 
-### Docs
+## Docs
 
 
 See the [documentation](https://n7best.github.io/react-weui-doc-0.4.0) with live examples (0.4.x).
 
-### Installation
+## Installation
 
 With [npm](http://npmjs.com/):
 
@@ -22,7 +22,7 @@ With [npm](http://npmjs.com/):
 npm install weui react-weui --save
 ```
 
-### Example
+## Example
 
 We have several examples on the documentation. Here is the first one to get you started:
 ```javascript
@@ -52,19 +52,19 @@ ReactDOM.render((
 
 ```
 
-### Contributing
+## Contributing
 
 Welcome and send the PR in! Development of components will happen in this github repo.
 
 See the contributing guidelines for details.
 
-### Mobile Demo
+## Mobile Demo
 
 ![react-weui](./docs/qrcode.png)
 
 [https://weui.github.io/react-weui](https://weui.github.io/react-weui)
 
-### License
+## License
 
 The MIT License([http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
 
