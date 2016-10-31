@@ -4,5 +4,7 @@ node_js:
 script:
   - npm test
   - npm run coverage
+before_script:
+    npm install react
 after_script:
     npm install coveralls && cat ./coverage/lcov.info | coveralls
