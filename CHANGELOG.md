@@ -1,6 +1,6 @@
 ### CHANGELOG
 
-#### 0.4.1 (2016-10-27)
+#### 0.4.1 (2016-10-31)
 
 - 【修复】searchbar 提交的问题
 - 【改进】ButtonArea 支持传入自定义 className 
