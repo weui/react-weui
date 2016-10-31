@@ -29,11 +29,11 @@ react-weui
 
 如果是全新项目 需要先安装react
 ```
-npm install react weui react-weui --save
+npm install react weui@0.4.3 react-weui --save
 ```
 现有项目的话直接安装
 ```
-npm install weui react-weui --save
+npm install weui@0.4.3 react-weui --save
 ```
 
 ### 使用
