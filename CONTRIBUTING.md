@@ -1,16 +1,29 @@
 
-### 贡献
+### Contributing
 
-欢迎给`react-weui`贡献
+We welcome support for both issues and pull request to `react-weui`. Feel welcome if you have any suggestion and requests.
 
-#### 关于issue
+### Issues
 
-- 问题咨询、报告bug、提出意见或建议，请创建issue
-- 发起PR时，如果涉及变更较大，或者有其他不确定的，建议先创建issue讨论确认
+The issue tracker is the preferred channel for bug reports, features requests and submitting pull requests, but please respect the following restrictions:
 
-#### 编码规范
+- Please do not use the issue tracker for personal support requests.
+- Please do not open issues or pull requests regarding the code in React or WeUI (open them in their respective repositories).
 
-- 文件扩展，使用`.js`
-- 一个文件包含一个组件，通过组件目录下的`index.js`导出
-- 使用ES2015写法，遵从eslint
-- 每个组件需要包含对应的文件和说明文档、示例代码
+Note: Occasionally issues are opened that are unclear, or we cannot verify them. When the issue author has not responded to our questions for verification within 21 days then we will close the issue.
+
+### Tests
+
+All commits that fix bugs or add features need a test.
+
+### Code Style
+
+Please adhere to the current code styling. All codes should be look as it is written by one person.
+
+We use ESLint for all JavaScript Linting. There should be no linting errors and no new warnings for new work.
+You are welcome to configure your editor to use ESLint or the npm test command will run unit tests and the linter.
+
+### Visual Changes
+
+When making a visual change, if at all feasible please provide screenshots and/or screencasts of the proposed change.
+This will help us to understand the desired change easier.

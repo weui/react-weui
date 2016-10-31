@@ -1,49 +1,44 @@
-WeUI 为微信Web服务量身设计  [![Build Status](https://travis-ci.org/weui/react-weui.svg?branch=master)](https://travis-ci.org/weui/react-weui) [![npm version](https://img.shields.io/npm/v/react-weui.svg)](https://www.npmjs.org/package/react-weui) [![Coverage Status](https://coveralls.io/repos/github/weui/react-weui/badge.svg?branch=master)](https://coveralls.io/github/weui/react-weui?branch=master)
+React-WeUI [![Build Status](https://travis-ci.org/weui/react-weui.svg?branch=master)](https://travis-ci.org/weui/react-weui) [![npm version](https://img.shields.io/npm/v/react-weui.svg)](https://www.npmjs.org/package/react-weui)
 ====
 
+[WeUI](https://github.com/weui/weui) Components build with [React](http://facebook.github.io/react/).
 
-### WeUI
+[![Coverage Status](https://coveralls.io/repos/github/weui/react-weui/badge.svg?branch=master)](https://coveralls.io/github/weui/react-weui?branch=master)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#pull-requests)
 
-WeUI是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含`button`、`cell`、`dialog`、 `progress`、`toast`、`article`、`icon`等各式组件。
+__Please See [0.4.x](https://github.com/weui/react-weui/tree/0.4.x) branch__ for current stable usage and usage with weui 0.4.x
 
-[https://github.com/weui/weui](https://github.com/weui/weui)
+__Master branch under active development for WeUI 1.0.0 - APIs will change.__ Check out the [1.0.0 Progression](https://github.com/weui/react-weui/projects/1) and [contributing guidelines][contributing] to see where you can help out.
 
-### React-WeUI
+### Docs
 
-使用`react`的方式来构建界面
 
-### 目录结构
+See the [documentation](https://n7best.github.io/react-weui-doc-0.4.0) with live examples (0.4.x).
 
-```
-react-weui
-├── README.md
-├── docs                    # 文档说明
-├── example                 # 示例代码
-├── package.json            # package.json
-├── src                     # react-weui组件源码
-├── test                    # 测试文件
-└── webpack.config.js       # webpack配置文件
-```
+### Installation
 
-### 安装
+With [npm](http://npmjs.com/):
 
 ```
 npm install weui react-weui --save
 ```
 
-### 使用
+### Example
 
+We have several examples on the documentation. Here is the first one to get you started:
 ```javascript
 // app.js
 
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+//commonJS Module *Require Plugins
+//import { Button } from 'react-weui'
+
+//ES6 Import
 import WeUI from 'react-weui';
 import 'weui';
-
 const {Button} = WeUI;
 
-class App extends React.Component {
+class App extends Component {
     render() {
         return (
             <Button>hello wechat</Button>
@@ -57,31 +52,13 @@ ReactDOM.render((
 
 ```
 
-### 开发
+### Contributing
 
-```
-git clone https://github.com/weui/react-weui
-cd react-weui
-npm install
-npm start
-```
+Welcome and send the PR in! Development of components will happen in this github repo.
 
+See the contributing guidelines for details.
 
-### 文档
-
-- [快速上手](./docs/installation.md)
-- [ActionSheet](./docs/actionsheet.md)
-- [Button](./docs/button.md)
-- [Cell](./docs/cell.md)
-- [Dialog](./docs/dialog.md)
-- [Form](./docs/form.md)
-- [Icon](./docs/icon.md)
-- [Mask](./docs/mask.md)
-- [Msg](./docs/msg.md)
-- [Progress](./docs/progress.md)
-- [Toast](./docs/toast.md)
-
-### 体验
+### Mobile Demo
 
 ![react-weui](./docs/qrcode.png)
 
@@ -90,9 +67,5 @@ npm start
 ### License
 
 The MIT License([http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
- 
-请自由地享受和参与开源
 
-### 贡献
 
-如果你有好的意见或建议，欢迎给我们提 issue 或 pull request，为提升微信 web 体验贡献力量
