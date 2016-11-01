@@ -15,12 +15,20 @@ Check out the [1.0.0 Progression](https://github.com/weui/react-weui/projects/1)
 
 See the [documentation](https://n7best.github.io/react-weui-doc-0.4.0) with live examples (0.4.x).
 
-## Installation
+## Installation (0.4.x)
 
 With [npm](http://npmjs.com/):
 
+If React is not installed
+
 ```
-npm install weui react-weui --save
+npm install react weui@0.4.3 react-weui --save
+```
+
+With React Installed
+
+```
+npm install weui@0.4.3 react-weui --save
 ```
 
 ## Example
