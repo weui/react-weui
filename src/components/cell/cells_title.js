@@ -1,22 +1,16 @@
-/**
- * Created by jf on 15/11/13.
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
-export default class CellsTitle extends React.Component {
-    render() {
-        const {className, children, ...others} = this.props;
-        const cls = classNames({
-            weui_cells_title: true,
-            [className]: className
-        });
+const CellsTitle = (props) => {
+    const { className, children, ...others } = props;
+    const cls = classNames({
+        'weui-cells__title': true,
+        [className]: className
+    });
 
-        return (
-            <div className={cls} {...others}>{children}</div>
-        );
-    }
+    return (
+        <div className={cls} { ...others }>{ children }</div>
+    );
 };
+
+export default CellsTitle;

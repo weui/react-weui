@@ -19,6 +19,8 @@ import {Panel, PanelHeader, PanelBody, PanelFooter} from './components/panel/ind
 import {MediaBox, MediaBoxHeader, MediaBoxBody, MediaBoxTitle, MediaBoxDescription, MediaBoxInfo, MediaBoxInfoMeta} from './components/mediabox/index';
 import {Tab, TabBody, TabBodyItem, NavBar, NavBarItem, TabBar, TabBarItem, TabBarIcon, TabBarLabel} from './components/tab/index';
 import SearchBar from './components/searchbar/index';
+//1.0.0 components
+import {Flex, FlexItem} from './components/flex/index';
 
 export default {
     Button,
@@ -72,5 +74,7 @@ export default {
     TabBarIcon,
     TabBarItem,
     TabBarLabel,
-    SearchBar
+    SearchBar,
+    Flex,
+    FlexItem
 };

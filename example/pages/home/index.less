@@ -8,3 +8,104 @@
         margin-right: .7em;
     }
 }
+
+.page.home{
+    @pageHomePadding: 20px;
+    .page__intro-icon{
+        margin-top: -.2em;
+        margin-left: 5px;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+    }
+    .page__title{
+        font-size: 0;
+        margin-bottom: 15px;
+    }
+    .page__bd{
+        span{
+            //https://github.com/facebook/react/pull/5753
+        }
+        img{
+            width: 30px;
+            height: 30px;
+        }
+        li{
+            margin: 10px 0;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            border-radius: 2px;
+            cursor: pointer;
+            &.js_show{
+                .weui-flex{
+                    opacity: .4;
+                }
+                .page__category{
+                    height: auto;
+                }
+                .page__category-content{
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            &:first-child{
+                margin-top: 0;
+            }
+        }
+    }
+    .page__category{
+        //height: 0;
+        overflow: hidden;
+    }
+    .page__category-content{
+        //opacity: 0;
+        transform: translateY(-50%);
+        transition: .3s;
+    }
+    .weui-flex{
+        padding: @pageHomePadding;
+        align-items: center;
+        transition: .3s;
+    }
+    .weui-cells{
+        margin-top: 0;
+        &:before, &:after{
+            display: none;
+        }
+    }
+    .weui-cell{
+        padding-left: @pageHomePadding;
+        padding-right: @pageHomePadding;
+        &:before{
+            left: @pageHomePadding;
+            right: @pageHomePadding;
+        }
+    }
+}
+
+.slide-appear {
+  opacity    : 0;
+  transition : opacity .7s ease-in;
+}
+
+.slide-appear.slide-appear-active {
+  opacity : 1;
+}
+
+.slide-enter {
+  max-height : 0;
+  transition : all .3s ease-in;
+}
+
+.slide-enter.slide-enter-active {
+  max-height : 1000px;
+}
+
+.slide-leave {
+  max-height : 1000px;
+  transition : all .1s ease-out;
+}
+
+.slide-leave.slide-leave-active {
+  max-height : 0;
+}
