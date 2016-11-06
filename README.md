@@ -2,23 +2,33 @@
 
 [WeUI](https://github.com/weui/weui) Components build with [React](http://facebook.github.io/react/).
 
-[![Coverage Status](https://coveralls.io/repos/github/weui/react-weui/badge.svg?branch=master)](https://coveralls.io/github/weui/react-weui?branch=master)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#pull-requests)
+[![Coverage Status](https://coveralls.io/repos/github/weui/react-weui/badge.svg?branch=master)](https://coveralls.io/github/weui/react-weui?branch=master)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#pull-requests) [![QQ](http://pub.idqqimg.com/wpa/images/group.png)](http://jq.qq.com/?_wv=1027&k=413HLfV)
 
+## Notes
 __Please See [0.4.x](https://github.com/weui/react-weui/tree/0.4.x) branch__ for current stable usage and usage with weui 0.4.x
 
-__Master branch under active development for WeUI 1.0.0 - APIs will change.__ Check out the [1.0.0 Progression](https://github.com/weui/react-weui/projects/1) and [contributing guidelines](https://github.com/n7best/react-weui-1/blob/master/CONTRIBUTING.md) to see where you can help out.
+__Master branch under active development for WeUI 1.0.0, Not Ready for use - APIs will change.__ 
+Check out the [1.0.0 Progression](https://github.com/weui/react-weui/projects/1) and [contributing guidelines](https://github.com/n7best/react-weui-1/blob/master/CONTRIBUTING.md) to see where you can help out.
 
 ## Docs
 
 
 See the [documentation](https://n7best.github.io/react-weui-doc-0.4.0) with live examples (0.4.x).
 
-## Installation
+## Installation (0.4.x)
 
 With [npm](http://npmjs.com/):
 
+If React is not installed
+
 ```
-npm install weui react-weui --save
+npm install react weui@0.4.3 react-weui --save
+```
+
+With React Installed
+
+```
+npm install weui@0.4.3 react-weui --save
 ```
 
 ## Example
