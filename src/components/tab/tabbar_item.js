@@ -1,9 +1,3 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 import TabBarIcon from './tabbar_icon';
@@ -26,8 +20,8 @@ export default class TabBarItem extends React.Component {
 
         const {children, className, active, icon, label, ...others} = this.props;
         const cls = classNames({
-            weui_tabbar_item: true,
-            weui_bar_item_on: active
+            'weui-tabbar__item': true,
+            'weui-bar__item_on': active
         }, className);
 
         if(icon || label){

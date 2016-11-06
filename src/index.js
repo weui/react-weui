@@ -1,11 +1,13 @@
 /**
  * Created by jf on 15/10/27.
  */
+import version from './version';
 
-import {Button, ButtonArea} from './components/button/index';
+//0.4.x components
+import {Button, ButtonArea, PreviewButton} from './components/button/index';
 import {Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter} from './components/cell/index';
 import Mask from './components/mask/index';
-import {Form, FormCell, TextArea, Input, Switch, Radio, Checkbox, Select, Uploader} from './components/form/index';
+import {Form, FormCell, TextArea, Input, Switch, Radio, Checkbox, Select, Uploader, VCode, Agreement, Preview, PreviewHeader, PreviewBody, PreviewFooter, PreviewItem} from './components/form/index';
 import Label from './components/label/index';
 import Toast from './components/toast/index';
 import Progress from './components/progress/index';
@@ -21,8 +23,18 @@ import {Tab, TabBody, TabBodyItem, NavBar, NavBarItem, TabBar, TabBarItem, TabBa
 import SearchBar from './components/searchbar/index';
 //1.0.0 components
 import {Flex, FlexItem} from './components/flex/index';
+import Toptips from './components/toptips';
+import {Gallery, GalleryDelete} from './components/gallery';
+import {Footer, FooterText, FooterLinks, FooterLink} from './components/footer';
+import LoadMore from './components/loadmore';
+
+//non standard
+import { Popup, PopupHeader } from './components/popup';
 
 export default {
+    version,
+
+    //0.4.x
     Button,
     ButtonArea,
     Cells,
@@ -75,6 +87,28 @@ export default {
     TabBarItem,
     TabBarLabel,
     SearchBar,
+
+    //1.0.0
     Flex,
-    FlexItem
+    FlexItem,
+    VCode,
+    Agreement,
+    Toptips,
+    Gallery,
+    GalleryDelete,
+    Footer,
+    FooterText,
+    FooterLinks,
+    FooterLink,
+    LoadMore,
+    Preview,
+    PreviewHeader,
+    PreviewBody,
+    PreviewFooter,
+    PreviewItem,
+    PreviewButton,
+
+    //non-standard
+    Popup,
+    PopupHeader
 };

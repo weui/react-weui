@@ -13,7 +13,7 @@ export default class TabBarIcon extends React.Component {
 
         const {children, className, ...others} = this.props;
         const cls = classNames({
-            weui_tabbar_icon: true,
+            'weui-tabbar__icon': true,
         }, className);
 
         return (

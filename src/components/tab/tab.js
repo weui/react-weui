@@ -135,7 +135,7 @@ export default class Tab extends React.Component {
         delete divProps.defaultIndex;
 
         const cls = classNames({
-            weui_tab: true
+            'weui-tab': true
         }, className);
 
         switch(type){

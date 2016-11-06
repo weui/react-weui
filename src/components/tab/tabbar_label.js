@@ -13,7 +13,7 @@ export default class TabBarLabel extends React.Component {
 
         const {children, className, ...others} = this.props;
         const cls = classNames({
-            weui_tabbar_label: true,
+            'weui-tabbar__label': true,
         }, className);
 
         return (

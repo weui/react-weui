@@ -13,6 +13,13 @@ import Radio from './radio';
 import Checkbox from './checkbox';
 import Select from './select';
 import Uploader from './uploader';
+import VCode from './vcode';
+import Agreement from './agreement';
+import Preview from './preview';
+import PreviewHeader from './preview_header';
+import PreviewBody from './preview_body';
+import PreviewFooter from './preview_footer';
+import PreviewItem from './preview_item';
 
 export default {
     Form,
@@ -23,5 +30,12 @@ export default {
     Radio,
     Checkbox,
     Select,
-    Uploader
+    Uploader,
+    VCode,
+    Agreement,
+    Preview,
+    PreviewHeader,
+    PreviewBody,
+    PreviewFooter,
+    PreviewItem
 };

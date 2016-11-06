@@ -4,11 +4,11 @@
 
 
 
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import Grid from './grid';
 
-export default class Grids extends React.Component {
+export default class Grids extends Component {
     static propTypes = {
       data: React.PropTypes.array
     };
@@ -32,7 +32,7 @@ export default class Grids extends React.Component {
 
         const {children, data, className, ...others} = this.props;
         const cls = classNames({
-            weui_grids: true
+            'weui-grids': true
         }, className);
 
         return (

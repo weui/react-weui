@@ -11,7 +11,7 @@ export default class GridIcon extends React.Component {
     render() {
         const {children, className, ...others} = this.props;
         const cls = classNames({
-            weui_grid_icon: true
+            'weui-grid__icon': true
         }, className);
 
         return (

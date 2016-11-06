@@ -20,7 +20,7 @@ export default class TabBodyItem extends React.Component {
 
         const {children, className, active, ...others} = this.props;
         const cls = classNames({
-           weui_tab_bd_item: true
+           'weui-tab__bd-item': true
         }, className);
 
         return (

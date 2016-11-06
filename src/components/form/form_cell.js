@@ -1,13 +1,8 @@
-/**
- * Created by yjcxy12 on 16/1/22.
- */
-
-
-
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import './touch_fix.less';
 
-export default class FormCell extends React.Component {
+export default class FormCell extends Component {
     static propTypes = {
         vcode: PropTypes.bool,
         warn: PropTypes.bool,
@@ -38,14 +33,14 @@ export default class FormCell extends React.Component {
         const cellDomProps = Object.assign({}, others);
         delete cellDomProps.switch;
         const cls = classNames({
-            weui_cell: true,
-            weui_vcode: vcode,
-            weui_cell_warn: warn,
-            weui_cell_switch: this.props.switch,
-            weui_cell_select: select,
-            weui_select_before: selectPos == 'before',
-            weui_select_after: selectPos == 'after',
-            weui_check_label: radio || checkbox,
+            'weui-cell': true,
+            'weui-cell_vcode': vcode,
+            'weui-cell_warn': warn,
+            'weui-cell_switch': this.props.switch,
+            'weui-cell_select': select,
+            'weui-cell_select-before': selectPos == 'before',
+            'weui-cell_select-after': selectPos == 'after',
+            'weui-check__label': radio || checkbox,
             [className]: className
         });
 

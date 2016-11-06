@@ -11,7 +11,7 @@ export default class GridLabel extends React.Component {
     render() {
         const {children, className, ...others} = this.props;
         const cls = classNames({
-            weui_grid_label: true
+            'weui-grid__label': true
         }, className);
 
         return (

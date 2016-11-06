@@ -5,7 +5,8 @@ export default class Button extends React.Component {
     static propTypes = {
         disabled: React.PropTypes.bool,
         type: React.PropTypes.string,
-        size: React.PropTypes.string
+        size: React.PropTypes.string,
+        vcode: React.PropTypes.bool
     };
 
     static defaultProps = {
@@ -15,26 +16,18 @@ export default class Button extends React.Component {
     };
 
     render() {
-        const { type, size, plain, className, children, ...others } = this.props;
-        const Component = this.props.href ? 'a' : 'button';
-        const cls = classNames({
+        const { component, type, size, plain, className, children, ...others } = this.props;
+        const Component = component ? component : this.props.href || type == 'vcode' ? 'a' : 'button';
+        const cls = type == 'vcode' ? classNames('weui-vcode-btn', {[className]: className}) : classNames({
             'weui-btn': true,
             'weui-btn_mini': size === 'small',
-
             'weui-btn_primary': type === 'primary' && !plain,
             'weui-btn_default': type === 'default' && !plain,
             'weui-btn_warn': type === 'warn',
-
             'weui-btn_plain-primary': type === 'primary' && plain,
-
             'weui-btn_plain-default': type === 'default' && plain,
-
-
-
             'weui-btn_disabled': this.props.disabled && !plain,
-
             'weui-btn_plain-disabled': this.props.disabled && plain,
-
             [className]: className
         });
 

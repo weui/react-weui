@@ -1,13 +1,4 @@
-/**
- * Created by jf on 15/10/27.
- */
 
+import Dialog from './dialog';
 
-
-import Confirm from './confirm';
-import Alert from './alert';
-
-export default {
-    Confirm,
-    Alert
-};
+export default Dialog;

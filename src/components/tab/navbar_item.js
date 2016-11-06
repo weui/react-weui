@@ -21,8 +21,8 @@ export default class NavBarItem extends React.Component {
 
         const {children, className, active, label, ...others} = this.props;
         const cls = classNames({
-            weui_navbar_item: true,
-            weui_bar_item_on: active
+            'weui-navbar__item': true,
+            'weui-bar__item_on': active
         }, className);
 
         return (

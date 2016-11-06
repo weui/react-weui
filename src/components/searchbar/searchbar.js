@@ -1,9 +1,3 @@
-/**
- * Created by n7best.
- */
-
-
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
@@ -29,30 +23,47 @@ class SearchBar extends React.Component {
         onSubmit: undefined,
         lang: {
             cancel: '取消'
-        }
+        },
+        autocomplete: 'off'
     };
 
     state={
         focus: false,
+        clearing: false,
         text: ''
     }
 
     changeHandle(e) {
         let text = e.target.value;
-        this.setState({text});
         if(this.props.onChange) this.props.onChange(text,e);
+        this.setState({text});
     }
 
     cancelHandle(e) {
-        this.setState({focus:false});
+        this.setState({
+            focus: false,
+            text: ''
+        });
         if(this.props.onCancel) this.props.onCancel(e);
+        if(this.props.onChange) this.props.onChange('',e);
     }
 
     clearHandle(e) {
-        this.setState({text: ''});
+        e.preventDefault();
+        e.stopPropagation();
+
+        this.setState({text: '', clearing: true});
         if(this.props.onClear) this.props.onClear(e);
+        ReactDOM.findDOMNode(this.refs.searchInput).focus()
         if(this.props.onChange) this.props.onChange('',e);
     }
+
+    blurHandle(e) {
+        if(this.state.text == ''){
+            this.setState({ focus: false})
+        }
+    }
+
 
     submitHandle(e) {
         if (this.props.onSubmit) {
@@ -63,37 +74,37 @@ class SearchBar extends React.Component {
     }
 
     render() {
-        const {children, placeholder, className, searchName, ...others} = this.props;
+        const {children, autocomplete, placeholder, className, searchName} = this.props;
         const clz = classNames({
-            'weui_search_bar': true,
-            'weui_search_focusing': this.state.focus
+            'weui-search-bar': true,
+            'weui-search-bar_focusing': this.state.focus
         }, className);
 
         return (
             <div className={clz}>
-                <form className='weui_search_outer' onSubmit={this.submitHandle.bind(this)}>
-                    <div className='weui_search_inner'>
+                <form className='weui-search-bar__form' onSubmit={this.submitHandle.bind(this)}>
+                    <div className='weui-search-bar__box'>
                         <Icon value='search'/>
                         <input
                             ref='searchInput'
                             type='search'
                             name={searchName}
-                            className='weui_search_input'
+                            className='weui-search-bar__input'
                             placeholder={placeholder}
                             onFocus={e=>this.setState({focus:true})}
-                            onBlur={e=>this.setState({focus:false})}
+                            onBlur={this.blurHandle.bind(this)}
                             onChange={this.changeHandle.bind(this)}
                             value={this.state.text}
+                            autoComplete={autocomplete}
                         />
                         {/*React will not trigger onMouseDown when not onClick presented*/}
                         <a
-                            className='weui_icon_clear'
-                            onClick={e=>e/*issues #59*/}
-                            onMouseDown={this.clearHandle.bind(this)}
+                            className='weui-icon-clear'
+                            onClick={this.clearHandle.bind(this)}
                         />
                     </div>
                     <label
-                        className='weui_search_text'
+                        className='weui-search-bar__label'
                         onClick={e=>ReactDOM.findDOMNode(this.refs.searchInput).focus()}
                         style={{display: this.state.text ? 'none': null}}
                     >
@@ -101,7 +112,7 @@ class SearchBar extends React.Component {
                         <span>{placeholder}</span>
                     </label>
                 </form>
-                <a className='weui_search_cancel' onClick={this.cancelHandle.bind(this)}>{this.props.lang.cancel}</a>
+                <a className='weui-search-bar__cancel-btn' onClick={this.cancelHandle.bind(this)}>{this.props.lang.cancel}</a>
             </div>
         );
     }

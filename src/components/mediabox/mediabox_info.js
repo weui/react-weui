@@ -1,9 +1,3 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 import MediaBoxInfoMeta from './mediabox_info_meta';
@@ -26,7 +20,7 @@ export default class MediaBoxInfo extends React.Component {
     render() {
         const {children, data, className, ...others} = this.props;
         const cls = classNames({
-            weui_media_info: true
+            'weui-media-box__info': true
         }, className);
 
         return (

@@ -1,60 +1,51 @@
-/**
- * Created by n7best.
- */
-
-"use strict";
-
 import React from 'react';
-import Page from '../../component/page';
-
-import {
-    Tab,
-    NavBarItem,
-    NavBarIcon,
-    NavBarLabel,
-    Article
-} from '../../../src/index';
-
-import IconButton from '../home/images/icon_nav_button.png';
-import IconMsg from '../home/images/icon_nav_msg.png';
-import IconArticle from '../home/images/icon_nav_article.png';
+import { Tab, NavBarItem, Article } from '../../../src/index';
 
 export default class NavBarAutoDemo extends React.Component {
     render() {
         return (
             <Tab type="navbar">
-                <NavBarItem label="微信">
+                <NavBarItem label="Nav1">
                     <Article>
-                        <h1>选项页1</h1>
+                        <h1>Page 1</h1>
                         <section>
-                            <h2 className="title">章标题</h2>
+                            <h2 className="title">Heading</h2>
                             <section>
-                                <h3>1.1 节标题</h3>
-                                <p>由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                                <h3>1.1 Title</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute</p>
                             </section>
                         </section>
                     </Article>
                 </NavBarItem>
-                <NavBarItem label="天空">
+                <NavBarItem label="Nav2">
                     <Article>
-                        <h1>选项页2</h1>
+                        <h1>Page 2</h1>
                         <section>
-                            <h2 className="title">章标题</h2>
+                            <h2 className="title">Heading</h2>
                             <section>
-                                <h3>1.1 节标题</h3>
-                                <p>由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                                <h3>2.1 Title</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute</p>
                             </section>
                         </section>
                     </Article>
                 </NavBarItem>
-                <NavBarItem label="宇宙">
+                <NavBarItem label="Nav3">
                     <Article>
-                        <h1>选项页3</h1>
+                        <h1>Page 3</h1>
                         <section>
-                            <h2 className="title">章标题</h2>
+                            <h2 className="title">Heading</h2>
                             <section>
-                                <h3>1.1 节标题</h3>
-                                <p>由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                                <h3>3.1 Title</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute</p>
                             </section>
                         </section>
                     </Article>

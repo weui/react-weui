@@ -19,8 +19,8 @@ export default class MediaBoxInfoMeta extends React.Component {
     render() {
         const {children, extra, className, ...others} = this.props;
         const cls = classNames({
-            weui_media_info_meta: true,
-            weui_media_info_meta_extra: extra
+            'weui-media-box__info__meta': true,
+            'weui-media-box__info__meta_extra': extra
         }, className);
 
         return (

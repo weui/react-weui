@@ -20,10 +20,10 @@ export default class MediaBox extends React.Component {
         const {children, type, className, ...others} = this.props;
         const Component = this.props.href ? 'a' : 'div';
         const cls = classNames({
-            weui_media_box: true,
-            weui_media_appmsg: type === 'appmsg',
-            weui_media_text: type === 'text',
-            weui_media_small_appmsg: type === 'small_appmsg',
+            'weui-media-box': true,
+            'weui-media-box_appmsg': type === 'appmsg',
+            'weui-media-box_text': type === 'text',
+            'weui-media-box_small-appmsg': type === 'small_appmsg',
         }, className);
 
         return (

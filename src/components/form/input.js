@@ -1,30 +1,27 @@
-/**
- * Created by yjcxy12 on 16/1/22.
- */
-
-
-
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
-export default class Input extends React.Component {
-    static propTypes = {
-        defaultValue: PropTypes.string
-    };
+const Input = (props) => {
+    const { className, ...others } = props;
+    const cls = classNames({
+        'weui-input': true,
+        [className]: className
+    });
 
-    static defaultProps = {
-        defaultValue: undefined
-    };
-
-    render() {
-        const { className, ...others } = this.props;
-        const cls = classNames({
-            weui_input: true,
-            [className]: className
-        });
-
-        return (
+    return (
+        <div>
             <input className={cls} {...others}/>
-        );
-    }
+            <span className="weui-icon-checked"></span>
+        </div>
+    );
 };
+
+Input.propTypes = {
+    defaultValue: React.PropTypes.string
+}
+
+Input.defaultProps = {
+    defaultValue: undefined
+}
+
+export default Input

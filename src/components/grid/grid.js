@@ -23,7 +23,7 @@ export default class Grid extends React.Component {
     render() {
         const {children, icon, label, className, ...others} = this.props;
         const cls = classNames({
-            weui_grid: true
+            'weui-grid': true
         }, className);
 
         return (

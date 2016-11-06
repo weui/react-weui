@@ -6,7 +6,7 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-export default class TextArea extends React.Component {
+export default class TextArea extends Component {
     static propTypes = {
         showCounter: PropTypes.bool,
         defaultValue: PropTypes.string,
@@ -31,7 +31,7 @@ export default class TextArea extends React.Component {
     render(){
         const { className, children, showCounter, maxlength, onChange, ...others } = this.props;
         const cls = classNames({
-            weui_textarea: true,
+            'weui-textarea': true,
             [className]: className
         });
 
@@ -46,7 +46,7 @@ export default class TextArea extends React.Component {
                 </textarea>
                 {
                     showCounter ?
-                    <div className="weui_textarea_counter">
+                    <div className="weui-textarea-counter">
                         <span>{this.state.textCounter}</span>{maxlength ? '/' + maxlength : false}
                     </div>
                     : false

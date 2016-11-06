@@ -13,7 +13,7 @@ export default class TabBar extends React.Component {
 
         const {children, className, ...others} = this.props;
         const cls = classNames({
-            weui_tabbar: true
+            'weui-tabbar': true
         }, className);
 
         return (

@@ -1,74 +1,82 @@
-/**
- * Created by jf on 15/12/10.
- */
-
-"use strict";
-
 import React from 'react';
-import {Button, Dialog} from '../../../src/index';
+import { Button, Dialog } from '../../../src/index';
 import Page from '../../component/page';
-
-const {Alert, Confirm} = Dialog;
 
 export default class DialogDemo extends React.Component {
     state = {
-        showAlert: false,
-        showConfirm: false,
-        alert: {
-            title: '标题标题',
+        showAuto1: false,
+        showAuto2: false,
+        showIOS1: false,
+        showIOS2: false,
+        showAndroid1: false,
+        showAndroid2: false,
+        style1: {
             buttons: [
                 {
-                    label: '好的',
-                    onClick: this.hideAlert.bind(this)
+                    label: 'Ok',
+                    onClick: this.hideDialog.bind(this)
                 }
             ]
         },
-        confirm: {
-            title: '标题标题',
+        style2: {
+            title: 'Heading',
             buttons: [
                 {
                     type: 'default',
-                    label: '好的',
-                    onClick: this.hideConfirm.bind(this)
+                    label: 'Cancel',
+                    onClick: this.hideDialog.bind(this)
                 },
                 {
                     type: 'primary',
-                    label: '我愿意',
-                    onClick: this.hideConfirm.bind(this)
+                    label: 'Ok',
+                    onClick: this.hideDialog.bind(this)
                 }
             ]
         }
     };
 
-    showAlert() {
-        this.setState({showAlert: true});
-    }
-
-    hideAlert() {
-        this.setState({showAlert: false});
-    }
-
-    showConfirm() {
-        this.setState({showConfirm: true});
-    }
-
-    hideConfirm() {
-        this.setState({showConfirm: false});
+    hideDialog() {
+        this.setState({
+            showAuto1: false,
+            showAuto2: false,
+            showIOS1: false,
+            showIOS2: false,
+            showAndroid1: false,
+            showAndroid2: false,
+        });
     }
 
     render() {
         return (
-            <Page className="dialog" title="Dialog" spacing>
-                <Button type="warn" onClick={this.showAlert.bind(this)}>警告</Button>
-                <Button type="primary" onClick={this.showConfirm.bind(this)}>确认</Button>
+            <Page className="dialog" title="Dialog" subTitle="对话框" spacing>
+                <Button type="default" onClick={ e=> this.setState({ showAuto1: true}) } >AutoDetect Style1</Button>
+                <Button type="default" onClick={ e=> this.setState({ showAuto2: true}) }>AutoDetect Style2</Button>
+                <Button type="default" onClick={ e=> this.setState({ showIOS1: true}) } >iOS Style1</Button>
+                <Button type="default" onClick={ e=> this.setState({ showIOS2: true}) }>iOS Style2</Button>
+                <Button type="default" onClick={ e=> this.setState({ showAndroid1: true}) } >Android Style1</Button>
+                <Button type="default" onClick={ e=> this.setState({ showAndroid2: true}) }>Android Style2</Button>
 
 
-                <Alert title={this.state.alert.title} buttons={this.state.alert.buttons} show={this.state.showAlert}>
-                    警告内容
-                </Alert>
-                <Confirm title={this.state.confirm.title} buttons={this.state.confirm.buttons} show={this.state.showConfirm}>
-                    确认内容？
-                </Confirm>
+                <Dialog title={this.state.style1.title} buttons={this.state.style1.buttons} show={this.state.showAuto1}>
+                    This is AutoDetect Style 1
+                </Dialog>
+                <Dialog title={this.state.style2.title} buttons={this.state.style2.buttons} show={this.state.showAuto2}>
+                    This is AutoDetect Style 2
+                </Dialog>
+
+                <Dialog type="ios" title={this.state.style1.title} buttons={this.state.style1.buttons} show={this.state.showIOS1}>
+                    This is iOS Style 1
+                </Dialog>
+                <Dialog type="ios" title={this.state.style2.title} buttons={this.state.style2.buttons} show={this.state.showIOS2}>
+                    This is iOS Style 2
+                </Dialog>
+
+                <Dialog type="android" title={this.state.style1.title} buttons={this.state.style1.buttons} show={this.state.showAndroid1}>
+                    This is Android Style 1
+                </Dialog>
+                <Dialog type="android" title={this.state.style2.title} buttons={this.state.style2.buttons} show={this.state.showAndroid2}>
+                    This is Android Style 2
+                </Dialog>
             </Page>
         );
     }

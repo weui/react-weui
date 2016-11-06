@@ -1,8 +1,66 @@
 ### CHANGELOG
 
-#### 1.0.0
+#### 1.0.0-alpha
+
+Production:
+
+- Update class to compliance with `weui` 1.0.x
+
+Develop:
 
 - Update to Babel 6
+- Add Depreciate warnings
+
+Breaking Changes:
+
+- Remove Dialog.Alert (use Dialog directly)
+- Remove Dialog.Confirm (use Dialog directly)
+
+New Components:
+
+- Agreement
+- VCode
+- Toptips
+- Gallery
+- GalleryDelete
+- Flex
+- FlexItem
+- Footer
+- FooterText
+- FooterLinks
+- FooterLink
+- LoadMore
+- Preview
+- PreviewHeader
+- PreviewBody
+- PreviewFooter
+- PreviewItem
+- PreviewButton
+- version
+
+New Addon Components:
+
+- Popup
+- PopupHeader
+
+New Property:
+- Cell & Button add property `component`, you can pass in component like (Link from react-router)
+- Button type add 'vcode'
+- Uploader onFileClick(event, file, index)
+- Cell link property
+- Icon add primary property (only use for warn currently)
+- Progress add showCancel property
+
+Depreciate on next release
+
+- Cells Access
+- Panel Access
+- Uploader -> File -> onClick
+- Icons value `safe_success`, `safe_warn`, `success_circle`, `success_no_circle`, `waiting_circle`,`info_circle`
+
+Known Issues
+
+- Icon 'safe-success' and 'safe-warn' is not showing [fix pr](https://github.com/weui/weui/pull/528)
 
 #### 0.4.0 (2016-04-28)
 

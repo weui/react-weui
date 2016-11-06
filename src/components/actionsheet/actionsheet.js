@@ -1,56 +1,33 @@
-/**
- * Created by jf on 15/11/26.
- */
-
-
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import Mask from '../mask/index';
+import { isAndroid } from '../../utils/mobile_detect';
+import './actionsheet.less';
 
-export default class ActionSheet extends React.Component {
+class ActionSheet extends Component {
     static propTypes = {
-        menus: React.PropTypes.array,
-        actions: React.PropTypes.array,
-        show: React.PropTypes.bool,
-        onRequestClose: React.PropTypes.func
+        menus: PropTypes.array,
+        actions: PropTypes.array,
+        show: PropTypes.bool,
+        onRequestClose: PropTypes.func,
+        autoDectect: PropTypes.bool,
+        type: PropTypes.string,
     };
 
     static defaultProps = {
+        type: '',
         menus: [],
         actions: [],
         show: false,
-        onRequestClose: ()=> {
-
-        }
+        autoDectect: true,
+        onRequestClose: () => {}
     };
 
-    render() {
-        const {show, onRequestClose} = this.props;
-        const className = classNames({
-            weui_actionsheet: true,
-            weui_actionsheet_toggle: show
-        });
-
-        return (
-            <div>
-                <Mask style={{display: show ? 'block' : 'none'}} onClick={onRequestClose}/>
-                <div className={className}>
-                    <div className="weui_actionsheet_menu">
-                        {this._renderMenuItem()}
-                    </div>
-                    <div className="weui_actionsheet_action">
-                        {this._renderActions()}
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    _renderMenuItem() {
+    renderMenuItem() {
         return this.props.menus.map((menu, idx) => {
             const {label, className, ...others} = menu;
             const cls = classNames({
-                weui_actionsheet_cell: true,
+                'weui-actionsheet__cell': true,
                 [className]: className
             });
 
@@ -60,11 +37,11 @@ export default class ActionSheet extends React.Component {
         });
     }
 
-    _renderActions() {
+    renderActions() {
         return this.props.actions.map((action, idx) => {
             const {label, className, ...others} = action;
             const cls = classNames({
-                weui_actionsheet_cell: true,
+                'weui-actionsheet__cell': true,
                 [className]: className
             });
 
@@ -73,4 +50,36 @@ export default class ActionSheet extends React.Component {
             );
         });
     }
+
+    render() {
+        const {show, autoDectect, type, onRequestClose, ...others} = this.props;
+        const cls = classNames({
+            'weui-actionsheet': true,
+            'weui-actionsheet_toggle': show
+        });
+
+        let styleType = type ? type : 'ios';
+
+        if(!type && autoDectect){
+            if(isAndroid) styleType = 'android';
+        }
+
+        return (
+            <div
+                className={styleType == 'android' ? 'weui-skin_android' : ''}
+            >
+                    <Mask style={{display: show ? 'block' : 'none'}} onClick={onRequestClose} />
+                    <div className={cls} {...others} >
+                        <div className="weui-actionsheet__menu">
+                            {this.renderMenuItem()}
+                        </div>
+                        <div className="weui-actionsheet__action">
+                            {this.renderActions()}
+                        </div>
+                    </div>
+            </div>
+        );
+    }
 };
+
+export default ActionSheet;

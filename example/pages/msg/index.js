@@ -1,36 +1,13 @@
-/**
- * Created by jf on 15/12/10.
- */
-
-"use strict";
-
 import React from 'react';
-import {Button, Msg} from '../../../src/index';
+import { Link } from 'react-router';
+import { Button } from '../../../src/index';
 import Page from '../../component/page';
 
-export default class MsgDemo extends React.Component {
+const MsgDemo = () => (
+    <Page className="msg" title="Msg" subTitle="提示页" spacing>
+        <Button component={Link} to="/msg/success">Success Message</Button>
+        <Button component={Link} to="/msg/fail">Warn Message</Button>
+    </Page>
+)
 
-    state = {
-        buttons: [{
-            type: 'primary',
-            label: '确定',
-            onClick: ()=>{
-
-            }
-        }, {
-            type: 'default',
-            label: '取消',
-            onClick: ()=>{
-
-            }
-        }]
-    };
-
-    render() {
-        return (
-            <Page className="msg" title="Msg" spacing>
-                <Msg type="success" title="提交成功" description="你的反馈我们已经收到" buttons={this.state.buttons} extraText="查看详情" extraHref="#"/>
-            </Page>
-        );
-    }
-};
+export default MsgDemo;

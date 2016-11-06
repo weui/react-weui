@@ -11,7 +11,7 @@ export default class MediaBoxTitle extends React.Component {
     render() {
         const {children, className, ...others} = this.props;
         const cls = classNames({
-            weui_media_title: true
+           'weui-media-box__title': true
         }, className);
 
         return (

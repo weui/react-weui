@@ -13,7 +13,7 @@ export default class TabBody extends React.Component {
 
         const {children, className, ...others} = this.props;
         const cls = classNames({
-            weui_tab_bd: true
+            'weui-tab__panel': true
         }, className);
 
         return (
