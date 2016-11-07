@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Popup, Grids, PopupHeader, Article} from '../../../src/index';
+import { Button, Popup, Grids, PopupHeader, Article } from '../../../src/index';
 import Page from '../../component/page';
 import iconSrc from '../grid/icon_tabbar.png';
 import srcArticle from '../article/pic_article.png';
@@ -27,6 +27,7 @@ class PopupDemo extends React.Component {
     render() {
         return (
             <Page className="popup" title="Popup" subTitle="pop pop pop it up" spacing>
+
                 <Button type="default" onClick={e=>this.setState({bottom_show: true})}>Popup</Button>
                 <Popup
                     show={this.state.bottom_show}

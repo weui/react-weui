@@ -36,6 +36,7 @@ New Components:
 - PreviewFooter
 - PreviewItem
 - PreviewButton
+- Picker
 - version
 
 New Addon Components:

@@ -32,6 +32,10 @@ const menus = [
                 to: '/input'
             },
             {
+                label: 'Picker',
+                to: '/picker'
+            },
+            {
                 label: 'Uploader',
                 to: '/uploader'
             }

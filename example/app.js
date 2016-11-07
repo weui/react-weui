@@ -33,6 +33,7 @@ import MsgSuccess from './pages/msg/success';
 import MsgFail from './pages/msg/fail';
 import TopTips from './pages/toptips';
 import Popup from './pages/popup';
+import Picker from './pages/picker';
 
 class App extends React.Component {
         render() {
@@ -87,6 +88,7 @@ ReactDOM.render((
                     <Route path="preview" component={Preview}/>
                     <Route path="toptips" component={TopTips}/>
                     <Route path="popup" component={Popup}/>
+                    <Route path="picker" component={Picker}/>
             </Route>
     </Router>
 ), document.getElementById('container'));
