@@ -27,7 +27,7 @@ import Toptips from './components/toptips';
 import {Gallery, GalleryDelete} from './components/gallery';
 import {Footer, FooterText, FooterLinks, FooterLink} from './components/footer';
 import LoadMore from './components/loadmore';
-import { Picker } from './components/picker';
+import { Picker, CityPicker } from './components/picker';
 
 //non standard
 import { Popup, PopupHeader } from './components/popup';
@@ -109,6 +109,7 @@ export default {
     PreviewItem,
     PreviewButton,
     Picker,
+    CityPicker,
 
     //non-standard
     Popup,

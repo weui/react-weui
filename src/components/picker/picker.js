@@ -13,7 +13,7 @@ class Picker extends Component {
 
     static defaultProps = {
         actions: [],
-        groups: []
+        groups: [],
     }
 
     constructor(props){
@@ -28,7 +28,7 @@ class Picker extends Component {
     }
 
     handleChanges(){
-        if(this.props.onChange) this.props.onChange(this.state.selected)
+        if(this.props.onChange) this.props.onChange(this.state.selected, this)
     }
 
     handleChange(item, i, groupIndex){

@@ -18,10 +18,12 @@ class PickerGroup extends Component {
         itemHeight: 25 + 9, //content + padding
         indicatorTop: 102,
         indicatorHeight: 34,
-        onChange: (item, i) => console.log(item, i),
         aniamtion: true,
         groupIndex: -1,
-        defaultIndex: -1
+        defaultIndex: -1,
+        mapKeys: {
+            label: 'label'
+        }
     }
 
     constructor(props){
@@ -45,7 +47,15 @@ class PickerGroup extends Component {
     }
 
     componentDidMount(){
-        const { items, itemHeight, indicatorTop, defaultIndex } = this.props;
+        this.adjustPosition(this.props);
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.adjustPosition(nextProps);
+    }
+
+    adjustPosition(props){
+        const { items, itemHeight, indicatorTop, defaultIndex } = props;
         const totalHeight = items.length * itemHeight
         let translate = totalHeight <= indicatorTop ? indicatorTop : 0
 
@@ -55,14 +65,14 @@ class PickerGroup extends Component {
                 if( defaultIndex > upperCount ){
                     //over
                     let overCount = defaultIndex - upperCount;
-                    translate -= overCount & itemHeight
-                }if( defaultIndex == upperCount){
+                    translate -= overCount * itemHeight
+                }else if( defaultIndex === upperCount){
                     translate = 0;
                 }else{
                     //less
-                    console.log('less')
                     translate += ( Math.abs(upperCount - defaultIndex) * itemHeight)
                 }
+                //if(props.groupIndex == 2) console.log(defaultIndex,translate, upperCount)
             }else{
                 //total item less than indicator height
                 translate -= itemHeight * defaultIndex
@@ -70,9 +80,10 @@ class PickerGroup extends Component {
         }
 
     	this.setState({
+    	    selected: defaultIndex,
     	    ogTranslate: translate,
     	    totalHeight,
-    	    translate
+    	    translate,
     	}, () => defaultIndex > -1 ? this.updateSelected(false) : this.updateSelected() );
     }
 
@@ -176,8 +187,9 @@ class PickerGroup extends Component {
                     style={styles}
                     ref="content">
                     { items.map( (item, j) => {
-                        const { label, ...itemOthers } = item;
-                        return <div {...itemOthers} key={j} className="weui-picker__item">{ label }</div>
+                        const label = item[this.props.mapKeys.label];
+
+                        return <div {...item} key={j} className="weui-picker__item">{ label }</div>
                     }) }
                 </div>
             </div>
