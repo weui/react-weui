@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Full screen photo display
+ *
+ */
 const Gallery = (props) => {
     const { children, className, show, src, ...others } = props;
     const cls = classNames({
@@ -17,6 +21,24 @@ const Gallery = (props) => {
         </div>
     );
 };
+
+Gallery.propTypes = {
+    /**
+     * indicate whather the component is display
+     *
+     */
+    show: React.PropTypes.bool,
+    /**
+     * image source url or base64 encode
+     *
+     */
+    src: React.PropTypes.string
+}
+
+Gallery.defaultProps = {
+    show: undefined,
+    src: ''
+}
 
 export default Gallery;
 

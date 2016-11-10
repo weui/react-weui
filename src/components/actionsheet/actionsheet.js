@@ -4,13 +4,38 @@ import Mask from '../mask/index';
 import { isAndroid } from '../../utils/mobile_detect';
 import './actionsheet.less';
 
+/**
+ * Used to display a collection of actions that contain a set of interactivity, including descriptions, links, and so on. Popup from the bottom, generally used to respond to user clicks on the page.
+ */
 class ActionSheet extends Component {
     static propTypes = {
+        /**
+         * Array of Objects for menus, `label` property is Required
+         *
+         */
         menus: PropTypes.array,
+        /**
+         * Array of Objects for actions, `label` property is Required
+         *
+         */
         actions: PropTypes.array,
+        /**
+         * To display ActionSheet
+         *
+         */
         show: PropTypes.bool,
+        /**
+         * Function triggers when user click on the mask
+         *
+         */
         onRequestClose: PropTypes.func,
+        /**
+         * Allow component to autodetect device and display corresponding style
+         */
         autoDectect: PropTypes.bool,
+        /**
+         * style: ios/android
+         */
         type: PropTypes.string,
     };
 

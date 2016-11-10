@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * weui switch style for checkbox
+ *
+ */
 const Switch = (props) => {
     const { className, ...others } = props;
     const cls = classNames({

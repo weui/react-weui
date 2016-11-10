@@ -2,12 +2,36 @@ import React, { Component, PropTypes } from 'react';
 import PickerGroup from './picker_group';
 import classNames from 'classnames';
 
+/**
+ *  Mobile select ui, currently only support Touch Events
+ *
+ */
 class Picker extends Component {
     static propTypes = {
+        /**
+         * consists of array of object(max 2) with property `label` and others pass into element
+         *
+         */
         actions: PropTypes.array,
+        /**
+         * array objects consists of groups for each scroll group
+         *
+         */
         groups: PropTypes.array,
+        /**
+         * default group index thats selected, if not provide, automatic chose the best fiting item when mounted
+         *
+         */
         defaultSelect: PropTypes.array,
+        /**
+         * trigger when individual group change, pass property(`item`, `item index in group`, `group index in groups`)
+         *
+         */
         onGroupChange: PropTypes.func,
+        /**
+         * on selected change, pass property `selected` for array of slected index to `groups`
+         *
+         */
         onChange: PropTypes.func
     };
 

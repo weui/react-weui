@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * foot link wrapper for link
+ *
+ */
 const FooterLink = (props) => {
     const { className, children, ...others } = props;
     const cls = classNames({

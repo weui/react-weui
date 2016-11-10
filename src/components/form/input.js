@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * WeUI Input wrapper for `input`
+ *
+ */
 const Input = (props) => {
     const { className, ...others } = props;
     const cls = classNames({

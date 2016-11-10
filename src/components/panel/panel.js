@@ -2,8 +2,16 @@ import React from 'react';
 import classNames from 'classnames';
 import deprecationWarning from '../../utils/deprecationWarning';
 
+/**
+ * Panel Object, consists of `PanelHeader`, `PanelBody` and `PanelFooter`
+ *
+ */
 export default class Panel extends React.Component {
     static propTypes = {
+        /**
+         * deprecated property from 0.4.x
+         *
+         */
         access: React.PropTypes.bool,
     };
 

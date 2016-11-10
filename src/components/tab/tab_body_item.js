@@ -1,15 +1,16 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Content wrapper for each Tab Item
+ */
 export default class TabBodyItem extends React.Component {
     static propTypes = {
-      active: React.PropTypes.bool
+        /**
+         * display this component
+         *
+         */
+        active: React.PropTypes.bool
     };
 
     static defaultProps = {

@@ -1,15 +1,21 @@
-/**
- * Created by yjcxy12 on 16/1/22.
- */
-
-
-
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
+/**
+ * weui wrapper for form
+ *
+ */
 class Form extends Component {
     static propTypes = {
+        /**
+         * if this form is use for radios
+         *
+         */
         radio: PropTypes.bool,
+        /**
+         * if this form is use for checkbox
+         *
+         */
         checkbox: PropTypes.bool
     };
 

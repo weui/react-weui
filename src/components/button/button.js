@@ -1,18 +1,29 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ *  Button usage：OK(primary)、Cancel(default)、Warn(warn).
+ *
+ */
 export default class Button extends React.Component {
     static propTypes = {
         disabled: React.PropTypes.bool,
+        /**
+         * Options: primary, default, warn, vcode
+         *
+         */
         type: React.PropTypes.string,
+        /**
+         * Options: normal, small
+         *
+         */
         size: React.PropTypes.string,
-        vcode: React.PropTypes.bool
     };
 
     static defaultProps = {
         disabled: false,
         type: 'primary',
-        size: 'normal'
+        size: 'normal',
     };
 
     render() {

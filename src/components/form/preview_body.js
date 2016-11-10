@@ -3,6 +3,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Content of Preview
+ *
+ */
 const PreviewBody = (props) => {
 
     const { className, children, ...others } = props;

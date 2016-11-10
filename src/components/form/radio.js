@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * weui wrapper for radio
+ *
+ */
 const Radio = (props) => {
     const { className, ...others } = props;
     const cls = classNames({

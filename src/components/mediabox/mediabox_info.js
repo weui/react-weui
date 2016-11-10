@@ -2,8 +2,16 @@ import React from 'react';
 import classNames from 'classnames';
 import MediaBoxInfoMeta from './mediabox_info_meta';
 
+/**
+ * Info Items for MediaBox
+ *
+ */
 export default class MediaBoxInfo extends React.Component {
     static propTypes = {
+        /**
+         * automatically include Metas, object array of metas, property required: `extra`, `label`
+         *
+         */
         data: React.PropTypes.array,
     };
 

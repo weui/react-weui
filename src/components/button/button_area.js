@@ -3,6 +3,10 @@ import classNames from 'classnames';
 
 class ButtonArea extends Component {
     static propTypes = {
+        /**
+         * Direction of Button Layout inside, Options: veritical, horizontal
+         *
+         */
         direction: React.PropTypes.string
     };
 

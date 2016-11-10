@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Popup, Picker, CityPicker, Form, FormCell, CellBody, CellHeader, Label, Input } from '../../../src/index';
+import { Popup, Picker, CityPicker, Form, FormCell, CellBody, CellHeader, Label, Input } from '../../../src/index';
 import Page from '../../component/page';
 import cnCity from './cnCity';
 
@@ -56,6 +56,7 @@ class PickerDemo extends React.Component {
                                     this.setState({city_show: true})
                                 }}
                                 placeholder="Chose Your City"
+                                readOnly={true}
                             />
                         </CellBody>
                     </FormCell>
@@ -86,6 +87,7 @@ class PickerDemo extends React.Component {
                                 }}
                                 placeholder="Pick a item"
                                 value={this.state.picker_value}
+                                readOnly={true}
                             />
                         </CellBody>
                     </FormCell>

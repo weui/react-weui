@@ -1,12 +1,9 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Content Wrapper for Tab
+ */
 export default class TabBody extends React.Component {
 
     render() {

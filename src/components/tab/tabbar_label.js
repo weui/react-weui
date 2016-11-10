@@ -1,12 +1,10 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ *  label wrapper for text inside TabBarItem
+ *
+ */
 export default class TabBarLabel extends React.Component {
 
     render() {

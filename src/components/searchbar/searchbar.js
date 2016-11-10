@@ -3,14 +3,46 @@ import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import Icon from '../icon';
 
+/**
+ *  weui search component
+ *
+ */
 class SearchBar extends React.Component {
     static propTypes = {
+        /**
+         * default place holder text
+         *
+         */
         placeholder: React.PropTypes.string,
+        /**
+         * name of the input component
+         *
+         */
         searchName: React.PropTypes.string,
+        /**
+         * trigger when text change on input pass `text` property
+         *
+         */
         onChange: React.PropTypes.func,
+        /**
+         * trigger when user click clear icon
+         *
+         */
         onClear: React.PropTypes.func,
+        /**
+         * trigger when user click cancel button
+         *
+         */
         onCancel: React.PropTypes.func,
+        /**
+         * trigger when user submit (enter action)
+         *
+         */
         onSubmit: React.PropTypes.func,
+        /**
+         * language object consists of `cancel` property
+         *
+         */
         lang: React.PropTypes.object
     };
 
@@ -21,9 +53,7 @@ class SearchBar extends React.Component {
         onClear: undefined,
         onCancel: undefined,
         onSubmit: undefined,
-        lang: {
-            cancel: '取消'
-        },
+        lang: { cancel: '取消' },
         autocomplete: 'off'
     };
 

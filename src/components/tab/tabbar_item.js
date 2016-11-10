@@ -3,11 +3,27 @@ import classNames from 'classnames';
 import TabBarIcon from './tabbar_icon';
 import TabBarLabel from './tabbar_label';
 
+/**
+ *  Tabbar item
+ *
+ */
 export default class TabBarItem extends React.Component {
     static propTypes = {
-      active: React.PropTypes.bool,
-      icon: React.PropTypes.any,
-      label: React.PropTypes.string
+        /**
+         * indicate currently active
+         *
+         */
+        active: React.PropTypes.bool,
+        /**
+         * icon of item
+         *
+         */
+        icon: React.PropTypes.any,
+        /**
+         * label of item
+         *
+         */
+        label: React.PropTypes.string
     };
 
     static defaultProps = {

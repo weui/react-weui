@@ -23,11 +23,11 @@ const SuccessMsg = (props) => {
             buttons={[{
                 type: 'primary',
                 label: 'Ok',
-                onClick: props.history.goBack
+                onClick: props.history ? props.history.goBack : false
             }, {
                 type: 'default',
                 label: 'Cancel',
-                onClick: props.history.goBack
+                onClick: props.history ? props.history.goBack : false
             }]}
             footer={SuccessFooter}
         />

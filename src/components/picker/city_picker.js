@@ -1,20 +1,46 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Picker from './picker';
 
+/**
+ *  An city pick component build on top of picker
+ *
+ */
 class CityPicker extends React.Component {
+
+    static propTypes = {
+        /**
+         * display picker inline
+         *
+         */
+        inline: PropTypes.bool,
+        /**
+         * Array of item trees, consists property for label and subitems
+         *
+         */
+        data: PropTypes.array,
+        /**
+         * keys for data provide, `id` to indicate property name for label, `items` to indicate property name for subitems
+         *
+         */
+        dataMap: PropTypes.object,
+        /**
+         * currently selected item
+         *
+         */
+        selected: PropTypes.array,
+        /**
+         * language object consists of `leftBtn` and `rightBtn`
+         *
+         */
+        lang: PropTypes.object
+    }
 
     static defaultProps = {
         inline: false,
         data: [],
-        dataMap: {
-            id: 'name',
-            items: 'sub'
-        },
+        dataMap: { id: 'name', items: 'sub' },
         selected: [],
-        lang: {
-            leftBtn: 'Cancel',
-            rightBtn: 'Ok'
-        }
+        lang: { leftBtn: 'Cancel', rightBtn: 'Ok' }
     }
 
     constructor(props){

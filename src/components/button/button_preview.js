@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import classNames from 'classnames';
 
 const PreviewButton = (props) => {
@@ -16,6 +16,18 @@ const PreviewButton = (props) => {
         </a>
     );
 };
+
+PreviewButton.propTypes = {
+    /**
+     * Primary style of button
+     *
+     */
+    primary: PropTypes.bool
+}
+
+PreviewButton.defaultProps = {
+    primary: false
+}
 
 export default PreviewButton;
 

@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Description of MediaBox
+ *
+ */
 export default class MediaBoxDescription extends React.Component {
     render() {
         const {children, className, ...others} = this.props;

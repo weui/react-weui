@@ -1,16 +1,22 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ *  Navbar item to display info
+ *
+ */
 export default class NavBarItem extends React.Component {
     static propTypes = {
-      active: React.PropTypes.bool,
-      label: React.PropTypes.string
+        /**
+         * indicate tab is active
+         *
+         */
+        active: React.PropTypes.bool,
+        /**
+         * label of the item
+         *
+         */
+        label: React.PropTypes.string
     };
 
     static defaultProps = {

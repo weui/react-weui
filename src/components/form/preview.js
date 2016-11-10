@@ -3,6 +3,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Preview Wrapper consists of `PreviewHeader`, `PreviewBody`, `PreviewFooter`, `PreviewItem`
+ *
+ */
 const Preview = (props) => {
 
     const { className, children, ...others } = props;

@@ -1,0 +1,504 @@
+[
+  {
+    "id" : "1",
+    "name": "Components",
+    "icon": "file-text-o",
+    "type": "menu",
+    "items":
+    [
+      {
+        "name": "ActionSheet",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_actionSheet.png",
+        "preview" : "ActionSheet",
+        "component" : "actionsheet/actionsheet"
+      },
+      {
+        "name": "Button",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_button.png",
+        "preview" : "Button",
+        "component" : "button/button"
+      },
+      {
+        "name": "ButtonArea",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_button.png",
+        "preview" : "Button",
+        "component" : "button/button_area"
+      },
+      {
+        "name": "ButtonPreview",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_button.png",
+        "preview" : "Preview",
+        "component" : "button/button_preview"
+      },
+      {
+        "name": "Article",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_dialog.png",
+        "preview" : "Article",
+        "component" : "article/article"
+      },
+      {
+        "name": "Cell",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_cell.png",
+        "preview" : "List",
+        "component" : "cell/cell"
+      },
+      {
+        "name": "CellHeader",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_cell.png",
+        "preview" : "List",
+        "component" : "cell/cell_header"
+      },
+      {
+        "name": "CellBody",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_cell.png",
+        "preview" : "List",
+        "component" : "cell/cell_body"
+      },
+      {
+        "name": "CellFooter",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_cell.png",
+        "preview" : "List",
+        "component" : "cell/cell_footer"
+      },
+      {
+        "name": "Cells",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_cell.png",
+        "preview" : "List",
+        "component" : "cell/cells"
+      },
+      {
+        "name": "CellsTip",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_cell.png",
+        "preview" : "List",
+        "component" : "cell/cells_tips"
+      },
+      {
+        "name": "CellsTitle",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_cell.png",
+        "preview" : "List",
+        "component" : "cell/cells_title"
+      },
+      {
+        "name": "Dialog",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_dialog.png",
+        "preview" : "Dialog",
+        "component" : "dialog/dialog"
+      },
+      {
+        "name": "Flex",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Flex",
+        "component" : "flex/flex"
+      },
+      {
+        "name": "FlexItem",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Flex",
+        "component" : "flex/flex_item"
+      },
+      {
+        "name": "Footer",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_dialog.png",
+        "preview" : "Footer",
+        "component" : "footer/footer"
+      },
+      {
+        "name": "FooterLinks",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_dialog.png",
+        "preview" : "Footer",
+        "component" : "footer/footer_links"
+      },
+      {
+        "name": "FooterLink",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_dialog.png",
+        "preview" : "Footer",
+        "component" : "footer/footer_link"
+      },
+      {
+        "name": "FooterText",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_dialog.png",
+        "preview" : "Footer",
+        "component" : "footer/footer_text"
+      },
+      {
+        "name": "Agreement",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Input",
+        "component" : "form/agreement"
+      },
+      {
+        "name": "Checkbox",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Input",
+        "component" : "form/checkbox"
+      },
+      {
+        "name": "Form",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Input",
+        "component" : "form/form"
+      },
+      {
+        "name": "FormCell",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Input",
+        "component" : "form/form_cell"
+      },
+      {
+        "name": "Input",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Input",
+        "component" : "form/input"
+      },
+      {
+        "name": "Radio",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Input",
+        "component" : "form/radio"
+      },
+      {
+        "name": "Select",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Input",
+        "component" : "form/select"
+      },
+      {
+        "name": "Switch",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Input",
+        "component" : "form/switch"
+      },
+      {
+        "name": "Label",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Input",
+        "component" : "label/label"
+      },
+      {
+        "name": "TextArea",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Input",
+        "component" : "form/textarea"
+      },
+      {
+        "name": "Uploader",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Uploader",
+        "component" : "form/uploader"
+      },
+      {
+        "name": "VCode",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Input",
+        "component" : "form/vcode"
+      },
+      {
+        "name": "Gallery",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Gallery",
+        "component" : "gallery/gallery"
+      },
+      {
+        "name": "GalleryDelete",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Gallery",
+        "component" : "gallery/gallery_delete"
+      },
+      {
+        "name": "Grids",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Grid",
+        "component" : "grid/grids"
+      },
+      {
+        "name": "Grid",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Grid",
+        "component" : "grid/grid"
+      },
+      {
+        "name": "GridIcon",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Grid",
+        "component" : "grid/grid_icon"
+      },
+      {
+        "name": "GridLabel",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Grid",
+        "component" : "grid/grids"
+      },
+      {
+        "name": "Icon",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Icons",
+        "component" : "icon/icon"
+      },
+      {
+        "name": "LoadMore",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "LoadMore",
+        "component" : "loadmore/loadmore"
+      },
+      {
+        "name": "Mask",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "ActionSheet",
+        "component" : "mask/mask"
+      },
+      {
+        "name": "Panel",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Panel",
+        "component" : "panel/panel"
+      },
+      {
+        "name": "PanelHeader",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Panel",
+        "component" : "panel/panel_header"
+      },
+      {
+        "name": "PanelBody",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Panel",
+        "component" : "panel/panel_body"
+      },
+      {
+        "name": "PanelFooter",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Panel",
+        "component" : "panel/panel_footer"
+      },
+      {
+        "name": "MediaBox",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Panel",
+        "component" : "mediabox/mediabox"
+      },
+      {
+        "name": "MediaBoxBody",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Panel",
+        "component" : "mediabox/mediabox_body"
+      },
+      {
+        "name": "MediaBoxDescription",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Panel",
+        "component" : "mediabox/mediabox_desc"
+      },
+      {
+        "name": "MediaBoxHeader",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Panel",
+        "component" : "mediabox/mediabox_header"
+      },
+      {
+        "name": "MediaBoxInfo",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Panel",
+        "component" : "mediabox/mediabox_info"
+      },
+      {
+        "name": "MediaBoxInfoMeta",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Panel",
+        "component" : "mediabox/mediabox_info_meta"
+      },
+      {
+        "name": "MediaBoxTitle",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Panel",
+        "component" : "mediabox/mediabox_title"
+      },
+      {
+        "name": "Msg",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "MsgSuccess",
+        "code"  : "msg/success",
+        "component" : "msg/msg"
+      },
+      {
+        "name": "Picker",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Picker",
+        "component" : "picker/picker"
+      },
+      {
+        "name": "CityPicker",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Picker",
+        "component" : "picker/city_picker"
+      },
+      {
+        "name": "Popup",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Popup",
+        "component" : "popup/popup"
+      },
+      {
+        "name": "PopupHeader",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Popup",
+        "component" : "popup/popup_header"
+      },
+      {
+        "name": "Progress",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Progress",
+        "component" : "progress/progress"
+      },
+      {
+        "name": "SearchBar",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "SearchBar",
+        "component" : "searchbar/searchbar"
+      },
+      {
+        "name": "Tab",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "NavBar",
+        "code"  : "tab/navbar",
+        "component" : "tab/tab"
+      },
+      {
+        "name": "TabBody",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "NavBar",
+        "code"  : "tab/navbar",
+        "component" : "tab/tab_body"
+      },
+      {
+        "name": "TabBodyItem",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "NavBar",
+        "code"  : "tab/navbar",
+        "component" : "tab/tab_body_item"
+      },
+      {
+        "name": "NavBar",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "NavBar2",
+        "code"  : "tab/navbar_auto",
+        "component" : "tab/navbar"
+      },
+      {
+        "name": "NavBarItem",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "NavBar",
+        "code"  : "tab/navbar",
+        "component" : "tab/tab"
+      },
+      {
+        "name": "TabBar",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "TabBar2",
+        "code"  : "tab/tabbar_auto",
+        "component" : "tab/tabbar"
+      },
+      {
+        "name": "TabBarItem",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "TabBar",
+        "code"  : "tab/tabbar",
+        "component" : "tab/tabbar_item"
+      },
+      {
+        "name": "TabBarIcon",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "TabBar",
+        "code"  : "tab/tabbar",
+        "component" : "tab/tabbar_icon"
+      },
+      {
+        "name": "TabBarLabel",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "TabBar",
+        "code"  : "tab/tabbar",
+        "component" : "tab/tabbar_label"
+      },
+      {
+        "name": "Toast",
+        "version": "0.4.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Toast",
+        "component" : "toast/toast"
+      },
+      {
+        "name": "Toptips",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "TopTips",
+        "component" : "toptips/toptips"
+      }
+    ]
+  }
+]

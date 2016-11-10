@@ -1,12 +1,10 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ *  Icon wrapper for icon use in TabBar
+ *
+ */
 export default class TabBarIcon extends React.Component {
 
     render() {

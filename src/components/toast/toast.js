@@ -3,11 +3,26 @@ import classNames from 'classnames';
 import Mask from '../mask/index';
 import Icon from '../icon/index';
 
-
+/**
+ *  pop out indicator to inform users
+ *
+ */
 class Toast extends Component {
     static propTypes = {
+        /**
+         * Icon Value
+         *
+         */
         icon: PropTypes.string,
+        /**
+         * Icon Size
+         *
+         */
         iconSize: PropTypes.string,
+        /**
+         * display toast
+         *
+         */
         show: PropTypes.bool
     };
 

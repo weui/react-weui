@@ -1,12 +1,10 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * WeUI Grid Label Wrapper
+ *
+ */
 export default class GridLabel extends React.Component {
     render() {
         const {children, className, ...others} = this.props;

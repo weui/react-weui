@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * consists of `footer_link`
+ *
+ */
 const FooterLinks = (props) => {
     const { className, children, ...others } = props;
     const cls = classNames({

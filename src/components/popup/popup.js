@@ -3,9 +3,21 @@ import classNames from 'classnames';
 import Mask from '../mask/index';
 import './popup.less';
 
+/**
+ *  An Popup modal from bottom
+ *
+ */
 class Popup extends Component {
     static propTypes = {
+        /**
+         * display the component
+         *
+         */
         show: PropTypes.bool,
+        /**
+         * show mask
+         *
+         */
         enableMask: PropTypes.bool
     };
 

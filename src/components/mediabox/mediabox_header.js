@@ -1,12 +1,10 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Header of MediaBox, if detects Img tag inside content will automatically adds corresponding class
+ *
+ */
 export default class MediaBoxHeader extends React.Component {
     render() {
         const {children, className, ...others} = this.props;

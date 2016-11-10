@@ -2,14 +2,46 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import './touch_fix.less';
 
+/**
+ * form wrapper for `Cell`
+ *
+ */
 export default class FormCell extends Component {
     static propTypes = {
+        /**
+         * if cell use for vcode
+         *
+         */
         vcode: PropTypes.bool,
+        /**
+         * display warn style of cell
+         *
+         */
         warn: PropTypes.bool,
+        /**
+         * if cell use for radio
+         *
+         */
         radio: PropTypes.bool,
+        /**
+         * if cell use for checkbox
+         *
+         */
         checkbox: PropTypes.bool,
+        /**
+         * if cell use for switch checkbox
+         *
+         */
         switch: PropTypes.bool,
+        /**
+         * if cell use for select
+         *
+         */
         select: PropTypes.bool,
+        /**
+         * select position, options: before, after
+         *
+         */
         selectPos: PropTypes.string,
     };
 

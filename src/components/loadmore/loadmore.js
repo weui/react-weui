@@ -1,9 +1,11 @@
-//1.0.0 components
-
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 
+/**
+ * Loadmore Indicators.
+ *
+ */
 const LoadMore = (props) => {
 
     const { className, children, loading, showLine, showDot, ...others } = props;
@@ -22,6 +24,30 @@ const LoadMore = (props) => {
             </span>
         </div>
     )
+}
+
+LoadMore.propTypes = {
+    /**
+     * display laoding spinner
+     *
+     */
+    loading: PropTypes.bool,
+    /**
+     * display side lines
+     *
+     */
+    showLine: PropTypes.bool,
+    /**
+     * display dot in the center
+     *
+     */
+    showDot: PropTypes.bool
+}
+
+LoadMore.defaultProps = {
+    loading: false,
+    showLine: false,
+    showDot: false
 }
 
 export default LoadMore;

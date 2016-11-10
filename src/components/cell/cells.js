@@ -3,6 +3,10 @@ import classNames from 'classnames';
 
 import deprecationWarning from '../../utils/deprecationWarning';
 
+/**
+ * Wrapper for `Cell`
+ *
+ */
 const Cells = (props) => {
     const { children, className, access, ...others } = props;
 
@@ -23,5 +27,11 @@ const Cells = (props) => {
         <div className={cls} { ...others }>{ children }</div>
     );
 };
+
+Cells.propTypes = {
+}
+
+Cells.defaultProps = {
+}
 
 export default Cells;

@@ -2,6 +2,10 @@ import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 
+/**
+ * Wrapper for Gallery Delete Button
+ *
+ */
 const GalleryDelete = (props) => {
     const { className, ...others } = props;
     const cls = classNames({

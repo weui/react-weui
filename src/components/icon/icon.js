@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import deprecationWarning from '../../utils/deprecationWarning';
 
 const deprecateValue = {
@@ -12,9 +11,21 @@ const deprecateValue = {
     'info_circle': 'info-circle'
 };
 
+/**
+ * WeUI Icons
+ *
+ */
 class Icon extends React.Component {
     static propTypes = {
+        /**
+         * types of [weui icons](https://github.com/weui/weui/wiki/Icon)
+         *
+         */
         value: React.PropTypes.string,
+        /**
+         * size of icon, options: small/large
+         *
+         */
         size: React.PropTypes.string
     };
 

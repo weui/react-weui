@@ -1,12 +1,10 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ *  Bottom bar for tabs
+ *
+ */
 export default class TabBar extends React.Component {
 
     render() {

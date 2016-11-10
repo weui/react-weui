@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Footer of Panel
+ *
+ */
 export default class PanelFooter extends React.Component {
     render() {
         const {children, ...others} = this.props;

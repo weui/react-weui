@@ -1,14 +1,51 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import {Button, ButtonArea} from '../button/index';
-import { Footer, FooterLinks, FooterLink, FooterText } from '../footer'
+import { Footer, FooterLinks, FooterLink } from '../footer'
 import Icon from '../icon/index';
 import deprecationWarning from '../../utils/deprecationWarning';
 
+/**
+ * A full notification page to indicate results
+ *
+ */
 class Msg extends Component {
     static propTypes = {
+        /**
+         * Icon type
+         *
+         */
         type: PropTypes.string,
-        buttons: PropTypes.array
+        /**
+         * Object array of Buttons, require at least `label` property
+         *
+         */
+        buttons: PropTypes.array,
+        /**
+         * Page Title
+         *
+         */
+        title: PropTypes.string,
+        /**
+         * Page Description
+         *
+         */
+        description: PropTypes.string,
+        /**
+         * deprecated property from 0.4.x
+         *
+         */
+        extraHref: PropTypes.string,
+        /**
+         * deprecated property from 0.4.x
+         *
+         */
+        extraText: PropTypes.string,
+        /**
+         * Footer Element of Page
+         *
+         */
+        footer: PropTypes.any
     };
 
     static defaultProps = {
@@ -47,7 +84,7 @@ class Msg extends Component {
         }
 
         return (
-            <div className={cls}>
+            <div className={cls} {...others}>
                 <div className="weui-msg__icon-area">
                     <Icon value={type} size='large' />
                 </div>

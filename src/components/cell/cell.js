@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
+/**
+ * Cell consist of `CellBody`, `CellHeader` and `CellFooter` for flexible reason
+ *
+ */
 const Cell = (props) => {
     const { className, children, access, href, link, component, htmlFor, ...others } = props;
     const DefaultComponent = href ? 'a' : htmlFor ? 'label' : 'div';
@@ -24,5 +28,28 @@ const Cell = (props) => {
         </CellComponent>
     );
 };
+
+Cell.propTypes = {
+    /**
+     * if cell should have arrow or link
+     *
+     */
+    access: PropTypes.bool,
+    /**
+     * if this cell body is link
+     *
+     */
+    link: PropTypes.bool,
+    /**
+     * pass in an component to replace Cell but apply same style
+     *
+     */
+    component: PropTypes.func
+}
+
+Cell.defaultProps = {
+    access: false,
+    link: false,
+}
 
 export default Cell;

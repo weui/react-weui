@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Content of Panel
+ *
+ */
 export default class PanelBody extends React.Component {
     render() {
         const {children, ...others} = this.props;

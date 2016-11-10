@@ -1,15 +1,17 @@
-/**
- * Created by n7best on 16/2/25.
- */
-
-
-
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
+/**
+ * weui wrapper for select
+ *
+ */
 export default class Select extends Component {
     static propTypes = {
-      data: PropTypes.array
+        /**
+         * object arrays of options, `value` and `label` properties is required
+         *
+         */
+        data: PropTypes.array
     };
 
     static defaultProps = {

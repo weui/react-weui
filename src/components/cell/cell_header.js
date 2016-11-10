@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
+/**
+ * Header of `Cell`
+ *
+ */
 const CellHeader = (props) => {
     const { className, children, primary, ...others } = props;
     const cls = classNames({
@@ -13,5 +17,17 @@ const CellHeader = (props) => {
         <div className={ cls } { ...others }>{ children }</div>
     );
 };
+
+CellHeader.propTypes = {
+    /**
+     * if cell body is the primary block
+     *
+     */
+    primary: PropTypes.bool,
+}
+
+CellHeader.defaultProps = {
+    primary: false,
+}
 
 export default CellHeader

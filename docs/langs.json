@@ -1,0 +1,40 @@
+{
+    "en" : {
+        "navigation": {
+          "searchbar": {
+              "placeholder": "Search",
+              "cancel": "Cancel"
+          }
+        },
+        "content": {
+            "article" : {
+                "detail": "Detail",
+                "code": "Code",
+                "srcCode": "Source Code",
+                "loading": "Loading..."
+            },
+            "nopreview" : {
+                "nopreview": "No Preview"
+            }
+        }
+    },
+    "ch" : {
+        "navigation": {
+          "searchbar": {
+              "placeholder": "搜索",
+              "cancel": "取消"
+          }
+        },
+        "content": {
+            "article" : {
+                "detail": "具体",
+                "code": "代码",
+                "srcCode": "源码",
+                "loading": "读取中..."
+            },
+            "nopreview" : {
+                "nopreview": "没有预览"
+            }
+        }
+    }
+}

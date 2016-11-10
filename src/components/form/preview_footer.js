@@ -3,6 +3,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Footer of Preview, consists of actions
+ *
+ */
 const PreviewFooter = (props) => {
 
     const { className, children, ...others } = props;

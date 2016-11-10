@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * WeUI Label Wrapper
+ *
+ */
 const Label = (props) => {
     const { className, ...others } = props;
     const cls = classNames({

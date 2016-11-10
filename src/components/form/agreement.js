@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Agreement style checkbox
+ *
+ */
 const Agreement = (props) => {
     const { className, children, id, ...others } = props;
     const cls = classNames({

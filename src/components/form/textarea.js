@@ -1,14 +1,22 @@
-/**
- * Created by n7best
- */
-
-
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
+/**
+ * weui wrapper for textarea
+ *
+ */
 export default class TextArea extends Component {
     static propTypes = {
+        /**
+         * display word counter
+         *
+         */
         showCounter: PropTypes.bool,
+        /**
+         * max character allow for textarea
+         *
+         */
+        maxLength: PropTypes.number,
         defaultValue: PropTypes.string,
     };
 

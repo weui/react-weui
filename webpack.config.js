@@ -22,13 +22,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel',
                 query: {
-                    //faster recompile
-                    //https://github.com/babel/babel-loader#options
                     cacheDirectory: true,
-                    presets: ['es2015', 'stage-2', 'react'],
-                    //add-module for old commonJS behavir
-                    //https://github.com/babel/babel/issues/2212
-                    plugins: ['transform-class-properties', 'add-module-exports']
                 }
             }, {
                 test: /\.less$/,

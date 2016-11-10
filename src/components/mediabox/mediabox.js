@@ -1,14 +1,16 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Media Object, Typically use with `Panel` to display pictures and text, consists of `MediaBoxBody`, `MediaBoxDescription`, `MediaBoxHeader`
+ *
+ */
 export default class MediaBox extends React.Component {
     static propTypes = {
+        /**
+         * The layout of media box, Options: appmsg/text/small_appmsg
+         *
+         */
         type: React.PropTypes.string
     };
 

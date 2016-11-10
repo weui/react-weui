@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * image wrapper for vcode
+ *
+ */
 const VCode = (props) => {
     const { className, ...others } = props;
     const cls = classNames({

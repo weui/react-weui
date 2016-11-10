@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * paragraph wrapper for footer
+ *
+ */
 const FooterText = (props) => {
     const { className, children, ...others } = props;
     const cls = classNames({

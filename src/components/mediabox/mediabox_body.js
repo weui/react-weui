@@ -1,12 +1,10 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Content of Mediabox
+ *
+ */
 export default class PanelBody extends React.Component {
     render() {
         const {children, className, ...others} = this.props;

@@ -1,22 +1,49 @@
-/**
- * Created by n7best
- */
-
-
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Icon from '../icon';
 import classNames from 'classnames';
 import deprecationWarning from '../../utils/deprecationWarning';
 
+/**
+ * weui style uploader
+ *
+ */
 export default class Uploader extends Component {
     static propTypes = {
+        /**
+         * title of uploader
+         *
+         */
         title: PropTypes.string,
+        /**
+         * max amount of allow file
+         *
+         */
         maxCount: PropTypes.number,
+        /**
+         * maxWidth of image for uploader to compress
+         *
+         */
         maxWidth: PropTypes.number,
+        /**
+         * when file change, pass property `(event, file)`
+         *
+         */
         onChange: PropTypes.func,
+        /**
+         * when there is error, pass property `msg`
+         *
+         */
         onError: PropTypes.func,
+        /**
+         * array of photos thumbnails to indicator status, include property `url`, `status`, `error`
+         *
+         */
         files: PropTypes.array,
+        /**
+         * languages object, with property `maxError`
+         *
+         */
         lang: PropTypes.object
     };
 
@@ -27,9 +54,7 @@ export default class Uploader extends Component {
         files: [],
         onChange: undefined,
         onError: undefined,
-        lang:{
-            maxError: maxCount => `最多只能上传${maxCount}张图片`
-        }
+        lang:{ maxError: maxCount => `最多只能上传${maxCount}张图片` }
     };
 
     /**

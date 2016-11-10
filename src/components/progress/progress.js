@@ -1,8 +1,11 @@
-//1.0.0 components
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 
+/**
+ *  progress bar
+ *
+ */
 const Progress = (props) => {
 
     const { className, showCancel, value, onClick, ...others } = props;
@@ -31,7 +34,15 @@ const Progress = (props) => {
 }
 
 Progress.propTypes = {
+    /**
+     * value of the bar
+     *
+     */
     value: PropTypes.number,
+    /**
+     * enable cancel button
+     *
+     */
     showCancel: PropTypes.bool
 }
 
