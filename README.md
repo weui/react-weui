@@ -14,6 +14,7 @@ Check out the [1.0.0 Progression](https://github.com/weui/react-weui/projects/1)
 
 
 0.4.x [documentation](https://n7best.github.io/react-weui-doc-0.4.0) with live examples.
+
 1.0.x [documentation](https://weui.github.io/react-weui/docs/) with live examples.
 
 ## Installation (0.4.x)
