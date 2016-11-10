@@ -4,6 +4,6 @@ lib
 node_modules
 npm-debug.log
 .DS_Store
-dist
-dist_docs
 publish.sh
+dist
+.c9

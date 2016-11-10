@@ -4,6 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Router, Route, IndexRoute} from 'react-router';
 import FastClick from 'fastclick';
 import 'weui';
+import "babel-polyfill";
 
 import Home from './pages/home/index';
 import Button from './pages/button/index';

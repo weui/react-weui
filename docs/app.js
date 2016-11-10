@@ -6,6 +6,7 @@ import Home from './pages/home'
 import Docs from './pages/docs'
 import Articles from './pages/articles'
 import NoPreview from './pages/nopreview'
+import 'babel-polyfill';
 import './app.less';
 
 const App = () =>

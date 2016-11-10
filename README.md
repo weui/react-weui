@@ -7,13 +7,14 @@
 ## Notes
 __Please See [0.4.x](https://github.com/weui/react-weui/tree/0.4.x) branch__ for current stable usage and usage with weui 0.4.x
 
-__Master branch under active development for WeUI 1.0.0, Not Ready for use - APIs will change.__ 
+__Master branch under active development for WeUI 1.0.0, Not Ready for use - APIs will change.__
 Check out the [1.0.0 Progression](https://github.com/weui/react-weui/projects/1) and [contributing guidelines](https://github.com/n7best/react-weui-1/blob/master/CONTRIBUTING.md) to see where you can help out.
 
 ## Docs
 
 
-See the [documentation](https://n7best.github.io/react-weui-doc-0.4.0) with live examples (0.4.x).
+0.4.x [documentation](https://n7best.github.io/react-weui-doc-0.4.0) with live examples.
+1.0.x [documentation](https://weui.github.io/react-weui/docs/) with live examples.
 
 ## Installation (0.4.x)
 

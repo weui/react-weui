@@ -8,11 +8,11 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 module.exports = {
     context: path.join(__dirname, 'docs'),
     entry: {
-        js: './app.js',
+        js: ['babel-polyfill', './app.js'],
         vendor: ['react', 'classnames', 'react-router', 'react-dom', 'react-addons-css-transition-group']
     },
     output: {
-        path: path.resolve(__dirname, 'dist_docs'),
+        path: path.resolve(__dirname, 'dist/docs'),
         filename: './bundle.js'
     },
     module: {
@@ -46,10 +46,6 @@ module.exports = {
         }),
         new ExtractTextPlugin('weui.min.css'),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     sourceMap: false,
-        //     mangle: false
-        // }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'docs/index.html')
         }),
