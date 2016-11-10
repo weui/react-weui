@@ -1,9 +1,3 @@
-/**
- * Created by jf on 15/12/10.
- */
-
-"use strict";
-
 import React from 'react';
 import {Button, Toast} from '../../../src/index';
 import Page from '../../component/page';
@@ -13,10 +7,8 @@ export default class ToastDemo extends React.Component {
     state = {
         showToast: false,
         showLoading: false,
-        showCustom: false,
         toastTimer: null,
         loadingTimer: null,
-        customTimer: null
     };
 
     componentWillUnmount() {
@@ -26,17 +18,12 @@ export default class ToastDemo extends React.Component {
 
     render() {
         return (
-            <Page className="toast" title="Toast" spacing>
-                <Button onClick={this.showToast.bind(this)}>Toast</Button>
-                <Button onClick={this.showCustom.bind(this)}>Custom Toast</Button>
-                <Button onClick={this.showLoading.bind(this)}>Loading</Button>
-                <Toast
-                    show={this.state.showCustom}
-                    icon="waiting_circle"
-                    iconSize="large"
-                >waiting...</Toast>
-                <Toast show={this.state.showToast}>完成</Toast>
-                <Toast icon="loading" show={this.state.showLoading}>正在加载中...</Toast>
+            <Page className="toast" title="Toast" subTitle="弹出式提示" spacing>
+                <Button onClick={this.showToast.bind(this)} type="default">Success Toast</Button>
+                <Button onClick={this.showLoading.bind(this)} type="default">Loading Toast</Button>
+
+                <Toast icon="success-no-circle" show={this.state.showToast}>Done</Toast>
+                <Toast icon="loading" show={this.state.showLoading}>Loading...</Toast>
             </Page>
         );
     }
@@ -57,11 +44,4 @@ export default class ToastDemo extends React.Component {
         }, 2000);
     }
 
-    showCustom() {
-        this.setState({showCustom: true});
-
-        this.state.customTimer = setTimeout(()=> {
-            this.setState({showCustom: false});
-        }, 2000);
-    }
 };

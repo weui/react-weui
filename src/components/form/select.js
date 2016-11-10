@@ -1,15 +1,17 @@
-/**
- * Created by n7best on 16/2/25.
- */
-
-
-
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-export default class Select extends React.Component {
+/**
+ * weui wrapper for select
+ *
+ */
+export default class Select extends Component {
     static propTypes = {
-      data: React.PropTypes.array
+        /**
+         * object arrays of options, `value` and `label` properties is required
+         *
+         */
+        data: PropTypes.array
     };
 
     static defaultProps = {
@@ -17,21 +19,21 @@ export default class Select extends React.Component {
     };
 
     renderData(data) {
-        return data.map((item,i) => {
-            return <option
-                    key={i}
-                    value={item.value}
-                    {...item}
-                    >
-                        {item.label}
-                   </option>;
-        });
+        return data.map((item,i) => (
+            <option
+                key={i}
+                value={item.value}
+                {...item}
+            >
+                {item.label}
+           </option>
+        ));
     }
 
     render() {
         const { className, data, children, ...others } = this.props;
         const cls = classNames({
-            weui_select: true,
+            'weui-select': true,
             [className]: className
         });
 

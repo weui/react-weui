@@ -1,17 +1,16 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Content of Panel
+ *
+ */
 export default class PanelBody extends React.Component {
     render() {
         const {children, ...others} = this.props;
         const className = classNames({
-            weui_panel_bd: true
+            'weui-panel__bd': true,
+            [className]: className
         });
 
         return (

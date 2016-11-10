@@ -1,14 +1,16 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Meta Item for `MeidaBoxInfo`
+ *
+ */
 export default class MediaBoxInfoMeta extends React.Component {
     static propTypes = {
+        /**
+         * add left margin to indicate extra
+         *
+         */
         extra: React.PropTypes.bool,
     };
 
@@ -19,8 +21,8 @@ export default class MediaBoxInfoMeta extends React.Component {
     render() {
         const {children, extra, className, ...others} = this.props;
         const cls = classNames({
-            weui_media_info_meta: true,
-            weui_media_info_meta_extra: extra
+            'weui-media-box__info__meta': true,
+            'weui-media-box__info__meta_extra': extra
         }, className);
 
         return (

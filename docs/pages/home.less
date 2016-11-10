@@ -1,0 +1,104 @@
+.App__preview {
+  flex: 5;
+  background-color: #eee;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.App__detail{
+  height: 100%;
+  overflow: scroll;
+  border-left: 1px solid #bcbab6;
+}
+
+.App__mobileview{
+    width: 375px;
+    height: 667px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.App__mobileview::-webkit-scrollbar, .App__mobileview .page::-webkit-scrollbar {
+    display: none;
+}
+
+/*.App__mobileview:hover {*/
+/*    background: rgba(255, 255, 255, 1);*/
+/*    transition: all .25s ease;*/
+/*}*/
+
+.Pane.vertical.Pane1 {
+    height: 100%;
+}
+
+.Resizer {
+    position: relative;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: .2;
+    z-index: 501;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+}
+
+ .Resizer:hover {
+    -webkit-transition: all 2s ease;
+    transition: all 2s ease;
+}
+
+ .Resizer.horizontal {
+    height: 11px;
+    margin: -5px 0;
+    border-top: 5px solid rgba(255, 255, 255, 0);
+    border-bottom: 5px solid rgba(255, 255, 255, 0);
+    cursor: row-resize;
+    width: 100%;
+}
+
+.Resizer.horizontal:hover {
+    border-top: 5px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid rgba(0, 0, 0, 0.5);
+}
+
+.Resizer.vertical {
+    width: 25px;
+    margin: 0 -5px;
+    border-left: 5px solid rgba(255, 255, 255, 0);
+    border-right: 5px solid rgba(255, 255, 255, 0);
+    cursor: col-resize;
+}
+
+.Resizer.vertical::before {
+    content: '';
+    height: 25px;
+    width: 2px;
+    top: 50%;
+    left: 5px;
+    /* margin-left: -10px; */
+    position: absolute;
+    border-left: 2px solid rgba(0, 0, 0, 0.94);
+    border-right: 2px solid rgb(0, 0, 0);
+}
+
+.Resizer.vertical:hover {
+    border-left: 5px solid rgba(0, 0, 0, 0.7);
+    border-right: 5px solid rgb(0, 0, 0);
+}
+Resizer.disabled {
+  cursor: not-allowed;
+}
+Resizer.disabled:hover {
+  border-color: transparent;
+}
+
+.CodeMirror {
+  height: 600px;
+  border-radius: 5px;
+}

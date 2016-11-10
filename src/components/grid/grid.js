@@ -1,17 +1,23 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 import GridIcon from './grid_icon';
 import GridLabel from './grid_label';
 
+/**
+ * WeUI Grid wrapper, contain elements of `GridIcon` and `GridLabel`
+ *
+ */
 export default class Grid extends React.Component {
     static propTypes = {
+      /**
+       * Label string for grid
+       *
+       */
       label: React.PropTypes.string,
+      /**
+       * Icon placeholder
+       *
+       */
       icon: React.PropTypes.any
     };
 
@@ -23,7 +29,7 @@ export default class Grid extends React.Component {
     render() {
         const {children, icon, label, className, ...others} = this.props;
         const cls = classNames({
-            weui_grid: true
+            'weui-grid': true
         }, className);
 
         return (

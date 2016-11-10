@@ -1,26 +1,23 @@
-/**
- * Created by n7best on 16/2/25.
- */
-
-
-
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
-export default class Radio extends React.Component {
+/**
+ * weui wrapper for radio
+ *
+ */
+const Radio = (props) => {
+    const { className, ...others } = props;
+    const cls = classNames({
+        'weui-check': true,
+        [className]: className
+    });
 
-    render() {
-        const { className, ...others } = this.props;
-        const cls = classNames({
-            weui_check: true,
-            [className]: className
-        });
-
-        return (
-            <div>
-                <input className={cls} type="radio" {...others}/>
-                <span className="weui_icon_checked"></span>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <input className={cls} type="radio" {...others}/>
+            <span className="weui-icon-checked"></span>
+        </div>
+    );
 };
+
+export default Radio

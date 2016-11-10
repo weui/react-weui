@@ -1,14 +1,12 @@
-/**
- * Created by jf on 15/12/4.
- */
-
-
-
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
-export default class ButtonArea extends React.Component {
+class ButtonArea extends Component {
     static propTypes = {
+        /**
+         * Direction of Button Layout inside, Options: veritical, horizontal
+         *
+         */
         direction: React.PropTypes.string
     };
 
@@ -19,8 +17,8 @@ export default class ButtonArea extends React.Component {
     render() {
         const {direction, children, className} = this.props;
         const cls = classNames({
-            weui_btn_area: true,
-            weui_btn_area_inline: direction === 'horizontal',
+            'weui-btn-area': true,
+            'weui-btn-area_inline': direction === 'horizontal',
             [className]: className
         });
 
@@ -31,3 +29,5 @@ export default class ButtonArea extends React.Component {
         );
     }
 };
+
+export default ButtonArea;

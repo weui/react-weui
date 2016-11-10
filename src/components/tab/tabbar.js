@@ -1,19 +1,17 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ *  Bottom bar for tabs
+ *
+ */
 export default class TabBar extends React.Component {
 
     render() {
 
         const {children, className, ...others} = this.props;
         const cls = classNames({
-            weui_tabbar: true
+            'weui-tabbar': true
         }, className);
 
         return (

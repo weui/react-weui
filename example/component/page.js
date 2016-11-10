@@ -9,7 +9,7 @@ import './page.less';
 
 export default class Page extends React.Component {
     render() {
-        const {title, subTitle, spacing, className, children} = this.props;
+        const {title, subTitle, spacing, className, children, footer} = this.props;
 
         return (
             <section className={`page ${className}`}>
@@ -19,6 +19,9 @@ export default class Page extends React.Component {
                 </div>
                 <div className={`page__bd ${spacing ? 'page__bd_spacing' : ''}`}>
                     {children}
+                </div>
+                <div className="page__ft">
+                    {footer}
                 </div>
             </section>
         );

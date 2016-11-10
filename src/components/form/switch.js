@@ -1,30 +1,23 @@
-/**
- * Created by BearJ on 16/2/18.
- */
-
-
-
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
-export default class Switch extends React.Component {
-    static propTypes = {
-        defaultValue: PropTypes.string
-    };
+/**
+ * weui switch style for checkbox
+ *
+ */
+const Switch = (props) => {
+    const { className, ...others } = props;
+    const cls = classNames({
+        'weui-switch': true,
+        [className]: className
+    });
 
-    static defaultProps = {
-        defaultValue: undefined
-    };
-
-    render() {
-        const { className, ...others } = this.props;
-        const cls = classNames({
-            weui_switch: true,
-            [className]: className
-        });
-
-        return (
+    return (
+        <div>
             <input className={cls} type="checkbox" {...others}/>
-        );
-    }
+            <span className="weui-icon-checked"></span>
+        </div>
+    );
 };
+
+export default Switch

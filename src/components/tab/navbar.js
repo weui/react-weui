@@ -1,19 +1,17 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ *  wrapper for navbar
+ *
+ */
 export default class NavBar extends React.Component {
 
     render() {
 
         const {children, className, ...others} = this.props;
         const cls = classNames({
-            weui_navbar: true
+            'weui-navbar': true
         }, className);
 
         return (

@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ * Heading for `Cells`
+ *
+ */
 const CellsTitle = (props) => {
     const { className, children, ...others } = props;
     const cls = classNames({

@@ -1,19 +1,51 @@
-/**
- * Created by jf on 15/11/4.
- */
-
-
-
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-
-import {Button} from '../button/index';
+import {Button, ButtonArea} from '../button/index';
+import { Footer, FooterLinks, FooterLink } from '../footer'
 import Icon from '../icon/index';
+import deprecationWarning from '../../utils/deprecationWarning';
 
-class Msg extends React.Component {
+/**
+ * A full notification page to indicate results
+ *
+ */
+class Msg extends Component {
     static propTypes = {
-        type: React.PropTypes.string,
-        buttons: React.PropTypes.array
+        /**
+         * Icon type
+         *
+         */
+        type: PropTypes.string,
+        /**
+         * Object array of Buttons, require at least `label` property
+         *
+         */
+        buttons: PropTypes.array,
+        /**
+         * Page Title
+         *
+         */
+        title: PropTypes.string,
+        /**
+         * Page Description
+         *
+         */
+        description: PropTypes.string,
+        /**
+         * deprecated property from 0.4.x
+         *
+         */
+        extraHref: PropTypes.string,
+        /**
+         * deprecated property from 0.4.x
+         *
+         */
+        extraText: PropTypes.string,
+        /**
+         * Footer Element of Page
+         *
+         */
+        footer: PropTypes.any
     };
 
     static defaultProps = {
@@ -32,26 +64,41 @@ class Msg extends React.Component {
     }
 
     render() {
+        const { className, type, title, description, extraHref, extraText, footer, ...others } = this.props;
+        const cls = classNames('weui-msg', {
+            [className]: className
+        })
+
+        let elFooter = footer;
+
+        if(!elFooter && (extraHref || extraText) ){
+            deprecationWarning('Msg extraHref/extraText', 'Msg footer')
+
+            elFooter = () => (
+                <Footer>
+                    <FooterLinks>
+                        <FooterLink href={extraHref}>{extraText}</FooterLink>
+                    </FooterLinks>
+                </Footer>
+            )
+        }
+
         return (
-            <div className="weui_msg">
-                <div className="weui_icon_area">
-                    <Icon value={this.props.type} className="weui_icon_msg"/>
+            <div className={cls} {...others}>
+                <div className="weui-msg__icon-area">
+                    <Icon value={type} size='large' />
                 </div>
-                <div className="weui_text_area">
-                    <h2 className="weui_msg_title">{this.props.title}</h2>
-                    <p className="weui_msg_desc">{this.props.description}</p>
+                <div className="weui-msg__text-area">
+                    <h2 className="weui-msg__title">{title}</h2>
+                    <p className="weui-msg__desc">{description}</p>
                 </div>
-                <div className="weui_opr_area">
-                    <p className="weui_btn_area">
+                <div className="weui-msg__opr-area">
+                    <ButtonArea>
                         {this._renderButtons()}
-                    </p>
+                    </ButtonArea>
                 </div>
-                <div className="weui_extra_area">
-                    {
-                        this.props.extraHref ?
-                            <a href={this.props.extraHref} className="weui_extra_link">{this.props.extraText}</a> :
-                            <p className="weui_extra_text">{this.props.extraText}</p>
-                    }
+                <div className="weui-msg__extra-area">
+                    {elFooter()}
                 </div>
             </div>
         );

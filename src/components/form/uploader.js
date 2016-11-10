@@ -1,20 +1,49 @@
-/**
- * Created by n7best
- */
-
-
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
+import Icon from '../icon';
 import classNames from 'classnames';
+import deprecationWarning from '../../utils/deprecationWarning';
 
-export default class Uploader extends React.Component {
+/**
+ * weui style uploader
+ *
+ */
+export default class Uploader extends Component {
     static propTypes = {
+        /**
+         * title of uploader
+         *
+         */
         title: PropTypes.string,
+        /**
+         * max amount of allow file
+         *
+         */
         maxCount: PropTypes.number,
+        /**
+         * maxWidth of image for uploader to compress
+         *
+         */
         maxWidth: PropTypes.number,
+        /**
+         * when file change, pass property `(event, file)`
+         *
+         */
         onChange: PropTypes.func,
+        /**
+         * when there is error, pass property `msg`
+         *
+         */
         onError: PropTypes.func,
+        /**
+         * array of photos thumbnails to indicator status, include property `url`, `status`, `error`
+         *
+         */
         files: PropTypes.array,
+        /**
+         * languages object, with property `maxError`
+         *
+         */
         lang: PropTypes.object
     };
 
@@ -25,9 +54,7 @@ export default class Uploader extends React.Component {
         files: [],
         onChange: undefined,
         onError: undefined,
-        lang:{
-            maxError: maxCount => `最多只能上传${maxCount}张图片`
-        }
+        lang:{ maxError: maxCount => `最多只能上传${maxCount}张图片` }
     };
 
     /**
@@ -165,21 +192,29 @@ export default class Uploader extends React.Component {
 
     renderFiles(){
         return this.props.files.map((file, idx)=>{
-            let {url, error, status, ...others} = file;
+            let {url, error, status, onClick, ...others} = file;
             let fileStyle = {
                 backgroundImage: `url(${url})`
             };
             let cls = classNames({
-                weui_uploader_file: true,
-                weui_uploader_status: error || status
+                'weui-uploader__file': true,
+                'weui-uploader__file_status': error || status
             });
 
+            if(onClick){
+                deprecationWarning('File onClick','Uploader onFileClick')
+            }
+
+            let handleFileClick = onClick ? onClick : e => {
+                if(this.props.onFileClick) this.props.onFileClick(e, file, idx);
+            };
+
             return (
-                <li className={cls} key={idx} style={fileStyle} {...others}>
+                <li className={cls} key={idx} style={fileStyle} onClick={handleFileClick} {...others}>
                     {
                         error || status ?
-                        <div className="weui_uploader_status_content">
-                            { error ? <i className="weui_icon_warn"></i> : status }
+                        <div className="weui-uploader__file-content">
+                            { error ? <Icon value="warn" /> : status }
                         </div>
                         : false
                     }
@@ -189,33 +224,33 @@ export default class Uploader extends React.Component {
     }
 
     render(){
-        const { className, title, maxCount, files, onChange, ...others } = this.props;
+        const { className, title, maxCount, files, onChange, onFileClick, ...others } = this.props;
         const inputProps = Object.assign({}, others);
         delete inputProps.lang;
         delete inputProps.onError;
         delete inputProps.maxWidth;
 
         const cls = classNames({
-            weui_uploader: true,
+            'weui-uploader': true,
             [className]: className
         });
 
         return (
             <div className={cls}>
-                <div className="weui_uploader_hd weui_cell">
-                    <div className="weui_cell_bd weui_cell_primary">{title}</div>
-                    <div className="weui_cell_ft">{files.length}/{maxCount}</div>
+                <div className="weui-uploader__hd">
+                    <p className="weui-uploader__title">{title}</p>
+                    <div className="weui-uploader__info">{files.length}/{maxCount}</div>
                 </div>
-                <div className="weui_uploader_bd">
-                    <ul className="weui_uploader_files">
+                <div className="weui-uploader__bd">
+                    <ul className="weui-uploader__files">
                         {this.renderFiles()}
                     </ul>
-                    <div className="weui_uploader_input_wrp">
+                    <div className="weui-uploader__input-box">
                         <input
                         ref="uploader"//let react to reset after onchange
-                        className="weui_uploader_input"
+                        className="weui-uploader__input"
                         type="file"
-                        accept="image/jpg,image/jpeg,image/png,image/gif"
+                        accept="image/*"
                         onChange={this.handleChange.bind(this)}
                         {...inputProps}
                         />

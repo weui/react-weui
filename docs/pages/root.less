@@ -1,0 +1,44 @@
+.App {
+  display: flex;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.App__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.background--nav {
+  background: #47484f; /* Old browsers */
+  background: linear-gradient(135deg,  #47484f 0%,#313235 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.background--canvas {
+  background-image: linear-gradient(90deg, rgba(255,255,255,.25) 1px, rgba(0,0,0,0) 1px), linear-gradient(0deg, rgba(255,255,255,.25) 1px, rgba(0,0,0,0) 1px);
+  background-position: 0px 1px;
+  background-repeat: repeat;
+  background-size: 20px 20px;
+}
+
+@keyframes App__logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* WEUI DEMO FIXED */
+.App__mobileview .weui-mask,
+.App__mobileview .weui-actionsheet,
+.App__mobileview .weui-dialog,
+.App__mobileview .weui-extra-area,
+.App__mobileview .weui-mask-transparent,
+.App__mobileview .weui-toast,
+.App__mobileview .weui-gallery,
+.App__mobileview .weui-popup,
+.App__mobileview .weui-toptips{
+  position: absolute !important;
+}
+
+.App__mobileview .weui-dialog{
+  width: 85% !important;
+}

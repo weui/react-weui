@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
+/**
+ * Footer of `Cell`
+ *
+ */
 const CellFooter = (props) => {
     const { className, children, primary, ...others } = props;
     const cls = classNames({
@@ -13,5 +17,17 @@ const CellFooter = (props) => {
         <div className={ cls } { ...others }>{ children }</div>
     );
 };
+
+CellFooter.propTypes = {
+    /**
+     * if cell body is the primary block
+     *
+     */
+    primary: PropTypes.bool,
+}
+
+CellFooter.defaultProps = {
+    primary: false,
+}
 
 export default CellFooter

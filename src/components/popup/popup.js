@@ -1,0 +1,46 @@
+import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
+import Mask from '../mask/index';
+import './popup.less';
+
+/**
+ *  An Popup modal from bottom
+ *
+ */
+class Popup extends Component {
+    static propTypes = {
+        /**
+         * display the component
+         *
+         */
+        show: PropTypes.bool,
+        /**
+         * show mask
+         *
+         */
+        enableMask: PropTypes.bool
+    };
+
+    static defaultProps = {
+        show: false,
+        enableMask: false
+    }
+
+    render(){
+        const { className, children, show, onRequestClose, ...others } = this.props;
+        const cls = classNames('weui-popup', {
+            'weui-popup_toggle' : show
+        }, className);
+
+        return (
+            <div>
+                <Mask style={{display: show ? 'block' : 'none'}} onClick={onRequestClose} />
+                <div className={cls} {...others} >
+                    { children }
+                </div>
+            </div>
+        )
+    }
+}
+
+export default Popup;

@@ -1,19 +1,29 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 import TabBarIcon from './tabbar_icon';
 import TabBarLabel from './tabbar_label';
 
+/**
+ *  Tabbar item
+ *
+ */
 export default class TabBarItem extends React.Component {
     static propTypes = {
-      active: React.PropTypes.bool,
-      icon: React.PropTypes.any,
-      label: React.PropTypes.string
+        /**
+         * indicate currently active
+         *
+         */
+        active: React.PropTypes.bool,
+        /**
+         * icon of item
+         *
+         */
+        icon: React.PropTypes.any,
+        /**
+         * label of item
+         *
+         */
+        label: React.PropTypes.string
     };
 
     static defaultProps = {
@@ -26,8 +36,8 @@ export default class TabBarItem extends React.Component {
 
         const {children, className, active, icon, label, ...others} = this.props;
         const cls = classNames({
-            weui_tabbar_item: true,
-            weui_bar_item_on: active
+            'weui-tabbar__item': true,
+            'weui-bar__item_on': active
         }, className);
 
         if(icon || label){

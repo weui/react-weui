@@ -1,16 +1,18 @@
-/**
- * Created by n7best
- */
-
-
-
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import Grid from './grid';
 
-export default class Grids extends React.Component {
+/**
+ * Mobile grid system, typical use for 9 grid system. contain elements of `Grid`
+ *
+ */
+export default class Grids extends Component {
     static propTypes = {
-      data: React.PropTypes.array
+        /**
+         * Automatic grids, contain Array of Objects for grid, Optional `icon` and `label` property for each object
+         *
+         */
+        data: React.PropTypes.array
     };
 
     static defaultProps = {
@@ -32,7 +34,7 @@ export default class Grids extends React.Component {
 
         const {children, data, className, ...others} = this.props;
         const cls = classNames({
-            weui_grids: true
+            'weui-grids': true
         }, className);
 
         return (

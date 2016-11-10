@@ -1,15 +1,21 @@
-/**
- * Created by yjcxy12 on 16/1/22.
- */
-
-
-
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-export default class Form extends Component {
+/**
+ * weui wrapper for form
+ *
+ */
+class Form extends Component {
     static propTypes = {
+        /**
+         * if this form is use for radios
+         *
+         */
         radio: PropTypes.bool,
+        /**
+         * if this form is use for checkbox
+         *
+         */
         checkbox: PropTypes.bool
     };
 
@@ -21,10 +27,10 @@ export default class Form extends Component {
     render() {
         const { children, className, radio, checkbox, ...others } = this.props;
         const cls = classNames({
-            weui_cells: true,
-            weui_cells_form: !radio && !checkbox,
-            weui_cells_radio: radio,
-            weui_cells_checkbox: checkbox,
+            'weui-cells': true,
+            'weui-cells_form': !radio && !checkbox,
+            'weui-cells_radio': radio,
+            'weui-cells_checkbox': checkbox,
             [className]: className
         });
 
@@ -33,3 +39,6 @@ export default class Form extends Component {
         );
     }
 };
+
+
+export default Form;

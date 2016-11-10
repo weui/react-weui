@@ -1,20 +1,29 @@
-/**
- * Created by jf on 15/10/27.
- */
-
-
-
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import Mask from '../mask/index';
 import Icon from '../icon/index';
 
-
-class Toast extends React.Component {
+/**
+ *  pop out indicator to inform users
+ *
+ */
+class Toast extends Component {
     static propTypes = {
-        icon: React.PropTypes.string,
-        iconSize: React.PropTypes.string,
-        show: React.PropTypes.bool
+        /**
+         * Icon Value
+         *
+         */
+        icon: PropTypes.string,
+        /**
+         * Icon Size
+         *
+         */
+        iconSize: PropTypes.string,
+        /**
+         * display toast
+         *
+         */
+        show: PropTypes.bool
     };
 
     static defaultProps = {
@@ -23,14 +32,16 @@ class Toast extends React.Component {
     };
 
     render() {
-        const {icon, show, children, iconSize} = this.props;
-
+        const {className, icon, show, children, iconSize, ...others} = this.props;
+        const cls = classNames('weui-toast', {
+            [className]: className
+        })
         return (
-            <div className={icon === 'loading' ? 'weui_loading_toast' : ''} style={{display: show ? 'block' : 'none'}}>
+            <div style={{display: show ? 'block' : 'none'}}>
                 <Mask transparent={true}/>
-                <div className="weui_toast">
-                    <Icon value={icon} size={iconSize}/>
-                    <p className="weui_toast_content">{children}</p>
+                <div className={cls} {...others}>
+                    <Icon value={icon} size={iconSize} className="weui-icon_toast"/>
+                    <p className="weui-toast_content">{children}</p>
                 </div>
             </div>
         );

@@ -1,19 +1,17 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ *  Icon wrapper for icon use in TabBar
+ *
+ */
 export default class TabBarIcon extends React.Component {
 
     render() {
 
         const {children, className, ...others} = this.props;
         const cls = classNames({
-            weui_tabbar_icon: true,
+            'weui-tabbar__icon': true,
         }, className);
 
         return (

@@ -1,20 +1,47 @@
-/**
- * Created by yjcxy12 on 16/1/22.
- */
-
-
-
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import './touch_fix.less';
 
-export default class FormCell extends React.Component {
+/**
+ * form wrapper for `Cell`
+ *
+ */
+export default class FormCell extends Component {
     static propTypes = {
+        /**
+         * if cell use for vcode
+         *
+         */
         vcode: PropTypes.bool,
+        /**
+         * display warn style of cell
+         *
+         */
         warn: PropTypes.bool,
+        /**
+         * if cell use for radio
+         *
+         */
         radio: PropTypes.bool,
+        /**
+         * if cell use for checkbox
+         *
+         */
         checkbox: PropTypes.bool,
+        /**
+         * if cell use for switch checkbox
+         *
+         */
         switch: PropTypes.bool,
+        /**
+         * if cell use for select
+         *
+         */
         select: PropTypes.bool,
+        /**
+         * select position, options: before, after
+         *
+         */
         selectPos: PropTypes.string,
     };
 
@@ -38,14 +65,14 @@ export default class FormCell extends React.Component {
         const cellDomProps = Object.assign({}, others);
         delete cellDomProps.switch;
         const cls = classNames({
-            weui_cell: true,
-            weui_vcode: vcode,
-            weui_cell_warn: warn,
-            weui_cell_switch: this.props.switch,
-            weui_cell_select: select,
-            weui_select_before: selectPos == 'before',
-            weui_select_after: selectPos == 'after',
-            weui_check_label: radio || checkbox,
+            'weui-cell': true,
+            'weui-cell_vcode': vcode,
+            'weui-cell_warn': warn,
+            'weui-cell_switch': this.props.switch,
+            'weui-cell_select': select,
+            'weui-cell_select-before': selectPos == 'before',
+            'weui-cell_select-after': selectPos == 'after',
+            'weui-check__label': radio || checkbox,
             [className]: className
         });
 

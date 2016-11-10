@@ -1,14 +1,22 @@
-/**
- * Created by n7best
- */
-
-
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-export default class TextArea extends React.Component {
+/**
+ * weui wrapper for textarea
+ *
+ */
+export default class TextArea extends Component {
     static propTypes = {
+        /**
+         * display word counter
+         *
+         */
         showCounter: PropTypes.bool,
+        /**
+         * max character allow for textarea
+         *
+         */
+        maxLength: PropTypes.number,
         defaultValue: PropTypes.string,
     };
 
@@ -31,7 +39,7 @@ export default class TextArea extends React.Component {
     render(){
         const { className, children, showCounter, maxlength, onChange, ...others } = this.props;
         const cls = classNames({
-            weui_textarea: true,
+            'weui-textarea': true,
             [className]: className
         });
 
@@ -46,7 +54,7 @@ export default class TextArea extends React.Component {
                 </textarea>
                 {
                     showCounter ?
-                    <div className="weui_textarea_counter">
+                    <div className="weui-textarea-counter">
                         <span>{this.state.textCounter}</span>{maxlength ? '/' + maxlength : false}
                     </div>
                     : false

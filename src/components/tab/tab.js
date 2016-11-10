@@ -1,9 +1,3 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
@@ -16,11 +10,23 @@ import TabBarItem from './tabbar_item';
 import TabBarIcon from './tabbar_icon';
 import TabBarLabel from './tabbar_label';
 
+/**
+ *  Weui Tab component, can be auto mount items or mannually display items
+ *
+ */
 export default class Tab extends React.Component {
     static propTypes = {
-      type: React.PropTypes.string,
-      defaultIndex: React.PropTypes.number,
-      onChange: React.PropTypes.func
+        /**
+         * layout of the tab, auto mount components when set to `navbar` or `tabbar`
+         *
+         */
+        type: React.PropTypes.string,
+        /**
+         * default select index
+         *
+         */
+        defaultIndex: React.PropTypes.number,
+        onChange: React.PropTypes.func
     };
 
     static defaultProps = {
@@ -42,6 +48,7 @@ export default class Tab extends React.Component {
         const navContents = [];
 
         React.Children.map(children, child => {
+            if(!child) return;
             const {children, type, ...others} = child.props;
             if(child.type === NavBarItem){
               navHeaders.push(child);
@@ -88,6 +95,7 @@ export default class Tab extends React.Component {
         const tabContents = [];
 
         React.Children.map(children, child => {
+            if(!child) return;
             const {children, type, ...others} = child.props;
             if(child.type === TabBarItem){
               tabHeaders.push(child);
@@ -135,7 +143,7 @@ export default class Tab extends React.Component {
         delete divProps.defaultIndex;
 
         const cls = classNames({
-            weui_tab: true
+            'weui-tab': true
         }, className);
 
         switch(type){

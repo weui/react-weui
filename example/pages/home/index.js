@@ -24,16 +24,20 @@ const menus = [
                 to: '/button'
             },
             {
-                label: 'Input',
-                to: '/button'
+                label: 'List',
+                to: '/list'
             },
             {
-                label: 'Link',
-                to: '/button'
+                label: 'Input',
+                to: '/input'
+            },
+            {
+                label: 'Picker',
+                to: '/picker'
             },
             {
                 label: 'Uploader',
-                to: '/button'
+                to: '/uploader'
             }
         ]
     },
@@ -43,43 +47,43 @@ const menus = [
         items: [
             {
                 label: 'Article',
-                to: '/button'
+                to: '/article'
             },
             {
                 label: 'Flex',
-                to: '/button'
+                to: '/flex'
             },
             {
                 label: 'Footer',
-                to: '/button'
+                to: '/footer'
             },
             {
                 label: 'Gallery',
-                to: '/button'
+                to: '/gallery'
             },
             {
                 label: 'Grid',
-                to: '/button'
+                to: '/grid'
             },
             {
                 label: 'Icons',
-                to: '/button'
+                to: '/icons'
             },
             {
                 label: 'Loadmore',
-                to: '/button'
+                to: '/loadmore'
             },
             {
                 label: 'Panel',
-                to: '/button'
+                to: '/panel'
             },
             {
                 label: 'Preview',
-                to: '/button'
+                to: '/preview'
             },
             {
                 label: 'Progress',
-                to: '/button'
+                to: '/progress'
             }
         ]
     },
@@ -89,19 +93,27 @@ const menus = [
         items: [
             {
                 label: 'Actionsheet',
-                to: '/button'
+                to: '/actionsheet'
             },
             {
                 label: 'Dialog',
-                to: '/button'
+                to: '/dialog'
             },
             {
                 label: 'Msg',
-                to: '/button'
+                to: '/msg'
             },
             {
                 label: 'Toast',
-                to: '/button'
+                to: '/toast'
+            },
+            {
+                label: 'Toptips',
+                to: '/toptips'
+            },
+            {
+                label: 'Popup',
+                to: '/popup'
             }
         ]
     },
@@ -111,11 +123,19 @@ const menus = [
         items: [
             {
                 label: 'Navbar',
-                to: '/button'
+                to: '/navbar'
             },
             {
                 label: 'Tabbar',
-                to: '/button'
+                to: '/tabbar'
+            },
+            {
+                label: 'AutoNavbar',
+                to: '/navbar2'
+            },
+            {
+                label: 'AutoTabbar',
+                to: '/tabbar2'
             }
         ]
     },
@@ -125,14 +145,9 @@ const menus = [
         items: [
             {
                 label: 'Search Bar',
-                to: '/button'
+                to: '/searchbar'
             }
         ]
-    },
-    {
-        name: 'Layers',
-        icon: IconZIndex,
-        items: []
     }
 ]
 

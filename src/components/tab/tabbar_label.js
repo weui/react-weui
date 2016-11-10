@@ -1,19 +1,17 @@
-/**
- * Created by n7best
- */
-
-
-
 import React from 'react';
 import classNames from 'classnames';
 
+/**
+ *  label wrapper for text inside TabBarItem
+ *
+ */
 export default class TabBarLabel extends React.Component {
 
     render() {
 
         const {children, className, ...others} = this.props;
         const cls = classNames({
-            weui_tabbar_label: true,
+            'weui-tabbar__label': true,
         }, className);
 
         return (

@@ -8,7 +8,7 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 module.exports = {
     context: path.join(__dirname, 'example'),
     entry: {
-        js: './app.js',
+        js: ['babel-polyfill', './app.js'],
         vendor: ['react', 'classnames', 'react-router', 'react-dom', 'react-addons-css-transition-group']
     },
     output: {
@@ -22,13 +22,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel',
                 query: {
-                    //faster recompile
-                    //https://github.com/babel/babel-loader#options
                     cacheDirectory: true,
-                    presets: ['es2015', 'stage-2', 'react'],
-                    //add-module for old commonJS behavir
-                    //https://github.com/babel/babel/issues/2212
-                    plugins: ['transform-class-properties', 'add-module-exports']
                 }
             }, {
                 test: /\.less$/,
