@@ -17,5 +17,9 @@
   },
   "plugins": [
     "react"
-  ]
+  ],
+  "globals": {
+    "it": true,
+    "describe": true,
+  }
 }

@@ -1,9 +1,3 @@
-/**
- * Created by jf on 15/12/9.
- */
-
-"use strict";
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import assert from 'assert';
@@ -12,6 +6,16 @@ import WeUI from '../src/index';
 const {Button} = WeUI;
 
 describe('<Button></Button>', () => {
+
+    describe(`<Button type="vcode"></Button>`, ()=> {
+        let wrapper = shallow(
+            <Button type="vcode">ok</Button>
+        );
+
+        it(`should have class with "weui-vcode-btn"`, ()=> {
+            assert(wrapper.hasClass('weui-vcode-btn'));
+        });
+    });
 
     ['primary', 'default', 'warn'].map((type)=> {
         ['normal', 'small'].map((size)=> {
@@ -50,28 +54,28 @@ describe('<Button></Button>', () => {
                                 }
                             });
 
-                            it(`should have class with "weui_btn" & weui_btn_${type}`, ()=> {
-                                assert(wrapper.hasClass('weui_btn'));
-                                assert(wrapper.hasClass(`weui_btn_${type}`));
+                            it(`should have class with "weui-btn" & weui-btn_${type}`, ()=> {
+                                assert(wrapper.hasClass('weui-btn'));
+                                assert(wrapper.hasClass(`weui-btn_${type}`));
                             });
 
 
-                            it(`should have class with "weui_btn_mini" when size is 'small'`, ()=> {
+                            it(`should have class with "weui-btn_mini" when size is 'small'`, ()=> {
                                 if (size === 'small') {
-                                    assert(wrapper.hasClass('weui_btn_mini'));
+                                    assert(wrapper.hasClass('weui-btn_mini'));
                                 }
                                 else {
-                                    assert(!wrapper.hasClass('weui_btn_mini'));
+                                    assert(!wrapper.hasClass('weui-btn_mini'));
                                 }
                             });
 
-                            it(`should have class with "weui_btn_disabled" and "disabled" attribute when disabled is true`, ()=> {
+                            it(`should have class with "weui-btn_disabled" and "disabled" attribute when disabled is true`, ()=> {
                                 if (disabled) {
-                                    assert(wrapper.hasClass('weui_btn_disabled'));
+                                    assert(wrapper.hasClass('weui-btn_disabled'));
                                     assert(wrapper.prop('disabled'))
                                 }
                                 else {
-                                    assert(!wrapper.hasClass('weui_btn_disabled'));
+                                    assert(!wrapper.hasClass('weui-btn_disabled'));
                                     assert(!wrapper.prop('disabled'));
                                 }
                             });

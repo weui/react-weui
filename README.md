@@ -33,6 +33,8 @@ With React Installed
 npm install weui@0.4.3 react-weui --save
 ```
 
+Due to the browser compatibility issues, react-weui required [babel polyfill](https://babeljs.io/docs/usage/polyfill/) to work
+
 ## Example
 
 We have several examples on the documentation. Here is the first one to get you started:
