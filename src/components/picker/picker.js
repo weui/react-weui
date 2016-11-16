@@ -87,7 +87,7 @@ class Picker extends Component {
     }
 
     render(){
-        const { className, ...others } = this.props;
+        const { className, actions, groups, defaultSelect, onGroupChange, onChange, ...others } = this.props;
         const cls = classNames('weui-picker', className);
 
         return (

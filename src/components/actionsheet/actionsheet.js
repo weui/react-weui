@@ -77,7 +77,7 @@ class ActionSheet extends Component {
     }
 
     render() {
-        const {show, autoDectect, type, onRequestClose, ...others} = this.props;
+        const {show, autoDectect, type, onRequestClose, menus, actions, ...others} = this.props;
         const cls = classNames({
             'weui-actionsheet': true,
             'weui-actionsheet_toggle': show

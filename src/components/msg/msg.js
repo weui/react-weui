@@ -64,7 +64,7 @@ class Msg extends Component {
     }
 
     render() {
-        const { className, type, title, description, extraHref, extraText, footer, ...others } = this.props;
+        const { className, type, title, description, extraHref, extraText, footer, buttons, ...others } = this.props;
         const cls = classNames('weui-msg', {
             [className]: className
         })
