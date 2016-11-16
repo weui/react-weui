@@ -6,11 +6,14 @@ import React from 'react';
  * Evenly distribute flex items
  *
  */
-const FlexItem = (props) => (
-    <props.component className="weui-flex__item" {...props}>
-        { props.children }
-    </props.component>
-)
+const FlexItem = (props) => {
+    const { component, children, ...others } = props;
+    return (
+        <component className="weui-flex__item" {...others}>
+            { children }
+        </component>
+    )
+}
 
 FlexItem.propTypes = {
     /**

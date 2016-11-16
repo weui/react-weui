@@ -168,7 +168,7 @@ class PickerGroup extends Component {
     }
 
     render() {
-        const { items, className, ...others } = this.props;
+        const { items, className, height, itemHeight, indicatorTop, indicatorHeight, onChange, aniamtion, groupIndex, defaultIndex, mapKeys, ...others } = this.props;
         const cls = classNames('weui-picker__group', className)
         const styles = {
             'transform' : `translate(0, ${this.state.translate}px)`,
@@ -189,7 +189,7 @@ class PickerGroup extends Component {
                     { items.map( (item, j) => {
                         const label = item[this.props.mapKeys.label];
 
-                        return <div {...item} key={j} className="weui-picker__item">{ label }</div>
+                        return <div key={j} className="weui-picker__item">{ label }</div>
                     }) }
                 </div>
             </div>

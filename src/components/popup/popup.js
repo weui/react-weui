@@ -27,14 +27,14 @@ class Popup extends Component {
     }
 
     render(){
-        const { className, children, show, onRequestClose, ...others } = this.props;
+        const { className, children, show, onRequestClose, enableMask, ...others } = this.props;
         const cls = classNames('weui-popup', {
             'weui-popup_toggle' : show
         }, className);
 
         return (
             <div>
-                <Mask style={{display: show ? 'block' : 'none'}} onClick={onRequestClose} />
+                <Mask transparent={enableMask} style={{display: show ? 'block' : 'none'}} onClick={onRequestClose} />
                 <div className={cls} {...others} >
                     { children }
                 </div>
