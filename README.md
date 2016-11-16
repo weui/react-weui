@@ -24,7 +24,8 @@ With [npm](http://npmjs.com/):
 If React is not installed
 
 ```
-npm install react weui@0.4.3 react-weui --save
+npm install --save react@15.4.0 react-dom@15.4.0
+npm install --save weui@0.4.3 react-weui
 ```
 
 With React Installed
@@ -32,6 +33,8 @@ With React Installed
 ```
 npm install weui@0.4.3 react-weui --save
 ```
+
+Due to the browser compatibility issues, react-weui required [babel polyfill](https://babeljs.io/docs/usage/polyfill/) to work
 
 ## Example
 

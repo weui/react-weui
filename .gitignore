@@ -6,3 +6,5 @@ npm-debug.log
 .DS_Store
 publish.sh
 .c9
+pendingtest
+.nyc_output
