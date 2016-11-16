@@ -75,7 +75,9 @@ See the [contributing guidelines](https://github.com/n7best/react-weui-1/blob/ma
 
 ![react-weui](./docs/qrcode.png)
 
-[https://weui.github.io/react-weui](https://weui.github.io/react-weui)
+[1.0.0 alpha](https://weui.github.io/react-weui)
+
+[0.4.3 Demo](http://weui.github.io/react-weui/0.4.x/)
 
 ## License
 
