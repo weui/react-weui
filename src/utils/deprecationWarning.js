@@ -3,6 +3,9 @@ import warning from 'warning';
 const warned = {};
 
 export default function deprecationWarning(oldname, newname, link) {
+  //avoid test warnings
+  if(typeof global.it === 'function') return;
+
   const warnKey = `${oldname}\n${newname}`;
   if (warned[warnKey]) {
     return;
