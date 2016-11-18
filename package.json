@@ -11,7 +11,7 @@
     "build:example": "rimraf ./dist && webpack --config webpack.config.prod.js --progress --colors -p",
     "build:doc": "rimraf ./dist/docs && webpack --config webpack.config.doc.js --progress --colors -p",
     "build:page": "npm run build:example && npm run build:doc",
-    "lint": "eslint 'src/**/*.@(js|jsx)'",
+    "lint": "eslint 'src/**/*.js'",
     "pretest": "npm run lint",
     "test": "mocha --compilers js:babel-core/register --recursive -r ignore-styles -r jsdom-global/register",
     "test:watch": "npm run test -- --watch",
