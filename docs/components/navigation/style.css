@@ -1,42 +1,42 @@
 .navmenu {
-  list-style: none;
-  margin-top: 40px;
+    list-style: none;
+    margin-top: 40px;
 }
 
 .navmenu__item {
-  display: block;
-  padding: 10px;
-  font-size: 1em;
-  font-family: 'Open Sans', sans-serif;
-  text-align: center;
-  color: rgba(113,120,120,.7);
+    display: block;
+    padding: 10px;
+    font-size: 1em;
+    /*font-family: 'Open Sans', sans-serif;*/
+    text-align: center;
+    color: rgba(113,120,120,.7);
 }
 
 .navmenu__item p{
-  font-size: .6em;
+    font-size: .6em;
 }
 
 .navmenu__item:hover{
-  color: rgba(113,120,120,1);
+    color: rgba(113,120,120,1);
 }
 
 .navmenu__item.active {
-  color: rgba(88,153,288,1);
+    color: rgba(88,153,288,1);
 }
 
 .App__nav {
-  width: 375px;
-  z-index: 5;
-  position: relative;
-  display: flex;
-  border-right: 1px solid rgb(218, 218, 218);
+    width: 375px;
+    z-index: 5;
+    position: relative;
+    display: flex;
+    border-right: 1px solid rgb(218, 218, 218);
 }
 
 .navMenu {
-  max-width: 300px;
-  height: 100%;
-  flex: 1;
-  overflow-y: scroll;
+    max-width: 300px;
+    height: 100%;
+    flex: 1;
+    overflow-y: scroll;
 }
 
 .navMenu::-webkit-scrollbar {
@@ -44,38 +44,38 @@
 }
 
 .navMenu--icon{
-  width:20px;
-  margin-right:5px;
-  display:block;
+    width:20px;
+    margin-right:5px;
+    display:block;
 }
 
 .navMenu .weui-search-bar {
-  position: absolute !important;
-  z-index: 50;
+    position: absolute !important;
+    z-index: 50;
 }
 
 .navMenu .weui-cells__title {
-  margin-top: 45px;
+    margin-top: 45px;
 }
 
 .navMenu .weui-cell.active {
-  background: #eee;
+    background: #eee;
 }
 
 .navSidebar {
-  max-width: 80px;
-  /*height: 100%;*/
-  background: #eee;
-  flex: 1;
+    max-width: 100px;
+    /*height: 100%;*/
+    background: #eee;
+    flex: 1;
 }
 
 .navSidebar--logo {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 .navSidebar--logo img{
-  width: 50px;
-  margin: 10px auto;
-  /*animation: App__logo-spin infinite 20s linear;*/
+    width: 50px;
+    margin: 10px auto;
+    /*animation: App__logo-spin infinite 20s linear;*/
 }
