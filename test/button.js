@@ -3,7 +3,33 @@ import { shallow } from 'enzyme';
 import assert from 'assert';
 import WeUI from '../src/index';
 
-const {Button} = WeUI;
+const { Button, PreviewButton } = WeUI;
+
+describe('<PreviewButton></PreviewButton>', () => {
+    [true, false].map(primary => {
+        describe(`<PreviewButton primary="${primary}">ok</PreviewButton>`, ()=>{
+            let wrapper = shallow(
+                <PreviewButton primary={primary}>ok</PreviewButton>
+            );
+
+            it('should have class with "weui-form-preview__btn"', ()=> {
+                assert(wrapper.hasClass('weui-form-preview__btn'));
+            });
+
+            it('should have class with "weui-form-preview__btn_default" when not primary', ()=> {
+                if (!primary) {
+                    assert(wrapper.hasClass('weui-form-preview__btn_default'));
+                }
+            });
+
+            it('should have class with "weui-form-preview__btn_primary" when primary', ()=> {
+                if (primary) {
+                    assert(wrapper.hasClass('weui-form-preview__btn_primary'));
+                }
+            });
+        })
+    })
+})
 
 describe('<Button></Button>', () => {
 

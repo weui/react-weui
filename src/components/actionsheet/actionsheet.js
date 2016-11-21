@@ -44,9 +44,18 @@ class ActionSheet extends Component {
         menus: [],
         actions: [],
         show: false,
-        autoDectect: true,
-        onRequestClose: () => {}
+        autoDectect: true
     };
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isAndroid: isAndroid
+        }
+
+        this.handleMaskClick = this.handleMaskClick.bind(this)
+    }
 
     renderMenuItem() {
         return this.props.menus.map((menu, idx) => {
@@ -76,6 +85,10 @@ class ActionSheet extends Component {
         });
     }
 
+    handleMaskClick(e){
+        if(this.props.onRequestClose) this.props.onRequestClose(e)
+    }
+
     render() {
         const {show, autoDectect, type, onRequestClose, menus, actions, ...others} = this.props;
         const cls = classNames({
@@ -86,14 +99,14 @@ class ActionSheet extends Component {
         let styleType = type ? type : 'ios';
 
         if(!type && autoDectect){
-            if(isAndroid) styleType = 'android';
+            if(this.state.isAndroid) styleType = 'android';
         }
 
         return (
             <div
                 className={styleType == 'android' ? 'weui-skin_android' : ''}
             >
-                    <Mask style={{display: show ? 'block' : 'none'}} onClick={onRequestClose} />
+                    <Mask style={{display: show ? 'block' : 'none'}} onClick={this.handleMaskClick} />
                     <div className={cls} {...others} >
                         <div className="weui-actionsheet__menu">
                             {this.renderMenuItem()}

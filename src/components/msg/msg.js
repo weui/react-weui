@@ -71,7 +71,7 @@ class Msg extends Component {
 
         let elFooter = footer ? footer : ()=>false;
 
-        if(!elFooter && (extraHref || extraText) ){
+        if(!elFooter() && (extraHref || extraText) ){
             deprecationWarning('Msg extraHref/extraText', 'Msg footer')
 
             elFooter = () => (
