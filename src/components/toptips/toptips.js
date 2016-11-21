@@ -7,18 +7,15 @@ import './toptips.less';
  *
  */
 const Toptips = (props) => {
-    const { className, warn, info, primary, children, show, ...others } = props;
+    const {className, type, children, show, ...others} = props;
     const cls = classNames({
         'weui-toptips': true,
-        'weui-toptips_default': !warn && !info && !primary,
-        'weui-toptips_warn': warn,
-        'weui-toptips_info': info,
-        'weui-toptips_primary': primary,
+        [`weui-toptips_${type}`]: true,
         [className]: className
     });
 
     return (
-        <div className={cls} {...others} style={{ display: show ? 'block' : 'none'}}>
+        <div className={cls} {...others} style={{display: show ? 'block' : 'none'}}>
             {children}
         </div>
     );
@@ -31,24 +28,14 @@ Toptips.propTypes = {
      */
     show: React.PropTypes.bool,
     /**
-     * warn style
-     *
+     * type: `default`, `warn`, `info`, `primary`
      */
-    warn: React.PropTypes.bool,
-    /**
-     * info style
-     *
-     */
-    info: React.PropTypes.bool,
-    /**
-     * green style
-     *
-     */
-    primary: React.PropTypes.bool,
-}
+    type: React.PropTypes.string
+};
 
 Toptips.defaultProps = {
     show: false,
-}
+    type: 'default'
+};
 
 export default Toptips
