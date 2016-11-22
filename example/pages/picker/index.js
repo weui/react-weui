@@ -15,7 +15,8 @@ class PickerDemo extends React.Component {
                         label: 'Item1'
                     },
                     {
-                        label: 'Item2'
+                        label: 'Item2 (Disabled)',
+                        disabled: true
                     },
                     {
                         label: 'Item3'
@@ -61,16 +62,14 @@ class PickerDemo extends React.Component {
                         </CellBody>
                     </FormCell>
                 </Form>
-                <Popup
+
+                <CityPicker
+                    data={cnCity}
+                    onCancel={e=>this.setState({city_show: false})}
+                    onChange={text=>this.setState({city_value: text, city_show: false})}
                     show={this.state.city_show}
-                    onRequestClose={e=>this.setState({city_show: false})}
-                >
-                    <CityPicker
-                        data={cnCity}
-                        onCancel={e=>this.setState({city_show: false})}
-                        onChange={text=>this.setState({city_value: text, city_show: false})}
-                    />
-                </Popup>
+                />
+
 
 
                 <Form>
@@ -93,23 +92,21 @@ class PickerDemo extends React.Component {
                     </FormCell>
                 </Form>
 
-                <Popup
+                <Picker
+                    onChange={selected=>{
+                        let value = ''
+                        selected.forEach( (s, i)=> {
+                            value = this.state.picker_group[i]['items'][s].label
+                        })
+                        this.setState({
+                            picker_value: value,
+                            picker_show: false
+                        })
+                    }}
+                    groups={this.state.picker_group}
                     show={this.state.picker_show}
-                    onRequestClose={e=>this.setState({picker_show: false})}
-                >
-                    <Picker
-                        onChange={selected=>{
-                            let value = ''
-                            selected.forEach( (s, i)=> {
-                                value = this.state.picker_group[i]['items'][s].label
-                            })
-                            this.setState({
-                                picker_value: value
-                            })
-                        }}
-                        groups={this.state.picker_group}
-                    />
-                </Popup>
+                    onCancel={e=>this.setState({picker_show: false})}
+                />
 
                 <br/>
 

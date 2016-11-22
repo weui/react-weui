@@ -94,7 +94,7 @@
     "warning": "^3.0.0",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.1",
-    "weui": "^1.0.2"
+    "weui": "^1.1.0"
   },
   "peerDependencies": {
     "react": "0.14.x || ^15.0.0-0 || 15.x",

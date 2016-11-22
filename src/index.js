@@ -7,7 +7,7 @@ import version from './version';
 import {Button, ButtonArea, PreviewButton} from './components/button/index';
 import {Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter} from './components/cell/index';
 import Mask from './components/mask/index';
-import {Form, FormCell, TextArea, Input, Switch, Radio, Checkbox, Select, Uploader, VCode, Agreement, Preview, PreviewHeader, PreviewBody, PreviewFooter, PreviewItem} from './components/form/index';
+import {Form, FormCell, TextArea, Input, Switch, Radio, Slider, Checkbox, Select, Uploader, VCode, Agreement, Preview, PreviewHeader, PreviewBody, PreviewFooter, PreviewItem} from './components/form/index';
 import Label from './components/label/index';
 import Toast from './components/toast/index';
 import Progress from './components/progress/index';
@@ -28,7 +28,7 @@ import {Gallery, GalleryDelete} from './components/gallery';
 import {Footer, FooterText, FooterLinks, FooterLink} from './components/footer';
 import LoadMore from './components/loadmore';
 import { Picker, CityPicker } from './components/picker';
-
+import Badge from './components/badge';
 //non standard
 import { Popup, PopupHeader } from './components/popup';
 
@@ -110,6 +110,8 @@ export default {
     PreviewButton,
     Picker,
     CityPicker,
+    Slider,
+    Badge,
 
     //non-standard
     Popup,

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import PickerGroup from './picker_group';
 import classNames from 'classnames';
-
+import Mask from '../mask';
 /**
  *  Mobile select ui, currently only support Touch Events
  *
@@ -24,7 +24,7 @@ class Picker extends Component {
          */
         defaultSelect: PropTypes.array,
         /**
-         * trigger when individual group change, pass property(`item`, `item index in group`, `group index in groups`)
+         * trigger when individual group change, pass property(`item`, `item index in group`, `group index in groups`, `selected`, `picker instance`)
          *
          */
         onGroupChange: PropTypes.func,
@@ -32,27 +32,54 @@ class Picker extends Component {
          * on selected change, pass property `selected` for array of slected index to `groups`
          *
          */
-        onChange: PropTypes.func
+        onChange: PropTypes.func,
+        /**
+         * excute when the popup about to close
+         *
+         */
+        onCancel: PropTypes.func,
+        /**
+         * display the component
+         *
+         */
+        show: PropTypes.bool,
+        /**
+         * language object consists of `leftBtn` and `rightBtn`
+         *
+         */
+        lang: PropTypes.object,
     };
 
     static defaultProps = {
         actions: [],
         groups: [],
+        show: false,
+        lang: { leftBtn: 'Cancel', rightBtn: 'Ok' },
     }
 
     constructor(props){
         super(props)
 
         this.state = {
-            selected : this.props.defaultSelect ? this.props.defaultSelect : Array(this.props.groups.length).fill(-1)
+            selected : this.props.defaultSelect ? this.props.defaultSelect : Array(this.props.groups.length).fill(-1),
+            actions: this.props.actions.length > 0 ? this.props.actions : [{
+                label: this.props.lang.leftBtn,
+                onClick: e=>this.handleClose( ()=> {if(this.props.onCancel) this.props.onCancel(e)} )
+            },
+            {
+                label: this.props.lang.rightBtn,
+                onClick: e=>this.handleChanges()
+            }],
+            closing: false
         }
 
         this.handleChanges = this.handleChanges.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     handleChanges(){
-        if(this.props.onChange) this.props.onChange(this.state.selected, this)
+        this.handleClose( ()=> { if(this.props.onChange) this.props.onChange(this.state.selected, this) } )
     }
 
     handleChange(item, i, groupIndex){
@@ -60,15 +87,23 @@ class Picker extends Component {
 
         selected[groupIndex] = i;
         this.setState({ selected },()=>{
-            if(this.props.onGroupChange) this.props.onGroupChange(item, i, groupIndex)
-            this.handleChanges();
+            if(this.props.onGroupChange) this.props.onGroupChange(item, i, groupIndex, this.state.selected, this)
         });
     }
 
-    renderActions(){
-        if(this.props.actions.length == 0) return false;
+    handleClose(cb){
+        this.setState({
+            closing: true
+        }, ()=> setTimeout( ()=> {
+            this.setState({ closing: false })
+            cb()
+        }, 300))
+    }
 
-        let elActions = this.props.actions.map( (action, i)=> {
+    renderActions(){
+        if(this.state.actions.length == 0) return false;
+
+        let elActions = this.state.actions.map( (action, i)=> {
             const { label, ...others } = action;
             return <a {...others} key={i} className="weui-picker__action"> { label }</a>
         })
@@ -87,17 +122,28 @@ class Picker extends Component {
     }
 
     render(){
-        const { className, actions, groups, defaultSelect, onGroupChange, onChange, ...others } = this.props;
-        const cls = classNames('weui-picker', className);
+        const { className, show, actions, groups, defaultSelect, onGroupChange, onChange, onCancel,  ...others } = this.props;
+        const cls = classNames('weui-picker', {
+            'weui-animate-slide-up': show && !this.state.closing,
+            'weui-animate-slide-down': this.state.closing
+        }, className);
 
-        return (
-            <div className={cls} {...others} style={{ position: 'relative' }}>
-                { this.renderActions() }
-                <div className="weui-picker__bd">
-                    { this.renderGroups() }
+        const maskCls = classNames({
+            'weui-animate-fade-in': show && !this.state.closing,
+            'weui-animate-fade-out': this.state.closing
+        })
+
+        return this.props.show ? (
+            <div>
+                <Mask className={maskCls} onClick={e=>this.handleClose( ()=> {if(this.props.onCancel) this.props.onCancel(e)} )} />
+                <div className={cls} {...others}>
+                    { this.renderActions() }
+                    <div className="weui-picker__bd">
+                        { this.renderGroups() }
+                    </div>
                 </div>
             </div>
-        )
+        ) : false;
     }
 }
 

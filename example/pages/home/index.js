@@ -36,6 +36,10 @@ const menus = [
                 to: '/picker'
             },
             {
+                label: 'Slider',
+                to: '/slider'
+            },
+            {
                 label: 'Uploader',
                 to: '/uploader'
             }
@@ -48,6 +52,10 @@ const menus = [
             {
                 label: 'Article',
                 to: '/article'
+            },
+            {
+                label: 'Badge',
+                to: '/badge'
             },
             {
                 label: 'Flex',
