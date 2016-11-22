@@ -1,9 +1,3 @@
-/**
- * Created by yjcxy12 on 16/1/22.
- */
-
-
-
 import Form from './form';
 import FormCell from './form_cell';
 import TextArea from './textarea';
@@ -20,6 +14,7 @@ import PreviewHeader from './preview_header';
 import PreviewBody from './preview_body';
 import PreviewFooter from './preview_footer';
 import PreviewItem from './preview_item';
+import Slider from './slider';
 
 export default {
     Form,
@@ -37,5 +32,6 @@ export default {
     PreviewHeader,
     PreviewBody,
     PreviewFooter,
-    PreviewItem
+    PreviewItem,
+    Slider
 };

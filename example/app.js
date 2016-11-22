@@ -10,7 +10,7 @@ import Pages from './index';
 const { Home, Button, List, Input, Toast, Dialog, Progress, Msg, Article,
 ActionSheet, Icons, Panel, NavBar, NavBar2, TabBar, TabBar2, SearchBar, Gallery,
 Uploader, Flex, Footer, Grid, LoadMore, Preview, MsgSuccess, MsgFail, TopTips,
-Popup, Picker
+Popup, Picker, Slider, Badge
 } = Pages;
 
 
@@ -68,6 +68,8 @@ ReactDOM.render((
                     <Route path="toptips" component={TopTips}/>
                     <Route path="popup" component={Popup}/>
                     <Route path="picker" component={Picker}/>
+                    <Route path="slider" component={Slider}/>
+                    <Route path="badge" component={Badge}/>
             </Route>
     </Router>
 ), document.getElementById('container'));

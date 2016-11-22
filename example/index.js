@@ -27,6 +27,8 @@ import MsgFail from './pages/msg/fail';
 import TopTips from './pages/toptips';
 import Popup from './pages/popup';
 import Picker from './pages/picker';
+import Slider from './pages/slider';
+import Badge from './pages/badge';
 
 export default {
     Home,
@@ -57,5 +59,7 @@ export default {
     MsgFail,
     TopTips,
     Popup,
-    Picker
+    Picker,
+    Slider,
+    Badge
 }

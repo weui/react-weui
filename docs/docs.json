@@ -498,6 +498,20 @@
         "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
         "preview" : "TopTips",
         "component" : "toptips/toptips"
+      },
+      {
+        "name": "Slider",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Slider",
+        "component" : "form/slider"
+      },
+      {
+        "name": "Badge",
+        "version": "1.0.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Badge",
+        "component" : "badge/badge"
       }
     ]
   }
