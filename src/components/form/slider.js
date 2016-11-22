@@ -70,14 +70,15 @@ class Slider extends Component {
         super(props)
 
         this.state = {
-            value: this.props.value ? this.props.value : 0,
+            value: this.props.value ? this.props.value : this.props.defaultValue ? this.props.defaultValue : 0,
             controlled: typeof this.props.value !== 'undefined',
             totalWidth: 0,
 
             touching: false,
             ogX: 0,
             touchID: undefined,
-            percent: this.props.value ? parseInt( this.props.value / (this.props.max - this.props.min) * 100 ) : 0,
+            percent: this.props.value ? parseInt( this.props.value / (this.props.max - this.props.min) * 100 ) :
+                     this.props.defaultValue ? parseInt( this.props.defaultValue / (this.props.max - this.props.min) * 100 ) : 0,
             animating: false
         }
 

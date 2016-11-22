@@ -37,6 +37,8 @@ New Components:
 - PreviewItem
 - PreviewButton
 - Picker
+- Slider
+- Badge
 - version
 
 New Addon Components:

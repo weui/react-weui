@@ -92,7 +92,7 @@ class PickerGroup extends Component {
         let selected = 0;
         items.forEach( (item, i) => {
             //console.log(i, this.state.translate, (this.state.translate + (itemHeight * i)), indicatorTop, this.state.translate + (itemHeight * i) + itemHeight , indicatorTop + indicatorHeight)
-            if( (this.state.translate + (itemHeight * i)) >= indicatorTop &&
+            if( !item.disabled && (this.state.translate + (itemHeight * i)) >= indicatorTop &&
             ( this.state.translate + (itemHeight * i) + itemHeight ) <= indicatorTop + indicatorHeight ){
                 selected = i;
             }
@@ -188,8 +188,11 @@ class PickerGroup extends Component {
                     ref="content">
                     { items.map( (item, j) => {
                         const label = item[this.props.mapKeys.label];
+                        const itemCls= classNames('weui-picker__item', {
+                            'weui-picker__item_disabled' : item.disabled
+                        })
 
-                        return <div key={j} className="weui-picker__item">{ label }</div>
+                        return <div key={j} className={itemCls}>{ label }</div>
                     }) }
                 </div>
             </div>

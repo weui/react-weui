@@ -9,11 +9,6 @@ class CityPicker extends React.Component {
 
     static propTypes = {
         /**
-         * display picker inline
-         *
-         */
-        inline: PropTypes.bool,
-        /**
          * Array of item trees, consists property for label and subitems
          *
          */
@@ -29,18 +24,17 @@ class CityPicker extends React.Component {
          */
         selected: PropTypes.array,
         /**
-         * language object consists of `leftBtn` and `rightBtn`
+         * display the component
          *
          */
-        lang: PropTypes.object
+        show: PropTypes.bool
     }
 
     static defaultProps = {
-        inline: false,
         data: [],
         dataMap: { id: 'name', items: 'sub' },
         selected: [],
-        lang: { leftBtn: 'Cancel', rightBtn: 'Ok' }
+        show: false
     }
 
     constructor(props){
@@ -72,10 +66,6 @@ class CityPicker extends React.Component {
       if(typeof data[_selected] == 'undefined'){
           _selected = 0;
       }
-      //auto set middle
-        //   else if(selected.length == 0){
-        //       _selected = Math.floor(data.length / 2)
-        //   }
 
       newselected.push(_selected)
 
@@ -93,8 +83,8 @@ class CityPicker extends React.Component {
     }
 
 
-    updateGroup(selected, picker){
-        const { data, dataMap, inline, onChange } = this.props;
+    updateGroup(item, i, groupIndex, selected, picker){
+        const { data, dataMap } = this.props;
         //validate if item exists
 
         const { groups, newselected } = this.parseData(data, dataMap.items, selected);
@@ -121,9 +111,6 @@ class CityPicker extends React.Component {
         picker.setState({
             selected: newselected
         })
-
-        if(inline && onChange) onChange(this.state.text)
-
     }
 
     handleChange(){
@@ -133,19 +120,12 @@ class CityPicker extends React.Component {
     render(){
         return (
             <Picker
-                onChange={this.updateGroup}
+                show={this.props.show}
+                onGroupChange={this.updateGroup}
+                onChange={this.handleChange}
                 defaultSelect={this.state.selected}
-                actions={ !this.props.inline ? [
-                    {
-                        label: this.props.lang.leftBtn,
-                        onClick: e=>{ if(this.props.onCancel) this.props.onCancel(this.state.text) }
-                    },
-                    {
-                        label: this.props.lang.rightBtn,
-                        onClick: this.handleChange
-                    }
-                ] : [] }
                 groups={this.state.groups}
+                onCancel={this.props.onCancel}
             />
         )
     }

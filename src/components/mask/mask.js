@@ -19,14 +19,14 @@ class Mask extends React.Component {
     };
 
     render() {
-        const {transparent, ...others} = this.props;
-        const className = classNames({
+        const {transparent, className, ...others} = this.props;
+        const clz = classNames({
             'weui-mask': !transparent,
             'weui-mask_transparent': transparent
-        });
+        }, className);
 
         return (
-            <div className={className} {...others}></div>
+            <div className={clz} {...others}></div>
         );
     }
 }
