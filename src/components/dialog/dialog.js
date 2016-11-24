@@ -44,6 +44,14 @@ class Dialog extends Component {
         autoDectect: true,
     };
 
+    constructor(props){
+        super(props)
+
+        this.state = {
+            isAndroid: isAndroid
+        }
+    }
+
     renderButtons() {
         return this.props.buttons.map((action, idx) => {
             const {type, label, ...others} = action;
@@ -63,7 +71,7 @@ class Dialog extends Component {
         const {title, show, className, children, buttons, type, autoDectect, ...others} = this.props;
         const styleType = type ? type : 'ios';
         const cls = classNames('weui-dialog', {
-            'weui-skin_android': styleType == 'android' || (!type && autoDectect && isAndroid),
+            'weui-skin_android': styleType == 'android' || (!type && autoDectect && this.state.isAndroid),
             [className]: className
         })
 
