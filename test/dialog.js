@@ -98,7 +98,7 @@ describe('<Dialog></Dialog>', ()=> {
                         //type
                         if(type == 'android'){
                             it('should have render `weui-skin_android` class' ,  ()=> {
-                                console.log(wrapper.debug())
+                                //console.log(wrapper.debug())
                                 assert(wrapper.find('div.weui-dialog').hasClass('weui-skin_android'));
                             })
                         }
