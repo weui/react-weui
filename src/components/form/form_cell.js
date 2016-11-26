@@ -32,7 +32,7 @@ export default class FormCell extends Component {
          * if cell use for switch checkbox
          *
          */
-        switch: PropTypes.bool,
+        'switch': PropTypes.bool,
         /**
          * if cell use for select
          *
@@ -51,7 +51,7 @@ export default class FormCell extends Component {
         radio: false,
         checkbox: false,
         select: false,
-        switch: false,
+        'switch': false,
         selectPos: undefined
     };
 
