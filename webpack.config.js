@@ -8,7 +8,7 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 module.exports = {
     context: path.join(__dirname, 'example'),
     entry: {
-        js: ['babel-polyfill', './app.js'],
+        js: ['./app.js'],
         vendor: ['react', 'classnames', 'react-router', 'react-dom', 'react-addons-css-transition-group']
     },
     output: {

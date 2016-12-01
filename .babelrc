@@ -1,6 +1,6 @@
 {
     "presets": ['es2015', 'stage-2', 'react'],
-    "plugins": ['transform-class-properties', 'add-module-exports'],
+    "plugins": ['transform-class-properties', 'add-module-exports', 'transform-runtime'],
     "env": {
         "test": {
           "plugins": [ "istanbul" ]
