@@ -12,7 +12,7 @@ class CityPicker extends React.Component {
          * Array of item trees, consists property for label and subitems
          *
          */
-        data: PropTypes.array,
+        data: PropTypes.array.isRequired,
         /**
          * keys for data provide, `id` to indicate property name for label, `items` to indicate property name for subitems
          *
