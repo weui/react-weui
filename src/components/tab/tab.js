@@ -43,26 +43,28 @@ export default class Tab extends React.Component {
         if(this.props.onChange) this.props.onChange(idx);
     }
 
-    parseNavBar(children) {
-        const navHeaders = [];
-        const navContents = [];
+    parseChild(children) {
+        const ChildHeaders = [];
+        const ChildContents = [];
 
         React.Children.map(children, child => {
             if(!child) return;
             const {children, type, ...others} = child.props;
-            if(child.type === NavBarItem){
-              navHeaders.push(child);
-              if(children) navContents.push(<TabBodyItem children={children}/>);
+            if(child.type === TabBarItem || child.type === NavBarItem){
+              ChildHeaders.push(child);
+              if(children) ChildContents.push(<TabBodyItem children={children}/>);
             }else if(child.type === TabBodyItem){
-              navContents.push(child);
+              ChildContents.push(child);
             }
         });
 
-        return {navHeaders, navContents};
+        return {ChildHeaders, ChildContents};
     }
 
-    renderNavBar(headers, contents, cls) {
-        let _headers = headers.map((item, idx)=>{
+    renderBar(type, children, cls) {
+        const {ChildHeaders, ChildContents} = this.parseChild(children);
+
+        let _headers = ChildHeaders.map((item, idx)=>{
             return React.cloneElement(item, {
                 key: idx,
                 active: this.state.index === idx,
@@ -70,7 +72,7 @@ export default class Tab extends React.Component {
             });
         });
 
-        let _contents = contents.map((item, idx)=>{
+        let _contents = ChildContents.map((item, idx)=>{
             return React.cloneElement(item, {
                 key: idx,
                 active: this.state.index === idx,
@@ -78,63 +80,32 @@ export default class Tab extends React.Component {
             });
         });
 
-        return (
-            <div className={cls}>
-                <NavBar>
-                    {_headers}
-                </NavBar>
-                <TabBody>
-                    {_contents}
-                </TabBody>
-            </div>
-        );
-    }
+        if(type == 'tabbar'){
+            return (
+                <div className={cls}>
+                    <TabBody>
+                        {_contents}
+                    </TabBody>
+                    <TabBar>
+                        {_headers}
+                    </TabBar>
+                </div>
+            );
+        }else if(type == 'navbar'){
+            return (
+                <div className={cls}>
+                    <NavBar>
+                        {_headers}
+                    </NavBar>
+                    <TabBody>
+                        {_contents}
+                    </TabBody>
+                </div>
+            )
+        }else{
+            return false;
+        }
 
-    parseTabBar(children) {
-        const tabHeaders = [];
-        const tabContents = [];
-
-        React.Children.map(children, child => {
-            if(!child) return;
-            const {children, type, ...others} = child.props;
-            if(child.type === TabBarItem){
-              tabHeaders.push(child);
-              if(children) tabContents.push(<TabBodyItem children={children}/>);
-            }else if(child.type === TabBodyItem){
-              tabContents.push(child);
-            }
-        });
-
-        return {tabHeaders, tabContents};
-    }
-
-    renderTabBar(headers, contents, cls) {
-        let _headers = headers.map((item, idx)=>{
-            return React.cloneElement(item, {
-                key: idx,
-                active: this.state.index === idx,
-                onClick: this.handleHeaderClick.bind(this, idx, item)
-            });
-        });
-
-        let _contents = contents.map((item, idx)=>{
-            return React.cloneElement(item, {
-                key: idx,
-                active: this.state.index === idx,
-                tabIndex: idx
-            });
-        });
-
-        return (
-            <div className={cls}>
-                <TabBody>
-                    {_contents}
-                </TabBody>
-                <TabBar>
-                    {_headers}
-                </TabBar>
-            </div>
-        );
     }
 
     render() {
@@ -146,22 +117,14 @@ export default class Tab extends React.Component {
             'weui-tab': true
         }, className);
 
-        switch(type){
-            case 'tabbar':
-                const {tabHeaders, tabContents} = this.parseTabBar(children);
-                return this.renderTabBar(tabHeaders, tabContents, cls);
-                break;
-            case 'navbar':
-                const {navHeaders, navContents} = this.parseNavBar(children);
-                return this.renderNavBar(navHeaders, navContents, cls);
-                break;
-            default:
-                return (
-                    <div className={cls} {...divProps}>
-                        {children}
-                    </div>
-                );
-                break;
+        if(type === 'normal') {
+            return (
+                <div className={cls} {...divProps}>
+                    {children}
+                </div>
+            );
+        }else{
+            return this.renderBar(type, children, cls)
         }
     }
 }

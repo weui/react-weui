@@ -229,7 +229,7 @@ export default class inputDemo extends React.Component {
                 </Button>
             </ButtonArea>
 
-            <Toptips warn
+            <Toptips type="warn"
                 show={this.state.showToptips}
             >
                 Oops, something is wrong!
