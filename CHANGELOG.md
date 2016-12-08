@@ -1,5 +1,9 @@
 ### CHANGELOG
 
+#### 1.0.3
+
+- user have to manully import some patch css from 'lib/react-weui.min.css'
+
 #### 1.0.0-alpha
 
 Production:
