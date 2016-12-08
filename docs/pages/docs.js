@@ -6,7 +6,10 @@ import Preview from "../components/preview";
 import NoPreview from './nopreview';
 import generateMarkdown from './generateMarkdown';
 const reactDocs = require('react-docgen');
-import WeUI from '../../src';
+
+import WeUI from '../../lib';
+import '../../lib/react-weui.min.css';
+
 import iconSrc from '../logo.svg';
 import Demos from '../../example';
 import './home.less';
