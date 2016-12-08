@@ -4,18 +4,10 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/weui/react-weui/badge.svg?branch=master)](https://coveralls.io/github/weui/react-weui?branch=master)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#pull-requests) [![QQ](http://pub.idqqimg.com/wpa/images/group.png)](http://jq.qq.com/?_wv=1027&k=413HLfV)
 
-## Notes
-__Please See [0.4.x](https://github.com/weui/react-weui/tree/0.4.x) branch__ for current stable usage and usage with weui 0.4.x
-
-__Master branch under active development for WeUI 1.0.0, Not Ready for use - APIs will change.__
-Check out the [1.0.0 Progression](https://github.com/weui/react-weui/projects/1) and [contributing guidelines](https://github.com/n7best/react-weui-1/blob/master/CONTRIBUTING.md) to see where you can help out.
-
 ## Docs
 
-
-0.4.x [documentation](https://n7best.github.io/react-weui-doc-0.4.0) with live examples.
-
 1.0.x [documentation](https://weui.github.io/react-weui/docs/) with live examples.
+0.4.x [documentation](https://n7best.github.io/react-weui-doc-0.4.0) with live examples.
 
 ## Installation (0.4.x)
 
@@ -24,17 +16,15 @@ With [npm](http://npmjs.com/):
 If React is not installed
 
 ```
-npm install --save react@15.4.0 react-dom@15.4.0
-npm install --save weui@0.4.3 react-weui
+npm install --save react react-dom
+npm install --save weui@1.1.0 react-weui
 ```
 
 With React Installed
 
 ```
-npm install weui@0.4.3 react-weui --save
+npm install weui@1.1.0 react-weui --save
 ```
-
-Due to the browser compatibility issues, react-weui required [babel polyfill](https://babeljs.io/docs/usage/polyfill/) to work
 
 ## Example
 
@@ -44,10 +34,11 @@ We have several examples on the documentation. Here is the first one to get you 
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-//commonJS Module *Require Plugins
+
+//import using commonJS Module *Require Plugins
 //import { Button } from 'react-weui'
 
-//ES6 Import
+//import Using ES6 syntax
 import WeUI from 'react-weui';
 import 'weui';
 const {Button} = WeUI;
