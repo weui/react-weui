@@ -7,14 +7,14 @@ import classNames from 'classnames';
  */
 export default class PanelBody extends React.Component {
     render() {
-        const {children, ...others} = this.props;
-        const className = classNames({
+        const {className, children, ...others} = this.props;
+        const cls = classNames({
             'weui-panel__bd': true,
             [className]: className
         });
 
         return (
-            <div className={className} {...others}>{children}</div>
+            <div className={cls} {...others}>{children}</div>
         );
     }
 };
