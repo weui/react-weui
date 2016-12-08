@@ -10,8 +10,9 @@
             "article" : {
                 "detail": "Detail",
                 "code": "Code",
-                "srcCode": "Source Code",
-                "loading": "Loading..."
+                "srcCode": "Sample Code",
+                "loading": "Loading...",
+                "guide": "Guide"
             },
             "nopreview" : {
                 "nopreview": "No Preview"
@@ -30,7 +31,8 @@
                 "detail": "具体",
                 "code": "代码",
                 "srcCode": "源码",
-                "loading": "读取中..."
+                "loading": "读取中...",
+                "guide": "教程"
             },
             "nopreview" : {
                 "nopreview": "没有预览"

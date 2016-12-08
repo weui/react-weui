@@ -10,8 +10,8 @@ const PopupHeader = (props) => {
     const cls = classNames('weui-popup__hd', className);
     return (
         <div className={cls}>
-            <a className="weui-popup__action" onClick={leftOnClick}> {left} </a>
-            <a className="weui-popup__action" onClick={rightOnClick}> {right} </a>
+            <a className="weui-popup__action" onClick={leftOnClick}>{left}</a>
+            <a className="weui-popup__action" onClick={rightOnClick}>{right}</a>
         </div>
     )
 }

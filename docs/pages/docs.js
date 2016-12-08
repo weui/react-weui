@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import SplitPane from 'react-split-pane';
 import Preview from "../components/preview";
 import NoPreview from './nopreview';
+import generateMarkdown from './generateMarkdown';
+const reactDocs = require('react-docgen');
 import WeUI from '../../src';
 import iconSrc from '../logo.svg';
 import Demos from '../../example';
@@ -29,6 +31,8 @@ class Docs extends Component {
       }
 
     }
+    let src = article.component ? require(`!!raw!../../src/components/${article.component}`) : false
+    let content = src ? generateMarkdown(article.name, article.version, reactDocs.parse(src)) : false
 
     return (
       <SplitPane split="vertical" minSize={20} defaultSize="60%" primary="second">
@@ -45,6 +49,8 @@ class Docs extends Component {
               docs: this.props.docs,
               aid: this.props.params.aid,
               langs: this.props.langs.article,
+              guide: article.guide ? require(`!!raw!../guide/${article.guide}`) : false,
+              content,
               code
             })}
           </div>

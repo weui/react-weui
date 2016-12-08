@@ -7,7 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     context: path.join(__dirname, 'example'),
     entry: {
-        js: ['babel-polyfill', './app.js'],
+        js: ['./app.js'],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

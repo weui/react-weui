@@ -89,11 +89,7 @@ class Slider extends Component {
     }
 
     componentDidMount(){
-        let barDOM = ReactDOM.findDOMNode(this.refs.bar)
-
-        this.setState({
-            totalWidth: barDOM.clientWidth
-        }, ()=>this.updateValue() )
+        if(this.state.value == 0) this.updateValue()
     }
 
     componentWillReceiveProps(nextProps){
@@ -141,10 +137,11 @@ class Slider extends Component {
 
     handleTouchStart(e){
         if(this.state.touching || this.props.disabled) return;
-
+        let barDOM = ReactDOM.findDOMNode(this.refs.bar)
         this.setState({
             touching: true,
             touchId : e.targetTouches[0].identifier,
+            totalWidth: barDOM.clientWidth,
         	ogX: e.targetTouches[0].pageX,
         	ogPercent: this.state.percent
         })

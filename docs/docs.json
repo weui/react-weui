@@ -11,7 +11,8 @@
         "version": "0.4.0",
         "icon": "http://weui.github.io/weui/images/icon_nav_actionSheet.png",
         "preview" : "ActionSheet",
-        "component" : "actionsheet/actionsheet"
+        "component" : "actionsheet/actionsheet",
+        "guide" : "actionsheet.md"
       },
       {
         "name": "Button",

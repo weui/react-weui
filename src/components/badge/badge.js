@@ -47,7 +47,7 @@ class Badge extends Component {
         }, className)
 
         let stylez = Object.assign({}, presetStyles[preset], style)
-        return <span className={clz} style={stylez}>{children}</span>
+        return <span className={clz} style={stylez} {...domProps}>{children}</span>
     }
 }
 

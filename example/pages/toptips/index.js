@@ -26,9 +26,9 @@ class ToptipsDemo extends React.Component {
                 <Button onClick={this.showSuccess.bind(this)} type="default">Primary Toptip</Button>
                 <Button onClick={this.showInfo.bind(this)} type="default">Info Toptip</Button>
 
-                <Toptips warn show={this.state.showWarn}> Oops, something is wrong! </Toptips>
-                <Toptips primary show={this.state.showSuccess}> Success submited! </Toptips>
-                <Toptips info show={this.state.showInfo}> Thanks for coming! </Toptips>
+                <Toptips type="warn" show={this.state.showWarn}> Oops, something is wrong! </Toptips>
+                <Toptips type="primary" show={this.state.showSuccess}> Success submited! </Toptips>
+                <Toptips type="info" show={this.state.showInfo}> Thanks for coming! </Toptips>
             </Page>
         );
     }

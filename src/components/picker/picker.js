@@ -101,8 +101,6 @@ class Picker extends Component {
     }
 
     renderActions(){
-        if(this.state.actions.length == 0) return false;
-
         let elActions = this.state.actions.map( (action, i)=> {
             const { label, ...others } = action;
             return <a {...others} key={i} className="weui-picker__action"> { label }</a>
