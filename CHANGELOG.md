@@ -15,6 +15,7 @@ Breaking Changes:
 
 - Remove Dialog.Alert (use Dialog directly)
 - Remove Dialog.Confirm (use Dialog directly)
+- Icon (safe-warn, safe-success) are taking off from weui
 
 New Components:
 
@@ -64,7 +65,6 @@ Depreciate on next release
 Known Issues
 
 - React-Router Warnings from using older version of react-router
-- Icon 'safe-success' and 'safe-warn' is not showing [fix pr](https://github.com/weui/weui/pull/528)
 
 #### 0.4.0 (2016-04-28)
 

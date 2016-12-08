@@ -94,7 +94,6 @@ class SearchBar extends React.Component {
         }
     }
 
-
     submitHandle(e) {
         if (this.props.onSubmit) {
             e.preventDefault();
