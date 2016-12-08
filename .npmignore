@@ -1,9 +1,11 @@
 .*rc
 .*.yml
 .idea
+.nyc_output
 webpack.config.*
 docs
 test
 example
 coverage
 .c9
+.github
