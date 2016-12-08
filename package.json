@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --hot --inline --progress --colors --port 8080",
     "startdoc": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --port 8080",
     "clean": "rimraf ./lib ./coverage",
-    "build": "npm run clean & NODE_ENV=production babel ./src --out-dir ./lib",
+    "build": "npm run clean & NODE_ENV=production babel ./src --out-dir ./lib --copy-files",
     "build:example": "rimraf ./dist && webpack --config webpack.config.prod.js --progress --colors -p",
     "build:doc": "rimraf ./dist/docs && webpack --config webpack.config.doc.js --progress --colors -p",
     "build:page": "npm run build:example && npm run build:doc",
