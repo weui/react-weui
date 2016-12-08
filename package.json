@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --hot --inline --progress --colors --port 8080",
     "startdoc": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --port 8080",
     "clean": "rimraf ./lib ./coverage",
-    "build": "npm run clean & NODE_ENV=production babel ./src --out-dir ./lib --copy-files",
+    "build:less": "find lib/ -name '*.less' -exec lessc -x {} \\; > ./lib/react-weui.min.css",
+    "build": "npm run clean & NODE_ENV=production babel ./src --out-dir ./lib --copy-files && npm run build:less",
     "build:example": "rimraf ./dist && webpack --config webpack.config.prod.js --progress --colors -p",
     "build:doc": "rimraf ./dist/docs && webpack --config webpack.config.doc.js --progress --colors -p",
     "build:page": "npm run build:example && npm run build:doc",
@@ -39,7 +40,8 @@
   "dependencies": {
     "classnames": "^2.2.0",
     "mobile-detect": "^1.3.3",
-    "babel-runtime": "^6.18.0"
+    "babel-runtime": "^6.18.0",
+    "warning": "^3.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",
@@ -51,6 +53,7 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-istanbul": "^3.0.0",
     "babel-plugin-transform-class-properties": "^6.18.0",
+    "babel-plugin-transform-require-ignore": "0.0.2",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-polyfill": "^6.16.0",
     "babel-preset-es2015": "^6.18.0",
@@ -94,7 +97,6 @@
     "style-loader": "^0.13.0",
     "uglify-loader": "^1.2.0",
     "url-loader": "^0.5.7",
-    "warning": "^3.0.0",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.1",
     "weui": "^1.1.0"
