@@ -67,6 +67,13 @@
     /*height: 100%;*/
     background: #eee;
     flex: 1;
+    position: relative;
+}
+
+.navmenu--bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .navSidebar--logo {
@@ -78,4 +85,10 @@
     width: 50px;
     margin: 10px auto;
     /*animation: App__logo-spin infinite 20s linear;*/
+}
+
+
+.App__nav .weui-dialog__bd {
+    padding-left: 0;
+    padding-right: 0;
 }

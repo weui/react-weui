@@ -15,12 +15,8 @@ import Demos from '../../example';
 import './home.less';
 
 class Docs extends Component {
-  constructor(props){
-    super(props);
 
-  }
-
-  render(){
+  renderWithMenu(){
     let article = this.props.docs[this.props.params.id].items[this.props.params.aid]
     let Sample = () => false;
     let code = '';
@@ -35,7 +31,23 @@ class Docs extends Component {
 
     }
     let src = article.component ? require(`!!raw!../../src/components/${article.component}`) : false
-    let content = src ? generateMarkdown(article.name, article.version, reactDocs.parse(src)) : false
+    let content = src ? generateMarkdown(article.name, article.version, reactDocs.parse(src), this.props.langs.article) : false
+
+    if(!article.preview){
+      return (
+        <div className="App__detail">
+          {this.props.children && React.cloneElement(this.props.children, {
+            docs: this.props.docs,
+            aid: this.props.params.aid,
+            langs: this.props.langs.article,
+            guide: article.guide ? require(`!!raw!../guide/${ typeof article.guide == 'object' ? article.guide[this.props.locale] : article.guide }`) : false,
+            content,
+            name: !article.preview ? typeof article.name == 'object' ? article.name[this.props.locale] : article.name : false,
+            code
+          })}
+        </div>
+      )
+    }
 
     return (
       <SplitPane split="vertical" minSize={20} defaultSize="60%" primary="second">
@@ -52,7 +64,7 @@ class Docs extends Component {
               docs: this.props.docs,
               aid: this.props.params.aid,
               langs: this.props.langs.article,
-              guide: article.guide ? require(`!!raw!../guide/${article.guide}`) : false,
+              guide: article.guide ? require(`!!raw!../guide/${ typeof article.guide == 'object' ? article.guide[this.props.locale] : article.guide }`) : false,
               content,
               code
             })}
@@ -60,6 +72,22 @@ class Docs extends Component {
       </SplitPane>
 
     );
+  }
+
+  render(){
+     let item = this.props.docs[this.props.params.id];
+     if(item.type == 'menu'){
+       return this.renderWithMenu()
+     }else if(item.type == 'page') {
+       let Page = require(`./${item.link}`)
+       return <Page
+                langs={this.props.langs}
+                locale={this.props.locale}
+              />
+     }else{
+       return <h3>Error</h3>
+     }
+
   }
 }
 
