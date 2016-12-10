@@ -225,10 +225,10 @@ class Start extends Component {
                     <div className="start-box-features-inner">
                         <Flex>
                             <FlexItem>
-                                <a className="start-box-features-item color-green">
+                                <Link to="/docs/2/articles/0" className="start-box-features-item color-green">
                                     <FontAwesome name="play-circle" size="4x"/>
                                     <p>{ lang.getstart }</p>
-                                </a>
+                                </Link>
                             </FlexItem>
                             <FlexItem>
                                 <Link to="/docs/1/articles/0" className="start-box-features-item color-blue">

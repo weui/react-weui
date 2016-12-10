@@ -544,7 +544,10 @@
           "zh-CN": "开始使用"
         },
         "icon": "http://weui.github.io/weui/images/icon_nav_actionSheet.png",
-        "guide" : "getstarted.md"
+        "guide" : {
+          "en-US": "getstarted.en-US.md",
+          "zh-CN": "getstarted.zh-CN.md"
+        }
       }
     ]
   }

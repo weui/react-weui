@@ -1,36 +1,36 @@
-## Installation (0.4.x)
+## 安装 (1.0.0)
 
-With [npm](http://npmjs.com/):
+使用 [npm](http://npmjs.com/):
 
-If React is not installed
+如果 React 没安装 (全新项目)
 
 ```
 npm install --save react react-dom
 npm install --save weui@1.1.0 react-weui
 ```
 
-With React Installed
+如果 React 已经安装
 
 ```
 npm install weui@1.1.0 react-weui --save
 ```
 
-## Example
+## 例子
 
-We have several examples on the documentation. Here is the first one to get you started:
+我们的组件文档里头有很多例子, 这里提供给一个快速上手的例子:
 ```javascript
 // app.js
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-//import using commonJS Module *Require Plugins
+//使用 commonJS 模块方式 *可能需要webpack插件
 //import { Button } from 'react-weui'
 
-//import Using ES6 syntax
+//使用 ES6 方式引入
 import WeUI from 'react-weui';
 
-//import styles
+//引入样式库
 import 'weui';
 import 'react-weui/lib/react-weui.min.css';
 
