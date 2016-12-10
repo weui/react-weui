@@ -1,8 +1,21 @@
 [
   {
     "id" : "1",
-    "name": "Components",
-    "icon": "file-text-o",
+    "name": {
+      "en-US": "Start",
+      "zh-CN": "开始"
+    },
+    "icon": "star-o",
+    "type": "page",
+    "link": "start"
+  },
+  {
+    "id" : "2",
+    "name": {
+      "en-US": "Components",
+      "zh-CN": "组件"
+    },
+    "icon": "th",
     "type": "menu",
     "items":
     [
@@ -513,6 +526,28 @@
         "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
         "preview" : "Badge",
         "component" : "badge/badge"
+      }
+    ]
+  },
+  {
+    "id" : "3",
+    "name": {
+      "en-US": "FAQ",
+      "zh-CN": "常见问题"
+    },
+    "icon": "book",
+    "type": "menu",
+    "items": [
+      {
+        "name": {
+          "en-US": "Get Started",
+          "zh-CN": "开始使用"
+        },
+        "icon": "http://weui.github.io/weui/images/icon_nav_actionSheet.png",
+        "guide" : {
+          "en-US": "getstarted.en-US.md",
+          "zh-CN": "getstarted.zh-CN.md"
+        }
       }
     ]
   }

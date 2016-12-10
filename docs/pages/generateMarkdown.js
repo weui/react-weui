@@ -43,34 +43,34 @@ function generatePropDefaultValue(value) {
   return '`' + value.value + '`';
 }
 
-function generateProp(propName, prop) {
+function generateProp(propName, prop, langs) {
   return (
-    '| `' + propName + '`' + (prop.required ? ' (required)' : '') + '|' +
+    '| `' + propName + '`' + (prop.required ? ` (${langs.required})` : '') + '|' +
     (prop.type ? generatePropType(prop.type) : '') + '|' +
     (prop.defaultValue ? generatePropDefaultValue(prop.defaultValue) : '') + '|' +
     (prop.description ? prop.description : '') +  '|'
   );
 }
 
-function generateProps(props) {
-  if(!props || Object.keys(props).length == 0) return ('### No Props');
-  var title = 'Props';
+function generateProps(props, langs) {
+  if(!props || Object.keys(props).length == 0) return (`### ${langs.noprop}`);
+  var title = langs.props;
 
   return (
     '\n## ' + title + '\n\n' +
-    '| Name | Type | Defaults | Details |' + '\n' + '|-----|-----|--------|--------|' +
+    `| ${langs.name} | ${langs.type} | ${langs.default} | ${langs.details} |` + '\n' + '|-----|-----|--------|--------|' +
     '\n' +
     Object.keys(props).sort().map(function(propName) {
-      return generateProp(propName, props[propName]);
+      return generateProp(propName, props[propName], langs);
     }).join('\n')
   );
 }
 
-function generateMarkdown(name, version, reactAPI) {
+function generateMarkdown(name, version, reactAPI, langs) {
   var markdownString =
     generateTitle(name, version) + '\n' +
     generateDesciption(reactAPI.description) + '\n' +
-    generateProps(reactAPI.props);
+    generateProps(reactAPI.props, langs);
 
   return markdownString;
 }

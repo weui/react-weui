@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, IndexRoute, browserHistory, IndexRedirect } from 'react-router'
 import Root from './pages/root'
 import Home from './pages/home'
 import Docs from './pages/docs'
@@ -13,7 +13,7 @@ const App = () =>
 (
   <Router history={browserHistory}>
     <Route path="/" component={Root}>
-      <IndexRoute component={Home} />
+      <IndexRedirect to="/docs/0/articles/0" />
       <Route path="docs/:id" component={Docs}>
         <IndexRoute component={NoPreview} />
         <Route path="articles/:aid" component={Articles}/>

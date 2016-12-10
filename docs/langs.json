@@ -1,38 +1,82 @@
 {
-    "en" : {
+    "en-US" : {
         "navigation": {
-          "searchbar": {
+            "searchbar": {
               "placeholder": "Search",
-              "cancel": "Cancel"
-          }
+              "cancel": "Cancel",
+              "items": "items",
+              "result": "Results"
+            },
+            "setting": {
+                "title" : "Setting",
+                "language" : "Language"
+            }
         },
         "content": {
+            "start" : {
+                "bannerHeading" : "Gorgeous WeUI Components rebuild in React",
+                "demo": "Demo",
+                "annc": "React-WeUI made from our love of React and WeChat's WeUI Design. We're currently plan on adding to it and making it better in the coming versions.",
+                "getstart": "Get Started",
+                "component": "Components",
+                "github": "Github",
+                "footer": "Hand crafted with love by the engineers at WeUI"
+            },
             "article" : {
                 "detail": "Detail",
                 "code": "Code",
                 "srcCode": "Sample Code",
                 "loading": "Loading...",
-                "guide": "Guide"
+                "guide": "Guide",
+                "noprop": "No Props",
+                "props": "Props",
+                "name": "Name",
+                "type": "Type",
+                "default": "Defaults",
+                "details": "Details",
+                "required": "required"
             },
             "nopreview" : {
                 "nopreview": "No Preview"
             }
         }
     },
-    "ch" : {
+    "zh-CN" : {
         "navigation": {
-          "searchbar": {
+            "searchbar": {
               "placeholder": "搜索",
-              "cancel": "取消"
-          }
+              "cancel": "取消",
+              "items": "项目",
+              "result": "结果"
+            },
+            "setting": {
+                "title" : "设置",
+                "language" : "语言"
+            }
         },
         "content": {
+            "start" : {
+                "bannerHeading" : "WeUI 出色的使用体验, 以 React 呈现",
+                "demo": "展示",
+                "annc": "React-WeUI, 出于对于 React 和 WeUI 设计的热爱.  让开发者可以快速地开发, 我们将会在以后的版本加入更多便捷的功能.",
+                "getstart": "开始使用",
+                "component": "组件文档",
+                "github": "Github",
+                "footer": "Hand crafted with love by the engineers at WeUI"
+            },
             "article" : {
                 "detail": "具体",
                 "code": "代码",
                 "srcCode": "源码",
                 "loading": "读取中...",
-                "guide": "教程"
+                "guide": "教程",
+                "noprop": "没有属性",
+                "props": "组件属性",
+                "name": "名称",
+                "type": "类型",
+                "default": "默认",
+                "details": "具体",
+                "required": "必须"
             },
             "nopreview" : {
                 "nopreview": "没有预览"

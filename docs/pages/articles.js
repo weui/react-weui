@@ -77,11 +77,11 @@ class Articles extends Component {
     }
 
     render(){
-        const { code, langs, guide, content } = this.props;
+        const { code, langs, guide, content, name } = this.props;
 
         return (
           <Tab type="navbar">
-                <NavBarItem label={langs.detail} >
+                <NavBarItem label={ name ? name: langs.detail } >
                     <Article>
                         <div className="markdown-body">
                             <Remarkable source={content} />
