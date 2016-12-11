@@ -32,6 +32,92 @@
     border-right: 1px solid rgb(218, 218, 218);
 }
 
+.App__nav.nomenu {
+    width: 100px;
+}
+
+@media (max-width: 1024px) {
+    .App__nav {
+        width: 100% !important;
+        position: fixed;
+        z-index: 600;
+        flex-direction: column;
+    }
+
+    .navSidebar--logo {
+        width: 50px !important;
+        height: 50px;
+        display: inline-block;
+        margin: 5px 0;
+    }
+
+    .navSidebar--logo img{
+        margin: 0 !important;
+    }
+
+    .navSidebar {
+        max-width: 100% !important;
+        padding: 2px 5px;
+    }
+
+    .navmenu, .navmenu__item {
+        display: inline-block;
+    }
+
+    .navmenu {
+        margin-top: 0;
+        padding: 0;
+        float: right;
+    }
+
+    .navmenu--bottom {
+
+        width: 40px !important;
+        position: relative !important;
+        display: inline-block;
+    }
+
+    .navMenu {
+         max-width: 100% !important;
+         width: 100%;
+    }
+
+    .weui-search-bar {
+        width: 100%;
+    }
+
+    .Pane2 {
+        width: 100% !important;
+    }
+
+    .menuItems {
+        position: relative;
+        background: #fff;
+        overflow: scroll;
+        height: 100vh;
+    }
+
+    .weui-cells {
+        overflow: scroll;
+    }
+
+    .weui-tab {
+        margin-top: 26px;
+    }
+
+    .mobileToggle {
+        display: block !important;
+        width: 100%;
+        background: #eee;
+        text-align: center;
+        border-bottom: 1px solid #c5c5c5;
+    }
+}
+
+.mobileToggle {
+    display: none;
+}
+
 .navMenu {
     max-width: 300px;
     height: 100%;

@@ -10,7 +10,8 @@ class Navigation extends Component {
         super(props);
         this.state = {
             searchFilter: '',
-            showSetting: false
+            showSetting: false,
+            showMenu: true,
         }
     }
 
@@ -45,7 +46,7 @@ class Navigation extends Component {
         if(item.type == 'menu'){
             let menus = item.items;
             return (
-                <div>
+                <div className="menuItems">
                     <CellsTitle>{ !this.state.searchFilter ? `${menus.length} ${langs.searchbar.items}` : langs.searchbar.result }</CellsTitle>
                     <Cells>
                     {
@@ -78,7 +79,7 @@ class Navigation extends Component {
         let item = data[current.id] ? data[current.id] : data[0]
 
         return (
-            <div className="App__nav" style={{ width: item.type == 'menu' ? '375px' : '100px'}}>
+            <div className={`App__nav ${ item.type == 'menu' ? 'menu' : 'nomenu'}`} >
                 <nav className="navSidebar background--nav">
                   <div className="navSidebar--logo">
                       <img src={logo} alt="logo"/>
@@ -96,7 +97,8 @@ class Navigation extends Component {
                     </div>
                   </ul>
                 </nav>
-                { item.type == 'menu' ?
+                { item.type == 'menu' ? <div className="mobileToggle" onClick={ e=>  this.setState({showMenu : !this.state.showMenu}) } ><FontAwesome name="bars" /></div> : false }
+                { item.type == 'menu' && this.state.showMenu ?
                 <div className="navMenu">
                     <SearchBar
                         lang={langs.searchbar}
