@@ -6,6 +6,14 @@
   height: 100%;
 }
 
+@media (max-width: 1024px) {
+    .App__preview { display: none; }
+    .Resizer { display: none; }
+    .Pane:first-of-type {
+        display: none;
+    }
+}
+
 .App__detail{
   height: 100%;
   overflow: scroll;

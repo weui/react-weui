@@ -174,6 +174,44 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .start {
+      overflow-x: hidden;
+    }
+    .start-banner-inner, .start-banner-inner__text, .start-box-features-inner, .start-box-footer-inner {
+        width: 100%;
+    }
+    .start-banner-inner__left {
+        display: none;
+    }
+
+    .start-banner-inner__text {
+        padding-left: 0;
+        position: absolute;
+        transform: translate(-50%, 0);
+        left: 50%;
+        text-align: center;
+
+        .actions {
+          margin: 20px auto;
+        }
+    }
+
+    .start-box-announcement p {
+        width: 80%;
+    }
+
+    .start-box-features-inner {
+      .weui-flex {
+        flex-direction: column;
+      }
+
+      .start-box-features-item {
+        margin: 10px auto;
+      }
+    }
+}
+
 .card-button {
     position: absolute;
     left: 0;
