@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import Mask from '../mask/index';
-import { isAndroid } from '../../utils/mobile_detect';
 
 /**
  * Modals provide feedback to user
@@ -48,7 +47,7 @@ class Dialog extends Component {
         super(props)
 
         this.state = {
-            isAndroid: isAndroid
+            isAndroid: ''
         }
     }
 
@@ -64,6 +63,13 @@ class Dialog extends Component {
             return (
                 <a key={idx} href="javascript:;" {...others} className={className}>{label}</a>
             );
+        });
+    }
+
+    componentDidMount(){
+        const { isAndroid } = require('../../utils/mobile_detect');
+        this.setState({
+            isAndroid,
         });
     }
 

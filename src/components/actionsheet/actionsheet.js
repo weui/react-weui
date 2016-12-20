@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import Mask from '../mask/index';
-import { isAndroid } from '../../utils/mobile_detect';
 import './actionsheet.less';
 
 /**
@@ -51,8 +50,8 @@ class ActionSheet extends Component {
         super(props);
 
         this.state = {
-            isAndroid: isAndroid
-        }
+            isAndroid: ''
+        };
 
         this.handleMaskClick = this.handleMaskClick.bind(this)
     }
@@ -87,6 +86,13 @@ class ActionSheet extends Component {
 
     handleMaskClick(e){
         if(this.props.onRequestClose) this.props.onRequestClose(e)
+    }
+
+    componentDidMount(){
+        const { isAndroid } = require('../../utils/mobile_detect');
+        this.setState({
+            isAndroid,
+        });
     }
 
     render() {
