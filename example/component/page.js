@@ -20,9 +20,10 @@ export default class Page extends React.Component {
                 <div className={`page__bd ${spacing ? 'page__bd_spacing' : ''}`}>
                     {children}
                 </div>
+                { footer ?
                 <div className="page__ft">
                     {footer}
-                </div>
+                </div> : false }
             </section>
         );
     }

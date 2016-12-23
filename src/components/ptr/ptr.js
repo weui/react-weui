@@ -44,16 +44,16 @@ class PullToRefresh extends Component{
         loaderHeight: 100,
         loaderDefaultIcon: (progress) => {
             let style = {
-                transform: `rotate(-${progress * 1.8}deg)`,
-                color: '#5f5f5f'
+                transform: `rotate(-${progress !== 100 ? progress * 1.8 : 0}deg)`,
+                color: progress !== 100 ? '#5f5f5f' : '#1AAD19'
             }
             return (
                 <div style={{ flex: 1, padding: '5px' }}>
-                    <Icon value="download" style={style}/>
+                    <Icon value={ progress !== 100 ? 'download' : 'success' } style={style}/>
                 </div>
             )
         },
-        loaderLoadingIcon: <LoadMore loading>Loading</LoadMore>,
+        loaderLoadingIcon: <LoadMore loading></LoadMore>,
         onRefresh: (resolve, reject) => setTimeout( ()=> resolve(), 1000)
     };
 
@@ -64,7 +64,6 @@ class PullToRefresh extends Component{
             pullPercent: 0,
             touching: false,
             ogY: 0,
-            ogPullPercent: 0,
             touchId: undefined,
             animating: false,
             loading: false,
@@ -94,7 +93,6 @@ class PullToRefresh extends Component{
 
         this.setState({
             touching: true,
-            ogPullPercent: this.state.pullPercent,
             touchId : e.targetTouches[0].identifier,
         	ogY: this.state.pullPercent == 0 ? e.targetTouches[0].pageY : e.targetTouches[0].pageY - this.state.pullPercent,
         	animating: false,
@@ -143,9 +141,8 @@ class PullToRefresh extends Component{
             touching: false,
             ogY: 0,
             touchId: undefined,
-            ogPullPercent: 0,
             initScrollTop: 0,
-            animating: true,
+            animating: loading,
             pullPercent,
             loading
         }, ()=>{

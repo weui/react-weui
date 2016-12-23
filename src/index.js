@@ -32,6 +32,7 @@ import Badge from './components/badge';
 //non standard
 import { Popup, PopupHeader } from './components/popup';
 import PullToRefresh from './components/ptr';
+import InfiniteLoader from './components/infiniteloader';
 
 export default {
     version,
@@ -118,5 +119,6 @@ export default {
     //non-standard
     Popup,
     PopupHeader,
-    PullToRefresh
+    PullToRefresh,
+    InfiniteLoader
 };

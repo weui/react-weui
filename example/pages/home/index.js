@@ -126,6 +126,10 @@ const menus = [
             {
                 label: 'Pull To Refresh',
                 to: '/ptr'
+            },
+            {
+                label: 'Infinite Loader',
+                to: '/infinite'
             }
         ]
     },

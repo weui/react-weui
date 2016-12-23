@@ -7,6 +7,7 @@
 New Addon Components
 
 - PullToRefresh
+- InfiniteLoader
 
 
 #### 1.0.3

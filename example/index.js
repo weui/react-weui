@@ -30,6 +30,7 @@ import Picker from './pages/picker';
 import Slider from './pages/slider';
 import Badge from './pages/badge';
 import PTR from './pages/ptr';
+import Infinite from './pages/infiniteloader';
 
 export default {
     Home,
@@ -63,5 +64,6 @@ export default {
     Picker,
     Slider,
     Badge,
-    PTR
+    PTR,
+    Infinite
 }
