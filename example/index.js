@@ -29,6 +29,7 @@ import Popup from './pages/popup';
 import Picker from './pages/picker';
 import Slider from './pages/slider';
 import Badge from './pages/badge';
+import PTR from './pages/ptr';
 
 export default {
     Home,
@@ -61,5 +62,6 @@ export default {
     Popup,
     Picker,
     Slider,
-    Badge
+    Badge,
+    PTR
 }

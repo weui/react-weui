@@ -1,5 +1,14 @@
 ### CHANGELOG
 
+#### 1.0.4
+
+- fix some server rendering issues with component
+
+New Addon Components
+
+- PullToRefresh
+
+
 #### 1.0.3
 
 - user have to manully import some patch css from 'lib/react-weui.min.css'
