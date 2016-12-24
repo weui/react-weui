@@ -29,6 +29,8 @@ import Popup from './pages/popup';
 import Picker from './pages/picker';
 import Slider from './pages/slider';
 import Badge from './pages/badge';
+import PTR from './pages/ptr';
+import Infinite from './pages/infiniteloader';
 
 export default {
     Home,
@@ -61,5 +63,7 @@ export default {
     Popup,
     Picker,
     Slider,
-    Badge
+    Badge,
+    PTR,
+    Infinite
 }
