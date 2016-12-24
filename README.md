@@ -26,6 +26,12 @@ With React Installed
 npm install weui@1.1.0 react-weui --save
 ```
 
+To use the development version (`API might changes on realese version`)
+
+```
+npm install react-weui@alpha --save
+```
+
 ## Example
 
 We have several examples on the documentation. Here is the first one to get you started:

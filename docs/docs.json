@@ -526,6 +526,21 @@
         "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
         "preview" : "Badge",
         "component" : "badge/badge"
+      },
+      {
+        "name": "PullToRefresh",
+        "version": "1.0.4",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "PTR",
+        "component" : "ptr/ptr"
+      },
+      {
+        "name": "InfiniteLoader",
+        "version": "1.0.4",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Infinite",
+        "code"  : "infiniteloader/index",
+        "component" : "infiniteloader/infiniteloader"
       }
     ]
   },

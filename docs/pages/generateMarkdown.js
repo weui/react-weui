@@ -40,7 +40,7 @@ function generatePropType(type) {
 }
 
 function generatePropDefaultValue(value) {
-  return '`' + value.value + '`';
+  return value.value.length < 10 ? '`' + value.value + '`' : '';
 }
 
 function generateProp(propName, prop, langs) {
