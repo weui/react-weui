@@ -33,6 +33,7 @@ import Badge from './components/badge';
 import { Popup, PopupHeader } from './components/popup';
 import PullToRefresh from './components/ptr';
 import InfiniteLoader from './components/infiniteloader';
+import Swiper from './components/swiper';
 
 export default {
     version,
@@ -120,5 +121,6 @@ export default {
     Popup,
     PopupHeader,
     PullToRefresh,
-    InfiniteLoader
+    InfiniteLoader,
+    Swiper
 };

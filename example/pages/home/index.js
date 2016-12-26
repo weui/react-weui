@@ -152,6 +152,10 @@ const menus = [
             {
                 label: 'AutoTabbar',
                 to: '/tabbar2'
+            },
+            {
+                label: 'Swiper',
+                to: '/swiper'
             }
         ]
     },

@@ -31,6 +31,7 @@ import Slider from './pages/slider';
 import Badge from './pages/badge';
 import PTR from './pages/ptr';
 import Infinite from './pages/infiniteloader';
+import Swiper from './pages/swiper';
 
 export default {
     Home,
@@ -65,5 +66,6 @@ export default {
     Slider,
     Badge,
     PTR,
-    Infinite
+    Infinite,
+    Swiper
 }

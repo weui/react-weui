@@ -10,7 +10,7 @@ import Pages from './index';
 const { Home, Button, List, Input, Toast, Dialog, Progress, Msg, Article,
 ActionSheet, Icons, Panel, NavBar, NavBar2, TabBar, TabBar2, SearchBar, Gallery,
 Uploader, Flex, Footer, Grid, LoadMore, Preview, MsgSuccess, MsgFail, TopTips,
-Popup, Picker, Slider, Badge, PTR, Infinite
+Popup, Picker, Slider, Badge, PTR, Infinite, Swiper
 } = Pages;
 
 
@@ -72,6 +72,7 @@ ReactDOM.render((
                     <Route path="badge" component={Badge}/>
                     <Route path="ptr" component={PTR}/>
                     <Route path="infinite" component={Infinite}/>
+                    <Route path="swiper" component={Swiper}/>
             </Route>
     </Router>
 ), document.getElementById('container'));
