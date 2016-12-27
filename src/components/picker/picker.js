@@ -79,7 +79,16 @@ class Picker extends Component {
     }
 
     handleChanges(){
-        this.handleClose( ()=> { if(this.props.onChange) this.props.onChange(this.state.selected, this) } )
+        this.handleClose( ()=> {
+            // choose default city
+            const chooseDefault = this.state.selected.find((item) => item != 0) === undefined;
+
+            if (chooseDefault && this.props.onGroupChange) {
+                this.props.onGroupChange({}, 0, 0, this.state.selected, this)
+            }
+
+            if(this.props.onChange) this.props.onChange(this.state.selected, this)
+        })
     }
 
     handleChange(item, i, groupIndex){

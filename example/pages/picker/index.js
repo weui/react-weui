@@ -68,7 +68,7 @@ class PickerDemo extends React.Component {
                     onCancel={e=>this.setState({city_show: false})}
                     onChange={text=>this.setState({city_value: text, city_show: false})}
                     show={this.state.city_show}
-                    lang={{leftBtn: '取消', rightBtn: '确定'}}
+                    lang={{ leftBtn: '取消', rightBtn: '确定' }}
                 />
 
 
