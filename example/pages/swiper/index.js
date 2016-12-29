@@ -6,6 +6,7 @@ import {
     FlexItem
 } from '../../../src/index';
 import Page from '../../component/page';
+import imgSrc from '../article/pic_article.png';
 
 class SwiperDemo extends React.Component {
 
@@ -24,10 +25,10 @@ class SwiperDemo extends React.Component {
             <CellsTitle>Horizontal - Current slide: {this.state.demoIndex}</CellsTitle>
             <div style={{border: '1px solid #eee', background: '#f8f8f8'}}>
                 <Swiper
-                    height={200}
+                    height={150}
                     onChange={ (prev, next) => this.setState({demoIndex: next}) }
                 >
-                    <img src="https://source.unsplash.com/OrgLz7cjFIc/1600x900" role="presentation" />
+                    <img src={imgSrc} role="presentation" />
                     <div style={{ padding: '5px', boxSizing: 'border-box', textAlign: 'center' }}>
                         <Flex>
                             <FlexItem>
@@ -52,7 +53,8 @@ class SwiperDemo extends React.Component {
                             </FlexItem>
                         </Flex>
                     </div>
-                    <img src="https://source.unsplash.com/v3QeAZjxxtY/1600x900" role="presentation" />
+                    <div style={{ background: '#39CCCC' }} />
+                    <div style={{ background: '#0074D9' }} />
                 </Swiper>
             </div>
 
@@ -60,10 +62,10 @@ class SwiperDemo extends React.Component {
 
             <div style={{border: '1px solid #eee', background: '#f8f8f8', marginBottom: '30px'}}>
                 <Swiper
-                    height={200}
+                    height={150}
                     direction="vertical"
                 >
-                    <img src="https://source.unsplash.com/OrgLz7cjFIc/1600x900" role="presentation" />
+                    <img src={imgSrc} role="presentation" />
                     <div style={{ padding: '5px', boxSizing: 'border-box', textAlign: 'center' }}>
                         <Flex>
                             <FlexItem>
@@ -88,7 +90,8 @@ class SwiperDemo extends React.Component {
                             </FlexItem>
                         </Flex>
                     </div>
-                    <img src="https://source.unsplash.com/v3QeAZjxxtY/1600x900" role="presentation" />
+                    <div style={{ background: '#39CCCC' }} />
+                    <div style={{ background: '#0074D9' }} />
                 </Swiper>
             </div>
         </Page>

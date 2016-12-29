@@ -16,6 +16,16 @@ import './index.less';
 
 const menus = [
     {
+        name: 'View',
+        icon: IconZIndex,
+        items: [
+            {
+                label: 'Swiper',
+                to: '/swiper'
+            }
+        ]
+    },
+    {
         name: 'Form',
         icon: IconForm,
         items: [
@@ -152,10 +162,6 @@ const menus = [
             {
                 label: 'AutoTabbar',
                 to: '/tabbar2'
-            },
-            {
-                label: 'Swiper',
-                to: '/swiper'
             }
         ]
     },

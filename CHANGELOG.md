@@ -1,5 +1,17 @@
 ### CHANGELOG
 
+#### 1.0.5
+
+Changes
+
+- Gallery now support multiple image, pass array of urls to `src` property
+- Add `DefaultIndex` to Gallery to use with multiple image source
+- Uploader updates with Gallery component to use multiple images
+
+New Addon Components
+
+- Swiper
+
 #### 1.0.4
 
 - fix some server rendering issues with component

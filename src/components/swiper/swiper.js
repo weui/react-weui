@@ -93,7 +93,7 @@ class Swiper extends Component {
             wrapperHeight: this.props.direction == 'vertical' ? $container.offsetHeight * this.props.children.length : $container.offsetHeight,
             containerWidth: $container.offsetWidth,
             containerHeight: $container.offsetHeight,
-            translate: this.props.defaultIndex <= this.props.children.length ? this.props.direction == 'horizontal' ? $container.offsetWidth * this.props.defaultIndex : $container.offsetHeight * this.props.defaultIndex : 0
+            translate: this.props.defaultIndex <= this.props.children.length ? this.props.direction == 'horizontal' ? $container.offsetWidth * -this.props.defaultIndex : $container.offsetHeight * -this.props.defaultIndex : 0
         })
         //console.log($container.offsetWidth, $container.offsetHeight)
     }
