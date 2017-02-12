@@ -37,7 +37,7 @@ export default class TextArea extends Component {
     }
 
     render(){
-        const { className, children, showCounter, maxlength, onChange, ...others } = this.props;
+        const { className, children, showCounter, maxLength, onChange, ...others } = this.props;
         const cls = classNames({
             'weui-textarea': true,
             [className]: className
@@ -47,7 +47,7 @@ export default class TextArea extends Component {
             <div>
                 <textarea
                 className={cls}
-                maxLength={maxlength}
+                maxLength={maxLength}
                 onChange={this.handleChange.bind(this)}
                 {...others}>
                     {children}
@@ -55,7 +55,7 @@ export default class TextArea extends Component {
                 {
                     showCounter ?
                     <div className="weui-textarea-counter">
-                        <span>{this.state.textCounter}</span>{maxlength ? '/' + maxlength : false}
+                        <span>{this.state.textCounter}</span>{maxLength ? '/' + maxLength : false}
                     </div>
                     : false
                 }
