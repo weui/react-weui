@@ -84,7 +84,11 @@ class SearchBar extends React.Component {
 
         this.setState({text: '', clearing: true});
         if(this.props.onClear) this.props.onClear(e);
-        ReactDOM.findDOMNode(this.refs.searchInput).focus()
+        // In most cases, you can attach a ref to the DOM node and avoid using findDOMNode at all. 
+        // When render returns null or false, findDOMNode returns null.
+        // 这里是截取官网的说明，在ref回调函数内确实会返回null，尤其是配合redux使用的时候，这个时候需要对其进行null判断
+        this.refs.searchInput.focus();
+        // ReactDOM.findDOMNode(this.refs.searchInput).focus()
         if(this.props.onChange) this.props.onChange('',e);
     }
 
@@ -134,7 +138,12 @@ class SearchBar extends React.Component {
                     </div>
                     <label
                         className='weui-search-bar__label'
-                        onClick={e=>ReactDOM.findDOMNode(this.refs.searchInput).focus()}
+                        onClick={()=>{
+                            let searchInput = this.refs.searchInput;
+                            if (searchInput) {
+                                searchInput.focus();
+                            }
+                        }}
                         style={{display: this.state.text ? 'none': null}}
                     >
                         <Icon value='search'/>
