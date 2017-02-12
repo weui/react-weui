@@ -27,7 +27,12 @@ class CityPicker extends React.Component {
          * display the component
          *
          */
-        show: PropTypes.bool
+        show: PropTypes.bool,
+        /**
+         * language object consists of `leftBtn` and `rightBtn`
+         *
+         */
+        lang: PropTypes.object,
     }
 
     static defaultProps = {
@@ -126,6 +131,7 @@ class CityPicker extends React.Component {
                 defaultSelect={this.state.selected}
                 groups={this.state.groups}
                 onCancel={this.props.onCancel}
+                lang={this.props.lang}
             />
         )
     }
