@@ -13,8 +13,8 @@ const PopupHeader = (props) => {
             <a className="weui-popup__action" onClick={leftOnClick}>{left}</a>
             <a className="weui-popup__action" onClick={rightOnClick}>{right}</a>
         </div>
-    )
-}
+    );
+};
 
 PopupHeader.propTypes = {
     /**
@@ -37,11 +37,11 @@ PopupHeader.propTypes = {
      *
      */
     rightOnClick: PropTypes.func
-}
+};
 
 PopupHeader.defaultProps = {
     left: '',
     right: ''
-}
+};
 
 export default PopupHeader;

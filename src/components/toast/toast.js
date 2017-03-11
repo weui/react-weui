@@ -35,7 +35,7 @@ class Toast extends Component {
         const {className, icon, show, children, iconSize, ...others} = this.props;
         const cls = classNames('weui-toast', {
             [className]: className
-        })
+        });
         return (
             <div style={{display: show ? 'block' : 'none'}}>
                 <Mask transparent={true}/>

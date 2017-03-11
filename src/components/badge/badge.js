@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames'
+import classNames from 'classnames';
 
 const presetStyles = {
     'default': {},
@@ -15,7 +15,7 @@ const presetStyles = {
         marginLeft: '5px',
         marginRight: '5px'
     }
-}
+};
 /**
  * Small status descriptors for UI elements.
  *
@@ -44,10 +44,10 @@ class Badge extends Component {
         const { children, className, dot, style, preset, ...domProps } = this.props;
         let clz = classNames('weui-badge', {
             'weui-badge_dot': dot
-        }, className)
+        }, className);
 
-        let stylez = Object.assign({}, presetStyles[preset], style)
-        return <span className={clz} style={stylez} {...domProps}>{children}</span>
+        let stylez = Object.assign({}, presetStyles[preset], style);
+        return <span className={clz} style={stylez} {...domProps}>{children}</span>;
     }
 }
 

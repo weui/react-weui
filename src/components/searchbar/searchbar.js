@@ -61,11 +61,11 @@ class SearchBar extends React.Component {
         focus: false,
         clearing: false,
         text: ''
-    }
+    };
 
     changeHandle(e) {
         let text = e.target.value;
-        if(this.props.onChange) this.props.onChange(text,e);
+        if (this.props.onChange) this.props.onChange(text, e);
         this.setState({text});
     }
 
@@ -74,8 +74,8 @@ class SearchBar extends React.Component {
             focus: false,
             text: ''
         });
-        if(this.props.onCancel) this.props.onCancel(e);
-        if(this.props.onChange) this.props.onChange('',e);
+        if (this.props.onCancel) this.props.onCancel(e);
+        if (this.props.onChange) this.props.onChange('', e);
     }
 
     clearHandle(e) {
@@ -83,18 +83,18 @@ class SearchBar extends React.Component {
         e.stopPropagation();
 
         this.setState({text: '', clearing: true});
-        if(this.props.onClear) this.props.onClear(e);
-        // In most cases, you can attach a ref to the DOM node and avoid using findDOMNode at all. 
+        if (this.props.onClear) this.props.onClear(e);
+        // In most cases, you can attach a ref to the DOM node and avoid using findDOMNode at all.
         // When render returns null or false, findDOMNode returns null.
         // 这里是截取官网的说明，在ref回调函数内确实会返回null，尤其是配合redux使用的时候，这个时候需要对其进行null判断
         this.refs.searchInput.focus();
         // ReactDOM.findDOMNode(this.refs.searchInput).focus()
-        if(this.props.onChange) this.props.onChange('',e);
+        if (this.props.onChange) this.props.onChange('', e);
     }
 
     blurHandle(e) {
-        if(this.state.text == ''){
-            this.setState({ focus: false})
+        if (this.state.text === ''){
+            this.setState({ focus: false});
         }
     }
 
@@ -124,7 +124,7 @@ class SearchBar extends React.Component {
                             name={searchName}
                             className='weui-search-bar__input'
                             placeholder={placeholder}
-                            onFocus={e=>this.setState({focus:true})}
+                            onFocus={e=>this.setState({focus: true})}
                             onBlur={this.blurHandle.bind(this)}
                             onChange={this.changeHandle.bind(this)}
                             value={this.state.text}
@@ -144,7 +144,7 @@ class SearchBar extends React.Component {
                                 searchInput.focus();
                             }
                         }}
-                        style={{display: this.state.text ? 'none': null}}
+                        style={{display: this.state.text ? 'none' : null}}
                     >
                         <Icon value='search'/>
                         <span>{placeholder}</span>

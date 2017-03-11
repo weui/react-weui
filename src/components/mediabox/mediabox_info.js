@@ -20,7 +20,7 @@ export default class MediaBoxInfo extends React.Component {
     };
 
     renderData(metas) {
-        return metas.map((meta,i) => {
+        return metas.map((meta, i) => {
             return <MediaBoxInfoMeta key={i} extra={meta.extra}>{meta.label}</MediaBoxInfoMeta>;
         });
     }

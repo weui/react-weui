@@ -20,7 +20,7 @@ export default class Grids extends Component {
     };
 
     renderData(data) {
-        return data.map((item,i) => {
+        return data.map((item, i) => {
             return <Grid
                     key={i}
                     icon={item.icon}

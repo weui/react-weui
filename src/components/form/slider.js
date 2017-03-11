@@ -67,7 +67,7 @@ class Slider extends Component {
     };
 
     constructor(props){
-        super(props)
+        super(props);
 
         this.state = {
             value: this.props.value ? this.props.value : this.props.defaultValue ? this.props.defaultValue : 0,
@@ -80,96 +80,96 @@ class Slider extends Component {
             percent: this.props.value ? parseInt( this.props.value / (this.props.max - this.props.min) * 100 ) :
                      this.props.defaultValue ? parseInt( this.props.defaultValue / (this.props.max - this.props.min) * 100 ) : 0,
             animating: false
-        }
+        };
 
-        this.handleTouchStart = this.handleTouchStart.bind(this)
-        this.handleTouchMove = this.handleTouchMove.bind(this)
-        this.handleTouchEnd = this.handleTouchEnd.bind(this)
-        this.updateValue = this.updateValue.bind(this)
+        this.handleTouchStart = this.handleTouchStart.bind(this);
+        this.handleTouchMove = this.handleTouchMove.bind(this);
+        this.handleTouchEnd = this.handleTouchEnd.bind(this);
+        this.updateValue = this.updateValue.bind(this);
     }
 
     componentDidMount(){
-        if(this.state.value == 0) this.updateValue()
+        if (this.state.value === 0) this.updateValue();
     }
 
     componentWillReceiveProps(nextProps){
-        if(this.state.controlled){
-            if(nextProps.value <= this.props.max && nextProps.value >= this.props.min){
-                let percent = parseInt( nextProps.value / (this.props.max - this.props.min) * 100 )
-                this.setState({ value: nextProps.value, percent })
+        if (this.state.controlled){
+            if (nextProps.value <= this.props.max && nextProps.value >= this.props.min){
+                let percent = parseInt( nextProps.value / (this.props.max - this.props.min) * 100 );
+                this.setState({ value: nextProps.value, percent });
             }
         }
     }
 
     updateValue(snap = false){
-        let value = 0
+        let value = 0;
         const percent = this.state.percent,
               { min, max, step, onChange } = this.props,
               steps = parseInt( ( max - min ) / step ),
-              perPercent = parseInt( 100 / steps )
+              perPercent = parseInt( 100 / steps );
 
-        if( percent === 100){
-            value = max
-        }else if( percent === 0 ){
-            value = min
-        }else{
-            for(let i = 0; i < steps; i++){
+        if ( percent === 100){
+            value = max;
+        } else if ( percent === 0 ){
+            value = min;
+        } else {
+            for (let i = 0; i < steps; i++){
                 //over 50 margin than next
-                if( percent > ( i*perPercent ) && percent <= ( (i+1)*perPercent ) ) {
-                    value = percent - (i*perPercent) > ( perPercent / 2 ) ? (i+1) * step + min : i * step + min
+                if ( percent > ( i * perPercent ) && percent <= ( (i + 1) * perPercent ) ) {
+                    value = percent - (i * perPercent) > ( perPercent / 2 ) ? (i + 1) * step + min : i * step + min;
                 }
             }
         }
 
-        if(value !== this.state.value) {
-            this.setState({ value })
-            if(onChange) onChange(value)
+        if (value !== this.state.value) {
+            this.setState({ value });
+            if (onChange) onChange(value);
         }
 
-        if(snap) {
+        if (snap) {
             this.setState({
                 percent: value === min ? 0 : value === max ? 100 : ( ( value - min ) / step ) * perPercent,
                 animating: true
-            }, ()=>this.setState({ animating: false }))
+            }, ()=>this.setState({ animating: false }));
         }
 
     }
 
     handleTouchStart(e){
-        if(this.state.touching || this.props.disabled) return;
-        let barDOM = ReactDOM.findDOMNode(this.refs.bar)
+        if (this.state.touching || this.props.disabled) return;
+        let barDOM = ReactDOM.findDOMNode(this.refs.bar);
         this.setState({
             touching: true,
-            touchId : e.targetTouches[0].identifier,
+            touchId: e.targetTouches[0].identifier,
             totalWidth: barDOM.clientWidth,
         	ogX: e.targetTouches[0].pageX,
         	ogPercent: this.state.percent
-        })
+        });
     }
 
     handleTouchMove(e){
-        if(!this.state.touching || this.props.disabled) return;
-        if(e.targetTouches[0].identifier !== this.state.touchId) return;
+        if (!this.state.touching || this.props.disabled) return;
+        if (e.targetTouches[0].identifier !== this.state.touchId) return;
 
         //prevent move background
         e.preventDefault();
 
         const pageX = e.targetTouches[0].pageX;
-        const diffX = pageX  - this.state.ogX;
+        const diffX = pageX - this.state.ogX;
 
         let percent = parseInt(diffX / this.state.totalWidth * 100) + this.state.ogPercent;
         percent = percent < 0 ? 0 : percent > 100 ? 100 : percent;
 
         this.setState({
             percent
-        }, ()=>this.updateValue())
+        }, ()=>this.updateValue());
     }
 
     handleTouchEnd(e){
-        if(!this.state.touching || this.props.disabled) return;
+        if (!this.state.touching || this.props.disabled) return;
 
-        if(this.props.snapToValue) {
-            this.updateValue(true)
+        if (this.props.snapToValue) {
+            this.updateValue(true);
         }
 
         this.setState({
@@ -177,7 +177,7 @@ class Slider extends Component {
             ogX: 0,
             touchId: undefined,
             ogPercent: 0
-        })
+        });
 
     }
 
@@ -189,12 +189,12 @@ class Slider extends Component {
 
         let trackStyles = {
             width: `${this.state.percent}%`
-        }
+        };
 
         let handlerStyles = {
             left: `${this.state.percent}%`,
-            transition : this.state.animating ? 'transform .3s' : 'none'
-        }
+            transition: this.state.animating ? 'transform .3s' : 'none'
+        };
 
         return (
             <div className={cls}>
@@ -215,7 +215,7 @@ class Slider extends Component {
                     showValue ? <div className="weui-slider-box__value">{ this.state.value }</div> : false
                 }
             </div>
-        )
+        );
     }
 }
 

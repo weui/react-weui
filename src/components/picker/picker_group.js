@@ -27,7 +27,7 @@ class PickerGroup extends Component {
     }
 
     constructor(props){
-        super(props)
+        super(props);
 
         this.state = {
             touching: false,
@@ -38,7 +38,7 @@ class PickerGroup extends Component {
             totalHeight: 0,
             selected: 0,
             animating: this.props.animation
-        }
+        };
 
         this.handleTouchStart = this.handleTouchStart.bind(this);
         this.handleTouchMove = this.handleTouchMove.bind(this);
@@ -56,26 +56,26 @@ class PickerGroup extends Component {
 
     adjustPosition(props){
         const { items, itemHeight, indicatorTop, defaultIndex } = props;
-        const totalHeight = items.length * itemHeight
-        let translate = totalHeight <= indicatorTop ? indicatorTop : 0
+        const totalHeight = items.length * itemHeight;
+        let translate = totalHeight <= indicatorTop ? indicatorTop : 0;
 
-        if(defaultIndex > -1) {
-            if(translate == 0){
-                let upperCount = Math.floor(indicatorTop / itemHeight)
-                if( defaultIndex > upperCount ){
+        if (defaultIndex > -1) {
+            if (translate === 0){
+                let upperCount = Math.floor(indicatorTop / itemHeight);
+                if ( defaultIndex > upperCount ){
                     //over
                     let overCount = defaultIndex - upperCount;
-                    translate -= overCount * itemHeight
-                }else if( defaultIndex === upperCount){
+                    translate -= overCount * itemHeight;
+                } else if ( defaultIndex === upperCount){
                     translate = 0;
-                }else{
+                } else {
                     //less
-                    translate += ( Math.abs(upperCount - defaultIndex) * itemHeight)
+                    translate += ( Math.abs(upperCount - defaultIndex) * itemHeight);
                 }
                 //if(props.groupIndex == 2) console.log(defaultIndex,translate, upperCount)
-            }else{
+            } else {
                 //total item less than indicator height
-                translate -= itemHeight * defaultIndex
+                translate -= itemHeight * defaultIndex;
             }
         }
 
@@ -92,30 +92,30 @@ class PickerGroup extends Component {
         let selected = 0;
         items.forEach( (item, i) => {
             //console.log(i, this.state.translate, (this.state.translate + (itemHeight * i)), indicatorTop, this.state.translate + (itemHeight * i) + itemHeight , indicatorTop + indicatorHeight)
-            if( !item.disabled && (this.state.translate + (itemHeight * i)) >= indicatorTop &&
+            if ( !item.disabled && (this.state.translate + (itemHeight * i)) >= indicatorTop &&
             ( this.state.translate + (itemHeight * i) + itemHeight ) <= indicatorTop + indicatorHeight ){
                 selected = i;
             }
-        })
+        });
 
-        if(onChange && propagate) onChange(items[selected], selected, groupIndex);
+        if (onChange && propagate) onChange(items[selected], selected, groupIndex);
     }
 
     handleTouchStart(e){
-        if(this.state.touching || this.props.items.length <= 1) return;
+        if (this.state.touching || this.props.items.length <= 1) return;
 
         this.setState({
             touching: true,
             ogTranslate: this.state.translate,
-            touchId : e.targetTouches[0].identifier,
-        	ogY: this.state.translate == 0 ? e.targetTouches[0].pageY : e.targetTouches[0].pageY - this.state.translate,
+            touchId: e.targetTouches[0].identifier,
+        	ogY: this.state.translate === 0 ? e.targetTouches[0].pageY : e.targetTouches[0].pageY - this.state.translate,
         	animating: false
-        })
+        });
     }
 
     handleTouchMove(e){
-        if(!this.state.touching || this.props.items.length <= 1) return;
-        if(e.targetTouches[0].identifier !== this.state.touchId) return;
+        if (!this.state.touching || this.props.items.length <= 1) return;
+        if (e.targetTouches[0].identifier !== this.state.touchId) return;
 
         //prevent move background
         e.preventDefault();
@@ -125,36 +125,36 @@ class PickerGroup extends Component {
 
         this.setState({
             translate: diffY
-        })
+        });
     }
 
     handleTouchEnd(e){
-        if(!this.state.touching || this.props.items.length <= 1) return;
+        if (!this.state.touching || this.props.items.length <= 1) return;
 
-        const { indicatorTop, indicatorHeight, itemHeight } = this.props
+        const { indicatorTop, indicatorHeight, itemHeight } = this.props;
         let translate = this.state.translate;
 
-        if( Math.abs(translate - this.state.ogTranslate) < ( itemHeight * .51 ) ){
-            translate = this.state.ogTranslate
-        }else if(translate > indicatorTop) {
+        if ( Math.abs(translate - this.state.ogTranslate) < ( itemHeight * .51 ) ){
+            translate = this.state.ogTranslate;
+        } else if (translate > indicatorTop) {
             //top boundry
-            translate = indicatorTop
-        }else if(translate + this.state.totalHeight  < indicatorTop + indicatorHeight) {
+            translate = indicatorTop;
+        } else if (translate + this.state.totalHeight < indicatorTop + indicatorHeight) {
             //bottom
             translate = indicatorTop + indicatorHeight - this.state.totalHeight;
-        }else{
+        } else {
             //pass single item range but not exceed boundry
             let step = 0, adjust = 0;
             let diff = (translate - this.state.ogTranslate) / itemHeight;
 
-            if(Math.abs(diff) < 1){
+            if (Math.abs(diff) < 1){
                 step = diff > 0 ? 1 : -1;
-            }else{
+            } else {
                 adjust = Math.abs((diff % 1) * 100) > 50 ? 1 : 0;
-                step = diff > 0 ? Math.floor(diff) + adjust : Math.ceil(diff) - adjust
+                step = diff > 0 ? Math.floor(diff) + adjust : Math.ceil(diff) - adjust;
             }
 
-            translate = this.state.ogTranslate + ( step * itemHeight )
+            translate = this.state.ogTranslate + ( step * itemHeight );
         }
 
         this.setState({
@@ -164,16 +164,16 @@ class PickerGroup extends Component {
             ogTranslate: 0,
             animating: true,
             translate
-        }, ()=>this.updateSelected())
+        }, ()=>this.updateSelected());
     }
 
     render() {
         const { items, className, height, itemHeight, indicatorTop, indicatorHeight, onChange, aniamtion, groupIndex, defaultIndex, mapKeys, ...others } = this.props;
-        const cls = classNames('weui-picker__group', className)
+        const cls = classNames('weui-picker__group', className);
         const styles = {
-            'transform' : `translate(0, ${this.state.translate}px)`,
-            'transition' : this.state.animating ? 'transform .3s' : 'none'
-        }
+            'transform': `translate(0, ${this.state.translate}px)`,
+            'transition': this.state.animating ? 'transform .3s' : 'none'
+        };
 
         return (
             <div className={cls} { ...others }
@@ -188,15 +188,15 @@ class PickerGroup extends Component {
                     ref="content">
                     { items.map( (item, j) => {
                         const label = item[this.props.mapKeys.label];
-                        const itemCls= classNames('weui-picker__item', {
-                            'weui-picker__item_disabled' : item.disabled
-                        })
+                        const itemCls = classNames('weui-picker__item', {
+                            'weui-picker__item_disabled': item.disabled
+                        });
 
-                        return <div key={j} className={itemCls}>{ label }</div>
+                        return <div key={j} className={itemCls}>{ label }</div>;
                     }) }
                 </div>
             </div>
-        )
+        );
     }
 }
 
