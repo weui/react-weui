@@ -19,7 +19,7 @@ const PreviewFooter = (props) => {
         <div className={cls} {...others}>
             { children }
         </div>
-    )
-}
+    );
+};
 
-export default PreviewFooter
+export default PreviewFooter;

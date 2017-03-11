@@ -15,7 +15,7 @@ const PreviewHeader = (props) => {
         <div className={cls} {...others}>
             { children }
         </div>
-    )
-}
+    );
+};
 
-export default PreviewHeader
+export default PreviewHeader;

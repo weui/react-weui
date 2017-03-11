@@ -24,10 +24,10 @@ CellHeader.propTypes = {
      *
      */
     primary: PropTypes.bool,
-}
+};
 
 CellHeader.defaultProps = {
     primary: false,
-}
+};
 
-export default CellHeader
+export default CellHeader;

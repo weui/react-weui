@@ -38,7 +38,7 @@ class CityPicker extends React.Component {
     }
 
     constructor(props){
-        super(props)
+        super(props);
         const { data, selected, dataMap } = this.props;
         const { groups, newselected } = this.parseData(data, dataMap.items, selected);
         this.state = {
@@ -46,7 +46,7 @@ class CityPicker extends React.Component {
             selected: newselected,
             picker_show: false,
             text: ''
-        }
+        };
         //console.log(this.state.groups)
         this.updateGroup = this.updateGroup.bind(this);
         this.parseData = this.parseData.bind(this);
@@ -54,30 +54,30 @@ class CityPicker extends React.Component {
     }
 
     //@return array of group with options
-    parseData(data, subKey, selected = [], group = [], newselected= []){
+    parseData(data, subKey, selected = [], group = [], newselected = []){
       let _selected = 0;
 
-      if( Array.isArray(selected) && selected.length > 0){
-        let _selectedClone = selected.slice(0)
-        _selected = _selectedClone.shift()
-        selected = _selectedClone
+      if ( Array.isArray(selected) && selected.length > 0){
+        let _selectedClone = selected.slice(0);
+        _selected = _selectedClone.shift();
+        selected = _selectedClone;
       }
 
-      if(typeof data[_selected] == 'undefined'){
+      if (typeof data[_selected] === 'undefined'){
           _selected = 0;
       }
 
-      newselected.push(_selected)
+      newselected.push(_selected);
 
       let item = data[_selected];
 
       var _group = JSON.parse(JSON.stringify(data));
-      _group.forEach(g=>delete g[subKey])
-      group.push({ items: _group, mapKeys: { 'label': this.props.dataMap.id } })
+      _group.forEach(g=>delete g[subKey]);
+      group.push({ items: _group, mapKeys: { 'label': this.props.dataMap.id } });
 
-      if(typeof item[subKey] !== 'undefined' && Array.isArray(item[subKey])){
-        return this.parseData(item[subKey], subKey, selected, group, newselected)
-      }else{
+      if (typeof item[subKey] !== 'undefined' && Array.isArray(item[subKey])){
+        return this.parseData(item[subKey], subKey, selected, group, newselected);
+      } else {
         return { groups: group, newselected };
       }
     }
@@ -89,14 +89,14 @@ class CityPicker extends React.Component {
 
         const { groups, newselected } = this.parseData(data, dataMap.items, selected);
 
-        let text = ''
-        try{
-            groups.forEach( (group, i) => {
-                text += `${group['items'][selected[i]][this.props.dataMap.id]} `
-            })
-        }catch(err){
+        let text = '';
+        try {
+            groups.forEach( (group, _i) => {
+                text += `${group['items'][selected[_i]][this.props.dataMap.id]} `;
+            });
+        } catch (err){
             //wait
-            text = this.state.text
+            text = this.state.text;
         }
 
 
@@ -105,16 +105,16 @@ class CityPicker extends React.Component {
             groups,
             text,
             selected: newselected
-        })
+        });
 
         //update picker
         picker.setState({
             selected: newselected
-        })
+        });
     }
 
     handleChange(){
-        if(this.props.onChange) this.props.onChange(this.state.text);
+        if (this.props.onChange) this.props.onChange(this.state.text);
     }
 
     render(){
@@ -127,9 +127,8 @@ class CityPicker extends React.Component {
                 groups={this.state.groups}
                 onCancel={this.props.onCancel}
             />
-        )
+        );
     }
-
 }
 
 export default CityPicker;

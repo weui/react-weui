@@ -45,11 +45,11 @@ Cell.propTypes = {
      *
      */
     component: PropTypes.func
-}
+};
 
 Cell.defaultProps = {
     access: false,
     link: false,
-}
+};
 
 export default Cell;

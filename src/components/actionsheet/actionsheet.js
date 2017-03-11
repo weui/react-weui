@@ -53,7 +53,7 @@ class ActionSheet extends Component {
             isAndroid: ''
         };
 
-        this.handleMaskClick = this.handleMaskClick.bind(this)
+        this.handleMaskClick = this.handleMaskClick.bind(this);
     }
 
     renderMenuItem() {
@@ -85,7 +85,7 @@ class ActionSheet extends Component {
     }
 
     handleMaskClick(e){
-        if(this.props.onRequestClose) this.props.onRequestClose(e)
+        if (this.props.onRequestClose) this.props.onRequestClose(e);
     }
 
     componentDidMount(){
@@ -104,13 +104,13 @@ class ActionSheet extends Component {
 
         let styleType = type ? type : 'ios';
 
-        if(!type && autoDectect){
-            if(this.state.isAndroid) styleType = 'android';
+        if (!type && autoDectect){
+            if (this.state.isAndroid) styleType = 'android';
         }
 
         return (
             <div
-                className={styleType == 'android' ? 'weui-skin_android' : ''}
+                className={styleType === 'android' ? 'weui-skin_android' : ''}
             >
                     <Mask style={{display: show ? 'block' : 'none'}} onClick={this.handleMaskClick} />
                     <div className={cls} {...others} >

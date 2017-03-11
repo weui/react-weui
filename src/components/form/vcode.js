@@ -19,4 +19,4 @@ const VCode = (props) => {
     );
 };
 
-export default VCode
+export default VCode;

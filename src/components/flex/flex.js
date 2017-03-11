@@ -10,6 +10,6 @@ const Flex = (props) => (
     <div className="weui-flex" {...props}>
         { props.children }
     </div>
-)
+);
 
 export default Flex;

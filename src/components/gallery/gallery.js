@@ -33,12 +33,12 @@ Gallery.propTypes = {
      *
      */
     src: React.PropTypes.string
-}
+};
 
 Gallery.defaultProps = {
     show: undefined,
     src: ''
-}
+};
 
 export default Gallery;
 

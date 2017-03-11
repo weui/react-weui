@@ -37,16 +37,15 @@ class Icon extends React.Component {
     render() {
         const {value, size, className, primary, ...others} = this.props;
 
-        if(Object.keys(deprecateValue).find(v=> v==value)){
-            deprecationWarning(`Icon ${value}`, `Icon ${deprecateValue[value]}`)
-            value == deprecateValue[value];
+        if (Object.keys(deprecateValue).find(v=> v === value)){
+            deprecationWarning(`Icon ${value}`, `Icon ${deprecateValue[value]}`);
         }
 
         const cls = classNames({
-            ['weui-icon-' + value]: value != 'loading',
+            ['weui-icon-' + value]: value !== 'loading',
             'weui-icon_msg': size === 'large' && !primary,
             'weui-icon_msg-primary': size === 'large' && primary,
-            'weui-loading': value == 'loading',
+            'weui-loading': value === 'loading',
             [className]: className
         });
 
