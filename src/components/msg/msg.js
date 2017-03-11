@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import {Button, ButtonArea} from '../button/index';
-import { Footer, FooterLinks, FooterLink } from '../footer'
+import { Footer, FooterLinks, FooterLink } from '../footer';
 import Icon from '../icon/index';
 import deprecationWarning from '../../utils/deprecationWarning';
 
@@ -67,12 +67,12 @@ class Msg extends Component {
         const { className, type, title, description, extraHref, extraText, footer, buttons, ...others } = this.props;
         const cls = classNames('weui-msg', {
             [className]: className
-        })
+        });
 
         let elFooter = footer ? footer : ()=>false;
 
-        if(!elFooter() && (extraHref || extraText) ){
-            deprecationWarning('Msg extraHref/extraText', 'Msg footer')
+        if (!elFooter() && (extraHref || extraText) ){
+            deprecationWarning('Msg extraHref/extraText', 'Msg footer');
 
             elFooter = () => (
                 <Footer>
@@ -80,7 +80,7 @@ class Msg extends Component {
                         <FooterLink href={extraHref}>{extraText}</FooterLink>
                     </FooterLinks>
                 </Footer>
-            )
+            );
         }
 
         return (

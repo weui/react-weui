@@ -54,7 +54,7 @@ export default class Uploader extends Component {
         files: [],
         onChange: undefined,
         onError: undefined,
-        lang:{ maxError: maxCount => `最多只能上传${maxCount}张图片` }
+        lang: { maxError: maxCount => `最多只能上传${maxCount}张图片` }
     };
 
     /**
@@ -93,24 +93,24 @@ export default class Uploader extends Component {
             py = (ey + sy) >> 1;
         }
         let ratio = (py / ih);
-        return (ratio===0)?1:ratio;
+        return (ratio === 0) ? 1 : ratio;
     }
 
 
-    handleFile(file,cb) {
+    handleFile(file, cb) {
         let reader;
-        if(typeof FileReader !== 'undefined') {
+        if (typeof FileReader !== 'undefined') {
            reader = new FileReader();
         } else {
-           if(window.FileReader) reader = new window.FileReader();
+           if (window.FileReader) reader = new window.FileReader();
         }
 
         reader.onload = e => {
             let img;
-            if(typeof Image !== 'undefined') {
+            if (typeof Image !== 'undefined') {
                img = new Image();
             } else {
-               if(window.Image) img = new window.Image();
+               if (window.Image) img = new window.Image();
             }
             img.onload = ()=>{
                 let w = Math.min(this.props.maxWidth, img.width);
@@ -119,29 +119,29 @@ export default class Uploader extends Component {
                 let ctx = canvas.getContext('2d');
 
                 //check canvas support, for test
-                if(ctx){
+                if (ctx){
                     //patch subsampling bug
                     //http://jsfiddle.net/gWY2a/24/
                     let drawImage = ctx.drawImage;
-                    ctx.drawImage = (img, sx, sy, sw, sh, dx, dy, dw, dh) =>
+                    ctx.drawImage = (_img, sx, sy, sw, sh, dx, dy, dw, dh) =>
                     {
                         let vertSquashRatio = 1;
                         // Detect if img param is indeed image
-                        if (!!img && img.nodeName == 'IMG')
+                        if (!!_img && _img.nodeName === 'IMG')
                         {
-                            vertSquashRatio = this.detectVerticalSquash(img);
-                            sw || (sw = img.naturalWidth);
-                            sh || (sh = img.naturalHeight);
+                            vertSquashRatio = this.detectVerticalSquash(_img);
+                            if (typeof sw === 'undefined') (sw = _img.naturalWidth);
+                            if (typeof sh === 'undefined') (sh = _img.naturalHeight);
                         }
 
                         // Execute several cases (Firefox does not handle undefined as no param)
                         // by call (apply is bad performance)
-                        if (arguments.length == 9)
-                            drawImage.call(ctx, img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
-                        else if (typeof sw != 'undefined')
-                            drawImage.call(ctx, img, sx, sy, sw, sh / vertSquashRatio);
+                        if (arguments.length === 9)
+                            drawImage.call(ctx, _img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
+                        else if (typeof sw !== 'undefined')
+                            drawImage.call(ctx, _img, sx, sy, sw, sh / vertSquashRatio);
                         else
-                            drawImage.call(ctx, img, sx, sy);
+                            drawImage.call(ctx, _img, sx, sy);
                     };
 
                     canvas.width = w;
@@ -158,13 +158,13 @@ export default class Uploader extends Component {
                         size: file.size,
                         type: file.type,
                         data: base64
-                    },e);
-                }else{
+                    }, e);
+                } else {
                     cb(file, e);
                 }
             };
             img.src = e.target.result;
-        }
+        };
         reader.readAsDataURL(file);
     }
 
@@ -172,21 +172,21 @@ export default class Uploader extends Component {
         const langs = this.props.lang;
         let _files = e.target.files;
 
-        if(_files.length === 0) return;
+        if (_files.length === 0) return;
 
-        if(this.props.files.length >= this.props.maxCount) {
+        if (this.props.files.length >= this.props.maxCount) {
             this.props.onError(langs.maxError(this.props.maxCount));
             return;
         }
 
-        for(let key in _files) {
+        for (let key in _files) {
             if (!_files.hasOwnProperty(key)) continue;
             let file = _files[key];
 
-            this.handleFile(file, (_file,e)=>{
-                if(this.props.onChange) this.props.onChange(_file, e);
-                ReactDOM.findDOMNode(this.refs.uploader).value='';
-            },e);
+            this.handleFile(file, (_file, _e)=>{
+                if (this.props.onChange) this.props.onChange(_file, _e);
+                ReactDOM.findDOMNode(this.refs.uploader).value = '';
+            }, e);
         }
     }
 
@@ -201,12 +201,12 @@ export default class Uploader extends Component {
                 'weui-uploader__file_status': error || status
             });
 
-            if(onClick){
-                deprecationWarning('File onClick','Uploader onFileClick')
+            if (onClick){
+                deprecationWarning('File onClick', 'Uploader onFileClick');
             }
 
             let handleFileClick = onClick ? onClick : e => {
-                if(this.props.onFileClick) this.props.onFileClick(e, file, idx);
+                if (this.props.onFileClick) this.props.onFileClick(e, file, idx);
             };
 
             return (

@@ -20,4 +20,4 @@ const Checkbox = (props) => {
     );
 };
 
-export default Checkbox
+export default Checkbox;

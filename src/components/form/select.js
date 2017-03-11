@@ -19,7 +19,7 @@ export default class Select extends Component {
     };
 
     renderData(data) {
-        return data.map((item,i) => (
+        return data.map((item, i) => (
             <option
                 key={i}
                 value={item.value}

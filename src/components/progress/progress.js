@@ -24,14 +24,14 @@ const Progress = (props) => {
 
             {
                 showCancel ?
-                    <a href="javascript:;" className="weui-progress__opr" onClick={ e=> { if(onClick) onClick(e) } }>
+                    <a href="javascript:;" className="weui-progress__opr" onClick={ e=> { if (onClick) onClick(e); } }>
                         <Icon value="cancel"/>
                     </a>
                 : false
             }
         </div>
-    )
-}
+    );
+};
 
 Progress.propTypes = {
     /**
@@ -44,11 +44,11 @@ Progress.propTypes = {
      *
      */
     showCancel: PropTypes.bool
-}
+};
 
 Progress.defaultProps = {
     value: 0,
     showCancel: true
-}
+};
 
-export default Progress
+export default Progress;

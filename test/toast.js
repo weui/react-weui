@@ -63,7 +63,7 @@ describe('<Toast></Toast>', ()=> {
 
                     it(`should have 'weui-loading' and 'weui-icon_toast' class name when icon is 'loading'`, ()=> {
                         if (icon === 'loading') {
-                            let $icon = wrapper.find(Icon).shallow()
+                            let $icon = wrapper.find(Icon).shallow();
                             assert($icon.hasClass('weui-loading'));
                             assert($icon.hasClass('weui-icon_toast'));
                         }
