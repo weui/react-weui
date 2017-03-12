@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import GridIcon from './grid_icon';
 import GridLabel from './grid_label';
+import { Link } from 'react-router';
 
 /**
  * WeUI Grid wrapper, contain elements of `GridIcon` and `GridLabel`
@@ -33,11 +34,11 @@ export default class Grid extends React.Component {
         }, className);
 
         return (
-            <a className={cls} {...others}>
+            <Link className={cls} {...others}>
               {icon ? <GridIcon>{icon}</GridIcon> : false}
               {children}
               {label ? <GridLabel>{label}</GridLabel> : false}
-            </a>
+            </Link>
         );
     }
 };
