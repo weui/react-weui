@@ -35,17 +35,17 @@ class Gallery extends Component {
     }
 
     constructor(props){
-        super(props)
+        super(props);
 
         this.state = {
             currentIndex: this.props.defaultIndex
-        }
+        };
     }
 
     handleClick(func){
         return (e)=>{
-            if(func) func(e, this.state.currentIndex)
-        }
+            if (func) func(e, this.state.currentIndex);
+        };
     }
 
     renderImages(imgs){
@@ -63,33 +63,32 @@ class Gallery extends Component {
                                 backgroundSize: 'contain',
                                 backgroundRepeat: 'no-repeat',
                                 backgroundPosition: 'center center'
-                            }
+                            };
                             return (
                                 <span key={i} style={imgStyle}></span>
-                            )
+                            );
                         })
                     }
                 </Swiper>
             </div>
-<<<<<<< HEAD
-        )
+        );
     }
 
     renderOprs(){
-        if(Array.isArray(this.props.children)){
+        if (Array.isArray(this.props.children)){
             return this.props.children.map( (child, i) => {
                 return React.cloneElement(child, {
                     key: i,
                     onClick: this.handleClick(child.props.onClick)
-                })
-            })
-        }else{
-            if(this.props.children){
+                });
+            });
+        } else {
+            if (this.props.children){
                 return React.cloneElement(this.props.children, {
                     onClick: this.handleClick(this.props.children.props.onClick)
-                 })
+                });
             } else {
-                return false
+                return false;
             }
         }
     }
@@ -101,9 +100,7 @@ class Gallery extends Component {
             [className]: className
         });
 
-        console.log(children)
-
-        if(!show) return false;
+        if (!show) return false;
 
         return (
             <div className={cls} style={{display: show ? 'block' : 'none'}} {...others}>
@@ -121,29 +118,6 @@ class Gallery extends Component {
         );
     }
 }
-=======
-        </div>
-    );
-};
-
-Gallery.propTypes = {
-    /**
-     * indicate whather the component is display
-     *
-     */
-    show: React.PropTypes.bool,
-    /**
-     * image source url or base64 encode
-     *
-     */
-    src: React.PropTypes.string
-};
-
-Gallery.defaultProps = {
-    show: undefined,
-    src: ''
-};
->>>>>>> 01bc1c5f2452c8ad45fc1246a8bff9e00709e659
 
 export default Gallery;
 
