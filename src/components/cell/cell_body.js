@@ -24,10 +24,10 @@ CellBody.propTypes = {
      *
      */
     primary: PropTypes.bool,
-}
+};
 
 CellBody.defaultProps = {
     primary: false,
-}
+};
 
 export default CellBody;

@@ -58,20 +58,20 @@ class Picker extends Component {
     }
 
     constructor(props){
-        super(props)
+        super(props);
 
         this.state = {
-            selected : this.props.defaultSelect ? this.props.defaultSelect : Array(this.props.groups.length).fill(-1),
+            selected: this.props.defaultSelect ? this.props.defaultSelect : Array(this.props.groups.length).fill(-1),
             actions: this.props.actions.length > 0 ? this.props.actions : [{
                 label: this.props.lang.leftBtn,
-                onClick: e=>this.handleClose( ()=> {if(this.props.onCancel) this.props.onCancel(e)} )
+                onClick: e=>this.handleClose( ()=> {if (this.props.onCancel) this.props.onCancel(e);} )
             },
             {
                 label: this.props.lang.rightBtn,
                 onClick: e=>this.handleChanges()
             }],
             closing: false
-        }
+        };
 
         this.handleChanges = this.handleChanges.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -79,15 +79,15 @@ class Picker extends Component {
     }
 
     handleChanges(){
-        this.handleClose( ()=> { if(this.props.onChange) this.props.onChange(this.state.selected, this) } )
+        this.handleClose( ()=> { if (this.props.onChange) this.props.onChange(this.state.selected, this); } );
     }
 
     handleChange(item, i, groupIndex){
         let selected = this.state.selected;
 
         selected[groupIndex] = i;
-        this.setState({ selected },()=>{
-            if(this.props.onGroupChange) this.props.onGroupChange(item, i, groupIndex, this.state.selected, this)
+        this.setState({ selected }, ()=>{
+            if (this.props.onGroupChange) this.props.onGroupChange(item, i, groupIndex, this.state.selected, this);
         });
     }
 
@@ -95,32 +95,32 @@ class Picker extends Component {
         this.setState({
             closing: true
         }, ()=> setTimeout( ()=> {
-            this.setState({ closing: false })
-            cb()
-        }, 300))
+            this.setState({ closing: false });
+            cb();
+        }, 300));
     }
 
     renderActions(){
         let elActions = this.state.actions.map( (action, i)=> {
             const { label, ...others } = action;
-            return <a {...others} key={i} className="weui-picker__action"> { label }</a>
-        })
+            return <a {...others} key={i} className="weui-picker__action"> { label }</a>;
+        });
 
         return (
             <div className="weui-picker__hd">
                 { elActions }
             </div>
-        )
+        );
     }
 
     renderGroups(){
         return this.props.groups.map( (group, i) => {
-            return <PickerGroup  key={i} {...group} onChange={this.handleChange} groupIndex={i} defaultIndex={this.state.selected[i]} />;
-        })
+            return <PickerGroup key={i} {...group} onChange={this.handleChange} groupIndex={i} defaultIndex={this.state.selected[i]} />;
+        });
     }
 
     render(){
-        const { className, show, actions, groups, defaultSelect, onGroupChange, onChange, onCancel,  ...others } = this.props;
+        const { className, show, actions, groups, defaultSelect, onGroupChange, onChange, onCancel, ...others } = this.props;
         const cls = classNames('weui-picker', {
             'weui-animate-slide-up': show && !this.state.closing,
             'weui-animate-slide-down': this.state.closing
@@ -129,11 +129,11 @@ class Picker extends Component {
         const maskCls = classNames({
             'weui-animate-fade-in': show && !this.state.closing,
             'weui-animate-fade-out': this.state.closing
-        })
+        });
 
         return this.props.show ? (
             <div>
-                <Mask className={maskCls} onClick={e=>this.handleClose( ()=> {if(this.props.onCancel) this.props.onCancel(e)} )} />
+                <Mask className={maskCls} onClick={e=>this.handleClose( ()=> {if (this.props.onCancel) this.props.onCancel(e);} )} />
                 <div className={cls} {...others}>
                     { this.renderActions() }
                     <div className="weui-picker__bd">

@@ -28,8 +28,8 @@ export default class Button extends React.Component {
 
     render() {
         const { component, type, size, plain, className, children, ...others } = this.props;
-        const Component = component ? component : this.props.href || type == 'vcode' ? 'a' : 'button';
-        const cls = type == 'vcode' ? classNames('weui-vcode-btn', {[className]: className}) : classNames({
+        const Component = component ? component : this.props.href || type === 'vcode' ? 'a' : 'button';
+        const cls = type === 'vcode' ? classNames('weui-vcode-btn', {[className]: className}) : classNames({
             'weui-btn': true,
             'weui-btn_mini': size === 'small',
             'weui-btn_primary': type === 'primary' && !plain,

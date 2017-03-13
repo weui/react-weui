@@ -47,59 +47,59 @@ class InfiniteLoader extends Component{
     }
 
     constructor(props){
-        super(props)
+        super(props);
 
         this.state = {
             loading: false,
             finish: false
-        }
+        };
 
-        this.scrollHandle = this.scrollHandle.bind(this)
-        this.resolveLoading = this.resolveLoading.bind(this)
-        this.finish = this.finish.bind(this)
+        this.scrollHandle = this.scrollHandle.bind(this);
+        this.resolveLoading = this.resolveLoading.bind(this);
+        this.finish = this.finish.bind(this);
     }
 
     finish(){
         this.setState({
             loading: false,
             finish: true
-        })
+        });
     }
 
     resolveLoading(){
         this.setState({
             loading: false,
             finish: false
-        })
+        });
     }
 
     scrollHandle(e){
-        if(this.state.loading || this.state.finish) return;
+        if (this.state.loading || this.state.finish) return;
 
-        let target = e.target
-        let scrollPercent = Math.floor(( (target.scrollTop + target.clientHeight) / target.scrollHeight) * 100)
+        let target = e.target;
+        let scrollPercent = Math.floor(( (target.scrollTop + target.clientHeight) / target.scrollHeight) * 100);
 
-        if(scrollPercent > this.props.triggerPercent) {
+        if (scrollPercent > this.props.triggerPercent) {
             this.setState({
                 loading: true
-            })
+            });
 
-            this.props.onLoadMore(this.resolveLoading, this.finish)
+            this.props.onLoadMore(this.resolveLoading, this.finish);
         }
     }
 
     render(){
 
-        const { children, className, height, triggerPercent, loaderLoadingIcon, loaderDefaultIcon, onLoadMore, ...domProps } = this.props
-        const clx = classNames( 'react-weui-infiniteloader', className )
+        const { children, className, height, triggerPercent, loaderLoadingIcon, loaderDefaultIcon, onLoadMore, ...domProps } = this.props;
+        const clx = classNames( 'react-weui-infiniteloader', className );
 
         let containerStyle = {
             height,
-        }
+        };
 
         let loaderStyle = {
             display: this.state.loading || this.state.finish ? 'block' : 'none'
-        }
+        };
 
         return (
             <div
@@ -118,8 +118,7 @@ class InfiniteLoader extends Component{
                     </div>
                 </div>
             </div>
-        )
-
+        );
     }
 }
 

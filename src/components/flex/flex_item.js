@@ -12,8 +12,8 @@ const FlexItem = (props) => {
         <component className="weui-flex__item" {...others}>
             { children }
         </component>
-    )
-}
+    );
+};
 
 FlexItem.propTypes = {
     /**
@@ -21,10 +21,10 @@ FlexItem.propTypes = {
      *
      */
     component: React.PropTypes.node
-}
+};
 
 FlexItem.defaultProps = {
     component: 'div'
-}
+};
 
 export default FlexItem;

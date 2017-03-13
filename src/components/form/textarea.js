@@ -33,7 +33,7 @@ export default class TextArea extends Component {
         this.setState({textCounter: e.target.value.length});
 
         //forward event to props if any
-        if(this.props.onChange) this.props.onChange(e);
+        if (this.props.onChange) this.props.onChange(e);
     }
 
     render(){

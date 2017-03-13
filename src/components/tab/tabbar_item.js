@@ -40,14 +40,14 @@ export default class TabBarItem extends React.Component {
             'weui-bar__item_on': active
         }, className);
 
-        if(icon || label){
+        if (icon || label){
             return (
                 <div className={cls} {...others}>
                     {icon ? <TabBarIcon>{icon}</TabBarIcon> : false}
                     {label ? <TabBarLabel>{label}</TabBarLabel> : false}
                 </div>
-            )
-        }else{
+            );
+        } else {
             return (
                 <div className={cls} {...others}>
                     {children}
