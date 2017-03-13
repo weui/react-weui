@@ -20,8 +20,8 @@ const PreviewItem = (props) => {
             <label className="weui-form-preview__label">{label}</label>
             <em className="weui-form-preview__value">{value}</em>
         </div>
-    )
-}
+    );
+};
 
 PreviewItem.propTypes = {
     /**
@@ -35,11 +35,11 @@ PreviewItem.propTypes = {
      */
     value: PropTypes.string,
 
-}
+};
 
 PreviewItem.defaultProps = {
     label: false,
     value: false,
-}
+};
 
-export default PreviewItem
+export default PreviewItem;

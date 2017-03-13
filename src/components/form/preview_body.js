@@ -19,7 +19,7 @@ const PreviewBody = (props) => {
         <div className={cls} {...others}>
             { children }
         </div>
-    )
-}
+    );
+};
 
-export default PreviewBody
+export default PreviewBody;

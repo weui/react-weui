@@ -71,6 +71,7 @@ class Gallery extends Component {
                     }
                 </Swiper>
             </div>
+<<<<<<< HEAD
         )
     }
 
@@ -120,6 +121,29 @@ class Gallery extends Component {
         );
     }
 }
+=======
+        </div>
+    );
+};
+
+Gallery.propTypes = {
+    /**
+     * indicate whather the component is display
+     *
+     */
+    show: React.PropTypes.bool,
+    /**
+     * image source url or base64 encode
+     *
+     */
+    src: React.PropTypes.string
+};
+
+Gallery.defaultProps = {
+    show: undefined,
+    src: ''
+};
+>>>>>>> 01bc1c5f2452c8ad45fc1246a8bff9e00709e659
 
 export default Gallery;
 

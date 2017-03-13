@@ -38,4 +38,4 @@ Toptips.defaultProps = {
     type: 'default'
 };
 
-export default Toptips
+export default Toptips;

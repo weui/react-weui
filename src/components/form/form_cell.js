@@ -70,17 +70,17 @@ export default class FormCell extends Component {
             'weui-cell_warn': warn,
             'weui-cell_switch': this.props.switch,
             'weui-cell_select': select,
-            'weui-cell_select-before': selectPos == 'before',
-            'weui-cell_select-after': selectPos == 'after',
+            'weui-cell_select-before': selectPos === 'before',
+            'weui-cell_select-after': selectPos === 'after',
             'weui-check__label': radio || checkbox,
             [className]: className
         });
 
-        if(radio || checkbox) {
+        if (radio || checkbox) {
             return (
                 <label className={cls} {...cellDomProps}>{children}</label>
-            )
-        }else{
+            );
+        } else {
             return (
                 <div className={cls} {...cellDomProps}>{children}</div>
             );

@@ -5,8 +5,8 @@ const PreviewButton = (props) => {
     const { className, primary, children, ...others } = props;
     const cls = classNames({
         'weui-form-preview__btn': true,
-        'weui-form-preview__btn_default' : !primary,
-        'weui-form-preview__btn_primary' : primary,
+        'weui-form-preview__btn_default': !primary,
+        'weui-form-preview__btn_primary': primary,
         [className]: className
     });
 
@@ -23,11 +23,11 @@ PreviewButton.propTypes = {
      *
      */
     primary: PropTypes.bool
-}
+};
 
 PreviewButton.defaultProps = {
     primary: false
-}
+};
 
 export default PreviewButton;
 
