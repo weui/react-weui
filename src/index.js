@@ -27,7 +27,7 @@ import Toptips from './components/toptips';
 import {Gallery, GalleryDelete} from './components/gallery';
 import {Footer, FooterText, FooterLinks, FooterLink} from './components/footer';
 import LoadMore from './components/loadmore';
-import { Picker, CityPicker, PickerGroup } from './components/picker';
+import {PickerGroup, PickerColumn, Picker, GroupPicker, CityPicker, CascadePicker} from './components/picker';
 import Badge from './components/badge';
 //non standard
 import { Popup, PopupHeader } from './components/popup';
@@ -112,9 +112,12 @@ export default {
     PreviewFooter,
     PreviewItem,
     PreviewButton,
-    Picker,
     PickerGroup,
+    PickerColumn,
+    Picker,
+    GroupPicker,
     CityPicker,
+    CascadePicker,
     Slider,
     Badge,
 

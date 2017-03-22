@@ -154,6 +154,7 @@ module.exports = {
   },
   plugins,
   devServer: {
+    open: true,
     contentBase: isProduction ? buildPath : sourcePath,
     historyApiFallback: true,
     port: 3000,

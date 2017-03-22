@@ -10,3 +10,4 @@ pendingtest
 .nyc_output
 dist
 build
+yarn*
