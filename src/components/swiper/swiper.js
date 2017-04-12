@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 import './swiper.less';
 

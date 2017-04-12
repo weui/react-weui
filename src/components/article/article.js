@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 /**
  * Use to format WeUI style contents

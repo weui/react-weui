@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 import TabBody from './tab_body';
 import TabBodyItem from './tab_body_item';

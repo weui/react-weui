@@ -4,13 +4,13 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Router, Route, IndexRoute} from 'react-router';
 import FastClick from 'fastclick';
 import 'weui';
-import "babel-polyfill";
+import 'babel-polyfill';
 
 import Pages from './index';
 const { Home, Button, List, Input, Toast, Dialog, Progress, Msg, Article,
 ActionSheet, Icons, Panel, NavBar, NavBar2, TabBar, TabBar2, SearchBar, Gallery,
 Uploader, Flex, Footer, Grid, LoadMore, Preview, MsgSuccess, MsgFail, TopTips,
-Popup, Picker, Slider, Badge, PTR, Infinite, Swiper
+Popup, Picker, Slider, Badge, PTR, Infinite, Swiper, Page
 } = Pages;
 
 
@@ -73,6 +73,7 @@ ReactDOM.render((
                     <Route path="ptr" component={PTR}/>
                     <Route path="infinite" component={Infinite}/>
                     <Route path="swiper" component={Swiper}/>
+                    <Route path="page" component={Page}/>
             </Route>
     </Router>
 ), document.getElementById('container'));

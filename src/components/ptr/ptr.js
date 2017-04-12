@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 import Icon from '../icon/';
 import LoadMore from '../loadmore';
 
@@ -37,6 +37,11 @@ class PullToRefresh extends Component{
          *
          */
         onRefresh: PropTypes.func,
+        /**
+         * disable the loader
+         *
+         */
+        disable: PropTypes.bool
     };
 
     static defaultProps = {
@@ -54,7 +59,8 @@ class PullToRefresh extends Component{
             );
         },
         loaderLoadingIcon: <LoadMore loading></LoadMore>,
-        onRefresh: (resolve, reject) => setTimeout( ()=> resolve(), 1000)
+        onRefresh: (resolve, reject) => setTimeout( ()=> resolve(), 1000),
+        disable: false
     };
 
     constructor(props){
@@ -87,7 +93,7 @@ class PullToRefresh extends Component{
     }
 
     handleTouchStart(e){
-        if (this.state.touching || this.state.loading) return;
+        if (this.state.touching || this.state.loading || this.props.disable) return;
 
         let $content = ReactDOM.findDOMNode(this.refs.content);
 
@@ -101,7 +107,7 @@ class PullToRefresh extends Component{
     }
 
     handleTouchMove(e){
-        if (!this.state.touching || this.state.loading) return;
+        if (!this.state.touching || this.state.loading || this.props.disable) return;
         if (e.targetTouches[0].identifier !== this.state.touchId) return;
 
 
@@ -126,7 +132,7 @@ class PullToRefresh extends Component{
     }
 
     handleTouchEnd(e){
-        if (!this.state.touching || this.state.loading) return;
+        if (!this.state.touching || this.state.loading || this.props.disable) return;
 
         let pullPercent = this.state.pullPercent;
         let loading = false;
@@ -153,7 +159,7 @@ class PullToRefresh extends Component{
     }
 
     render(){
-        const { className, children, height, loaderHeight, loaderDefaultIcon, loaderLoadingIcon, onRefresh, ...domProps } = this.props;
+        const { className, children, height, loaderHeight, loaderDefaultIcon, loaderLoadingIcon, onRefresh, disalbe, ...domProps } = this.props;
         let cls = classNames('react-weui-ptr', className);
 
         let containerStyle = {

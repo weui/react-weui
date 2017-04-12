@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 /**
  * consists of `footer_links`, `footer_link` and `footer_text`

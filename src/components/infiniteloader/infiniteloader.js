@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 import LoadMore from '../loadmore';
 
 import './infiniteloader.less';
@@ -33,10 +33,25 @@ class InfiniteLoader extends Component{
          */
         triggerPercent: PropTypes.number,
         /**
+         * callback when user scroll the content, pass event
+         *
+         */
+        onScroll: PropTypes.func,
+        /**
+         * callback when user did not scroll for 150ms
+         *
+         */
+        onScrollEnd: PropTypes.func,
+        /**
          * callback when it's requesting for more content, pass resolve function and finish function
          *
          */
         onLoadMore: PropTypes.func,
+        /**
+         * disable the loader
+         *
+         */
+        disable: PropTypes.bool,
     };
 
     static defaultProps = {
@@ -44,6 +59,7 @@ class InfiniteLoader extends Component{
         triggerPercent: 75,
         loaderLoadingIcon: <LoadMore loading> Loading... </LoadMore>,
         loaderDefaultIcon: <LoadMore showLine> No Data</LoadMore>,
+        disable: false
     }
 
     constructor(props){
@@ -51,7 +67,8 @@ class InfiniteLoader extends Component{
 
         this.state = {
             loading: false,
-            finish: false
+            finish: false,
+            scrollTimer: null
         };
 
         this.scrollHandle = this.scrollHandle.bind(this);
@@ -74,7 +91,14 @@ class InfiniteLoader extends Component{
     }
 
     scrollHandle(e){
-        if (this.state.loading || this.state.finish) return;
+        if (this.state.loading || this.state.finish || this.props.disable || e.target.scrollTop === 0) return;
+        if (this.props.onScroll) this.props.onScroll(e);
+
+        //setup for scrollend event
+        clearTimeout(this.state.scrollTimer);
+        this.setState({ scrollTimer: setTimeout( ()=>{
+            if (this.props.onScrollEnd) this.props.onScrollEnd();
+        }, 150) });
 
         let target = e.target;
         let scrollPercent = Math.floor(( (target.scrollTop + target.clientHeight) / target.scrollHeight) * 100);
@@ -90,11 +114,15 @@ class InfiniteLoader extends Component{
 
     render(){
 
-        const { children, className, height, triggerPercent, loaderLoadingIcon, loaderDefaultIcon, onLoadMore, ...domProps } = this.props;
+        const { children, className, height, triggerPercent, disable, loaderLoadingIcon, loaderDefaultIcon, onScrollEnd, onScroll, onLoadMore, ...domProps } = this.props;
         const clx = classNames( 'react-weui-infiniteloader', className );
 
         let containerStyle = {
             height,
+        };
+
+        let contentStyle = {
+            overflow: disable ? 'hidden' : 'scroll'
         };
 
         let loaderStyle = {
@@ -105,11 +133,12 @@ class InfiniteLoader extends Component{
             <div
                 className={clx}
                 style={containerStyle}
+                onScroll={this.scrollHandle}
                 {...domProps}
             >
                 <div
                     className="react-weui-infiniteloader__content"
-                    onScroll={this.scrollHandle}
+                    style={contentStyle}
                     ref="container"
                 >
                     { children }

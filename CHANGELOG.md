@@ -1,5 +1,35 @@
 ### CHANGELOG
 
+#### 1.1.0
+
+Breaking Changes
+- Remove mobile_detect utilities, ActionSheet and Dialog will needs to provide a platform by user.
+
+Changes
+
+- [e43fcb2](https://github.com/weui/react-weui/pull/185/commits/e43fcb2c94d3b455ad566afa0be3b55b2fd874ee) remove findDOMNode from searchbar
+- [0410833](https://github.com/weui/react-weui/pull/192/commits/0410833d8d90b79c72c8b12e52c9d1185481efe9) typing error
+- [08e50f4](https://github.com/weui/react-weui/pull/213/commits/08e50f43e41b97c4d965264bbfc9260476f6daca) update lint rule and adjust code within project
+- [ec45e68](https://github.com/weui/react-weui/pull/213/commits/ec45e6817eee7d7b8e481ffa400eb128de9b186c) fix grid links
+- #174 add lang props to CityPicker
+- CityPicker will selected default selections
+- #182 Msg Component now support child element, it will not display title or description if it's not provided
+- #197 SearchBar add new property `defaultValue`
+- InfiniteLoader add disable, onScroll and onScrollEnd property
+- PullToRefresh add disable property
+- Use Rollup.js as bundler for library
+- Use ES2015 module standard
+- Include classnames, warning function in library
+
+New Addon Component
+
+- Page
+
+Known Problem Pending Fix
+
+- Issues #203 Upload Image angle problem
+- Warnings from react-router
+
 #### 1.0.5
 
 Changes

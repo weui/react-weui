@@ -1,12 +1,11 @@
 import React from 'react';
-import { Article } from '../../../src/index';
-import srcArticle from './pic_article.png';
-import Page from '../../component/page';
+import { Article, Page } from '../../../src/index';
+import srcArticle from '../article/pic_article.png';
 
-const ListDemo = (props) => (
-    <Page className="article" title="Article" subTitle="文章">
+const PageDemo = (props) => (
+    <Page>
         <Article>
-            <h1>H1 Heading</h1>
+            <h1>Page Demo</h1>
             <section>
                 <h2 className="title">H2 Title</h2>
                 <section>
@@ -31,4 +30,4 @@ const ListDemo = (props) => (
         </Article>
     </Page>
 );
-export default ListDemo;
+export default PageDemo;

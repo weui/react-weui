@@ -32,6 +32,7 @@ import Badge from './pages/badge';
 import PTR from './pages/ptr';
 import Infinite from './pages/infiniteloader';
 import Swiper from './pages/swiper';
+import Page from './pages/page';
 
 export default {
     Home,
@@ -67,5 +68,6 @@ export default {
     Badge,
     PTR,
     Infinite,
-    Swiper
-}
+    Swiper,
+    Page
+};

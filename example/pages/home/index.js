@@ -22,6 +22,10 @@ const menus = [
             {
                 label: 'Swiper',
                 to: '/swiper'
+            },
+            {
+                label: 'Page',
+                to: '/page'
             }
         ]
     },

@@ -1,7 +1,7 @@
 //1.0.0 components
 
 import React from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 const PreviewHeader = (props) => {
 

@@ -1,1 +1,1 @@
-module.exports = '1.0.5';
+export default '1.1.0';

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 import {Button, ButtonArea} from '../button/index';
 import { Footer, FooterLinks, FooterLink } from '../footer';
 import Icon from '../icon/index';
@@ -64,7 +64,7 @@ class Msg extends Component {
     }
 
     render() {
-        const { className, type, title, description, extraHref, extraText, footer, buttons, ...others } = this.props;
+        const { children, className, type, title, description, extraHref, extraText, footer, buttons, ...others } = this.props;
         const cls = classNames('weui-msg', {
             [className]: className
         });
@@ -89,8 +89,9 @@ class Msg extends Component {
                     <Icon value={type} size='large' />
                 </div>
                 <div className="weui-msg__text-area">
-                    <h2 className="weui-msg__title">{title}</h2>
-                    <p className="weui-msg__desc">{description}</p>
+                    { title ? <h2 className="weui-msg__title">{title}</h2> : false }
+                    { description ? <p className="weui-msg__desc">{description}</p> : false }
+                    { children }
                 </div>
                 <div className="weui-msg__opr-area">
                     <ButtonArea>

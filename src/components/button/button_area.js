@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 class ButtonArea extends Component {
     static propTypes = {

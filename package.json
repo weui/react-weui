@@ -6,9 +6,10 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline --progress --colors --port 8080",
     "startdoc": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --port 8080",
-    "clean": "rimraf ./lib ./coverage",
-    "build:less": "find lib/ -name '*.less' -exec lessc -x {} \\; > ./lib/react-weui.min.css",
-    "build": "npm run clean & NODE_ENV=production babel ./src --out-dir ./lib --copy-files && npm run build:less",
+    "clean": "rimraf ./lib ./coverage && mkdir lib",
+    "build": "npm run clean & NODE_ENV=production babel ./src --out-dir ./lib --copy-files && npm run build:umd && npm run build:iife",
+    "build:umd": "rollup -c --format umd --output ./lib/react-weui.umd.js",
+    "build:iife": "rollup -c --format iife --output ./lib/react-weui.iife.js",
     "build:example": "rimraf ./dist && webpack --config webpack.config.prod.js --progress --colors -p",
     "build:doc": "rimraf ./dist/docs && webpack --config webpack.config.doc.js --progress --colors -p",
     "build:page": "npm run build:example && npm run build:doc",
@@ -38,10 +39,7 @@
   },
   "homepage": "https://github.com/weui/react-weui",
   "dependencies": {
-    "classnames": "^2.2.0",
-    "mobile-detect": "^1.3.3",
-    "babel-runtime": "^6.18.0",
-    "warning": "^3.0.0"
+    "babel-runtime": "^6.18.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",
@@ -51,6 +49,7 @@
     "babel-eslint": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-istanbul": "^3.0.0",
     "babel-plugin-transform-class-properties": "^6.18.0",
     "babel-plugin-transform-require-ignore": "0.0.2",
@@ -93,6 +92,12 @@
     "react-router": "^1.0.2",
     "react-split-pane": "^0.1.52",
     "rimraf": "^2.4.3",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-less": "^0.1.3",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^1.1.1",
     "sinon": "^1.17.2",
     "style-loader": "^0.13.0",
     "uglify-loader": "^1.2.0",

@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 import GridIcon from './grid_icon';
 import GridLabel from './grid_label';
 
