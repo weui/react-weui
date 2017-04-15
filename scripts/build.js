@@ -16,7 +16,7 @@ const join = require('path').join;
 const fs = require('fs');
 const exec = require( 'child_process' ).exec;
 //console utils
-var argv = require('minimist')(process.argv.slice(2));
+const argv = require('minimist')(process.argv.slice(2));
 const chalk = require('chalk');
 const showWrite = argv.progress;
 const showSection = argv.step || true;
@@ -30,23 +30,27 @@ const Bundles = {
     UMD_DEV: 'UMD_DEV',
     UMD_PROD: 'UMD_PROD',
     IIFE_DEV: 'IIFE_DEV',
-    IIFE_PROD: 'IIFE_PROD'
+    IIFE_PROD: 'IIFE_PROD',
+    DEMO_PROD: 'DEMO_PROD',
+    DOC_PROD: 'DOC_PROD'
 };
 let tasks = [];
 
-//make path for bundle
+//attributes for different bundles
 function makeBundleAttributes(bundleType){
     let atrs = {
         path: '',
         env: 'development',
         format: 'iife',
-        sourceMap: true
+        sourceMap: true,
+        plugins: []
     };
 
     switch (bundleType) {
         case Bundles.UMD_PROD:
             atrs.env = 'production';
             atrs.sourceMap = false;
+            atrs.plugins.push(uglify())
         case Bundles.UMD_DEV:
             atrs.path = './build/packages/';
             atrs.format = 'umd';
@@ -54,6 +58,7 @@ function makeBundleAttributes(bundleType){
         case Bundles.IIFE_PROD:
             atrs.env = 'production';
             atrs.sourceMap = false;
+            atrs.plugins.push(uglify())
         case Bundles.IIFE_DEV:
             atrs.path = './build/dist/';
             break;
@@ -61,6 +66,7 @@ function makeBundleAttributes(bundleType){
 
     return atrs;
 }
+
 //rollup config generations
 function makeConfig(bundleType){
     let atrs = makeBundleAttributes(bundleType);
@@ -87,7 +93,7 @@ function makeConfig(bundleType){
           jsnext: true,
           main: true
         }),
-      ],
+      ].concat(atrs.plugins),
       external: ['react', 'react-dom'],
     };
 

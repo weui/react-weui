@@ -6,10 +6,9 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline --progress --colors --port 8080",
     "startdoc": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --port 8080",
-    "build": "node scripts/build.js",
-    "build:example": "rimraf ./dist && webpack --config webpack.config.prod.js --progress --colors -p",
-    "build:doc": "rimraf ./dist/docs && webpack --config webpack.config.doc.js --progress --colors -p",
-    "build:page": "npm run build:example && npm run build:doc",
+    "build": "node scripts/build.js && npm run build:example && npm run build:doc",
+    "build:example": "webpack --config webpack.config.prod.js --progress --colors -p",
+    "build:doc": "webpack --config webpack.config.doc.js --progress --colors -p",
     "lint": "eslint 'src/**/*.js'",
     "pretest": "npm run lint",
     "test": "mocha --compilers js:babel-core/register --recursive -r ignore-styles -r jsdom-global/register",
@@ -27,7 +26,8 @@
     "ui",
     "framework",
     "weui",
-    "react"
+    "react",
+    "wechat"
   ],
   "author": "wechat ui team",
   "license": "MIT",

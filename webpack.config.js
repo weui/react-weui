@@ -16,7 +16,7 @@ module.exports = {
         filename: './bundle.js'
     },
     module: {
-        loaders:[
+        loaders: [
             {
                 test: /\.js[x]?$/,
                 exclude: /node_modules/,
@@ -43,13 +43,8 @@ module.exports = {
         }),
         new ExtractTextPlugin('weui.min.css'),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     sourceMap: false,
-        //     mangle: false
-        // }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'example/index.html')
-        }),
-        //new OpenBrowserPlugin({ url: 'http://localhost:8080' })
+        })
     ]
 };

@@ -3,7 +3,6 @@ var path = require('path');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
     context: path.join(__dirname, 'docs'),
@@ -12,11 +11,11 @@ module.exports = {
         vendor: ['react', 'classnames', 'react-router', 'react-dom', 'react-addons-css-transition-group']
     },
     output: {
-        path: path.resolve(__dirname, 'dist/docs'),
+        path: path.resolve(__dirname, 'build/docs'),
         filename: './bundle.js'
     },
     module: {
-        loaders:[
+        loaders: [
             {
                 test: /\.js[x]?$/,
                 exclude: /node_modules/,
@@ -33,7 +32,7 @@ module.exports = {
             }, {
                 test: /\.(png|jpg|svg)$/,
                 loader: 'url?limit=25000'
-            },{
+            }, {
                 test: /\.json$/,
                 loader: 'json'
             }
@@ -48,7 +47,6 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'docs/index.html')
-        }),
-        //new OpenBrowserPlugin({ url: 'http://localhost:8080' })
+        })
     ]
 };
