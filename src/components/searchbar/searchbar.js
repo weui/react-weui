@@ -65,7 +65,7 @@ class SearchBar extends React.Component {
     constructor(props){
         super(props);
 
-        this.state={
+        this.state = {
             focus: this.props.defaultValue ? true : false,
             clearing: false,
             text: this.props.defaultValue ? this.props.defaultValue : ''

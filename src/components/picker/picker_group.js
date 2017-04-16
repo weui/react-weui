@@ -79,11 +79,7 @@ class PickerGroup extends Component {
             }
         }
 
-    	this.setState({
-    	    selected: defaultIndex,
-    	    ogTranslate: translate,
-    	    totalHeight,
-    	    translate,
+    	this.setState({ selected: defaultIndex, ogTranslate: translate, totalHeight, translate,
     	}, () => defaultIndex > -1 ? this.updateSelected(false) : this.updateSelected() );
     }
 

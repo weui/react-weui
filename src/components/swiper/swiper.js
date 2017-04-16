@@ -64,7 +64,7 @@ class Swiper extends Component {
     };
 
     constructor(props){
-        super(props)
+        super(props);
 
         this.state = {
             containerWidth: 0,
@@ -78,61 +78,61 @@ class Swiper extends Component {
             touchId: undefined,
             translate: 0,
             animating: false
-        }
+        };
 
-        this.handleTouchStart = this.handleTouchStart.bind(this)
-        this.handleTouchMove = this.handleTouchMove.bind(this)
-        this.handleTouchEnd = this.handleTouchEnd.bind(this)
+        this.handleTouchStart = this.handleTouchStart.bind(this);
+        this.handleTouchMove = this.handleTouchMove.bind(this);
+        this.handleTouchEnd = this.handleTouchEnd.bind(this);
     }
 
     componentDidMount(){
-        let $container = ReactDOM.findDOMNode(this.refs.container)
+        let $container = ReactDOM.findDOMNode(this.refs.container);
 
         this.setState({
-            wrapperWidth: this.props.direction == 'horizontal' ? $container.offsetWidth * this.props.children.length : $container.offsetWidth,
-            wrapperHeight: this.props.direction == 'vertical' ? $container.offsetHeight * this.props.children.length : $container.offsetHeight,
+            wrapperWidth: this.props.direction === 'horizontal' ? $container.offsetWidth * this.props.children.length : $container.offsetWidth,
+            wrapperHeight: this.props.direction === 'vertical' ? $container.offsetHeight * this.props.children.length : $container.offsetHeight,
             containerWidth: $container.offsetWidth,
             containerHeight: $container.offsetHeight,
-            translate: this.props.defaultIndex <= this.props.children.length ? this.props.direction == 'horizontal' ? $container.offsetWidth * -this.props.defaultIndex : $container.offsetHeight * -this.props.defaultIndex : 0
-        })
+            translate: this.props.defaultIndex <= this.props.children.length ? this.props.direction === 'horizontal' ? $container.offsetWidth * -this.props.defaultIndex : $container.offsetHeight * -this.props.defaultIndex : 0
+        });
         //console.log($container.offsetWidth, $container.offsetHeight)
     }
 
     handleTouchStart(e){
-        if(this.state.touching || this.props.children.length <= 1) return;
+        if (this.state.touching || this.props.children.length <= 1) return;
 
-        let og = 0
+        let og = 0;
 
-        if(this.props.direction == 'horizontal'){
-            og = e.targetTouches[0].pageX - this.state.translate
-        }else{
-            og = e.targetTouches[0].pageY - this.state.translate
+        if (this.props.direction === 'horizontal'){
+            og = e.targetTouches[0].pageX - this.state.translate;
+        } else {
+            og = e.targetTouches[0].pageY - this.state.translate;
         }
 
         this.setState({
             touching: true,
             ogTranslate: this.state.translate,
-            touchId : e.targetTouches[0].identifier,
+            touchId: e.targetTouches[0].identifier,
         	og: og,
         	animating: false
-        })
+        });
 
     }
 
     handleTouchMove(e){
-        if(!this.state.touching || this.props.children.length <= 1) return;
-        if(e.targetTouches[0].identifier !== this.state.touchId) return;
+        if (!this.state.touching || this.props.children.length <= 1) return;
+        if (e.targetTouches[0].identifier !== this.state.touchId) return;
 
         //prevent move background
         e.preventDefault();
 
         let diff = this.state.translate;
 
-        if(this.props.direction == 'horizontal'){
+        if (this.props.direction === 'horizontal'){
             const pageX = e.targetTouches[0].pageX;
             diff = pageX - this.state.og;
 
-        }else{
+        } else {
             //vertical
             const pageY = e.targetTouches[0].pageY;
             diff = pageY - this.state.og;
@@ -141,46 +141,46 @@ class Swiper extends Component {
 
         this.setState({
             translate: diff
-        })
+        });
     }
 
     handleTouchEnd(e){
-        if(!this.state.touching || this.props.children.length <= 1) return;
+        if (!this.state.touching || this.props.children.length <= 1) return;
 
         let translate = this.state.translate;
-        let max = this.props.direction == 'horizontal' ? this.state.wrapperWidth - this.state.containerWidth : this.state.wrapperHeight - this.state.containerHeight
-        let currentIndex = this.state.currentIndex
-        let ogIndex = currentIndex
+        let max = this.props.direction === 'horizontal' ? this.state.wrapperWidth - this.state.containerWidth : this.state.wrapperHeight - this.state.containerHeight;
+        let currentIndex = this.state.currentIndex;
+        let ogIndex = currentIndex;
 
-        if(translate > 0){
+        if (translate > 0){
             //start
-            translate = 0
-        }else if(translate < -max){
+            translate = 0;
+        } else if (translate < -max){
             //end
-            translate = -max
-        }else{
+            translate = -max;
+        } else {
             //default case
-            let diff = Math.abs(translate - this.state.ogTranslate)
-            let isNext = (translate - this.state.ogTranslate) < 0 ? true : false
+            let diff = Math.abs(translate - this.state.ogTranslate);
+            let isNext = (translate - this.state.ogTranslate) < 0 ? true : false;
             //console.log(translate - this.state.ogTranslate, diff, isNext)
 
-            if( diff >= this.props.threshold ){
+            if ( diff >= this.props.threshold ){
 
-                if(isNext){
+                if (isNext){
                     //next slide
-                    translate = this.state.ogTranslate - ( this.props.direction == 'horizontal' ? this.state.containerWidth : this.state.containerHeight )
-                    currentIndex += 1
+                    translate = this.state.ogTranslate - ( this.props.direction === 'horizontal' ? this.state.containerWidth : this.state.containerHeight );
+                    currentIndex += 1;
 
-                }else{
+                } else {
                     //prev slide
-                    translate = this.state.ogTranslate + ( this.props.direction == 'horizontal' ? this.state.containerWidth : this.state.containerHeight )
-                    currentIndex -= 1
+                    translate = this.state.ogTranslate + ( this.props.direction === 'horizontal' ? this.state.containerWidth : this.state.containerHeight );
+                    currentIndex -= 1;
 
                 }
 
-            }else{
+            } else {
                 //revert back
-                translate = this.state.ogTranslate
+                translate = this.state.ogTranslate;
             }
         }
 
@@ -192,41 +192,41 @@ class Swiper extends Component {
             animating: true,
             translate,
             currentIndex
-        }, ()=> setTimeout(()=>this.setState({animating: false}), this.props.speed ))
+        }, ()=> setTimeout(()=>this.setState({animating: false}), this.props.speed ));
 
-        if(this.props.onChange) this.props.onChange(ogIndex, currentIndex)
+        if (this.props.onChange) this.props.onChange(ogIndex, currentIndex);
     }
 
     renderPagination(){
         return this.props.children.map( (child, i) => {
             let clx = classNames('react-weui-swiper__pagination-bullet', {
-                active: i == this.state.currentIndex
-            })
+                active: i === this.state.currentIndex
+            });
             return (
                 <span className={clx} key={i}></span>
-            )
-        })
+            );
+        });
     }
 
     render() {
 
         const { className, children, height, width, defaultIndex, direction, speed, indicators, ...domProps } = this.props;
         let clx = classNames('react-weui-swiper__container', className, {
-            'react-weui-swiper__container-horizontal': direction == 'horizontal',
-            'react-weui-swiper__container-vertical': direction == 'vertical',
-        })
+            'react-weui-swiper__container-horizontal': direction === 'horizontal',
+            'react-weui-swiper__container-vertical': direction === 'vertical',
+        });
 
         let containerStyle = {
             height: height ? `${height}px` : '100%',
             width: width ? `${width}px` : '100%'
-        }
+        };
 
         let wrapperStyle = {
             width: this.state.wrapperWidth,
             height: this.state.wrapperHeight,
-            transition : this.state.animating ? `transform .${speed / 100}s` : 'none',
-            transform : `translate(${ direction == 'horizontal' ? this.state.translate : 0}px, ${ direction == 'vertical' ? this.state.translate : 0}px)`,
-        }
+            transition: this.state.animating ? `transform .${speed / 100}s` : 'none',
+            transform: `translate(${ direction === 'horizontal' ? this.state.translate : 0}px, ${ direction === 'vertical' ? this.state.translate : 0}px)`,
+        };
 
         return (
             <div
@@ -247,12 +247,12 @@ class Swiper extends Component {
                             className: classNames('react-weui-swiper__item', child.className),
                             key: i,
                             style: Object.assign({}, child.props.style, {
-                                display: direction == 'horizontal' ? 'inline-block' : 'block',
-                                verticalAlign: direction == 'horizontal' ? 'top' : 'bottom',
+                                display: direction === 'horizontal' ? 'inline-block' : 'block',
+                                verticalAlign: direction === 'horizontal' ? 'top' : 'bottom',
                                 width: this.state.containerWidth,
                                 height: this.state.containerHeight
                             })
-                        })
+                        });
                     })
                 }
                 </div>
@@ -264,7 +264,7 @@ class Swiper extends Component {
                     </div>
                 : false }
             </div>
-        )
+        );
     }
 }
 

@@ -103,14 +103,6 @@ describe('<Dialog></Dialog>', ()=> {
                             })
                         }
 
-                        //test auto detect
-                        if(!type && autoDectect ) {
-                            wrapper.setState({ isAndroid: true })
-                            it(`when no type define, should detect android and have "weui-skin_android" class on main wrapper`, ()=> {
-                                assert(wrapper.find('div.weui-dialog').hasClass('weui-skin_android'));
-                            });
-                        }
-
                     })
                 })
             })
