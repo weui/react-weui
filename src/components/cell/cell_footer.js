@@ -24,10 +24,10 @@ CellFooter.propTypes = {
      *
      */
     primary: PropTypes.bool,
-}
+};
 
 CellFooter.defaultProps = {
     primary: false,
-}
+};
 
-export default CellFooter
+export default CellFooter;

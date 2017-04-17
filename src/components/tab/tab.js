@@ -40,20 +40,21 @@ export default class Tab extends React.Component {
 
     handleHeaderClick(idx) {
         this.setState({index: idx});
-        if(this.props.onChange) this.props.onChange(idx);
+        if (this.props.onChange) this.props.onChange(idx);
     }
 
-    parseChild(children) {
+    parseChild(childrenInput) {
         const ChildHeaders = [];
         const ChildContents = [];
 
-        React.Children.map(children, child => {
-            if(!child) return;
+        React.Children.map(childrenInput, child => {
+            if (!child) return;
             const {children, type, ...others} = child.props;
-            if(child.type === TabBarItem || child.type === NavBarItem){
+            if (child.type === TabBarItem || child.type === NavBarItem){
               ChildHeaders.push(child);
-              if(children) ChildContents.push(<TabBodyItem children={children}/>);
-            }else if(child.type === TabBodyItem){
+              if (children) ChildContents.push(<TabBodyItem children={children}/>);
+            }
+            else if (child.type === TabBodyItem){
               ChildContents.push(child);
             }
         });
@@ -80,7 +81,7 @@ export default class Tab extends React.Component {
             });
         });
 
-        if(type == 'tabbar'){
+        if (type === 'tabbar'){
             return (
                 <div className={cls}>
                     <TabBody>
@@ -91,7 +92,8 @@ export default class Tab extends React.Component {
                     </TabBar>
                 </div>
             );
-        }else if(type == 'navbar'){
+        }
+        else if (type === 'navbar'){
             return (
                 <div className={cls}>
                     <NavBar>
@@ -101,8 +103,9 @@ export default class Tab extends React.Component {
                         {_contents}
                     </TabBody>
                 </div>
-            )
-        }else{
+            );
+        }
+        else {
             return false;
         }
 
@@ -117,14 +120,15 @@ export default class Tab extends React.Component {
             'weui-tab': true
         }, className);
 
-        if(type === 'normal') {
+        if (type === 'normal') {
             return (
                 <div className={cls} {...divProps}>
                     {children}
                 </div>
             );
-        }else{
-            return this.renderBar(type, children, cls)
+        }
+        else {
+            return this.renderBar(type, children, cls);
         }
     }
 }

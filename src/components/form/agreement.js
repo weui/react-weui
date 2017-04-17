@@ -22,4 +22,4 @@ const Agreement = (props) => {
     );
 };
 
-export default Agreement
+export default Agreement;

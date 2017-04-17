@@ -18,7 +18,11 @@ export default class Grid extends React.Component {
        * Icon placeholder
        *
        */
-      icon: React.PropTypes.any
+      icon: React.PropTypes.any,
+      /**
+       * pass in an component to replace Grid but apply same style
+       */
+      component: React.PropTypes.func
     };
 
     static defaultProps = {
@@ -27,17 +31,19 @@ export default class Grid extends React.Component {
     };
 
     render() {
-        const {children, icon, label, className, ...others} = this.props;
+        const {children, icon, label, className, component, ...others} = this.props;
         const cls = classNames({
             'weui-grid': true
         }, className);
+        var DefaultComponent = 'a';
+        var GridComponent = component ? component : DefaultComponent;
 
         return (
-            <a className={cls} {...others}>
+            <GridComponent className={cls} {...others}>
               {icon ? <GridIcon>{icon}</GridIcon> : false}
               {children}
               {label ? <GridLabel>{label}</GridLabel> : false}
-            </a>
+            </GridComponent>
         );
     }
 };

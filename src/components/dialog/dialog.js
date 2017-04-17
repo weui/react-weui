@@ -44,11 +44,11 @@ class Dialog extends Component {
     };
 
     constructor(props){
-        super(props)
+        super(props);
 
         this.state = {
             isAndroid: ''
-        }
+        };
     }
 
     renderButtons() {
@@ -77,9 +77,9 @@ class Dialog extends Component {
         const {title, show, className, children, buttons, type, autoDectect, ...others} = this.props;
         const styleType = type ? type : 'ios';
         const cls = classNames('weui-dialog', {
-            'weui-skin_android': styleType == 'android' || (!type && autoDectect && this.state.isAndroid),
+            'weui-skin_android': styleType === 'android' || (!type && autoDectect && this.state.isAndroid),
             [className]: className
-        })
+        });
 
         return (
             <div style={{display: show ? 'block' : 'none'}}>

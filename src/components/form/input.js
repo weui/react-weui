@@ -22,10 +22,10 @@ const Input = (props) => {
 
 Input.propTypes = {
     defaultValue: React.PropTypes.string
-}
+};
 
 Input.defaultProps = {
     defaultValue: undefined
-}
+};
 
-export default Input
+export default Input;

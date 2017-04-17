@@ -20,4 +20,4 @@ const Switch = (props) => {
     );
 };
 
-export default Switch
+export default Switch;

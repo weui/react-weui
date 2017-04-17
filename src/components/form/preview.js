@@ -19,7 +19,7 @@ const Preview = (props) => {
         <div className={cls} {...others}>
             { children }
         </div>
-    )
-}
+    );
+};
 
-export default Preview
+export default Preview;

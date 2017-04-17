@@ -23,8 +23,8 @@ const LoadMore = (props) => {
             { children }
             </span>
         </div>
-    )
-}
+    );
+};
 
 LoadMore.propTypes = {
     /**
@@ -42,12 +42,12 @@ LoadMore.propTypes = {
      *
      */
     showDot: PropTypes.bool
-}
+};
 
 LoadMore.defaultProps = {
     loading: false,
     showLine: false,
     showDot: false
-}
+};
 
 export default LoadMore;
