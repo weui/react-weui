@@ -37,7 +37,7 @@ class Icon extends React.Component {
     render() {
         const {value, size, className, primary, ...others} = this.props;
 
-        if (Object.keys(deprecateValue).find(v=> v === value)){
+        if (Object.keys(deprecateValue).indexOf(value) !== -1){
             deprecationWarning(`Icon ${value}`, `Icon ${deprecateValue[value]}`);
         }
 
