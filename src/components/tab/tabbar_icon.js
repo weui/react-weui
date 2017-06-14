@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 /**
  *  Icon wrapper for icon use in TabBar

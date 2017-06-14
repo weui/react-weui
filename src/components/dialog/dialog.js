@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 import Mask from '../mask/index';
 
 /**
@@ -24,11 +24,6 @@ class Dialog extends Component {
          */
         title: PropTypes.string,
         /**
-         * Auto chose style base on device type
-         *
-         */
-        autoDectect: PropTypes.bool,
-        /**
          * Specify display style: ios/android, default is ios when autoDetect not on
          *
          */
@@ -40,7 +35,6 @@ class Dialog extends Component {
         show: false,
         title: '',
         type: '',
-        autoDectect: true,
     };
 
     constructor(props){
@@ -66,18 +60,11 @@ class Dialog extends Component {
         });
     }
 
-    componentDidMount(){
-        const { isAndroid } = require('../../utils/mobile_detect');
-        this.setState({
-            isAndroid,
-        });
-    }
-
     render() {
         const {title, show, className, children, buttons, type, autoDectect, ...others} = this.props;
         const styleType = type ? type : 'ios';
         const cls = classNames('weui-dialog', {
-            'weui-skin_android': styleType === 'android' || (!type && autoDectect && this.state.isAndroid),
+            'weui-skin_android': styleType === 'android',
             [className]: className
         });
 

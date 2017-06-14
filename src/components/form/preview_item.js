@@ -1,7 +1,7 @@
 //1.0.0 components
 
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 /**
  * Preview Item for all purpose usage

@@ -27,14 +27,20 @@ class CityPicker extends React.Component {
          * display the component
          *
          */
-        show: PropTypes.bool
+        show: PropTypes.bool,
+        /**
+         * language object consists of `leftBtn` and `rightBtn`
+         *
+         */
+        lang: PropTypes.object,
     }
 
     static defaultProps = {
         data: [],
         dataMap: { id: 'name', items: 'sub' },
         selected: [],
-        show: false
+        show: false,
+        lang: { leftBtn: '取消', rightBtn: '确定' }
     }
 
     constructor(props){
@@ -82,8 +88,7 @@ class CityPicker extends React.Component {
       }
     }
 
-
-    updateGroup(item, i, groupIndex, selected, picker){
+    updateDataBySelected(selected, cb){
         const { data, dataMap } = this.props;
         //validate if item exists
 
@@ -99,21 +104,31 @@ class CityPicker extends React.Component {
             text = this.state.text;
         }
 
-
-        //console.log(groups)
         this.setState({
             groups,
             text,
             selected: newselected
-        });
+        }, ()=>cb());
+    }
 
-        //update picker
-        picker.setState({
-            selected: newselected
+
+    updateGroup(item, i, groupIndex, selected, picker){
+        this.updateDataBySelected(selected, ()=>{
+            //update picker
+            picker.setState({
+                selected: this.state.selected
+            });
         });
     }
 
-    handleChange(){
+    handleChange(selected){
+        //handle unchange
+        if (selected === this.state.selected){
+            this.updateDataBySelected(selected, ()=>{
+                if (this.props.onChange) this.props.onChange(this.state.text);
+            });
+        }
+
         if (this.props.onChange) this.props.onChange(this.state.text);
     }
 
@@ -126,6 +141,7 @@ class CityPicker extends React.Component {
                 defaultSelect={this.state.selected}
                 groups={this.state.groups}
                 onCancel={this.props.onCancel}
+                lang={this.props.lang}
             />
         );
     }

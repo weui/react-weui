@@ -31,7 +31,7 @@ const CellMore = () => (
 
 export default class SearchBarDemo extends React.Component {
     state={
-        searchText: '',
+        searchText: 'a',
         results: []
     };
 
@@ -51,6 +51,7 @@ export default class SearchBarDemo extends React.Component {
             <Page className="searchbar" title="SearchBar" subTitle="搜索栏">
                 <SearchBar
                     onChange={this.handleChange.bind(this)}
+                    defaultValue={this.state.searchText}
                     placeholder="Female Name Search"
                     lang={{
                         cancel: 'Cancel'

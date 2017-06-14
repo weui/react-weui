@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 import Icon from '../icon';
 
 /**
@@ -9,6 +9,11 @@ import Icon from '../icon';
  */
 class SearchBar extends React.Component {
     static propTypes = {
+        /**
+         * default value for the searchbar if any
+         *
+         */
+        defaultValue: React.PropTypes.string,
         /**
          * default place holder text
          *
@@ -57,11 +62,19 @@ class SearchBar extends React.Component {
         autocomplete: 'off'
     };
 
-    state={
-        focus: false,
-        clearing: false,
-        text: ''
-    };
+    constructor(props){
+        super(props);
+
+        this.state = {
+            focus: this.props.defaultValue ? true : false,
+            clearing: false,
+            text: this.props.defaultValue ? this.props.defaultValue : ''
+        };
+
+        if (this.props.defaultValue !== ''){
+            if (this.props.onChange) this.props.onChange(this.state.text);
+        }
+    }
 
     changeHandle(e) {
         let text = e.target.value;
@@ -107,7 +120,7 @@ class SearchBar extends React.Component {
     }
 
     render() {
-        const {children, autocomplete, placeholder, className, searchName} = this.props;
+        const {children, defaultValue, autocomplete, placeholder, className, searchName} = this.props;
         const clz = classNames({
             'weui-search-bar': true,
             'weui-search-bar_focusing': this.state.focus

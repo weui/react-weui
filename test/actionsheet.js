@@ -103,13 +103,6 @@ describe('<ActionSheet></ActionSheet>', ()=> {
                             });
                         }
 
-                        if(!type && userAgent == androidUA) {
-                            wrapper.setState({ isAndroid: true })
-                            it(`when no type define, should detect android and have "weui-skin_android" class on main wrapper`, ()=> {
-                                assert(wrapper.find('div').first().hasClass('weui-skin_android'));
-                            });
-                        }
-
                     });
                 })
             });

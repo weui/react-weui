@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 /**
  *  Sample Popup header for Popup

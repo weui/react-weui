@@ -1,7 +1,7 @@
 import React from 'react';
-import {Article} from '../../../src/index';
-import Page from '../../component/page';
+import { Article } from '../../../src/index';
 import srcArticle from './pic_article.png';
+import Page from '../../component/page';
 
 const ListDemo = (props) => (
     <Page className="article" title="Article" subTitle="文章">
@@ -30,7 +30,5 @@ const ListDemo = (props) => (
             </section>
         </Article>
     </Page>
-)
-
-
+);
 export default ListDemo;

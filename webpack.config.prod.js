@@ -10,7 +10,7 @@ module.exports = {
         js: ['./app.js'],
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build/demo'),
         filename: './bundle.js'
     },
     module: {

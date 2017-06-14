@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 import Mask from '../mask/index';
 import './actionsheet.less';
 
@@ -29,10 +29,6 @@ class ActionSheet extends Component {
          */
         onRequestClose: PropTypes.func,
         /**
-         * Allow component to autodetect device and display corresponding style
-         */
-        autoDectect: PropTypes.bool,
-        /**
          * style: ios/android
          */
         type: PropTypes.string,
@@ -43,15 +39,11 @@ class ActionSheet extends Component {
         menus: [],
         actions: [],
         show: false,
-        autoDectect: true
     };
 
     constructor(props) {
         super(props);
 
-        this.state = {
-            isAndroid: ''
-        };
 
         this.handleMaskClick = this.handleMaskClick.bind(this);
     }
@@ -88,25 +80,14 @@ class ActionSheet extends Component {
         if (this.props.onRequestClose) this.props.onRequestClose(e);
     }
 
-    componentDidMount(){
-        const { isAndroid } = require('../../utils/mobile_detect');
-        this.setState({
-            isAndroid,
-        });
-    }
-
     render() {
-        const {show, autoDectect, type, onRequestClose, menus, actions, ...others} = this.props;
+        const {show, type, onRequestClose, menus, actions, ...others} = this.props;
         const cls = classNames({
             'weui-actionsheet': true,
             'weui-actionsheet_toggle': show
         });
 
         let styleType = type ? type : 'ios';
-
-        if (!type && autoDectect){
-            if (this.state.isAndroid) styleType = 'android';
-        }
 
         return (
             <div

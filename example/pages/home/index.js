@@ -16,6 +16,20 @@ import './index.less';
 
 const menus = [
     {
+        name: 'View',
+        icon: IconZIndex,
+        items: [
+            {
+                label: 'Swiper',
+                to: '/swiper'
+            },
+            {
+                label: 'Page',
+                to: '/page'
+            }
+        ]
+    },
+    {
         name: 'Form',
         icon: IconForm,
         items: [

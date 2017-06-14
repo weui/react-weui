@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 /**
  * Header of MediaBox, if detects Img tag inside content will automatically adds corresponding class

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 /**
  *  A Slider is an element used to set a value, good choice when users think it as relative quantity rather than value

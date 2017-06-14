@@ -35,19 +35,28 @@ class UploaderDemo extends Component {
     renderGallery(){
         if(!this.state.gallery) return false;
 
+        let srcs = this.state.demoFiles.map(file=>file.url)
+
         return (
-            <Gallery src={this.state.gallery.url} show onClick={ e=> {
-                //avoid click background item
-                e.preventDefault()
-                e.stopPropagation();
-                this.setState({gallery: false})
-            }}>
-                <GalleryDelete onClick={ e=> {
+            <Gallery
+                src={srcs}
+                show
+                defaultIndex={this.state.gallery.id}
+                onClick={ e=> {
+                    //avoid click background item
+                    e.preventDefault()
+                    e.stopPropagation();
+                    this.setState({gallery: false})
+                }}
+            >
+
+                <GalleryDelete onClick={ (e, id)=> {
                     this.setState({
-                        demoFiles: this.state.demoFiles.filter((e,i)=>i!=this.state.gallery.id),
-                        gallery: false
+                        demoFiles: this.state.demoFiles.filter((e,i)=>i != id),
+                        gallery: this.state.demoFiles.length <= 1 ? true : false
                     })
                 }} />
+
             </Gallery>
         )
     }

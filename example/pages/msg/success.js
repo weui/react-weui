@@ -11,7 +11,7 @@ const SuccessFooter = ()=>(
             Copyright © 2008-2016 weui.io
         </FooterText>
     </Footer>
-)
+);
 
 const SuccessMsg = (props) => {
     return (

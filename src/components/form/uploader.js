@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Icon from '../icon';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 import deprecationWarning from '../../utils/deprecationWarning';
 
 /**
@@ -251,6 +251,7 @@ export default class Uploader extends Component {
                         className="weui-uploader__input"
                         type="file"
                         accept="image/*"
+                        capture="camera"
                         onChange={this.handleChange.bind(this)}
                         {...inputProps}
                         />

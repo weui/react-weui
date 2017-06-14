@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classnames';
 
 class PickerGroup extends Component {
     static propTypes = {
@@ -79,11 +79,7 @@ class PickerGroup extends Component {
             }
         }
 
-    	this.setState({
-    	    selected: defaultIndex,
-    	    ogTranslate: translate,
-    	    totalHeight,
-    	    translate,
+    	this.setState({ selected: defaultIndex, ogTranslate: translate, totalHeight, translate,
     	}, () => defaultIndex > -1 ? this.updateSelected(false) : this.updateSelected() );
     }
 

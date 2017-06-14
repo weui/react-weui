@@ -1,44 +1,123 @@
-import React from 'react';
-import classNames from 'classnames';
+import React, { Component, PropTypes } from 'react';
+import classNames from '../../utils/classnames';
+import Swiper from '../swiper';
 
 /**
  * Full screen photo display
  *
  */
-const Gallery = (props) => {
-    const { children, className, show, src, ...others } = props;
-    const cls = classNames({
-        'weui-gallery': true,
-        [className]: className
-    });
+class Gallery extends Component {
+    static propTypes = {
+        /**
+         * indicate whather the component is display
+         *
+         */
+        show: PropTypes.bool,
+        /**
+         * image source, string for single element, array for multiple element
+         *
+         */
+        src: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.array
+        ]),
+        /**
+         * indicate whather the component is display
+         *
+         */
+        defaultIndex: PropTypes.number,
+    };
 
-    return (
-        <div className={cls} style={{display: show ? 'block' : 'none'}} {...others}>
-            <span className="weui-gallery__img" style={{backgroundImage: `url(${src})`}}></span>
-            <div className="weui-gallery__opr">
-                { children }
+    static defaultProps = {
+        show: undefined,
+        src: '',
+        defaultIndex: 0
+    }
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            currentIndex: this.props.defaultIndex
+        };
+    }
+
+    handleClick(func){
+        return (e)=>{
+            if (func) func(e, this.state.currentIndex);
+        };
+    }
+
+    renderImages(imgs){
+        return (
+            <div className="weui-gallery__img">
+                <Swiper
+                    indicators={false}
+                    defaultIndex={this.props.defaultIndex}
+                    onChange={ (prev, next) => this.setState({currentIndex: next}) }
+                >
+                    {
+                        imgs.map( (img, i) => {
+                            const imgStyle = {
+                                backgroundImage: `url(${img})`,
+                                backgroundSize: 'contain',
+                                backgroundRepeat: 'no-repeat',
+                                backgroundPosition: 'center center'
+                            };
+                            return (
+                                <span key={i} style={imgStyle}></span>
+                            );
+                        })
+                    }
+                </Swiper>
             </div>
-        </div>
-    );
-};
+        );
+    }
 
-Gallery.propTypes = {
-    /**
-     * indicate whather the component is display
-     *
-     */
-    show: React.PropTypes.bool,
-    /**
-     * image source url or base64 encode
-     *
-     */
-    src: React.PropTypes.string
-};
+    renderOprs(){
+        if (Array.isArray(this.props.children)){
+            return this.props.children.map( (child, i) => {
+                return React.cloneElement(child, {
+                    key: i,
+                    onClick: this.handleClick(child.props.onClick)
+                });
+            });
+        } else {
+            if (this.props.children){
+                return React.cloneElement(this.props.children, {
+                    onClick: this.handleClick(this.props.children.props.onClick)
+                });
+            } else {
+                return false;
+            }
+        }
+    }
 
-Gallery.defaultProps = {
-    show: undefined,
-    src: ''
-};
+    render(){
+        const { children, className, show, src, defaultIndex, ...others } = this.props;
+        const cls = classNames({
+            'weui-gallery': true,
+            [className]: className
+        });
+
+        if (!show) return false;
+
+        return (
+            <div className={cls} style={{display: show ? 'block' : 'none'}} {...others}>
+                {
+                    Array.isArray(src) ? this.renderImages(src)
+                    : <span className="weui-gallery__img" style={{backgroundImage: `url(${src})`}}></span>
+                }
+
+                <div className="weui-gallery__opr">
+                    {
+                        this.renderOprs()
+                    }
+                </div>
+            </div>
+        );
+    }
+}
 
 export default Gallery;
 

@@ -16,7 +16,7 @@ import PreviewFooter from './preview_footer';
 import PreviewItem from './preview_item';
 import Slider from './slider';
 
-export default {
+export {
     Form,
     FormCell,
     TextArea,

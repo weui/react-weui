@@ -1,9 +1,3 @@
-/**
- * Created by n7best
- */
-
-
-
 import Tab from './tab';
 import TabBody from './tab_body';
 import NavBar from './navbar';
@@ -14,7 +8,7 @@ import TabBarIcon from './tabbar_icon';
 import TabBarLabel from './tabbar_label';
 import TabBodyItem from './tab_body_item';
 
-export default {
+export {
    NavBar,
    NavBarItem,
    Tab,

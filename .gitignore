@@ -9,3 +9,4 @@ publish.sh
 pendingtest
 .nyc_output
 dist
+build
