@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 import Swiper from '../swiper';
 
@@ -120,4 +121,3 @@ class Gallery extends Component {
 }
 
 export default Gallery;
-

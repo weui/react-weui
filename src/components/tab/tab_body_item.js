@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 /**
@@ -10,7 +11,7 @@ export default class TabBodyItem extends React.Component {
          * display this component
          *
          */
-        active: React.PropTypes.bool
+        active: PropTypes.bool
     };
 
     static defaultProps = {

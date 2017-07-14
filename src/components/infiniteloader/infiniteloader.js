@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import classNames from '../../utils/classnames';
 import LoadMore from '../loadmore';
@@ -91,8 +92,8 @@ class InfiniteLoader extends Component{
     }
 
     scrollHandle(e){
-        if (this.state.loading || this.state.finish || this.props.disable || e.target.scrollTop === 0) return;
         if (this.props.onScroll) this.props.onScroll(e);
+        if (this.state.loading || this.state.finish || this.props.disable || e.target.scrollTop === 0) return;
 
         //setup for scrollend event
         clearTimeout(this.state.scrollTimer);

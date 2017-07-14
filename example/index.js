@@ -22,6 +22,7 @@ import Footer from './pages/footer';
 import Grid from './pages/grid';
 import LoadMore from './pages/loadmore';
 import Preview from './pages/preview';
+import MsgDemo from './pages/msg';
 import MsgSuccess from './pages/msg/success';
 import MsgFail from './pages/msg/fail';
 import TopTips from './pages/toptips';
@@ -59,6 +60,7 @@ export default {
     Grid,
     LoadMore,
     Preview,
+    MsgDemo,
     MsgSuccess,
     MsgFail,
     TopTips,

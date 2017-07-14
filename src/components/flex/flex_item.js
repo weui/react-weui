@@ -1,6 +1,7 @@
 //1.0.0 components
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Evenly distribute flex items
@@ -20,7 +21,7 @@ FlexItem.propTypes = {
      * pass component to replace the component but maintaing style
      *
      */
-    component: React.PropTypes.node
+    component: PropTypes.node
 };
 
 FlexItem.defaultProps = {

@@ -4,6 +4,7 @@
 
 Breaking Changes
 - Remove mobile_detect utilities, ActionSheet and Dialog will needs to provide a platform by user.
+- Used standard prop-types library
 
 Changes
 
@@ -18,17 +19,17 @@ Changes
 - InfiniteLoader add disable, onScroll and onScrollEnd property
 - PullToRefresh add disable property
 - Use Rollup.js as bundler for library
+- Use Webpack 3, React-router 4 for demo and docs
 - Use ES2015 module standard
 - Include classnames, warning function in library
 
 New Addon Component
-
 - Page
 
 Known Problem Pending Fix
 
 - Issues #203 Upload Image angle problem
-- Warnings from react-router
+
 
 #### 1.0.5
 

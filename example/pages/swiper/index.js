@@ -11,11 +11,11 @@ import imgSrc from '../article/pic_article.png';
 class SwiperDemo extends React.Component {
 
     constructor(props){
-        super(props)
+        super(props);
 
         this.state = {
             demoIndex: 0
-        }
+        };
     }
 
     render(){
@@ -95,7 +95,7 @@ class SwiperDemo extends React.Component {
                 </Swiper>
             </div>
         </Page>
-        )
+        );
     }
 }
 

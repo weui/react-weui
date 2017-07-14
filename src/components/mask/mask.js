@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 /**
@@ -11,7 +12,7 @@ class Mask extends React.Component {
          * Whather mask should be transparent (no color)
          *
          */
-        transparent: React.PropTypes.bool
+        transparent: PropTypes.bool
     };
 
     static defaultProps = {

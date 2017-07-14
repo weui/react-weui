@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import classNames from '../../utils/classnames';
 import Icon from '../icon/';
@@ -159,7 +160,7 @@ class PullToRefresh extends Component{
     }
 
     render(){
-        const { className, children, height, loaderHeight, loaderDefaultIcon, loaderLoadingIcon, onRefresh, disalbe, ...domProps } = this.props;
+        const { className, children, height, loaderHeight, loaderDefaultIcon, loaderLoadingIcon, onRefresh, disable, ...domProps } = this.props;
         let cls = classNames('react-weui-ptr', className);
 
         let containerStyle = {

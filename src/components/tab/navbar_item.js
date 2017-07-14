@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 /**
@@ -11,12 +12,12 @@ export default class NavBarItem extends React.Component {
          * indicate tab is active
          *
          */
-        active: React.PropTypes.bool,
+        active: PropTypes.bool,
         /**
          * label of the item
          *
          */
-        label: React.PropTypes.string
+        label: PropTypes.string
     };
 
     static defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 /**
@@ -11,7 +12,7 @@ export default class MediaBoxInfoMeta extends React.Component {
          * add left margin to indicate extra
          *
          */
-        extra: React.PropTypes.bool,
+        extra: PropTypes.bool,
     };
 
     static defaultProps = {

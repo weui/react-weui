@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import PickerGroup from './picker_group';
 import classNames from '../../utils/classnames';
 import Mask from '../mask';

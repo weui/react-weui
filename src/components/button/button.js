@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 /**
@@ -7,17 +8,17 @@ import classNames from '../../utils/classnames';
  */
 export default class Button extends React.Component {
     static propTypes = {
-        disabled: React.PropTypes.bool,
+        disabled: PropTypes.bool,
         /**
          * Options: primary, default, warn, vcode
          *
          */
-        type: React.PropTypes.string,
+        type: PropTypes.string,
         /**
          * Options: normal, small
          *
          */
-        size: React.PropTypes.string,
+        size: PropTypes.string,
     };
 
     static defaultProps = {

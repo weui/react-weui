@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 class ButtonArea extends Component {
@@ -7,7 +8,7 @@ class ButtonArea extends Component {
          * Direction of Button Layout inside, Options: veritical, horizontal
          *
          */
-        direction: React.PropTypes.string
+        direction: PropTypes.string
     };
 
     static defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 /**
@@ -21,7 +22,7 @@ const Input = (props) => {
 };
 
 Input.propTypes = {
-    defaultValue: React.PropTypes.string
+    defaultValue: PropTypes.string
 };
 
 Input.defaultProps = {

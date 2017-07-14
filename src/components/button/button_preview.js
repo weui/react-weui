@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 const PreviewButton = (props) => {
@@ -30,4 +31,3 @@ PreviewButton.defaultProps = {
 };
 
 export default PreviewButton;
-

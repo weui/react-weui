@@ -1,11 +1,4 @@
-/**
- * Created by jf on 15/12/10.
- */
-
-"use strict";
-
 import React from 'react';
-import './page.less';
 
 export default class Page extends React.Component {
     render() {

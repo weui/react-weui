@@ -1,4 +1,4 @@
-#React-WeUI [![Build Status](https://travis-ci.org/weui/react-weui.svg?branch=master)](https://travis-ci.org/weui/react-weui) [![npm version](https://img.shields.io/npm/v/react-weui.svg)](https://www.npmjs.org/package/react-weui)
+# React-WeUI [![Build Status](https://travis-ci.org/weui/react-weui.svg?branch=master)](https://travis-ci.org/weui/react-weui) [![npm version](https://img.shields.io/npm/v/react-weui.svg)](https://www.npmjs.org/package/react-weui)
 
 [WeUI](https://github.com/weui/weui) Components build with [React](http://facebook.github.io/react/).
 
@@ -9,7 +9,7 @@
 1.0.x [documentation](https://weui.github.io/react-weui/docs/) with live examples.
 0.4.x [documentation](https://n7best.github.io/react-weui-doc-0.4.0) with live examples.
 
-## Installation (0.4.x)
+## Installation
 
 With [npm](http://npmjs.com/):
 
@@ -84,5 +84,3 @@ See the [contributing guidelines](https://github.com/n7best/react-weui-1/blob/ma
 ## License
 
 The MIT License([http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
-
-
