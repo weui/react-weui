@@ -1,5 +1,5 @@
 import React from 'react';
-import { Msg, Footer, FooterLinks, FooterLink, FooterText } from '../../../src/index';
+import { Msg, Footer, FooterLinks, FooterLink, FooterText } from '../../../build/packages';
 import Page from '../../component/page';
 
 const SuccessFooter = ()=>(

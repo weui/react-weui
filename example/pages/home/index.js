@@ -1,5 +1,5 @@
 import React from 'react';
-import {Flex, FlexItem, Cells, Cell, CellBody, CellFooter} from '../../../src/index';
+import {Flex, FlexItem, Cells, Cell, CellBody, CellFooter} from '../../../build/packages';
 import { Link } from 'react-router-dom';
 import Page from '../../component/page';
 import Accordion from '../../component/accordion';

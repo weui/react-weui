@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grids } from '../../../src/index';
+import { Grids } from '../../../build/packages';
 import Page from '../../component/page';
 import iconSrc from './icon_tabbar.png';
 

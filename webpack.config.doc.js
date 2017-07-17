@@ -8,9 +8,9 @@ const nodeEnv = process.env.NODE_ENV || 'development';
 const isProduction = process.argv.indexOf('-p') !== -1;
 //const isProduction = nodeEnv === 'production';
 
-const jsSourcePath = path.join(__dirname, 'example');
-const buildPath = path.join(__dirname, 'build/demo');
-const sourcePath = path.join(__dirname, 'example');
+const jsSourcePath = path.join(__dirname, 'docs');
+const buildPath = path.join(__dirname, 'build/docs');
+const sourcePath = path.join(__dirname, 'docs');
 
 // Common plugins
 const plugins = [
@@ -39,9 +39,21 @@ const plugins = [
 const rules = [
     {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: [
-            'babel-loader',
+        oneOf: [
+            {
+                include: [path.resolve(__dirname, 'docs'), path.resolve(__dirname, 'example')],
+                exclude: [/node_modules/, path.resolve(__dirname, 'src')],
+                use: [
+                    'babel-loader',
+                ]
+            },
+            {
+                include: path.resolve(__dirname, 'src'),
+                exclude: [/node_modules/, path.resolve(__dirname, 'docs')],
+                use: [
+                    'raw-loader',
+                ]
+            },
         ],
     }, {
         test: /\.css/,
@@ -103,8 +115,8 @@ const rules = [
 
 if (!isProduction) {
   plugins.push(
-        new webpack.HotModuleReplacementPlugin()
-    );
+    new webpack.HotModuleReplacementPlugin()
+);
 }
 
 module.exports = {

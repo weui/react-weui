@@ -6,17 +6,17 @@ import {
     Button, Flex, FlexItem,
     Footer,
     FooterText,
-} from '../../src';
-import { Link } from 'react-router';
+} from '../../build/packages';
+import { Link } from 'react-router-dom';
 import './start.less';
 
 class Start extends Component {
     componentDidMount() {
-        this.canvasInit()
+        this.canvasInit();
     }
 
     componentWillUnmount(){
-        let canvas = ReactDOM.findDOMNode(this.refs.canvas)
+        let canvas = ReactDOM.findDOMNode(this.refs.canvas);
         let context = canvas.getContext('2d');
 
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -26,12 +26,12 @@ class Start extends Component {
     }
 
     canvasInit() {
-        let container = ReactDOM.findDOMNode(this.refs.container)
-        let canvas = ReactDOM.findDOMNode(this.refs.canvas)
+        let container = ReactDOM.findDOMNode(this.refs.container);
+        let canvas = ReactDOM.findDOMNode(this.refs.canvas);
         let context = canvas.getContext('2d');
 
-        let W = canvas.width = container.clientWidth
-        let H = canvas.height = container.clientHeight
+        let W = canvas.width = container.clientWidth;
+        let H = canvas.height = container.clientHeight;
         //
         // Add the Generator Here :)
         //
@@ -115,21 +115,21 @@ class Start extends Component {
             context.rotate(this.angle);
 
             if (this.type2 === 0) {
-                drawTriangle(context, 0, 0, 45, 38, "#08bb07");
+                drawTriangle(context, 0, 0, 45, 38, '#08bb07');
             }
             else if (this.type2 === 1) {
-                drawCircle(context, 0, 0, 35, "#ffbe00");
+                drawCircle(context, 0, 0, 35, '#ffbe00');
 
             }
             else if (this.type2 === 2) {
                 context.beginPath();
                 context.rect(0, 0, 35, 35);
                 context.closePath();
-                context.strokeStyle = "#298ceb";
+                context.strokeStyle = '#298ceb';
                 context.stroke();
             }
             else if (this.type2 === 3) {
-                drawCross(context, "#D68FFF");
+                drawCross(context, '#D68FFF');
             }
 
             context.restore();
@@ -141,7 +141,7 @@ class Start extends Component {
             if (this.x > W || this.x < 0) {
                 this.vx *= -1;
             }
-        }
+        };
 
         function particleGenerator(x, y, w, h, number, text) {
             // particle will spawn in this aera
@@ -155,7 +155,7 @@ class Start extends Component {
         }
         particleGenerator.prototype.animate = function() {
 
-            context.fillStyle = "grey";
+            context.fillStyle = 'grey';
 
             context.beginPath();
             context.strokeRect(this.x, this.y, this.w, this.h);
@@ -175,7 +175,7 @@ class Start extends Component {
                     clamp(randomInt(this.y, this.h + this.y), this.y, this.h + this.y), this.text);
                 }
             }
-        }
+        };
 
         update();
 
@@ -254,7 +254,7 @@ class Start extends Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 

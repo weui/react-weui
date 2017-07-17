@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Toast, Toptips} from '../../../src/index';
+import {Button, Toast, Toptips} from '../../../build/packages';
 import Page from '../../component/page';
 
 class ToptipsDemo extends React.Component {

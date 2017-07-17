@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoadMore } from '../../../src/index';
+import { LoadMore } from '../../../build/packages';
 import Page from '../../component/page';
 
 const LoadMoreDemo = (props) => {

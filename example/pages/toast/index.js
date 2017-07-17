@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Toast} from '../../../src/index';
+import {Button, Toast} from '../../../build/packages';
 import Page from '../../component/page';
 
 export default class ToastDemo extends React.Component {

@@ -6,7 +6,7 @@ import {
     Cell,
     CellBody,
     CellFooter
-} from '../../../src/index';
+} from '../../../build/packages';
 import Page from '../../component/page';
 import momentLoader from './momentloader.svg';
 import './ptr.less';
