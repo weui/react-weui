@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-import { Link } from 'react-router'
-import { SearchBar, Cells, CellsTitle, FormCell, Label, Select, Cell, CellHeader, CellBody, CellFooter, Dialog } from '../../../src';
+import { NavLink as Link } from 'react-router-dom';
+import { SearchBar, Cells, CellsTitle, FormCell, Label, Select, Cell, CellHeader, CellBody, CellFooter, Dialog } from '../../../build/packages';
 import './style.css';
 
 class Navigation extends Component {
@@ -12,38 +12,38 @@ class Navigation extends Component {
             searchFilter: '',
             showSetting: false,
             showMenu: true,
-        }
+        };
     }
 
     onSearch(text){
         this.setState({
             searchFilter: text
-        })
+        });
     }
 
     renderSideBar() {
         return this.props.data.map((doc, i)=>{
             return (
               <Link
-                to={`/docs/${i}/articles/0`}
+                to={`/page/${i}/articles/0`}
                 className="navmenu__item"
                 activeClassName="active"
                 key={i}
               >
                 <FontAwesome name={doc.icon} size="2x" />
-                <p>{typeof doc.name == 'object' ? doc.name[this.props.locale] : doc.name }</p>
+                <p>{typeof doc.name === 'object' ? doc.name[this.props.locale] : doc.name }</p>
               </Link>
-            )
-        })
+            );
+        });
     }
 
     renderMenu() {
-        if(!this.props.current.id) return false;
+        if (!this.props.current.id) return false;
 
         const { langs, locale } = this.props;
-        let item = this.props.data[this.props.current.id]
+        let item = this.props.data[this.props.current.id];
 
-        if(item.type == 'menu'){
+        if (item.type == 'menu'){
             let menus = item.items;
             return (
                 <div className="menuItems">
@@ -51,32 +51,29 @@ class Navigation extends Component {
                     <Cells>
                     {
                         menus.map((item, i)=>{
-                            if(!this.state.searchFilter || item.name.toLowerCase().indexOf(this.state.searchFilter.toLowerCase()) > -1){
+                            if (!this.state.searchFilter || item.name.toLowerCase().indexOf(this.state.searchFilter.toLowerCase()) > -1){
                                 return (
-                                    <Cell link component={Link} className="weui_cell" activeClassName="active" key={i} to={`/docs/${this.props.current.id}/articles/${i}`}>
-                                        <CellHeader>
-                                            <img src={item.icon} alt={item.name} className="navMenu--icon" />
-                                        </CellHeader>
+                                    <Cell link component={Link} className="weui_cell" activeClassName="active" key={i} to={`/page/${this.props.current.id}/articles/${i}`}>
                                         <CellBody></CellBody>
-                                        <CellFooter>{ typeof item.name == 'object' ? item.name[locale] : item.name }</CellFooter>
+                                        <CellFooter>{ typeof item.name === 'object' ? item.name[locale] : item.name }</CellFooter>
                                     </Cell>
-                                )
-                            }else{
-                                return false
+                                );
+                            } else {
+                                return false;
                             }
 
                         })
                     }
                     </Cells>
                 </div>
-            )
+            );
         }
 
     }
 
     render(){
         const { langs, logo, langsOptions, changeLang, data, current } = this.props;
-        let item = data[current.id] ? data[current.id] : data[0]
+        let item = data[current.id] ? data[current.id] : data[0];
 
         return (
             <div className={`App__nav ${ item.type == 'menu' ? 'menu' : 'nomenu'}`} >
@@ -89,7 +86,7 @@ class Navigation extends Component {
                     <div className="navmenu--bottom">
                         <a
                             className="navmenu__item"
-                            onClick={ e => this.setState({  showSetting: true }) }
+                            onClick={ e => this.setState({ showSetting: true }) }
                         >
                             <FontAwesome name="cog" size="2x" />
                             <p>{langs.setting.title}</p>
@@ -97,7 +94,7 @@ class Navigation extends Component {
                     </div>
                   </ul>
                 </nav>
-                { item.type == 'menu' ? <div className="mobileToggle" onClick={ e=>  this.setState({showMenu : !this.state.showMenu}) } ><FontAwesome name="bars" /></div> : false }
+                { item.type == 'menu' ? <div className="mobileToggle" onClick={ e=> this.setState({showMenu: !this.state.showMenu}) } ><FontAwesome name="bars" /></div> : false }
                 { item.type == 'menu' && this.state.showMenu ?
                 <div className="navMenu">
                     <SearchBar
@@ -113,7 +110,7 @@ class Navigation extends Component {
                     show={this.state.showSetting}
                     buttons={[{
                         label: 'Ok',
-                        onClick: e => this.setState({  showSetting: false })
+                        onClick: e => this.setState({ showSetting: false })
                     }]}
                     >
 
@@ -134,7 +131,7 @@ class Navigation extends Component {
 
                 </Dialog>
             </div>
-        )
+        );
     }
 }
 export default Navigation;

@@ -1,6 +1,9 @@
 /* eslint strict: [2, "global"] */
-'use strict';
 
+//webpack
+const webpack = require('webpack');
+const webpackConfig = require('../webpack.config');
+const webpackDocConfig = require('../webpack.config.doc');
 //rollup with plugins
 const rollup = require('rollup').rollup;
 const babelRollup = require('rollup-plugin-babel');
@@ -50,7 +53,7 @@ function makeBundleAttributes(bundleType){
         case Bundles.UMD_PROD:
             atrs.env = 'production';
             atrs.sourceMap = false;
-            atrs.plugins.push(uglify())
+            atrs.plugins.push(uglify());
         case Bundles.UMD_DEV:
             atrs.path = './build/packages/';
             atrs.format = 'umd';
@@ -58,7 +61,7 @@ function makeBundleAttributes(bundleType){
         case Bundles.IIFE_PROD:
             atrs.env = 'production';
             atrs.sourceMap = false;
-            atrs.plugins.push(uglify())
+            atrs.plugins.push(uglify());
         case Bundles.IIFE_DEV:
             atrs.path = './build/dist/';
             break;
@@ -151,6 +154,17 @@ function createNodeBuild(){
     };
 }
 
+function createWebpackBuild(config){
+    return (res, rej) => {
+        webpack(config, (err, stats) => {
+          if (err || stats.hasErrors()) {
+            rej('webpack build error');
+          }
+          res();
+        });
+    };
+}
+
 function createBundle(bundleType){
     let atrs = makeBundleAttributes(bundleType);
     return (res, rej)=>{
@@ -188,7 +202,9 @@ rimraf('build', ()=>{
     createTask('Making UMD Dev Bundles', createBundle(Bundles.UMD_DEV)),
     createTask('Making UMD Production Bundles', createBundle(Bundles.UMD_PROD)),
     createTask('Making IIFE Dev Bundles', createBundle(Bundles.IIFE_DEV)),
-    createTask('Making IIFE Production Bundles', createBundle(Bundles.IIFE_PROD))
+    createTask('Making IIFE Production Bundles', createBundle(Bundles.IIFE_PROD)),
+    createTask('Making Demo Build', createWebpackBuild(webpackConfig) ),
+    createTask('Making Docs Build', createWebpackBuild(webpackDocConfig) )
   );
 
   // run tasks
@@ -201,4 +217,3 @@ rimraf('build', ()=>{
   });
 
 });
-

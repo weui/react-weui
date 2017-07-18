@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tab, NavBarItem, Article } from '../../../src/index';
+import { Tab, NavBarItem, Article } from '../../../build/packages';
 
 export default class NavBarAutoDemo extends React.Component {
     render() {

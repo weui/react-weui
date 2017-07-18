@@ -5,10 +5,8 @@ import SplitPane from 'react-split-pane';
 import Preview from "../components/preview";
 import NoPreview from './nopreview';
 import generateMarkdown from './generateMarkdown';
+import Articles from './articles';
 const reactDocs = require('react-docgen');
-
-import WeUI from '../../lib';
-import '../../lib/react-weui.min.css';
 
 import iconSrc from '../logo.svg';
 import Demos from '../../example';
@@ -24,27 +22,28 @@ class Docs extends Component {
       Sample = Demos[article.preview]
 
       if(article.code){
-        code = require(`!!raw!../../example/pages/${article.code}`)
+        code = require(`!!raw-loader!../../example/pages/${article.code}`)
       }else{
-        code = require(`!!raw!../../example/pages/${article.preview.toLowerCase()}/index`)
+        code = require(`!!raw-loader!../../example/pages/${article.preview.toLowerCase()}/index`)
       }
 
     }
-    let src = article.component ? require(`!!raw!../../src/components/${article.component}`) : false
+    let src = article.component ? require(`!!raw-loader!../../src/components/${article.component}`) : false
+
     let content = src ? generateMarkdown(article.name, article.version, reactDocs.parse(src), this.props.langs.article) : false
 
     if(!article.preview){
       return (
         <div className="App__detail">
-          {this.props.children && React.cloneElement(this.props.children, {
-            docs: this.props.docs,
-            aid: this.props.params.aid,
-            langs: this.props.langs.article,
-            guide: article.guide ? require(`!!raw!../guide/${ typeof article.guide == 'object' ? article.guide[this.props.locale] : article.guide }`) : false,
-            content,
-            name: !article.preview ? typeof article.name == 'object' ? article.name[this.props.locale] : article.name : false,
-            code
-          })}
+            <Articles
+               docs={this.props.docs}
+               aid={this.props.params.aid}
+               langs={this.props.langs.article}
+               guide={article.guide ? require(`!!raw-loader!../guide/${ typeof article.guide == 'object' ? article.guide[this.props.locale] : article.guide }`) : false}
+               name={!article.preview ? typeof article.name == 'object' ? article.name[this.props.locale] : article.name : false}
+               content={content}
+               code={code}
+           />
         </div>
       )
     }
@@ -60,14 +59,15 @@ class Docs extends Component {
           }
           </div>
           <div className="App__detail">
-            {this.props.children && React.cloneElement(this.props.children, {
-              docs: this.props.docs,
-              aid: this.props.params.aid,
-              langs: this.props.langs.article,
-              guide: article.guide ? require(`!!raw!../guide/${ typeof article.guide == 'object' ? article.guide[this.props.locale] : article.guide }`) : false,
-              content,
-              code
-            })}
+             <Articles
+                docs={this.props.docs}
+                aid={this.props.params.aid}
+                langs={this.props.langs.article}
+                guide={article.guide ? require(`!!raw-loader!../guide/${ typeof article.guide == 'object' ? article.guide[this.props.locale] : article.guide }`) : false}
+                content={content}
+                code={code}
+            />
+
           </div>
       </SplitPane>
 

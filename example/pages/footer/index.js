@@ -4,7 +4,7 @@ import {
     FooterText,
     FooterLinks,
     FooterLink
-} from '../../../src/index';
+} from '../../../build/packages';
 import Page from '../../component/page';
 
 

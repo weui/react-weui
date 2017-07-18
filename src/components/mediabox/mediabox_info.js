@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 import MediaBoxInfoMeta from './mediabox_info_meta';
 
@@ -12,7 +13,7 @@ export default class MediaBoxInfo extends React.Component {
          * automatically include Metas, object array of metas, property required: `extra`, `label`
          *
          */
-        data: React.PropTypes.array,
+        data: PropTypes.array,
     };
 
     static defaultProps = {

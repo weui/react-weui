@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 import deprecationWarning from '../../utils/deprecationWarning';
 
@@ -12,7 +13,7 @@ export default class Panel extends React.Component {
          * deprecated property from 0.4.x
          *
          */
-        access: React.PropTypes.bool,
+        access: PropTypes.bool,
     };
 
     static defaultProps = {

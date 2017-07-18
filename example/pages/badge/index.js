@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Badge, Cells, Cell, CellBody, CellFooter, CellHeader, CellsTitle
-} from '../../../src/index';
+} from '../../../build/packages';
 import Page from '../../component/page';
 import iconSrc from '../list/images/icon.png';
 

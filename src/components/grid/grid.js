@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 import GridIcon from './grid_icon';
 import GridLabel from './grid_label';
@@ -13,16 +14,16 @@ export default class Grid extends React.Component {
        * Label string for grid
        *
        */
-      label: React.PropTypes.string,
+      label: PropTypes.string,
       /**
        * Icon placeholder
        *
        */
-      icon: React.PropTypes.any,
+      icon: PropTypes.any,
       /**
        * pass in an component to replace Grid but apply same style
        */
-      component: React.PropTypes.func
+      component: PropTypes.func
     };
 
     static defaultProps = {

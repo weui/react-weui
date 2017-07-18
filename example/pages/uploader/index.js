@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Page from '../../component/page';
-import { Gallery, GalleryDelete, Uploader, Form, Cell, CellBody } from '../../../src/index';
+import { Gallery, GalleryDelete, Uploader, Form, Cell, CellBody } from '../../../build/packages';
 import photoSrc from './photo.png';
 import thumbSrc from './thumb.png';
 

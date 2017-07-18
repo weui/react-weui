@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider, CellsTitle, Button, ButtonArea } from '../../../src/index';
+import { Slider, CellsTitle, Button, ButtonArea } from '../../../build/packages';
 import Page from '../../component/page';
 
 class SliderDemo extends React.Component {

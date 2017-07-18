@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 import Grid from './grid';
 
@@ -12,7 +13,7 @@ export default class Grids extends Component {
          * Automatic grids, contain Array of Objects for grid, Optional `icon` and `label` property for each object
          *
          */
-        data: React.PropTypes.array
+        data: PropTypes.array
     };
 
     static defaultProps = {

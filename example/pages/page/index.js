@@ -1,9 +1,9 @@
 import React from 'react';
-import { Article, Page } from '../../../src/index';
+import { Article, Page } from '../../../build/packages';
 import srcArticle from '../article/pic_article.png';
 
 const PageDemo = (props) => (
-    <Page>
+    <Page transition={true} infiniteLoader={true} ptr={false}>
         <Article>
             <h1>Page Demo</h1>
             <section>

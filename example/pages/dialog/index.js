@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dialog } from '../../../src/index';
+import { Button, Dialog } from '../../../build/packages';
 import Page from '../../component/page';
 
 export default class DialogDemo extends React.Component {

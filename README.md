@@ -1,4 +1,4 @@
-#React-WeUI [![Build Status](https://travis-ci.org/weui/react-weui.svg?branch=master)](https://travis-ci.org/weui/react-weui) [![npm version](https://img.shields.io/npm/v/react-weui.svg)](https://www.npmjs.org/package/react-weui)
+# React-WeUI [![Build Status](https://travis-ci.org/weui/react-weui.svg?branch=master)](https://travis-ci.org/weui/react-weui) [![npm version](https://img.shields.io/npm/v/react-weui.svg)](https://www.npmjs.org/package/react-weui)
 
 [WeUI](https://github.com/weui/weui) Components build with [React](http://facebook.github.io/react/).
 
@@ -9,7 +9,7 @@
 1.0.x [documentation](https://weui.github.io/react-weui/docs/) with live examples.
 0.4.x [documentation](https://n7best.github.io/react-weui-doc-0.4.0) with live examples.
 
-## Installation (0.4.x)
+## Installation
 
 With [npm](http://npmjs.com/):
 
@@ -40,26 +40,12 @@ We have several examples on the documentation. Here is the first one to get you 
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
-//import using commonJS Module *Require Plugins
-//import { Button } from 'react-weui'
-
-//import Using ES6 syntax
-import WeUI from 'react-weui';
-
+import { Button } from 'react-weui';
 //import styles
 import 'weui';
-import 'react-weui/lib/react-weui.min.css';
+import 'react-weui/build/packages/react-weui.css';
 
-const {Button} = WeUI;
-
-class App extends Component {
-    render() {
-        return (
-            <Button>hello wechat</Button>
-        );
-    }
-}
+const App = () => <Button>hello wechat</Button>;
 
 ReactDOM.render((
     <App/>
@@ -79,10 +65,6 @@ See the [contributing guidelines](https://github.com/n7best/react-weui-1/blob/ma
 
 [1.0.0](https://weui.github.io/react-weui)
 
-[0.4.3 Demo](http://weui.github.io/react-weui/0.4.x/)
-
 ## License
 
 The MIT License([http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
-
-

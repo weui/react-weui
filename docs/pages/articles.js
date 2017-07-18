@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Remarkable from 'react-remarkable';
-import { Article, Toast, Tab, NavBarItem } from '../../src';
+import { Article, Toast, Tab, NavBarItem } from '../../build/packages';
 import CodeMirror from 'codemirror/lib/codemirror.js';
-import hljs from 'highlight.js'
+import hljs from 'highlight.js';
 
 //bunch of css
+import '../../example/style.less';
 import 'highlight.js/styles/github.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
@@ -25,7 +26,7 @@ class Articles extends Component {
 
     componentDidMount(){
 
-        if(this.props.code){
+        if (this.props.code){
             let el = ReactDOM.findDOMNode(this.refs.codeblock);
 
             this.editor = CodeMirror.fromTextArea(el, {
@@ -45,18 +46,18 @@ class Articles extends Component {
     componentDidUpdate(){
 
 
-        if(this.props.guide){
+        if (this.props.guide){
             let $guide = ReactDOM.findDOMNode(this.refs.guide);
-            let $codes = $guide.querySelectorAll('pre code')
+            let $codes = $guide.querySelectorAll('pre code');
 
             Array.from($codes).forEach( $code => {
                  hljs.highlightBlock($code);
-            })
+            });
 
         }
 
 
-        if(!this.editor){
+        if (!this.editor){
             let el = ReactDOM.findDOMNode(this.refs.codeblock);
 
             this.editor = CodeMirror.fromTextArea(el, {
@@ -71,17 +72,18 @@ class Articles extends Component {
             });
         }
 
-        if(this.props.code) this.editor.setValue(this.props.code)
+        if (this.props.code) this.editor.setValue(this.props.code);
 
 
     }
 
     render(){
+        console.log('article', this.props);
         const { code, langs, guide, content, name } = this.props;
 
         return (
           <Tab type="navbar">
-                <NavBarItem label={ name ? name: langs.detail } >
+                <NavBarItem label={ name ? name : langs.detail } >
                     <Article>
                         <div className="markdown-body">
                             <Remarkable source={content} />
@@ -94,7 +96,7 @@ class Articles extends Component {
                 { code ?
                 <NavBarItem label={langs.srcCode} >
                     <Article>
-                        <textarea ref="codeblock" defaultValue={code.replace('../../../src/index','react-weui')}/>
+                        <textarea ref="codeblock" defaultValue={code.replace('../../../src/index', 'react-weui')}/>
                     </Article>
                 </NavBarItem> : false}
           </Tab>

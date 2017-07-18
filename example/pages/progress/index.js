@@ -5,7 +5,7 @@
 "use strict";
 
 import React from 'react';
-import {Button, Progress} from '../../../src/index';
+import {Button, Progress} from '../../../build/packages';
 import Page from '../../component/page';
 
 export default class ProgressDemo extends React.Component {

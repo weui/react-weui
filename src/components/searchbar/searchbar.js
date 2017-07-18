@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 import Icon from '../icon';
 
@@ -13,42 +14,42 @@ class SearchBar extends React.Component {
          * default value for the searchbar if any
          *
          */
-        defaultValue: React.PropTypes.string,
+        defaultValue: PropTypes.string,
         /**
          * default place holder text
          *
          */
-        placeholder: React.PropTypes.string,
+        placeholder: PropTypes.string,
         /**
          * name of the input component
          *
          */
-        searchName: React.PropTypes.string,
+        searchName: PropTypes.string,
         /**
          * trigger when text change on input pass `text` property
          *
          */
-        onChange: React.PropTypes.func,
+        onChange: PropTypes.func,
         /**
          * trigger when user click clear icon
          *
          */
-        onClear: React.PropTypes.func,
+        onClear: PropTypes.func,
         /**
          * trigger when user click cancel button
          *
          */
-        onCancel: React.PropTypes.func,
+        onCancel: PropTypes.func,
         /**
          * trigger when user submit (enter action)
          *
          */
-        onSubmit: React.PropTypes.func,
+        onSubmit: PropTypes.func,
         /**
          * language object consists of `cancel` property
          *
          */
-        lang: React.PropTypes.object
+        lang: PropTypes.object
     };
 
     static defaultProps = {

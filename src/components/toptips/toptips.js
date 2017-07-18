@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 import './toptips.less';
 
@@ -26,11 +27,11 @@ Toptips.propTypes = {
      * display tips
      *
      */
-    show: React.PropTypes.bool,
+    show: PropTypes.bool,
     /**
      * type: `default`, `warn`, `info`, `primary`
      */
-    type: React.PropTypes.string
+    type: PropTypes.string
 };
 
 Toptips.defaultProps = {

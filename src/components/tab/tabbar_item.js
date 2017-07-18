@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 import TabBarIcon from './tabbar_icon';
 import TabBarLabel from './tabbar_label';
@@ -13,17 +14,17 @@ export default class TabBarItem extends React.Component {
          * indicate currently active
          *
          */
-        active: React.PropTypes.bool,
+        active: PropTypes.bool,
         /**
          * icon of item
          *
          */
-        icon: React.PropTypes.any,
+        icon: PropTypes.any,
         /**
          * label of item
          *
          */
-        label: React.PropTypes.string
+        label: PropTypes.string
     };
 
     static defaultProps = {

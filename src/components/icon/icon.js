@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 import deprecationWarning from '../../utils/deprecationWarning';
 
@@ -21,12 +22,12 @@ class Icon extends React.Component {
          * types of [weui icons](https://github.com/weui/weui/wiki/Icon)
          *
          */
-        value: React.PropTypes.string,
+        value: PropTypes.string,
         /**
          * size of icon, options: small/large
          *
          */
-        size: React.PropTypes.string
+        size: PropTypes.string
     };
 
     static defaultProps = {

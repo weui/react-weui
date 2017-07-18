@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 import TabBody from './tab_body';
@@ -20,13 +21,13 @@ export default class Tab extends React.Component {
          * layout of the tab, auto mount components when set to `navbar` or `tabbar`
          *
          */
-        type: React.PropTypes.string,
+        type: PropTypes.string,
         /**
          * default select index
          *
          */
-        defaultIndex: React.PropTypes.number,
-        onChange: React.PropTypes.func
+        defaultIndex: PropTypes.number,
+        onChange: PropTypes.func
     };
 
     static defaultProps = {

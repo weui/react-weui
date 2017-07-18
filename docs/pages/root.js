@@ -21,13 +21,13 @@ class Root extends Component {
 
   render() {
     const { params, children } = this.props;
-
     let changeLang = (lang) => {
       if (typeof(Storage) !== "undefined") {
          localStorage.setItem("reactweuidoc-lang", lang);
       }
       this.setState({ locale: lang })
     }
+
     return (
       <div className="App">
         <Navigation

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 /**
@@ -11,7 +12,7 @@ export default class MediaBox extends React.Component {
          * The layout of media box, Options: appmsg/text/small_appmsg
          *
          */
-        type: React.PropTypes.string
+        type: PropTypes.string
     };
 
     static defaultProps = {

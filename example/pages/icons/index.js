@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon} from '../../../src/index';
+import {Icon} from '../../../build/packages';
 import Page from '../../component/page';
 import './icons.less';
 

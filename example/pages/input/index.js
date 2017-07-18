@@ -20,7 +20,7 @@ import { ButtonArea,
     VCode,
     Agreement,
     Toptips
-} from '../../../src/index';
+} from '../../../build/packages';
 import Page from '../../component/page';
 import iconSrc from './images/icon.png';
 import vcodeSrc from './images/vcode.jpg';

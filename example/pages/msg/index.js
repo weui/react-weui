@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { Button } from '../../../src/index';
+import { Link } from 'react-router-dom';
+import { Button } from '../../../build/packages';
 import Page from '../../component/page';
 
 const MsgDemo = () => (
@@ -8,6 +8,6 @@ const MsgDemo = () => (
         <Button component={Link} to="/msg/success">Success Message</Button>
         <Button component={Link} to="/msg/fail">Warn Message</Button>
     </Page>
-)
+);
 
 export default MsgDemo;
