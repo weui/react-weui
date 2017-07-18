@@ -9,7 +9,7 @@ const isProduction = process.argv.indexOf('-p') !== -1;
 //const isProduction = nodeEnv === 'production';
 
 const jsSourcePath = path.join(__dirname, 'docs');
-const buildPath = path.join(__dirname, 'build/docs');
+const buildPath = path.join(__dirname, 'build/demo/docs');
 const sourcePath = path.join(__dirname, 'docs');
 
 // Common plugins
@@ -116,7 +116,27 @@ const rules = [
 if (!isProduction) {
   plugins.push(
     new webpack.HotModuleReplacementPlugin()
-);
+    );
+} else {
+    plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false,
+            screw_ie8: true,
+            conditionals: true,
+            unused: true,
+            comparisons: true,
+            sequences: true,
+            dead_code: true,
+            evaluate: true,
+            if_return: true,
+            join_vars: true,
+          },
+          output: {
+            comments: false,
+          },
+        })
+  );
 }
 
 module.exports = {

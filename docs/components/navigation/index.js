@@ -25,7 +25,7 @@ class Navigation extends Component {
         return this.props.data.map((doc, i)=>{
             return (
               <Link
-                to={`/docs/${i}/articles/0`}
+                to={`/page/${i}/articles/0`}
                 className="navmenu__item"
                 activeClassName="active"
                 key={i}
@@ -53,7 +53,7 @@ class Navigation extends Component {
                         menus.map((item, i)=>{
                             if (!this.state.searchFilter || item.name.toLowerCase().indexOf(this.state.searchFilter.toLowerCase()) > -1){
                                 return (
-                                    <Cell link component={Link} className="weui_cell" activeClassName="active" key={i} to={`/docs/${this.props.current.id}/articles/${i}`}>
+                                    <Cell link component={Link} className="weui_cell" activeClassName="active" key={i} to={`/page/${this.props.current.id}/articles/${i}`}>
                                         <CellBody></CellBody>
                                         <CellFooter>{ typeof item.name === 'object' ? item.name[locale] : item.name }</CellFooter>
                                     </Cell>

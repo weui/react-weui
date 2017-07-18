@@ -7,16 +7,13 @@
   "scripts": {
     "start": "webpack-dev-server",
     "start:doc": "webpack-dev-server --config webpack.config.doc.js --progress --colors --port 8080",
-    "build": "node scripts/build.js && npm run build:example && npm run build:doc",
-    "build:example": "webpack -p --progress --colors",
-    "build:doc": "webpack --config webpack.config.doc.js --progress --colors -p",
+    "build": "node scripts/build.js -p",
     "lint": "eslint 'src/**/*.js'",
     "pretest": "npm run lint",
     "test": "mocha --compilers js:babel-core/register --recursive -r ignore-styles -r jsdom-global/register",
     "test:watch": "npm run test -- --watch",
     "coverage": "npm run lint & nyc --require babel-core/register mocha -r ignore-styles -r jsdom-global/register && nyc report --reporter=lcov",
-    "c9startdoc": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --host $IP --port $PORT",
-    "c9start": "webpack-dev-server --hot --inline --progress --colors --host $IP --port $PORT"
+    "publish": "gh-pages -d ./build/demo"
   },
   "repository": {
     "type": "git",
@@ -68,6 +65,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "fastclick": "^1.0.6",
     "file-loader": "^0.8.5",
+    "gh-pages": "^1.0.0",
     "github-markdown-css": "^2.4.1",
     "highlight.js": "^9.8.0",
     "history": "^4.5.1",

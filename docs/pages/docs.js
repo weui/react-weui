@@ -35,15 +35,15 @@ class Docs extends Component {
     if(!article.preview){
       return (
         <div className="App__detail">
-          {React.cloneElement(Articles, {
-            docs: this.props.docs,
-            aid: this.props.params.aid,
-            langs: this.props.langs.article,
-            guide: article.guide ? require(`raw-loader!../guide/${ typeof article.guide == 'object' ? article.guide[this.props.locale] : article.guide }`) : false,
-            content,
-            name: !article.preview ? typeof article.name == 'object' ? article.name[this.props.locale] : article.name : false,
-            code
-          })}
+            <Articles
+               docs={this.props.docs}
+               aid={this.props.params.aid}
+               langs={this.props.langs.article}
+               guide={article.guide ? require(`!!raw-loader!../guide/${ typeof article.guide == 'object' ? article.guide[this.props.locale] : article.guide }`) : false}
+               name={!article.preview ? typeof article.name == 'object' ? article.name[this.props.locale] : article.name : false}
+               content={content}
+               code={code}
+           />
         </div>
       )
     }
@@ -63,7 +63,7 @@ class Docs extends Component {
                 docs={this.props.docs}
                 aid={this.props.params.aid}
                 langs={this.props.langs.article}
-                guide={article.guide ? require(`raw-loader!../guide/${ typeof article.guide == 'object' ? article.guide[this.props.locale] : article.guide }`) : false}
+                guide={article.guide ? require(`!!raw-loader!../guide/${ typeof article.guide == 'object' ? article.guide[this.props.locale] : article.guide }`) : false}
                 content={content}
                 code={code}
             />

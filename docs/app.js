@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {
   Switch,
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Redirect,
   Link
@@ -16,25 +16,18 @@ import NoPreview from './pages/nopreview';
 import 'babel-polyfill';
 import './app.less';
 
+const basePath = process.env.NODE_ENV === 'production' ? '/react-weui/docs/' : '';
+
 const App = () =>
 (
-  <Router>
+  <Router basename={basePath}>
       <div>
       <Route exact path="/" render={() => (
-          <Redirect to="/docs/0/articles/0"/>
+          <Redirect to="/page/0/articles/0"/>
       )}/>
-      <Route path="/docs/:id/articles/:aid" render={props => {
-        const { match: { params }, ...others} = props;
-        console.log(params);
-
-        return (
-          <Root params={params}>
-              <Docs params={params} />
-          </Root>
-      );
-
-
-        }} />
+      <Route
+          path="/page/:id/articles/:aid"
+          render={ ({ match: { params } }) => (<Root params={params}><Docs params={params} /></Root>) } />
     </div>
   </Router>
 );
@@ -43,8 +36,3 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
-
-
-// <Route path="docs/:id" component={Docs}>
-//   <Route path="articles/:aid" component={Articles}/>
-// </Route>

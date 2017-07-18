@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import {
   Switch,
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   IndexRoute,
   Link
