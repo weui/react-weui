@@ -32,6 +32,17 @@ To use the development version (`API might changes on realese version`)
 npm install react-weui@alpha --save
 ```
 
+With browser (CDN by [unpkg](http://unpkg.com/))
+
+Javacript
+```
+https://unpkg.com/react-weui@1.1.2
+```
+
+CSS
+```
+https://unpkg.com/react-weui@1.1.1/build/dist/react-weui.css
+```
 ## Example
 
 We have several examples on the documentation. Here is the first one to get you started:
