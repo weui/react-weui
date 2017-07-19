@@ -57,6 +57,8 @@ const rules = [
                     browsers: [
                         'last 3 version',
                         'ie >= 10',
+                        'iOS >= 7',
+                        'Android >= 4.1'
                     ],
                 })
             ]
@@ -82,6 +84,8 @@ const rules = [
                     browsers: [
                         'last 3 version',
                         'ie >= 10',
+                        'iOS >= 7',
+                        'Android >= 4.1'
                     ],
                 })
             ]

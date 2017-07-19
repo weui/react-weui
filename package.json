@@ -3,7 +3,7 @@
   "version": "1.1.1",
   "description": "weui for react",
   "main": "./build/packages/index.js",
-  "browser": "./build/dist/bundle.min.js",
+  "browser": "./build/dist/react-weui.min.js",
   "scripts": {
     "start": "webpack-dev-server",
     "start:doc": "webpack-dev-server --config webpack.config.doc.js --progress --colors --port 8080",
@@ -13,7 +13,7 @@
     "test": "mocha --compilers js:babel-core/register --recursive -r ignore-styles -r jsdom-global/register",
     "test:watch": "npm run test -- --watch",
     "coverage": "npm run lint & nyc --require babel-core/register mocha -r ignore-styles -r jsdom-global/register && nyc report --reporter=lcov",
-    "publish": "gh-pages -d ./build/demo"
+    "postpublish": "gh-pages -d ./build/demo"
   },
   "repository": {
     "type": "git",

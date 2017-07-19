@@ -38,7 +38,7 @@ We have several examples on the documentation. Here is the first one to get you 
 ```javascript
 // app.js
 
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Button } from 'react-weui';
 //import styles

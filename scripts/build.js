@@ -160,6 +160,10 @@ function createWebpackBuild(config){
           if (err || stats.hasErrors()) {
             rej('webpack build error');
           }
+          log(stats.toString({
+            chunks: false,  // Makes the build much quieter
+            colors: true    // Shows colors in the console
+          }));
           res();
         });
     };
@@ -173,7 +177,7 @@ function createBundle(bundleType){
             CLI.section('Writing Bundle to file');
             return bundle.write({
               moduleName: 'WeUI',
-              dest: atrs.path + (atrs.env === 'production' ? 'bundle.min.js' : 'bundle.js'),
+              dest: atrs.path + (atrs.env === 'production' ? 'react-weui.min.js' : 'react-weui.js'),
               format: atrs.format,
               sourceMap: atrs.sourceMap
             });

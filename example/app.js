@@ -33,7 +33,7 @@ const routes = [
     { path: '/toast', component: Toast },
     { path: '/dialog', component: Dialog },
     { path: '/progress', component: Progress },
-    { path: '/msg', component: MsgDemo },
+    { path: '/msg', component: MsgDemo, exact: true },
     { path: '/msg/success', component: MsgSuccess },
     { path: '/msg/fail', component: MsgFail },
     { path: '/article', component: Article },

@@ -541,6 +541,14 @@
         "preview" : "Infinite",
         "code"  : "infiniteloader/index",
         "component" : "infiniteloader/infiniteloader"
+      },
+      {
+        "name": "Page",
+        "version": "1.1.0",
+        "icon": "http://weui.github.io/weui/images/icon_nav_panel.png",
+        "preview" : "Page",
+        "code"  : "page/index",
+        "component" : "page/page"
       }
     ]
   },
