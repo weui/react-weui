@@ -3,7 +3,6 @@
   "version": "1.1.2",
   "description": "weui for react",
   "main": "./build/packages/index.js",
-  "browser": "./build/dist/react-weui.min.js",
   "scripts": {
     "start": "webpack-dev-server",
     "start:doc": "webpack-dev-server --config webpack.config.doc.js --progress --colors --port 8080",
@@ -35,7 +34,8 @@
   "homepage": "https://github.com/weui/react-weui",
   "dependencies": {
     "babel-runtime": "^6.18.0",
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.5.10",
+    "weui": "^1.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",
@@ -105,8 +105,7 @@
     "uglify-loader": "^1.2.0",
     "url-loader": "^0.5.7",
     "webpack": "^3.2.0",
-    "webpack-dev-server": "^2.5.1",
-    "weui": "^1.1.0"
+    "webpack-dev-server": "^2.5.1"
   },
   "peerDependencies": {
     "react": "0.14.x || ^15.0.0-0 || 15.x",
