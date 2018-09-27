@@ -245,7 +245,7 @@ class Swiper extends Component {
                 {
                     children.map( (child, i) => {
                         return React.cloneElement(child, {
-                            className: classNames('react-weui-swiper__item', child.className),
+                            className: classNames('react-weui-swiper__item', child.props.className),
                             key: i,
                             style: Object.assign({}, child.props.style, {
                                 display: direction === 'horizontal' ? 'inline-block' : 'block',
