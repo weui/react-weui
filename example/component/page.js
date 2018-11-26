@@ -5,7 +5,7 @@ export default class Page extends React.Component {
         const {title, subTitle, spacing, className, children, footer} = this.props;
 
         return (
-            <section className={`page ${className}`}>
+            <section className={`page ${className || ''}`}>
                 <div className="page__hd">
                     <h1 className="page__title">{title}</h1>
                     <p className="page__desc">{subTitle}</p>
