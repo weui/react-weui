@@ -99,50 +99,59 @@ class Swiper extends Component {
         //console.log($container.offsetWidth, $container.offsetHeight)
     }
 
-    handleTouchStart(e){
+    handleTouchStart(e) {
         if (this.state.touching || this.props.children.length <= 1) return;
 
         let og = 0;
+        const { pageX, pageY, identifier } = e.targetTouches[0];
 
-        if (this.props.direction === 'horizontal'){
-            og = e.targetTouches[0].pageX - this.state.translate;
+        if (this.props.direction === 'horizontal') {
+            og = pageX - this.state.translate;
         } else {
-            og = e.targetTouches[0].pageY - this.state.translate;
+            og = pageY - this.state.translate;
         }
 
         this.setState({
             touching: true,
             ogTranslate: this.state.translate,
-            touchId: e.targetTouches[0].identifier,
-        	og: og,
-        	animating: false
+            touchId: identifier,
+            og: og,
+            animating: false,
+            startPoint: {
+                pageX,
+                pageY
+            }
         });
-
     }
 
-    handleTouchMove(e){
+    handleTouchMove(e) {
         if (!this.state.touching || this.props.children.length <= 1) return;
         if (e.targetTouches[0].identifier !== this.state.touchId) return;
 
-        //prevent move background
-        e.preventDefault();
-
         let diff = this.state.translate;
+        const { startPoint } = this.state;
+        const { pageX, pageY } = e.targetTouches[0];
+        const moveX = Math.abs(pageX - startPoint.pageX);
+        const moveY = Math.abs(pageY - startPoint.pageY);
 
-        if (this.props.direction === 'horizontal'){
-            const pageX = e.targetTouches[0].pageX;
-            diff = pageX - this.state.og;
-
+        if (this.props.direction === 'horizontal') {
+            if (moveX >= moveY) {
+                diff = pageX - this.state.og;
+            }
         } else {
             //vertical
-            const pageY = e.targetTouches[0].pageY;
-            diff = pageY - this.state.og;
-
+            if (moveY >= moveX) {
+                diff = pageY - this.state.og;
+            }
         }
 
-        this.setState({
-            translate: diff
-        });
+        if (diff !== this.state.translate) {
+            //prevent move background
+            e.preventDefault();
+            this.setState({
+                translate: diff
+            });
+        }
     }
 
     handleTouchEnd(e){
@@ -245,7 +254,7 @@ class Swiper extends Component {
                 {
                     children.map( (child, i) => {
                         return React.cloneElement(child, {
-                            className: classNames('react-weui-swiper__item', child.className),
+                            className: classNames('react-weui-swiper__item', child.props.className),
                             key: i,
                             style: Object.assign({}, child.props.style, {
                                 display: direction === 'horizontal' ? 'inline-block' : 'block',
