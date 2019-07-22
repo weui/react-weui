@@ -1,5 +1,11 @@
 ### CHANGELOG
 
+#### 1.2.0
+
+Changes
+
+- InfiniteLoader now support reset finish status
+
 #### 1.1.0
 
 Breaking Changes
