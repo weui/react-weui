@@ -53,6 +53,10 @@ class InfiniteLoader extends Component{
          *
          */
         disable: PropTypes.bool,
+        /**
+         * reset the finish status
+         */
+        resetStatus: PropTypes.bool
     };
 
     static defaultProps = {
@@ -75,6 +79,19 @@ class InfiniteLoader extends Component{
         this.scrollHandle = this.scrollHandle.bind(this);
         this.resolveLoading = this.resolveLoading.bind(this);
         this.finish = this.finish.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.resetStatus) {
+            this.reset();
+        }
+    }
+
+    reset(){
+        this.setState({
+            loading: false,
+            finish: false
+        });
     }
 
     finish(){
