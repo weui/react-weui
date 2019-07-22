@@ -83,7 +83,7 @@ class InfiniteLoader extends Component{
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.resetStatus) {
-            this.reset()
+            this.reset();
         }
     }
 
@@ -93,7 +93,7 @@ class InfiniteLoader extends Component{
             finish: false
         });
     }
-    
+
     finish(){
         this.setState({
             loading: false,
