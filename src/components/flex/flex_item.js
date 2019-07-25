@@ -9,10 +9,13 @@ import PropTypes from 'prop-types';
  */
 const FlexItem = (props) => {
     const { component, children, ...others } = props;
-    return (
-        <component className="weui-flex__item" {...others}>
-            { children }
-        </component>
+    return React.createElement(
+        component,
+        {
+            className: 'weui-flex__item',
+            ...others
+        },
+        children
     );
 };
 
