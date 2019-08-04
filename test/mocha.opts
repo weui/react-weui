@@ -1,0 +1,5 @@
+--file ./test/setup.js
+--require babel-core/register
+--recursive
+-r ignore-styles
+-r jsdom-global/register
