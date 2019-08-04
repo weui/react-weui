@@ -9,10 +9,11 @@ import PropTypes from 'prop-types';
  */
 const FlexItem = (props) => {
     const { component, children, ...others } = props;
+    const Component = component;
     return (
-        <component className="weui-flex__item" {...others}>
+        <Component className="weui-flex__item" {...others}>
             { children }
-        </component>
+        </Component>
     );
 };
 
