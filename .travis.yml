@@ -1,10 +1,14 @@
 language: node_js
 node_js:
-  - "7"
+    - "8"
+    - "10"
+env:
+    - REACT=16.x
 script:
-  - npm test
-  - npm run coverage
+    - npm test
+    - npm run coverage
 before_install:
-    npm install --save react@15.4.0 react-dom@15.4.0
+    - npm install
+    - npm install react react-dom
 after_script:
     npm install coveralls && nyc report --reporter=text-lcov | coveralls

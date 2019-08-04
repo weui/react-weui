@@ -1,7 +1,8 @@
 //original code by FormidableLabs
 //https://github.com/FormidableLabs/component-playground/blob/master/src/components/preview.jsx
 
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { render } from "react-dom";
 import ReactDOMServer from "react-dom/server";
 import { transform } from "babel-standalone";

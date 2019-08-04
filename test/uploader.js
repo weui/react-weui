@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils'
 import { shallow } from 'enzyme';
 import assert from 'assert';
 import WeUI from '../src/index';
 var jsdom = require('jsdom');
+
 
 const {Uploader, Icon} = WeUI;
 const files = [
