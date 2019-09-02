@@ -8,8 +8,7 @@ import PropTypes from 'prop-types';
  *
  */
 const FlexItem = (props) => {
-    const { component, children, ...others } = props;
-    const Component = component;
+    const { Component, children, ...others } = props;
     return (
         <Component className="weui-flex__item" {...others}>
             { children }
@@ -22,11 +21,11 @@ FlexItem.propTypes = {
      * pass component to replace the component but maintaing style
      *
      */
-    component: PropTypes.node
+    Component: PropTypes.node
 };
 
 FlexItem.defaultProps = {
-    component: 'div'
+    Component: 'div'
 };
 
 export default FlexItem;
