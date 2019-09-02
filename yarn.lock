@@ -6747,15 +6747,13 @@ rollup-plugin-commonjs@^8.0.2:
     resolve "^1.4.0"
     rollup-pluginutils "^2.0.1"
 
-rollup-plugin-less@^0.1.3:
-  version "0.1.5"
-  resolved "https://registry.npmjs.org/rollup-plugin-less/-/rollup-plugin-less-0.1.5.tgz#d6cfca6239ede23e4f9b422458c92995fabc8645"
-  integrity sha512-986IpqSZivK4VfgR6C1PygMa3SflyX5wz/9KwnuS++vV/t7XEC8X8tjG/hVF/QokOc0yiAyVASfTR3Dz2QvXHQ==
+rollup-plugin-less@0.1.3:
+  version "0.1.3"
+  resolved "https://registry.npmjs.org/rollup-plugin-less/-/rollup-plugin-less-0.1.3.tgz#b101afa7338384deb8050d65c04888bdd7eaff36"
+  integrity sha1-sQGvpzODhN64BQ1lwEiIvdfq/zY=
   dependencies:
-    babel-runtime "^6.26.0"
     fs-extra "^0.30.0"
     less "^2.7.1"
-    mkdirp "^0.5.1"
     rollup "^0.34.7"
     rollup-pluginutils "^1.5.1"
 
