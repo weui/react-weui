@@ -34,7 +34,7 @@ jobs:
       - name: Yarn install & Build
         run: |
           npm install
-          npm build
+          npm run build
       - name: Publish to NPM Registry
         run: npm publish
         if: github.event.action == 'created'
