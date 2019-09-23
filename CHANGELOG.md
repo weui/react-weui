@@ -1,5 +1,11 @@
 ### CHANGELOG
 
+#### 1.2.2
+
+Changes
+
+- ci: add github workflows for test/build/publish
+
 #### 1.2.0
 
 Changes
