@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-    - "8"
     - "10"
+    - "12"
 env:
     - REACT=16.x
 script:
@@ -9,6 +9,5 @@ script:
     - npm run coverage
 before_install:
     - npm install
-    - npm install react react-dom
 after_script:
     npm install coveralls && nyc report --reporter=text-lcov | coveralls
