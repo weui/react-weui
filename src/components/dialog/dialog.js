@@ -56,7 +56,7 @@ class Dialog extends Component {
             });
 
             return (
-                <a key={idx} href="javascript:;" {...others} className={className}>{label}</a>
+                <a key={idx} {...others} className={className}>{label}</a>
             );
         });
     }
