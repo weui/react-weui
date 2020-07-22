@@ -48,7 +48,7 @@ class Dialog extends Component {
 
     renderButtons() {
         return this.props.buttons.map((action, idx) => {
-            const {type, label, ...others} = action;
+            const {type, label, onClick, ...others} = action;
             const className = classNames({
                 'weui-dialog__btn': true,
                 'weui-dialog__btn_default': type === 'default',
@@ -56,7 +56,17 @@ class Dialog extends Component {
             });
 
             return (
-                <a key={idx} href="javascript:;" {...others} className={className}>{label}</a>
+                <a
+                    key={idx}
+                    href="#"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        onClick && typeof onClick === 'function' && onClick(e);
+                        return false;
+                    }}
+                    {...others}
+                    className={className}
+                >{label}</a>
             );
         });
     }
