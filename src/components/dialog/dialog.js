@@ -61,7 +61,9 @@ class Dialog extends Component {
                     href="#"
                     onClick={(e) => {
                         e.preventDefault();
-                        onClick && typeof onClick === 'function' && onClick(e);
+                        if (onClick && typeof onClick === 'function') {
+                            onClick(e);
+                        }
                         return false;
                     }}
                     {...others}
