@@ -60,7 +60,9 @@ class Dialog extends Component {
                     key={idx}
                     href="#"
                     onClick={(e) => {
-                        e.preventDefault();
+                        if (e) {
+                            e.preventDefault();
+                        }
                         if (onClick && typeof onClick === 'function') {
                             onClick(e);
                         }
