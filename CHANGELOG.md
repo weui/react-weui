@@ -1,5 +1,9 @@
 ### CHANGELOG
 
+#### 1.2.3
+
+- fix: issue 320
+
 #### 1.2.2
 
 Changes
