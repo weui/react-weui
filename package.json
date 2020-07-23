@@ -1,6 +1,6 @@
 {
   "name": "react-weui",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "weui for react",
   "main": "./build/packages/index.js",
   "scripts": {
