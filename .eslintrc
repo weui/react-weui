@@ -66,6 +66,6 @@
   ],
   "globals": {
     "it": true,
-    "describe": true,
+    "describe": true
   }
 }

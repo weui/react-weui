@@ -14,14 +14,6 @@ const sourcePath = path.join(__dirname, 'example');
 
 // Common plugins
 const plugins = [
-    new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        filename: 'vendor-[hash].js',
-        minChunks(module) {
-            const context = module.context;
-            return context && context.indexOf('node_modules') >= 0;
-        },
-    }),
     new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: JSON.stringify(isProduction ? 'production' : 'development'),
@@ -37,6 +29,13 @@ const plugins = [
 
 // Common rules
 const rules = [
+    {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: [
+            'ts-loader',
+        ],
+    },
     {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -146,7 +145,7 @@ module.exports = {
     rules,
   },
   resolve: {
-    extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx', '.less'],
+    extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.ts', '.tsx', '.js', '.jsx', '.less', ],
     modules: [
       path.resolve(__dirname, 'node_modules'),
       jsSourcePath,

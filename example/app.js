@@ -11,8 +11,8 @@ import {
 import FastClick from 'fastclick';
 import Pages from './index';
 import './style.less';
-import 'weui';
-import '../build/packages/react-weui.css';
+// import 'weui';
+// import '../build/packages/react-weui.css';
 import 'babel-polyfill';
 
 const { Home, Button, List, Input, Toast, Dialog, Progress, Msg, Article,
