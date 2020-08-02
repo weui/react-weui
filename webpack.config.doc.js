@@ -14,14 +14,6 @@ const sourcePath = path.join(__dirname, 'docs');
 
 // Common plugins
 const plugins = [
-    new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        filename: 'vendor-[hash].js',
-        minChunks(module) {
-            const context = module.context;
-            return context && context.indexOf('node_modules') >= 0;
-        },
-    }),
     new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: JSON.stringify(isProduction ? 'production' : 'development'),
@@ -37,6 +29,13 @@ const plugins = [
 
 // Common rules
 const rules = [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: [
+            'ts-loader',
+        ],
+    },
     {
         test: /\.(js|jsx)$/,
         oneOf: [
@@ -118,29 +117,30 @@ if (!isProduction) {
     new webpack.HotModuleReplacementPlugin()
     );
 } else {
-    plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            warnings: false,
-            screw_ie8: true,
-            conditionals: true,
-            unused: true,
-            comparisons: true,
-            sequences: true,
-            dead_code: true,
-            evaluate: true,
-            if_return: true,
-            join_vars: true,
-          },
-          output: {
-            comments: false,
-          },
-        })
-  );
+  //   plugins.push(
+  //       new webpack.optimize.UglifyJsPlugin({
+  //         compress: {
+  //           warnings: false,
+  //           screw_ie8: true,
+  //           conditionals: true,
+  //           unused: true,
+  //           comparisons: true,
+  //           sequences: true,
+  //           dead_code: true,
+  //           evaluate: true,
+  //           if_return: true,
+  //           join_vars: true,
+  //         },
+  //         output: {
+  //           comments: false,
+  //         },
+  //       })
+  // );
 }
 
 module.exports = {
   devtool: isProduction ? false : 'source-map',
+  mode: 'production',
   context: jsSourcePath,
   entry: {
     js: './app.js',
@@ -154,7 +154,7 @@ module.exports = {
     rules,
   },
   resolve: {
-    extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx', '.less'],
+    extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.ts', '.tsx', '.js', '.jsx', '.less'],
     modules: [
       path.resolve(__dirname, 'node_modules'),
       jsSourcePath,

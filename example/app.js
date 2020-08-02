@@ -13,7 +13,7 @@ import Pages from './index';
 import './style.less';
 // import 'weui';
 // import '../build/packages/react-weui.css';
-import 'babel-polyfill';
+import '@babel/polyfill';
 
 const { Home, Button, List, Input, Toast, Dialog, Progress, Msg, Article,
 ActionSheet, Icons, Panel, NavBar, NavBar2, TabBar, TabBar2, SearchBar, Gallery,

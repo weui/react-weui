@@ -3,7 +3,7 @@
     "plugins": ["@babel/plugin-transform-runtime", "@babel/plugin-proposal-class-properties"],
     "env": {
         "test": {
-          "plugins": [ "istanbul" ]
+            "plugins": [ "istanbul" ]
         },
         "production": {
             "plugins": [

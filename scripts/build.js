@@ -6,8 +6,8 @@ const webpackConfig = require('../webpack.config');
 const webpackDocConfig = require('../webpack.config.doc');
 //rollup with plugins
 const rollup = require('rollup').rollup;
-const babelRollup = require('rollup-plugin-babel');
-const cjs = require('rollup-plugin-commonjs');
+const {babel} = require('@rollup/plugin-babel');
+const cjs = require('@rollup/plugin-commonjs');
 const uglify = require('rollup-plugin-uglify');
 const replace = require('rollup-plugin-replace');
 const resolveNode = require('rollup-plugin-node-resolve');
@@ -74,22 +74,20 @@ function makeBundleAttributes(bundleType){
 function makeConfig(bundleType){
     let atrs = makeBundleAttributes(bundleType);
     let config = {
-      entry: 'src/index.js',
+      input: 'src/index.js',
       plugins: [
         less({
           output: atrs.path + 'react-weui.css'
         }),
         cjs({
-          include: 'node_modules/**',
-          namedExports: {
-            'node_modules/react/react.js': ['PropTypes', 'Component']
-          }
+          include: 'node_modules/**'
         }),
-        babelRollup({
+        babel({
+          babelHelpers: 'external',
           babelrc: false,
           exclude: 'node_modules/**',
-          presets: [ [ 'es2015', { modules: false } ], 'stage-2', 'react' ],
-          plugins: [ 'external-helpers' ]
+          presets: [ '@babel/preset-env', '@babel/preset-react' ],
+          plugins: [ '@babel/external-helpers', '@babel/plugin-proposal-class-properties' ]
         }),
         replace({ 'process.env.NODE_ENV': JSON.stringify(atrs.env) }),
         resolveNode({
@@ -97,7 +95,7 @@ function makeConfig(bundleType){
           main: true
         }),
       ].concat(atrs.plugins),
-      external: ['react', 'react-dom'],
+      external: ['React', 'ReactDOM'],
     };
 
     if (showWrite){
@@ -175,11 +173,15 @@ function createBundle(bundleType){
         rollup(makeConfig(bundleType))
         .then( bundle => {
             CLI.section('Writing Bundle to file');
+            console.log(atrs)
             return bundle.write({
-              moduleName: 'WeUI',
-              dest: atrs.path + (atrs.env === 'production' ? 'react-weui.min.js' : 'react-weui.js'),
+              output: {
+                name: 'WeUI',
+                dir: atrs.path
+              },
+              paths: atrs.path + (atrs.env === 'production' ? 'react-weui.min.js' : 'react-weui.js'),
               format: atrs.format,
-              sourceMap: atrs.sourceMap
+              sourcemap: atrs.sourceMap
             });
         })
         .then(()=>{
@@ -203,9 +205,9 @@ rimraf('build', ()=>{
   tasks.push(
     //Node individual components build
     createTask('Making Babel Modules', createNodeBuild()),
-    createTask('Making UMD Dev Bundles', createBundle(Bundles.UMD_DEV)),
+    // createTask('Making UMD Dev Bundles', createBundle(Bundles.UMD_DEV)),
     createTask('Making UMD Production Bundles', createBundle(Bundles.UMD_PROD)),
-    createTask('Making IIFE Dev Bundles', createBundle(Bundles.IIFE_DEV)),
+    // createTask('Making IIFE Dev Bundles', createBundle(Bundles.IIFE_DEV)),
     createTask('Making IIFE Production Bundles', createBundle(Bundles.IIFE_PROD)),
     createTask('Making Demo Build', createWebpackBuild(webpackConfig) ),
     createTask('Making Docs Build', createWebpackBuild(webpackDocConfig) )
