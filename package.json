@@ -35,7 +35,7 @@
   "homepage": "https://github.com/weui/react-weui",
   "dependencies": {
     "prop-types": "^15.7.2",
-    "weui": "^1.1.0"
+    "weui": "^2.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
