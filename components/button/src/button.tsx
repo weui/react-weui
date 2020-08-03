@@ -1,53 +1,52 @@
-import * as React from "react";
+import * as React from 'react';
 import {
-    ButtonProps
-} from './interface'
-import classNames from "../../utils/classnames";
+    ButtonProps,
+    buttonTypes,
+    buttonSize
+} from './interface';
+import classNames from '../../utils/classnames';
 
-class Button extends React.Component<ButtonProps> {
-    static defaultProps = {
-        disabled: false,
-        type: 'primary',
-        size: 'normal',
-        loading: false
-    };
-
-    click = (e) => {
-        const { onClick } = this.props;
-        if (e) {
-            e.preventDefault();
-        }
+const InternalButton = (props: ButtonProps) => {
+    const {
+        size,
+        type,
+        children,
+        className,
+        loading,
+        disabled
+    } = props;
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
+        const { onClick } = props;
         if (onClick && typeof onClick === 'function') {
-            onClick(e);
+            onClick(e)
         }
-        return false;
-    }
-    
-    render() {
-        const {
-            size,
-            type,
-            children,
-            className,
-            loading
-        } = this.props
-        const cls = classNames(className, {
-            'weui-btn': true,
-            'weui-btn_mini': size === 'small',
-            'weui-btn_primary': type === 'primary',
-            'weui-btn_default': type === 'default',
-            'weui-btn_warn': type === 'warn',
-            'weui-btn_disabled': this.props.disabled,
-            'weui-btn_loading': loading
-        })
-        return <a
-            href="#"
-            onClick={this.click}
-            className={cls}
-        >
-            { loading ? <i className="weui-loading"></i> : null }
-            { children }</a>
-    }
+    };
+    const cls = classNames(className, {
+        'weui-btn': true,
+        'weui-btn_mini': size === 'small',
+        'weui-btn_primary': type === 'primary',
+        'weui-btn_default': type === 'default',
+        'weui-btn_warn': type === 'warn',
+        'weui-btn_disabled': disabled,
+        'weui-btn_loading': loading
+    });
+    return (<a
+        href='#'
+        onClick={handleClick}
+        className={cls}
+    >
+        { loading ? <i className='weui-loading'/> : null }
+        { children }
+    </a>)
 }
 
-export default Button
+const Button = React.forwardRef(InternalButton);
+Button.displayName = 'Button';
+Button.defaultProps = {
+    disabled: false,
+    type: buttonTypes.primary,
+    size: buttonSize.normal,
+    loading: false
+};
+
+export default Button;

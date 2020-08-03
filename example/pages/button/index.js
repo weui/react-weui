@@ -12,7 +12,10 @@ class ButtonDemo extends React.Component {
                 <Button disabled>Disabled</Button>
 
                 <ButtonArea>
-                    <Button type="default" >Secondary Normal</Button>
+                    <Button type="default" onClick={(e) => {
+                        console.log('button click');
+                        e.preventDefault();
+                    }}>click me</Button>
                     <Button type="default" disabled>Secondary Disabled</Button>
                 </ButtonArea>
 

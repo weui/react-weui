@@ -1,26 +1,23 @@
-import * as React from "react";
-import classNames from "../../utils/classnames";
-import { ButtonAreaProps } from './interface';
+import * as React from 'react';
+import classNames from '../../utils/classnames';
+import { ButtonAreaProps, buttonAreaDirection } from './interface';
 
-class ButtonArea extends React.Component<ButtonAreaProps> {
 
-    static defaultProps = {
-        direction: 'vertical'
-    };
+const InternalButtonArea = (props: ButtonAreaProps) => {
+    const {direction, children, className} = props;
+    const cls = classNames(className, {
+        'weui-btn-area': true,
+        'weui-btn-area_inline': direction === buttonAreaDirection.horizontal
+    });
+    return (<div className={cls}>
+        {children}
+    </div>)
+}
 
-    render() {
-        const {direction, children, className} = this.props;
-        const cls = classNames(className, {
-            'weui-btn-area': true,
-            'weui-btn-area_inline': direction === 'horizontal'
-        });
-
-        return (
-            <div className={cls}>
-                {children}
-            </div>
-        );
-    }
+const ButtonArea = React.forwardRef(InternalButtonArea);
+ButtonArea.displayName = 'ButtonArea';
+ButtonArea.defaultProps = {
+    direction: buttonAreaDirection.vertical
 };
 
 export default ButtonArea;

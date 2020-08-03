@@ -1,29 +1,31 @@
-interface ButtonProps {
+export interface ButtonProps {
     disabled?: boolean;
     type?: buttonTypes;
     size?: buttonSize;
     className?: String;
     loading?: boolean;
+    children?: React.ReactNode;
     onClick?: (e) => void;
 }
 
-interface ButtonAreaProps {
+export interface ButtonAreaProps {
     direction?: String;
     className?: String;
+    children?: React.ReactNode;
 }
 
-enum buttonTypes {
+export enum buttonTypes {
     primary = 'primary',
     default = 'default',
     warn = 'warn'
 }
 
-enum buttonSize {
+export enum buttonSize {
     small = 'small',
     normal = 'normal'
 }
 
-export {
-    ButtonProps,
-    ButtonAreaProps
+export enum buttonAreaDirection {
+    horizontal = 'horizontal',
+    vertical = 'vertical'
 }
