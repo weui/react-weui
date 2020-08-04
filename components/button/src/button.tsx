@@ -6,7 +6,7 @@ import {
 } from './interface';
 import classNames from '../../utils/classnames';
 
-const InternalButton = (props: ButtonProps) => {
+const InternalButton = (props: ButtonProps, ref) => {
     const {
         size,
         type,
@@ -18,7 +18,7 @@ const InternalButton = (props: ButtonProps) => {
     const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
         const { onClick } = props;
         if (onClick && typeof onClick === 'function') {
-            onClick(e)
+            onClick(e);
         }
     };
     const cls = classNames(className, {
@@ -30,10 +30,12 @@ const InternalButton = (props: ButtonProps) => {
         'weui-btn_disabled': disabled,
         'weui-btn_loading': loading
     });
+    const buttonRef = (ref as any) || React.createRef<HTMLElement>();
     return (<a
         href='#'
         onClick={handleClick}
         className={cls}
+        ref={buttonRef}
     >
         { loading ? <i className='weui-loading'/> : null }
         { children }
