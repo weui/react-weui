@@ -5,14 +5,22 @@ import './button.less';
 
 class ButtonDemo extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.buttonRef = React.createRef();
+    }
+
     render() {
         return (
             <Page className="button" title="Button" subTitle="按钮" spacing>
-                <Button>Normal</Button>
+                <Button ref={this.buttonRef}>Normal</Button>
                 <Button disabled>Disabled</Button>
 
                 <ButtonArea>
-                    <Button type="default" >Secondary Normal</Button>
+                    <Button type="default" onClick={(e) => {
+                        console.log('button click');
+                        e.preventDefault();
+                    }}>click me</Button>
                     <Button type="default" disabled>Secondary Disabled</Button>
                 </ButtonArea>
 

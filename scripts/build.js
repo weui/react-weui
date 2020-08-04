@@ -8,9 +8,9 @@ const webpackDocConfig = require('../webpack.config.doc');
 const rollup = require('rollup').rollup;
 const {babel} = require('@rollup/plugin-babel');
 const cjs = require('@rollup/plugin-commonjs');
-const uglify = require('rollup-plugin-uglify');
+const { terser } = require('rollup-plugin-terser');
 const replace = require('rollup-plugin-replace');
-const resolveNode = require('rollup-plugin-node-resolve');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const less = require('rollup-plugin-less');
 const progress = require('rollup-plugin-progress');
 //file handling
@@ -25,7 +25,7 @@ const showWrite = argv.progress;
 const showSection = argv.step || true;
 const log = console.log;
 const CLI = {
-    section: msg => showSection ? log(chalk.white(chalk.underline.bgBlue(msg))) : false,
+    section: msg => showSection ? log(chalk.white(chalk.underline.bgYellow(msg))) : false,
     write: (indicator, msg) => showWrite ? process.stdout.write(`(${chalk.red(indicator)})` + msg) : false
 };
 //variables
@@ -53,7 +53,7 @@ function makeBundleAttributes(bundleType){
         case Bundles.UMD_PROD:
             atrs.env = 'production';
             atrs.sourceMap = false;
-            atrs.plugins.push(uglify());
+            atrs.plugins.push(terser());
         case Bundles.UMD_DEV:
             atrs.path = './build/packages/';
             atrs.format = 'umd';
@@ -61,7 +61,7 @@ function makeBundleAttributes(bundleType){
         case Bundles.IIFE_PROD:
             atrs.env = 'production';
             atrs.sourceMap = false;
-            atrs.plugins.push(uglify());
+            atrs.plugins.push(terser());
         case Bundles.IIFE_DEV:
             atrs.path = './build/dist/';
             break;
@@ -90,10 +90,7 @@ function makeConfig(bundleType){
           plugins: [ '@babel/external-helpers', '@babel/plugin-proposal-class-properties' ]
         }),
         replace({ 'process.env.NODE_ENV': JSON.stringify(atrs.env) }),
-        resolveNode({
-          jsnext: true,
-          main: true
-        }),
+        nodeResolve(),
       ].concat(atrs.plugins),
       external: ['React', 'ReactDOM'],
     };
@@ -173,13 +170,9 @@ function createBundle(bundleType){
         rollup(makeConfig(bundleType))
         .then( bundle => {
             CLI.section('Writing Bundle to file');
-            console.log(atrs)
             return bundle.write({
-              output: {
-                name: 'WeUI',
-                dir: atrs.path
-              },
-              paths: atrs.path + (atrs.env === 'production' ? 'react-weui.min.js' : 'react-weui.js'),
+              name: 'WeUI',
+              file: atrs.path + (atrs.env === 'production' ? 'react-weui.min.js' : 'react-weui.js'),
               format: atrs.format,
               sourcemap: atrs.sourceMap
             });
@@ -206,7 +199,7 @@ rimraf('build', ()=>{
     //Node individual components build
     createTask('Making Babel Modules', createNodeBuild()),
     // createTask('Making UMD Dev Bundles', createBundle(Bundles.UMD_DEV)),
-    createTask('Making UMD Production Bundles', createBundle(Bundles.UMD_PROD)),
+    // createTask('Making UMD Production Bundles', createBundle(Bundles.UMD_PROD)),
     // createTask('Making IIFE Dev Bundles', createBundle(Bundles.IIFE_DEV)),
     createTask('Making IIFE Production Bundles', createBundle(Bundles.IIFE_PROD)),
     createTask('Making Demo Build', createWebpackBuild(webpackConfig) ),

@@ -1,4 +1,4 @@
-/*!
+/*
   Copyright (c) 2017 Jed Watson.
   Licensed under the MIT License (MIT), see
   http://jedwatson.github.io/classnames
@@ -6,29 +6,27 @@
   with fix with es6 export default
 */
 
-var hasOwn = {}.hasOwnProperty;
+const hasOwn = {}.hasOwnProperty;
 
-function classNames(param: any, ...params: any[]): string {
-	var classes = [];
+function classNames(...args: any[]): string {
+    const classes = [];
+    for (let arg of args) {
+        if (!arg) continue;
 
-	for (var i = 0; i < arguments.length; i++) {
-		var arg = arguments[i];
-		if (!arg) continue;
-
-		var argType = typeof arg;
+		let argType = typeof arg;
 
 		if (argType === 'string' || argType === 'number') {
 			classes.push(arg);
 		} else if (Array.isArray(arg)) {
 			classes.push(classNames.apply(null, arg));
 		} else if (argType === 'object') {
-			for (var key in arg) {
+			for (let key in arg) {
 				if (hasOwn.call(arg, key) && arg[key]) {
 					classes.push(key);
 				}
 			}
 		}
-	}
+    }
 
 	return classes.join(' ');
 }
