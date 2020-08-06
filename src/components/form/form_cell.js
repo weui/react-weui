@@ -61,7 +61,7 @@ export default class FormCell extends Component {
           className, children,
           radio, checkbox, vcode, warn,
           select, selectPos,
-          ...others,
+          ...others
         } = this.props;
         const cellDomProps = Object.assign({}, others);
         delete cellDomProps.switch;

@@ -1,18 +1,26 @@
 import React from 'react';
-import {Button, ButtonArea} from '../../../build/packages';
+import { Button, ButtonArea } from '../../../components/button';
 import Page from '../../component/page';
 import './button.less';
 
-export default class ButtonDemo extends React.Component {
+class ButtonDemo extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.buttonRef = React.createRef();
+    }
 
     render() {
         return (
             <Page className="button" title="Button" subTitle="按钮" spacing>
-                <Button>Normal</Button>
+                <Button ref={this.buttonRef}>Normal</Button>
                 <Button disabled>Disabled</Button>
 
                 <ButtonArea>
-                    <Button type="default">Secondary Normal</Button>
+                    <Button type="default" onClick={(e) => {
+                        console.log('button click');
+                        e.preventDefault();
+                    }}>click me</Button>
                     <Button type="default" disabled>Secondary Disabled</Button>
                 </ButtonArea>
 
@@ -22,7 +30,7 @@ export default class ButtonDemo extends React.Component {
                 </ButtonArea>
 
                 <div className="button-sp-area">
-                    <Button type="primary" plain>Button</Button>
+                    <Button type="primary" loading={true} plain>Button</Button>
                     <Button type="primary" plain disabled>Button</Button>
                     <Button type="default" plain>Button</Button>
                     <Button size="small">Mini</Button>
@@ -33,3 +41,5 @@ export default class ButtonDemo extends React.Component {
         );
     }
 };
+
+export default ButtonDemo;
